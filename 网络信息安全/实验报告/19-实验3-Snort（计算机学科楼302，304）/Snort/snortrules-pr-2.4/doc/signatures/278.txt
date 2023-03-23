@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+278
+
+--
+Summary:
+This event is generated when a remote attacker transmits a malformed request for a page on a web server port, which can indicate a Denial of Service (DoS) attack on a RealNetworks RealServer.
+
+--
+Impact:
+The RealNetworks RealServer service will crash.
+
+--
+Detailed Information:
+RealNetworks RealServer is a server application that serves streaming audio to clients. When an attacker sends a request for a template file in the /viewsource/ directory with an empty variable value, RealServer crashes.   
+
+--
+Affected Systems:
+Systems running RealNetworks RealServer 7.0 with View Source functionality enabled.
+
+--
+Attack Scenarios:
+An attacker sends an HTTP request for /viewsource/template.html? on a RealServer audio server. RealServer crashes, stopping audio transmission.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If a legitimate remote user attempts to use the View Source function on RealServer, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest version of the software or disable the View Source functionality. The vendor has issued an advisory, workarounds, and downloadable patches at http://service.real.com/help/faq/servgviewsrc.html.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+RealNetworks
+http://service.real.com/help/faq/servgviewsrc.html
+
+
+--

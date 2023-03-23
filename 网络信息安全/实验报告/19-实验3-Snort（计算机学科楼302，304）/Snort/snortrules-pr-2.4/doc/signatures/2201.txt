@@ -1,0 +1,54 @@
+Rule:  
+
+--
+Sid:
+2201
+
+--
+Summary:
+This event is generated when an attempt is made to access download.cgi on an internal web server. This may indicate an attempt to exploit a directory traversal vulnerability in Matthew Wright's download.cgi 1.0.
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+Matt Wright's Script Archive provides a File Download script which allows users to keep track of the number of file downloads for specific files. It contains a directory traversal vulnerability where an attacker can use directory traversal techniques ("../..," for instance) within the "f" parameter, and pass these values to download.cgi to view hidden files on the server.
+
+--
+Affected Systems:
+Any web server using download.cgi version 1.0 to track file downloads.
+
+--
+Attack Scenarios:
+An attacker crafts a download.cgi URL where f=../../../../../../etc/passwd and transmits it to a vulnerable server. If the parameter matches the location of the target server's password file, the attacker can view and download the file. The attacker can use this method to view any arbitrary file, and to browse the server to discover information that may be helpful in a future attack.
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+If a legitimate remote user accesses download.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable download.cgi.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+
+--

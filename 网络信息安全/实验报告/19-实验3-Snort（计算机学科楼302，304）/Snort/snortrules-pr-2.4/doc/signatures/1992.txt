@@ -1,0 +1,57 @@
+Rule:  
+
+--
+Sid:
+1992
+
+--
+Summary:
+This event is generated when an attempt is made to list directories outside the ftp root directory.
+
+--
+Impact:
+Information disclosure. This is a directory traversal attempt which can lead to information disclosure and possible exposure of sensitive system information.
+
+--
+Detailed Information:
+Some versions of the QVT FTP server from QPC Software allows browsing the directory structure of a host using a directory traversal technique.
+
+--
+Affected Systems:
+QPC Software QVT/Net 4.0 for Windows NT, 2000 and 9x
+QPC Software QVT/Term 5.0 for Windows NT, 2000 and 9x
+Other FTP servers may be vulnerable
+
+--
+Attack Scenarios:
+An authorized user or anonymous user can use the directory traversal technique, to browse folders outside the ftp root directory. Information gathered may be used in further attacks against the host.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade the software to the latest non-affected version.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

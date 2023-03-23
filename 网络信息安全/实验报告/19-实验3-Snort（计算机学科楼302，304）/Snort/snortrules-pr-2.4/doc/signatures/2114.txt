@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+2114
+
+--
+Summary:
+This event is generated when a remote attacker attempts to send a large number of null characters to port 512 on an internal server. This may indicate an attempt to exploit a buffer overflow condition in Pragma Systems TelnetServer 2000.
+
+--
+Impact:
+Denial of service by anonymous, remote users.
+
+--
+Detailed Information:
+Pragma Systems TelnetServer 2000 contains a vulnerability where a large number of null characters sent to the Telnet server's rexec port can crash the server. 
+
+--
+Affected Systems:
+Pragma Systems TelnetServer 2000
+
+--
+Attack Scenarios:
+A remote attacker can send messages that contain a large number of null characters to the Telnet server, causing the server to crash.
+
+--
+Ease of Attack:
+Simple. An exploit exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to TelnetServer 2000 build 2 or higher.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/1605
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0708
+
+--

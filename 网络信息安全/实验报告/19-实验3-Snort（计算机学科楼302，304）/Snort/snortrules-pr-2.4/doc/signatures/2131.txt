@@ -1,0 +1,72 @@
+Rule:
+--
+Sid: 2131
+
+--
+Summary:
+This event is generated when an attempt is made to access 
+/iisprotect/admin on a host running Microsoft Internet Information 
+Server (IIS).
+
+--
+Impact:
+An attacker may be able to perform administrative tasks on the server 
+without authorization and may be able to manipulate the database that 
+IISProtect by injecting and executing SQL statements.
+
+--
+Detailed Information:
+IISProtect is a third-party application that provides password 
+authentication to directories on IIS using a Web-based interface. An 
+attacker can bypass authentication by requesting a specific file with an
+encoded URI, and can then proceed to use SQL injection techniques to 
+execute arbitrary code with administrative privileges.
+
+--
+Affected Systems:
+Any host using any version of IISProtect below v2.2.0.9 with IIS.
+
+--
+Attack Scenarios:
+An attacker can use SQL injection to execute arbitrary code.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If a legitimate remote user accesses the IISProtect administration site,
+this rule may generate an event.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Check the host for signs of compromise.
+
+Disallow access to the IISProtect administration site from sources 
+external to the protected network.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/7661
+http://www.securityfocus.com/bid/7675
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11661
+
+--

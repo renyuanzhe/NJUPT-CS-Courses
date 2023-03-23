@@ -1,0 +1,54 @@
+Rule: 
+
+--
+Sid: 
+2662
+
+-- 
+Summary: 
+This rule is intended to increase the accuracy of rules designed to
+generate events based on attempts to exploit implementations of Secure
+Socket Layer (SSL) version 2.
+
+-- 
+Impact: 
+None. This is a protocol decode rule that does not generate events.
+
+--
+Detailed Information:
+This is a protocol decode rule that does not generate events.
+
+--
+Affected Systems:
+NA
+
+--
+Attack Scenarios: 
+NA
+
+-- 
+Ease of Attack: 
+NA
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+NA
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

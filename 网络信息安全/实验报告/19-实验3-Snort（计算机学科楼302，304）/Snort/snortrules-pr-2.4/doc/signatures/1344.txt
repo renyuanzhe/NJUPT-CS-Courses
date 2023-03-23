@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+1341
+
+--
+Summary:
+Attempted cc command access via web
+
+--
+Impact:
+Attempt to compile a binary on a host.
+
+--
+Detailed Information:
+This is an attempt to compiile a C or C++ source on a host. The cc
+command is theGNU project's C and C++ compiler used to compile C and
+C++ sourcefiles into executable binary files. The attacker could
+possibly compilea program needed for other attacks on the system or
+install a binaryprogram of his choosing.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains 'cc'in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+Web sites using spaces in filenames that also contain the characters
+"cc" may cause this rule to generate an event. For example, the URI
+http://www.foo.com/bar/filecc here.htm will cause an event to be
+generated.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries
+outside of it'sdesignated web root or cgi-bin. This command may also
+be requested ona command line should the attacker gain access to the
+machine. Wheneverpossible, sensitive files and certain areas of the
+filesystem shouldhave the system immutable flag set to prevent files
+from being addedto the host. On BSD derived systems, setting the
+systems runtimesecurelevel also prevents the securelevel from being
+changed. (note: thesecurelevel can only be increased).
+--
+Contributors:
+Sourcefire Research Team
+
+-- 
+Additional References:
+sid: 1342
+sid: 1343
+sid: 1344
+sid: 1345
+sid: 1346
+sid: 1347
+sid: 1348
+
+--

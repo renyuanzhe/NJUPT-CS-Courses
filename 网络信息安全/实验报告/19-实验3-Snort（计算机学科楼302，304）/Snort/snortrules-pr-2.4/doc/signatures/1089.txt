@@ -1,0 +1,64 @@
+Rule:  
+
+--
+Sid:
+1089
+
+--
+Summary:
+This event is generated when an attempt is made to execute a directory
+traversal attack.
+
+--
+Impact:
+Information disclosure. This is a directory traversal attempt which can
+lead to information disclosure and possible exposure of sensitive
+system information.
+
+--
+Detailed Information:
+Directory traversal attacks usually target web, web applications and ftp
+servers that do not correctly check the path to a file when requested by
+the client.
+
+This can lead to the disclosure of sensitive system information which may
+be used by an attacker to further compromise the system.
+
+--
+Affected Systems:
+
+--
+Attack Scenarios:
+An authorized user or anonymous user can use the directory traversal 
+technique, to browse folders outside the ftp root directory. Information
+gathered may be used in further attacks against the host.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade the software to the latest non-affected version.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

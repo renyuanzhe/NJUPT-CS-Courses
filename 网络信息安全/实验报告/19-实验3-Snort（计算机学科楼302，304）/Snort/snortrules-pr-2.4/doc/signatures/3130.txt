@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+3130
+
+--
+Summary:
+This alert is generated when a malicious PNG file is sent to an MSN Messenger
+client. Vulnerable clients which receive such a file are vulnerable to remote
+code execution attacks.
+
+--
+Impact:
+Arbitrary code may be executed in the context of the user running MSN Messenger.
+Their messenger client may or may not crash, depending upon the way the PNG file
+is written.
+
+--
+Detailed Information:
+This vulnerability is due to a buffer overflow in the processing of tRNS chunks
+of PNG files. In order to trigger the overflow, the color type field of the IHDR
+chunk must be set to 0x03, and the length of the tRNS chunk must be greater than
+256. 
+
+--
+Affected Systems:
+	MSN Messenger 6.1
+	MSN Messenger 6.2
+
+--
+Attack Scenarios:
+An attacker may send a malicious PNG through a direct file transfer, as a
+thumbnail for a file transfer, as a custom emoticon, or by setting their buddy
+icon to be the malicious PNG. In all cases, the PNG is sent via an MSN file
+transfer.
+
+--
+Ease of Attack:
+Very simple. Example PNGs with shellcode are available on the web, and attacking
+via all but the file transfer thumbnail vector is accomplished with simple,
+everyday MSN Messenger tasks.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+Thumbnails of image transfers are sent in an encoded format. As a result, they
+cannot be detected. However, making the thumbnail contain malicious data is
+exponentially more difficult than any of the other attack vectors, as an
+attacker cannot manually specify the thumbnail to be sent.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patch.
+
+--
+Contributors:
+Sourcefire Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+
+--
+Additional References:
+
+--

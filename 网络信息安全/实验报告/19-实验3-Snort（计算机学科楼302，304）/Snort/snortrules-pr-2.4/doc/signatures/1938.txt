@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+1938
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow condition in the Post Office Protocol (POP) command XTND.
+
+--
+Impact:
+Possible remote execution of arbitrary code leading to a remote root 
+compromise.
+
+--
+Detailed Information:
+A vulnerability exists such that an attacker may overflow a buffer by 
+sending a large number of non-line feed characters before a line feed
+to a POP server via the XTND command.
+
+--
+Attack Scenarios:
+Simple. An attacker can supply many consecutive non-newline characters to
+the XTND function on a POP server to cause the overflow condition. 
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+RFC 1082:
+http://www.faqs.org/rfcs/rfc1082.html
+
+--

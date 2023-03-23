@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+2373
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer 
+overflow vulnerability associated with Mollensoft Hyperion FTP/Encladus Server Suite XMKD 
+command. 
+
+--
+Impact:
+Remote access.  A successful attack may permit the remote execution of 
+arbitrary commands with system privileges.
+
+--
+Detailed Information:
+CesarFTPD offers FTP servers for Windows hosts. A vulnerability exists 
+with the XMKD command that can cause a buffer overflow and permit the 
+execution of arbitrary commands with system privileges. The buffer 
+overflow can be caused by supplying an overly long argument to the XMKD 
+command.
+
+--
+Affected Systems:
+	Mollensoft Software Enceladus Server Suite 3.9.11
+	Mollensoft Software Hyperion FTP Server 3.5.2
+
+--
+Attack Scenarios:
+An attacker can supply an overly long file argument with the XMKD 
+command, causing a buffer overflow.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,66 @@
+Rule: 
+
+--
+Sid:
+1293
+
+--
+Summary: 
+This event is generated when traffic indicating Nimda worm activity is
+detected.
+
+--
+Impact:
+Possible infection by the Nimda virus.
+
+--
+Detailed Information:
+Nimda spreads by file infection, mass emailer, file share, or IIS unicode exploit 
+to attack unpatched systems.
+
+--
+Affected Systems:
+	Windows 95
+	Windows 98
+	Windows ME
+	Windows 2000
+
+--
+Attack Scenarios:
+An unpatched server is connected to the internet and is infected or
+an infected email is opened. Once infected the worm spreads itself.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Check the suspect host for signs of infection. Apply patches 
+or upgrade the operating system
+
+--
+Contributors:
+Snort documentation contributed by Timothy Vienneau
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Microsoft:
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/topics/virus/nimda.asp
+
+F-Secure:
+http://www.f-secure.com/v-descs/nimda.shtml
+
+--

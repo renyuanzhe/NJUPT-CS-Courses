@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+275
+
+--
+Summary:
+This event is generated when a remote attacker transmits a malformed TCP packet to an internal server. This may indicate a "NAPTHA" Denial of Service (DoS) attack.
+
+--
+Impact:
+Denial of service.
+
+--
+Detailed Information:
+An attacker can craft a TCP packet that, when transmitted to the target server, maintains the TCP session on the target server in an unresolved state. This consumes system resources and overwhelms the target server, causing the server to stop responding to other network requests. In some cases, this type of attack can crash the target server.   
+
+--
+Affected Systems:
+Microsoft Windows 95
+Microsoft Windows 98
+Microsoft Windows 98SE
+Microsoft Windows Millennium
+Windows NT 4.0
+HP-UX 11
+IBM AIX 4.3
+Sun Solaris 7-8
+FreeBSD 4.0-REL
+Redhat Linux 6.1 - 7.0
+Other Linux operating systems based on the Linux 2.0 kernel
+
+
+--
+Attack Scenarios:
+An attacker sends a number of malformed TCP packets to a target computer. The computer attempts to maintain all incoming connections, causing it to slow down or stop responding to legitimate network requests.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Install the latest patches available for your operating system. Patches and workarounds for Microsoft are available at http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/MS00-091.asp.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+
+--

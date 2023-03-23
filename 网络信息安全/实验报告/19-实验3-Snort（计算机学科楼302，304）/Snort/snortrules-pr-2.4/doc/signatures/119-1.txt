@@ -1,0 +1,63 @@
+Rule: 
+
+--
+Sid: 
+119-1
+
+-- 
+Summary: 
+This event is generated when the pre-processor http_inspect
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. This may be an attempt to evade IDS.
+
+--
+Detailed Information:
+This event indicates that the http_inspect pre-processor has detected
+web traffic containing coded ascii values.
+
+--
+Affected Systems:
+	All web servers.
+
+--
+Attack Scenarios: 
+An attacker may try to encode an attack by using the hexadecimal
+representation of the ascii characters used in an attempt to evade
+detection by IDS.
+
+-- 
+Ease of Attack: 
+Simple
+
+-- 
+
+False Positives:
+These encodings can be relatively prevalent in normal web traffic.
+
+--
+False Negatives:
+None Known.
+
+-- 
+
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+--
+Contributors:
+Daniel Roelker <droelker@sourcefire.com> 
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+HTTP IDS Evasions Revisited - Daniel Roelker
+http://docs.idsresearch.org/http_ids_evasions.pdf
+
+--

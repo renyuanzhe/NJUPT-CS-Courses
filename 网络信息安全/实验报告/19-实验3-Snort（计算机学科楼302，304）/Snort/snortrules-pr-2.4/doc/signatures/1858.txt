@@ -1,0 +1,61 @@
+Rule:  
+
+--
+Sid:
+1858
+
+--
+Summary:
+This event is generated when an attempt is made to access a critical system file using a directory traversal technique.
+
+--
+Impact:
+Serious. Firewall management configuration files can be accessed. 
+ 
+--
+Detailed Information:
+The Windows filesystem still supports 8.3 filenames. PIX Firewall manager has a folder name with spaces and can be accessed using DOS-Tilde path format: C:/pixfir~1/ for example.
+
+Strict checking for this filename format is not performed by some PIX systems.
+
+--
+Affected Systems:
+Cisco PIX Firewall Manager 4.1.6
+Cisco PIX Firewall Manager 4.2.1
+
+Note: Versions 4.1.6b and 4.2.2 are not vulnerable to this attack.
+
+--
+Attack Scenarios:
+The attacker must have access to port 8181 (or 8080 sometimes). This is usually possible from internal network, so you have probably an internal host that is already compromised by an attacker or someone inside your company network attacks the PIX Firewall manager.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

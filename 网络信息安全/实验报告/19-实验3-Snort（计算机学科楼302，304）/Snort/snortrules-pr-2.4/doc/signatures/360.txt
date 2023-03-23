@@ -1,0 +1,63 @@
+Rule:  
+
+--
+Sid:
+360
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known vulnerability in Serv-U FTP from CatSoft.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a
+compromise of all resources the machine is connected to.
+
+--
+Detailed Information:
+Serv-U FTP from CatSoft is an FTP server for Windows 2000, NT and 9x systems.
+
+An attacker can download and upload files on the same partition as the ftp root. The attacker can use a standard user account with write and read access to a home folder.
+
+The vulnerability appears in Catsoft Serv-U FTP Server version 2.5a-h. A Unicode support implementation error was made, which allows an attacker to submit %20..%20.. to receive a "..", which allows an attacker to traverse the directory structure of the server. 
+
+--
+Affected Systems:
+CatSoft Serv-U 2.4
+CatSoft Serv-U 2.5
+Note: CatSoft Serv-U 2.5i is not affected.
+
+--
+Attack Scenarios:
+Any standard user can break into the system root and access any file. An attacker could also guess a login and weak password, login and use the directory traversal to gain the Serv-U FTP Server's configuration file. The configuration file can be modified to give "execute" rights, uploaded using %20. directory traversal and trojans can be installed.
+
+--
+Ease of Attack:
+Simple. No exploit code is required.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Check FTP log files for signs of compromise.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

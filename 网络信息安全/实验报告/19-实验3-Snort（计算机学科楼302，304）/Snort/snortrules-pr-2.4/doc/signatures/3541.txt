@@ -1,0 +1,80 @@
+Rule: 
+
+--
+Sid: 
+3541
+
+-- 
+Summary:
+This event is generated when RADIUS packets with specially crafted
+Airlink records intended to cause a Denial of Service in Ethereal are
+detected.
+
+-- 
+Impact: 
+Serious. Possible Denial of Service (DoS). Execution of arbitrary code
+may also be possible.
+
+--
+Detailed Information:
+Ethereal is a multi-platform network protocol analyser capable of
+displaying network data to the user in a graphical user interface.
+
+Malicious packets, which arrive via UDP port 699, must meet a detailed
+set of criteria to exploit this vulnerability. The requirements are:
+
+ * Begin with a valid packet type of 0x01 (Registration Request), 0x03
+ (Registration Reply), 0x14 (Registration Update), 0x15 (Registration
+ Ack), 0x16 (Session Update), or 0x17 (Session Update Ack).
+ * Have an extension type of 0x25 (Critical Vendor/Organization Specific
+ Extension (OLD)) or 0x26 (Critical Vendor/Organization Specific Extension).
+ * Have an application type of 0x0101 (Accounting (RADIUS)).
+ * For the non-vendor specific rules, have an Airlink type of 0x1F.
+ * For the vendor-specific rules, have an Airlink type of 0x1A, a
+ sub-type of 0x0000159F ("3rd Generation Partnership Project 2
+ (3GPP2)"), and contain string data (specified by 0x0A or 0x34 directly
+ following the sub-type field).
+ * Have a length of 31 or greater for the Airlink record, with 31 bytes
+ actually being present.
+
+Packets which are crafted to meet all of these criteria will overflow a
+buffer, and arbitrary code may be injected for execution with the
+privileges of the user running Ethereal.
+
+--
+Affected Systems:
+	Ethereal 0.10.9 and below
+
+--
+Attack Scenarios: 
+An attacker could send a crafted packet to a network Ethereal is
+sniffing, or entice their victim to read a packet capture which contains
+a malicious packet.
+
+-- 
+Ease of Attack: 
+Simple, as two exploits exist for the non-vendor specific overflow.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+Packets may contain multiple extensions and/or Airlink records, and if
+the malicious data is contained in the 2nd - Nth record, it will not be
+detected by this rule.
+
+-- 
+Corrective Action: 
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors: 
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

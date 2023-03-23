@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+1040
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a potential 
+weakness on a host running Microsoft Internet Information Server (IIS) 
+using the Indexing service. 
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to exploit potential 
+weaknesses in a host running Microsoft IIS using the Indexing service.
+
+The attacker may be trying to gain information on the IIS implementation 
+on the host, this may be the prelude to an attack against that host 
+using that information.
+
+This event is generated when an attempt is made to access srchadm, a
+directory used by the Microsoft Index Server.
+
+--
+Affected Systems:
+Any host using IIS and the Index service.
+
+--
+Attack Scenarios:
+An attacker can retrieve a sensitive file containing information on the 
+IIS implementation. The attacker might then gain administrator access to
+the site, deface the content or gain access to a database.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the IIS implementation on the host. Ensure all measures have been 
+taken to deny access to sensitive files.
+
+Ensure that the IIS implementation is fully patched.
+
+Ensure that the underlying operating system is fully patched.
+
+Employ strategies to harden the IIS implementation and operating system.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

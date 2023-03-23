@@ -1,0 +1,69 @@
+Rule:  
+
+--
+Sid:
+2242
+
+--
+Summary:
+This event is generated when an attempt is made to 
+
+--
+Impact:
+Serious. Denial of Service and Execution of arbitrary code are both
+possible
+
+--
+Detailed Information:
+Mobius DocumentDirect for the Internet 1.2 contains programming errors
+which can present an attacker with the opportunity to issue a Denial of
+Service condition against the affected host and also the possiblity to
+execute arbitrary code.
+
+--
+Affected Systems:
+	Mobius DocumentDirect for the Internet 1.2
+
+--
+Attack Scenarios:
+According to David Litchfield and Mark Litchfield the following
+scenarios are possible:
+
+DoS:
+GET /ddrint/bin/ddicgi.exe?[string at least 1553 characters long]=X HTTP/1.0
+
+Buffer overflow:
+GET /ddrint/bin/ddicgi.exe HTTP/1.0\r\nUser-Agent: [long string of characters]\r\n\r\n
+
+The attacker could also supply a username greater than 208 characters
+which will cause a DoS condition to occur.
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1657
+
+--

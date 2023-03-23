@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+1261
+
+--
+Summary:
+This event is genereated when an attempt to overflow the buffer of the
+IBM Program Database Name Server Daemon (PDNSD) is made.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity
+to gain remote access to the victim host or execute arbitrary code with
+the privileges of the superuser account.
+
+--
+Detailed Information:
+Some versions of IBM PDSND for AIX are vulnerable to a buffer overflow
+condition which can present the attacker with root privileges.
+
+
+Affected Systems:
+	PDSND versions 2 and 3
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Disable the PDSND daemon.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CIAC:
+http://www.ciac.org/ciac/bulletins/j-059.shtml
+
+--

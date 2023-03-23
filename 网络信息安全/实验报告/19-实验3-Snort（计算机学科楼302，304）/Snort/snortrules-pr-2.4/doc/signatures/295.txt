@@ -1,0 +1,61 @@
+SID:
+295
+--
+
+Rule:
+--
+
+Summary:
+This event is triggered when an attempt is made to overflow an imapd 
+server.
+--
+
+Impact:
+Commands may be run on the IMAP server as the root user, This can lead 
+to a complete compromise of the targeted system
+--
+
+Detailed Information:
+Failure to check the size of the value passed to the 'AUTHENTICATE' 
+command on certain IMAPD implementations can lead to a buffer overflow. 
+This in turn can allow arbitrary commands to be executed on the server.
+--
+
+Affected Systems:
+	Netscape Messaging Server 3.55
+	University of Washington imapd 10.234
+--
+
+Attack Scenarios:
+An attacker may attempt to exploit a vulnerable imapd server, permitting
+the execution of arbitrary commands possibly with the privilege of user 
+"root".
+--
+
+Ease of Attack:
+simple. Sample exploit code is available.
+--
+
+False Positives:
+None known
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Vendors have provided updated versions, upgrading will resolve this 
+problem
+--
+
+Contributors:
+Snort documentation contributed by matthew harvey <indexone@yahoo.com>
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+--

@@ -1,0 +1,62 @@
+Rule:   
+
+--
+Sid: 328
+
+-- 
+
+Summary: 
+This event is generated when a Denial-of-Service (DoS) attack against a finger daemon is attempted.
+
+-- 
+
+Impact: 
+The attacker may overload the target machine or crash the finger daemon
+
+--
+Detailed Information:
+This event is generated when a specially crafted finger query is directed at a target UNIX host. 
+
+The Finger daemon is used to provide information about users on a UNIX system. It used to be installed and enabled by default on most UNIX/Linux systems. The attack will crash or overload the vulnerable machines.
+
+--
+
+Attack Scenarios: 
+The attacker needs to send specially crafted packets to the finger daemon on a host.
+
+-- 
+
+Ease of Attack: 
+Moderate, no exploit software is required, just a specially formatted finger query
+
+-- 
+
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+
+Corrective Action: 
+Disable the finger daemon or limit the addresses that can access the service via firewall or TCP wrappers.
+
+--
+Contributors: 
+Original rule written by Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0106
+
+Arachnids:
+http://www.whitehats.com/info/IDS381
+
+--

@@ -1,0 +1,65 @@
+Rule: 
+
+--
+Sid: 
+3086
+
+-- 
+Summary: 
+This event is generated when an attempt is made to access the file
+spp_sta.stm on a 3com wireless router.
+
+-- 
+
+Impact: 
+Intelligence gathering activity.
+
+--
+Detailed Information:
+The 3Com ADSL wireless router 3CRADSL72 is prone to an authentication
+bypass issue that may allow a malicious third party to gain information
+on the device and the networks it serves. It may also be possible for an
+attacker to gain administrative privileges on the device.
+
+--
+Affected Systems:
+	3Com 3CRADSL72 ADSL wireless router
+
+--
+
+Attack Scenarios: 
+An attacker with access to the page can gain information on the networks
+being served by the router and use the knowledge gained in further
+attacks on the system. The attacker may also be able to gain
+administrative access to the router.
+
+-- 
+Ease of Attack: 
+Simple. No exploit software is required.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+The address of the router should be added to the $HTTP_SERVERS variable
+if the rule is used in the default form. Otherwise a $WIRELESS_ROUTERS
+variable could be used in both the snort.conf and the rule to eliminate
+any possible false positives.
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patch.
+
+--
+Contributors: 
+Sourcefire Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+3524
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+buffer overflow associated with Computer Associates License
+software.
+
+--
+Impact:
+A successful attack can cause a buffer overflow of the host and
+the subsequent execution of arbitrary code.
+
+--
+Detailed Information:
+Computer Associates License software allows a site to maintain and
+handle licenses for CA products.  A server runs the software to
+facilitate this and it communicates with clients/agents on the
+network. A vulnerability exists in some GCR messages that exchange
+data with a listening server or client.
+
+The GCR NETWORK and CHECKSUMS messages allocate fixed-sized buffers
+for some of the values supplied to it.  No validation is performed
+by the receiving host to ensure that the data received fits in the
+allocated buffer(s).  If the received data cannot fit in the buffer,
+an overflow occurs and execution of arbitrary code on the vulnerable
+host is possible.
+
+--
+Affected Systems:
+	CA License 1.0.15, 1.53-57, 1.60, 1.60.2, 1.60.3, 1.61, 1.61.1, 1.61.2,
+              1.61.8
+
+--
+Attack Scenarios:
+An attacker can craft a GCR message with overly long data, causing
+a buffer overflow on the vulnerable listening CA License server or
+client.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=214&type=vulnerabilities
+http://www.idefense.com/application/poi/display?id=215&type=vulnerabilities
+
+--

@@ -1,0 +1,73 @@
+Rule:
+
+--
+Sid:
+1929
+
+--
+Summary:
+This event is generated when  an attacker attempts to connect to a 
+Trojan server installed via compromised tcpdump or libpcap sources.
+
+--
+Impact:
+Control of the victim host.
+
+--
+Detailed Information:
+This Trojan affects UNIX operating systems:
+
+Some versions of tcpdump and libpcap were compromised and Trojan code 
+inserted into the source. The compromise is similar to that which 
+affected OpenSSH.
+
+Libpcap is a library used for capturing packets in Snort and other 
+packet sniffing tools.
+
+The Trojaned libpcap source contains code in the configure script that 
+connects to a server at 212.146.0.34 on port 1963. The script then 
+downloads source code for a Trojan horse and compiles it.
+
+Tcpdump is a tool that is used for capturing network traffic, it 
+utilizes libpcap. Some versions of tcpdump also contain the same Trojan.
+
+Due to the nature of this Trojan it is unlikely that the attacker's 
+client IP address has been spoofed.
+
+--
+Attack Scenarios:
+This Trojan is delivered to the target via the configure script.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Delete the Trojan and kill any associated processes.
+
+Restore the system from known good backups.
+
+Download non-trojaned versions of the library and re-compile.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Houston Linux Users Group
+http://www.hlug.org/trojan/
+
+--

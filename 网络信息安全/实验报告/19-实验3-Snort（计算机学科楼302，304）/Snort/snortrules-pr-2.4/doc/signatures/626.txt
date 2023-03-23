@@ -1,0 +1,79 @@
+Rule:  
+ 
+--
+Sid:
+
+626
+
+--
+Summary:
+This event is generated when the Cybercop vulnerability scanner is used 
+against a host.
+
+--
+Impact:
+Cybercop can be used to identify vulnerabilities on host systems.
+
+--
+Detailed Information:
+This particular packet is a part of Cybercop's OS identification.  
+Specially crafted packets are able to elicit different responses from 
+different operating systems.  This packet is likely to be part of a full
+Cybercop scan rather than an isolated event. Having PUSH, ACK and 
+reserve bits 1 and 2 set at the same time is unusual.  While this rule 
+performs content as well as header checking to avoid false positives, 
+this flag combination in the TCP header is possible is possible in a 
+legitimate situation because of the addition of Explicit Congestion 
+Notification (ECN).
+
+--
+Affected Systems:
+All
+
+--
+Attack Scenarios:
+Cybercop can be used by attackers to determine vulnerabilities present 
+on a host or network of hosts that could be used as attack vectors.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+This tool can be used legitimately by a system and network 
+administrators.
+
+False positives from ECN enabled systems are possible.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+TCP packets with PUSH, ACK and reserved bits 1 and 2 set at the same 
+time are unusual but possible with Explicit Congestion Notification 
+(ECN).  It is advisable to block TCP packets with these flags set that 
+do not have the ECT bit (TOS bit 6) set in the IP header.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS149
+
+Security Focus:
+http://www.securityfocus.com/infocus/1205
+
+RFC:
+http://www.ietf.org/rfc/rfc2481.txt?number=2481
+
+--

@@ -1,0 +1,54 @@
+Rule:
+
+--
+Sid:
+2396
+
+--
+Summary:
+This event is generated when an attacker attempts to execute an arbitrary command on a web server running the CCBill software. 
+
+--
+Impact:
+Execution of arbitrary commands.
+
+--
+Detailed Information:
+The CCBill software is available to manage credit card information for UNIX and Windows hosts.  The script whereami.cgi is used for technical support of the software.  A vulnerability exists in the whereami.cgi script that allows the execution of arbitrary commands from an attacker who passes a command via whereami.cgi?g=command format in a URL.  Supplied commands can list file names, show the contents of the password file, or install a backdoor to name a few actions that an attacker may attempt.
+
+--
+Affected Systems:
+Hosts running CCBill software that has the whereami.cgi in the server's CGI path.
+
+--
+Attack Scenarios:
+An attacker can send a request to execute an arbitrary command.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Remove the whereami.cgi command.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+bugtraq
+http://www.securityfocus.com/bid/8095
+
+--

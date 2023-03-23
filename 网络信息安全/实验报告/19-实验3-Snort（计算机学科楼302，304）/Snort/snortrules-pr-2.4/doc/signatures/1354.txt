@@ -1,0 +1,47 @@
+Rule:
+
+--
+Sid:
+1354
+
+--
+Summary:
+Attempted nasm command access via web. 
+
+--
+Impact:
+Attempt to compile a binary on a host.
+
+--
+Detailed Information:
+This is an attempt to compiile a program source on a host. NASM is the Netwide Assembler which is capable of compiling a variety of sources on a variety of platforms into executable binary files. The attacker could possibly compile a program needed for other attacks on the system or install a binary program of his choosing.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains 'nasm' in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. This command may also be requested on a command line should the attacker gain access to the machine. Whenever possible, sensitive files and certain areas of the filesystem should have the system immutable flag set to prevent files from being added to the host. On BSD derived systems, setting the systems runtime securelevel also prevents the securelevel from being changed. (note: the securelevel can only be increased).
+--
+Contributors:
+Sourcefire Research Team
+
+-- 
+Additional References:
+sid: 1353
+
+--

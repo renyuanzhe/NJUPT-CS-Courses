@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+2127
+
+--
+Summary:
+This event is generated when an attempt is made to access ikonboard.cgi
+on a web server. This may indicate an attempt to exploit an arbitrary 
+code execution vulnerability that affects Ikonboard web-based bulletin 
+board software.
+
+--
+Impact:
+Arbitrary code execution.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to exploit an 
+arbitrary code execution vulnerability in Ikonboard web-based bulletin 
+board software. An attacker can bypass user input validation by 
+inserting illegal characters into the "lang" value of a user cookie, 
+which then allows the attacker to pass arbitrary Perl code to the web 
+server.
+
+--
+Affected Systems:
+Any web server running Ikonboard bulletin board software.
+
+--
+Attack Scenarios:
+An attacker can provide a crafted cookie to the web server running 
+Ikonboard. The web server will then attempt to execute the arbitrary 
+Perl commands embedded in the cookie.
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+If a legitimate remote user accesses ikonboard.cgi, this rule may 
+generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+An unsupported and unofficial patch is available at http://www.securityfocus.com/bid/7361/solution/.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/7361
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11605
+
+--

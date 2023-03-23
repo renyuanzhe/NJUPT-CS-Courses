@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+1672
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow associated with certain versions of the Sun Solaris FTP server.  
+
+--
+Impact:
+Reconnaissance.  An attacker may be able to examine records from the password shadow file.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a buffer overflow vulnerability associated with a globbing function in Sun Solaris FTP servers.  An attacker may exploit this vulnerability by logging into the FTP server with a valid username and an invalid password then supplying the command "CWD ~".  This may produce a core dump in the root directory with world-readable permissions that could be examined to discover valid FTP users for the server.  
+
+--
+Affected Systems:
+
+SPARC
+
+    * Solaris 2.5 without patch 103577-13
+    * Solaris 2.5.1 without patch 103603-16
+    * Solaris 2.6 without patch 106301-03
+    * Solaris 2.7 without patch 110646-02
+    * Solaris 2.8 without patch 111606-01
+
+Intel
+
+    * Solaris 2.5 without patch 103578-13
+    * Solaris 2.5.1 without patch 103604-16
+    * Solaris 2.6 without patch 106302-03
+    * Solaris 2.7 without patch 110647-02
+    * Solaris 2.8 without patch 111607-01
+
+--
+Attack Scenarios:
+An attacker may attempt to exploit this vulnerability to learn valid FTP usernames to later attempt brute force guessing of passwords.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software or apply the appropriate patch.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2601
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0421
+
+--

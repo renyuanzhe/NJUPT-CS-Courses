@@ -1,0 +1,64 @@
+SID:
+351
+--
+
+Rule:
+--
+
+Summary:
+This event is generated when an attack attempt is made against an ftp 
+server possibly running a vulnerable ftpd
+--
+
+Impact:
+Possible execution of commands on the affected server as with elevated 
+user privileges
+--
+
+Detailed Information:
+The Washington University ftp daemon (wu-ftpd) has a problem with very 
+log directory names. There is insufficent checking on directories 
+created by users allowing possible insertion of data into the stack.This
+can lead to execution of code with root / elevated user privileges.
+--
+
+Affected Systems:
+NcFTP Software NcFTPD 2.3.5
+Washington University wu-ftpd 2.4.2 (beta 18) VR10 
+RedHat wu-ftpd 2.4.2 b18-2 
+Washington University wu-ftpd 2.4.2 academ[BETA-18] 
+Probably others as well, susspect anything under Washington University wu-ftpd 2.6.0 for this particular exploit.
+--
+
+Attack Scenarios:
+A local attacker will attempt to create long named directories on the 
+ftp server wich are not checked correctly in the server code. This can 
+allow commands to be executed with elevated user privileges
+--
+
+Ease of Attack:
+simple, Exploit code exists
+--
+
+False Positives:
+None known
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Upgrade to newest version of wuftpd, or replace with something more secure.
+--
+
+Contributors:
+Snort documentation contributed by matthew harvey <indexone@yahoo.com>
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+--

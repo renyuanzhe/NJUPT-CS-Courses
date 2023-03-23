@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+948
+
+--
+
+Summary:
+This event is generated when an attempt is made to access a file with 
+Microsoft Frontpage form results.
+
+--
+
+Impact:
+If successful, the attacker can read sensitive data users have posted 
+via forms within the Frontpage web.
+
+--
+
+Detailed Information:
+On systems running Microsoft Frontpage Extensions on IIS or Apache web 
+servers users can insert forms into web pages and have their data saved 
+into a text file (/_private/form_results.txt) which can later be read or
+emailed to the user. If direct access to the file is possible, the 
+attacker may read the sensitive data posted from the form.
+
+--
+
+Affected Systems:
+All systems running FPSE.
+
+--
+
+Attack Scenarios:
+An attacker can request the file from its standard location, entering 
+the exact URL.
+
+--
+
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Disable direct access to the file /_private/form_results.txt
+
+Restrict access to the file using password protection.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Chaos <c@aufbix.org>
+
+-- 
+
+Additional References:
+
+
+--

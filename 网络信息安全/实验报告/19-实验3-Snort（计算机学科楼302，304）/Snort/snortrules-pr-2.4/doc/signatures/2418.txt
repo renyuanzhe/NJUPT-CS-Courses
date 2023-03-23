@@ -1,0 +1,54 @@
+Rule:  
+
+--
+Sid:
+
+--
+Summary:
+This event is generated when an attempt is made to connect to a
+Microsoft Terminal Server without using encryption.
+
+--
+Impact:
+Serious. Denial of Service.
+
+--
+Detailed Information:
+Microsoft Windows Terminal Server for NT systems fails to correctly
+validate RDP data from client machines that do not use encryption.
+
+--
+Affected Systems:
+	Microsoft Windows Terminal Server
+
+--
+Attack Scenarios:
+An attacker can use one of the publicly available exploit scripts to
+cause the DoS.
+
+--
+Ease of Attack:
+Simple. Exploit software exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patch.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

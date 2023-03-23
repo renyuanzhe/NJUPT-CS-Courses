@@ -1,0 +1,57 @@
+Nigel:  Old reference pointed to something totally unrelated.
+Rule:
+--
+
+Sid:
+1920
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability associated with the FTP SITE NEWER command that may cause a denial of service or allow the upload of executable files.
+
+--
+Impact:
+Remote access or denial of service.  A successful attack can cause a denial of service or allow the upload of executable files on the vulnerable FTP server.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a vulnerability associated with the WU-FTP server version of the SITE NEWER command. It is possible to cause a denial of service attack that consumes memory or upload files to execute arbitrary commands with the privileges of the process running the FTP server. 
+
+--
+Affected Systems:
+Hosts running WU-FTPD 2.5.0.  
+
+--
+Attack Scenarios:
+An attacker can cause a denial of service or upload files to execute arbitrary commands on the vulnerable FTP server.
+
+--
+Ease of Attack:
+Difficult.  No known exploits available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/737
+
+--

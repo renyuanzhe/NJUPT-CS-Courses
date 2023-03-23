@@ -1,0 +1,57 @@
+Rule: 
+
+--
+Sid: 606
+
+--
+Summary: 
+This event is generated when an attempt to login as the superuser is attempted using rlogin.
+
+--
+Impact: 
+Serious. If successful the attacker may have gained superuser access to the host.
+
+--
+Detailed Information: 
+This rule generates an event when a connection is made using "rlogin" with the username "root". Such activity is indicative of attempts to abuse insecure machines with a known default configuration. 
+
+Some UNIX systems use the "rlogin" daemon which permits remote "root" logins. This may allow an attacker to connect to the machine and establish an interactive session.
+
+--
+Attack Scenarios: 
+An attacker finds a machine with the "rlogin" service running and connects to it, then proceeds to guess the "root" password
+
+--
+Ease of Attack:
+Simple, no exploit software required
+
+--
+False Positives: 
+A system administrator may be logging in to a host using the username "root"
+
+--
+False Negatives: 
+If a local username is not the same as the remote one ("root"), the rule will not generate an event.
+
+--
+Corrective Action: 
+Investigate logs on the target host for further details and more signs of suspicious activity
+
+Use ssh for remote access instead of rlogin.
+
+Deny remote root logins to the host, use a normal user and "sudo" or give the user the ability to "su" to root where appropriate.
+
+--
+Contributors:
+Original rule by Max Vision <vision@whitehats.com> modified from a signature written by Ron Gula
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS389
+
+--

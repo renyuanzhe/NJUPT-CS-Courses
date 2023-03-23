@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+1445
+
+--
+
+Summary:
+This event is generated when an attempt is made to retrieve a file 
+called 'file_id.diz'
+
+--
+
+Impact:
+Such files are sometimes used on 'warez' sites to describe the contents 
+of a directory
+
+--
+
+Detailed Information:
+A lot of warez sites use small files called 'file_id.diz' to 
+describe the name of the release and the group which released the 
+software/material.
+
+--
+
+Affected Systems:
+Machines running ftp servers.
+
+--
+
+Attack Scenarios:
+After finding a ftp server containing illegal contents, the user 
+downloads the file 'file_id.diz' to verify the contents of a directory, 
+and then, if if the attacker chooses, other files in that directory.
+
+--
+
+Ease of Attack:
+Simple.
+
+--
+
+False Positives:
+Many shareware/freeware sites also use the 'file_id.diz' files to 
+describe the contents of their packages.
+
+--
+
+False Negatives:
+Warez sites might not use 'file_id.diz' files to describe the 
+directories, or might rename them.
+
+--
+
+Corrective Action:
+Verify the location and contents of the 'file_id.diz' files on your ftp 
+server and take appropriate action.
+
+--
+
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+
+-- 
+
+Additional References:
+
+--

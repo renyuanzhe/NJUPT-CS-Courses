@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+221
+
+--
+Summary:
+This event is generated when a host attempts to communicate with a Tribal Flood Network (TFN) DDoS client.
+
+--
+Impact:
+Reconnaissance.  If the listed source IP is in your network, it may be a TFN attacker or it may be probing for another attacker's TFN clients.  If the listed destination IP is in your network, it may be a TFN client. 
+
+--
+Detailed Information:
+The TFN DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack. At the highest level, attackers communicate with clients to launch attacks. An attacker may probe for TFN clients using an ICMP echo request with an ICMP identification number of 678 and a string of "1234" in the payload. 
+
+--
+Affected Systems:
+Any TFN compromised host.
+
+--
+Attack Scenarios:
+After a host becomes a TFN client, an attacker may attempt to communicate with it.
+
+--
+Ease of Attack:
+Simple. TFN code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+--
+Contributors:
+Original rule writer Stefan Puffer <drsuse@drsuse.org>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0138
+
+Arachnids:
+http://www.whitehats.com/info/IDS443
+
+--

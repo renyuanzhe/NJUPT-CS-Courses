@@ -1,0 +1,66 @@
+SID:
+571
+--
+
+Rule:
+--
+
+Summary:
+This event indicates an attempt to exploit the tool talk RPC database 
+service
+--
+
+Impact:
+Possible unauthorized administrative access to the server or application
+or a denial of service to the affected application running on a Solaris 
+system
+--
+
+Detailed Information:
+ToolTalk RPC database service (rpc.ttdbserverd) does not perform 
+adequate input validation or provide a format string specifier argument 
+when writing to syslog. This means a specifically crafted RPC request to
+the ToolTalk RPC database service overwriting specific locations in 
+memory and therefore allowing execution of code with the same permission
+level as the user running ttdbserverd, usually root.
+--
+
+Affected Systems:
+	Solaris 1.1 - 2.6
+Possibly other vendors, if you are running Tool Talk (rpc.ttdbserverd) check with your vendor.
+--
+
+Attack Scenarios:
+An attacker will send a specially crafted RPC call to the 
+rpc.ttdbserverd daemon running on an affected system. A sucessful 
+attack will then run code on the server with the access level of the 
+root user.
+--
+
+Ease of Attack:
+Simple, Exploit code is available.
+--
+
+False Positives:
+None known
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Updates packages and patches are available from vendors, install them or
+disable the service if not needed.
+--
+
+Contributors:
+Snort documentation contributed by matthew harvey <indexone@yahoo.com>
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+--

@@ -1,0 +1,102 @@
+文件 EXP2加壳后.exe 读取成功...
+
+--------------------------------
+e_magic : 5a4d
+Signature : 4550
+IMAGE_NT_SIGNATURE : 4550
+已确认PE文件格式正确...
+EXP2加壳后.exe分析结果包括其PE文件头(IMAGE_FILE_HEADER，IMAGE_OPTIONAL_HEADER，数据目录表)，区块信息以及导入导出表信息
+
+-------IMAGE_FILE_HEADER--------
+机器CPU类型 : Intel i386( 14c )
+编译时间 : (270108)
+类型 : 其他( 818f )
+类型(32 or 64) : 32位( e0 )
+Section数目 : 3
+是否存在COFF符号表 : COFF不存在( 0 )
+符号表大小 : 0
+
+-------IMAGE_OPTIONAL_HEADER--------
+ROM or EXECUTABLE : EXECUTABLE( 10b )
+用户界面类型 ：GUI图形界面
+链接程序主版本号 : 2
+已初始化数据块大小 : 1000
+未初始化数据块 : a8000
+映象校验和 ：0
+映象装入内存后总尺寸 : f0000
+MS头，PE头，SECTION表大小 ： 1000
+.text大小 : 46000
+代码段起始RVA : a9000
+数据段起始RVA : ef000
+程序执行入口RVA : ee7a0
+基址 : 400000
+
+装入内存后区块对齐大小 ： 200
+磁盘上区块对齐大小： 1000
+一开始被委派给堆栈的内存大小 : 4000
+一开始被委派给堆的内存大小 : 1000
+为线程堆栈保留的 : 100000
+为线程堆保留的 : 100000
+
+DATA_DIRECTORY（非0项）
+Import Table(数据目录表第2项)
+VirtualAddress，efcb8
+Size，18c
+Resource Table(数据目录表第3项)
+VirtualAddress，ef000
+Size，cb8
+TLS(数据目录表第10项)
+VirtualAddress，ee950
+Size，18
+
+-------IMAGE_SECTION_HEADER---------
+UPX0 可执行,包含未初始化数据,可读,可写,(e0000080)
+该块装载到内存中的RVA 1000
+该块在磁盘中大小 0
+该块在磁盘中偏移 400
+UPX1 可执行,包含已初始化数据,可读,可写,(e0000040)
+该块装载到内存中的RVA a9000
+该块在磁盘中大小 45a00
+该块在磁盘中偏移 400
+.rsrc 包含已初始化数据,可读,可写,(c0000040)
+该块装载到内存中的RVA ef000
+该块在磁盘中大小 1000
+该块在磁盘中偏移 45e00
+
+--------------RESOURCE--------------
+用户自定义资源数 7
+典型资源数（如对话框）0 
+
+------------IMPORT_TABLE------------
+advapi32.dll efd80
+------------getImportFuction--------------------
+efd44 efdca 0 RegCloseKey
+--------------------------------
+comctl32.dll efd8d
+------------getImportFuction--------------------
+efd4c efdd8 0 ImageList_Add
+--------------------------------
+gdi32.dll efd9a
+------------getImportFuction--------------------
+efd54 efde8 0 SaveDC
+--------------------------------
+KERNEL32.DLL efda4
+------------getImportFuction--------------------
+efd5c efe0e 0 LoadLibraryA
+efd60 efdf0 0 ExitProcess
+efd64 efdfe 0 GetProcAddress
+efd68 efe1c 0 VirtualProtect
+--------------------------------
+oleaut32.dll efdb1
+------------getImportFuction--------------------
+efd70 efe2c 0 VariantClear
+--------------------------------
+user32.dll efdbe
+------------getImportFuction--------------------
+efd78 efe3a 0 GetDC
+--------------------------------
+
+------------EXPORT_TABLE------------
+导出表为空
+------------------------------------
+

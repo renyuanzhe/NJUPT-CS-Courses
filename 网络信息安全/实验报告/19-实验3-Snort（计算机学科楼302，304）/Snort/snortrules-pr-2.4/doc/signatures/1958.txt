@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+1958
+
+--
+Summary:
+This event is generated when an attempt is made to ping the Remote Procedure Call (RPC) sadmind.
+
+--
+Impact:
+Intelligence gathering activity.  The sadmind ping will verify if the daemon is running.
+
+
+--
+Detailed Information:
+The sadmind RPC service is used by Solaris Solstice AdminSuite applications to perform remote distributed system administration tasks such as adding new users.  The ping function associated with the sadmind daemon will verify if it is active. 
+
+--
+Affected Systems:
+All systems running sadmind.
+
+--
+Attack Scenarios:
+An attacker can ping the sadmind daemon to verify if it is active.  There are several exploits associated with this daemon.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/866
+
+--

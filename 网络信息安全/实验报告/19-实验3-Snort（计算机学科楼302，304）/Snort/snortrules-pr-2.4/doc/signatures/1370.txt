@@ -1,0 +1,57 @@
+Rule:
+--
+Sid:
+1370
+
+--
+Summary:
+Attempted inetd configuration access via web
+
+--
+Impact:
+Attempt to gain information on system processes on webserver
+
+--
+Detailed Information:
+This is an attempt to gain intelligence on the processes being run on a 
+webserver. The inetd configuration lists the daemons executed at boot 
+time on a UNIX or Linux based system. The attacker could possibly gain 
+information needed for other attacks on the host.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains 
+'/etc/inetd.conf'in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries 
+outside of it's designated web root or cgi-bin. This file may also be 
+requested on a command line should the attacker gain access to the 
+machine. Making the file read only by the superuser on the system will 
+disallow viewing of the file by other users.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

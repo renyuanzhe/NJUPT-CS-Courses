@@ -1,0 +1,73 @@
+Rule:
+
+--
+Sid:
+358
+
+--
+
+Summary:
+This event is generated when an attempt is made to login anonymously 
+into an ftp server using a suspicious password (-saint)
+
+--
+
+Impact:
+Possible unauthorized access. Information gathering.
+
+--
+
+Detailed Information:
+Saint is an open-source security scanner which checks for common 
+vulnerabilities. When it detects an open ftp server, it tries to log in 
+anonymously using the password '-saint'
+
+--
+
+Affected Systems:
+Machines running anonymous ftp servers.
+
+--
+
+Attack Scenarios:
+An attacker scans a range of IPs using the Saint Scanner, checking for 
+known vulnerabilities. If the scanner encounters a ftp server, it tries 
+to log in .
+
+--
+
+Ease of Attack:
+Simple.
+
+--
+
+False Positives:
+A user may be using that same password for a legitimate 
+anonymous login.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Disable anonymous FTP access.
+
+--
+
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+
+-- 
+
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS330
+
+--

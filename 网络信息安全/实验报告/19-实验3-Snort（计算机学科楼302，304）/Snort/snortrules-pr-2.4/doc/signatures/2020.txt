@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+2020
+
+--
+Summary:
+The RPC service mountd enables clients to connect to networked file 
+dismounted via TCP.
+
+--
+Impact:
+Denial of network resources to users on the local area network.
+
+--
+Detailed Information:
+This may be an attempt to deny access to network resources from an 
+unauthorized source. It may also be indicative of an attacker probing 
+for RPC services on a host in an attempt to discover a possible entry 
+point to network resources via a vulnerable daemon.
+
+--
+Affected Systems:
+All systems allowing network shares to be unmounted by anonymous hosts, 
+all systems allowing RPC services to be stopped by ordinary users and 
+systems already compromised by an attacker via another vulnerability.
+
+--
+Attack Scenarios:
+This is an intelligence gathering activity, the attacker could remotely 
+unmount a shared resource to deny a resource to the local area network 
+or a probe to discover possible routes of entry into a system.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+When allowing hosts to mount an external network share, consider using a
+hosts.allow file.
+
+Do not allow shares to be unmounted by unauthorized hosts or users.
+
+RPC services should not be available outside the local area network, 
+filter RPC ports at the firewall to ensure access is denied to RPC 
+enabled machines.
+
+RPC services should also be disabled where not needed.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

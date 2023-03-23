@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+2138
+
+--
+Summary:
+This event is generated when an attempt is made to access a configuration file for the php application Web-ERP. 
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to access a configuration file for the php application Web-ERP.
+
+Versions of the web based accounting system Web-ERP do not sufficiently protect the application configuration files. This could lead to sensitive information being disclosed to an unauthorized user.
+
+This rule generates an event if a request is made for the configuration file "logicworks.ini".
+
+--
+Affected Systems:
+Web-ERP Web-ERP 0.1.4
+
+--
+Attack Scenarios:
+An attacker can gain access to the application configuration by making a simple web request. The attacker might then use the information in further attacks against the host.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+The event will also be generated if Nessus is used to scan the host for this vulnerability.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

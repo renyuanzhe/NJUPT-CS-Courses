@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+237
+
+--
+Summary:
+This event is generated when a trinoo DDoS master host communicates with a daemon host.
+
+--
+Impact:
+Attempted DDoS. If the listed source IP is in your network, it may be a trinoo master. If the listed destination IP is in your network, it may be a trinoo daemon.
+
+--
+Detailed Information:
+The trinoo DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack. Masters communicate with daemons to direct them to launch attacks.  A master may communicate with a daemon via UDP destination port 27444 with a string of "l44adsl" in the payload.  This string is the default password for the daemon.
+
+--
+Affected Systems:
+Any trinoo compromised host.
+
+--
+Attack Scenarios:
+A trinoo master will communicate with a daemon to direct it to launch attacks.
+
+--
+Ease of Attack:
+Simple. trinoo code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/incident_notes/IN-99-07.html#trinoo
+
+Arachnids:
+http://www.whitehats.com/info/IDS197
+
+--

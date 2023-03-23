@@ -1,0 +1,58 @@
+
+
+Rule:
+
+--
+Sid:
+106-3
+
+--
+Summary:
+This event is generated when the pre-processor spp_rpc_decode detects
+network traffic that may constitute an attack. Specifically a large rpc
+record fragment was detected.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+This event is generated when the spp_rpc_decode pre-processor detects
+network traffic that may consititute an attack.
+
+--
+Affected Systems:
+	All.
+
+--
+Attack Scenarios:
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

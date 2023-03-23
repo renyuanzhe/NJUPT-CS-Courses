@@ -1,0 +1,81 @@
+Rule:
+
+--
+Sid:
+908
+
+--
+Summary:
+This event is generated when an attempt is made to access the 
+administrator screens for Coldfusion server.  A long password can cause 
+a Denial-of-Service.
+
+--
+Impact:
+Denial of Service (DoS). While the risk as a target for password attacks is minor, the administrator login mechanism can be jammed by long passwords, leading to a DoS for the server.
+
+--
+Detailed Information:
+ColdFusion's administrator interface is reachable via:
+
+http://www.target.com/CFIDE/administrator/index.cfm
+
+It is recommended that access to these pages be restricted to trusted 
+IP addresses to prevent them being targets for password attacks.
+
+Further, long passwords create a Denial-of-Service state in the server 
+temporarily.
+
+See Macromedia Security Bulletin (MPSB01-08) for complete information.
+
+--
+Affected Systems:
+ColdFusion versions 4.x for Windows, Solaris, HP-UX, Linux
+
+--
+Attack Scenarios:
+The attacker can access the administration interface for the server and 
+gain control of the application.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+At minimum, restrict access to the administrator mechanism from within 
+the ColdFusion administrator screens.  Only internal, trusted users 
+should be allowed access.  For further protections, use the security 
+capabilities of the webserver or the OS to restrict access to the 
+CFIDE/administrator directory when not needed, or copy/remove the 
+CFIDE/administrator directory completely off the server when not in use 
+(it will be necessary to reload the directory before accessing admin 
+functions, of course).
+
+http://www.macromedia.com/support/coldfusion/ts/documents/tn17254.htm
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Darryl Davidson <ddavidson@talisman-intl.com>
+
+-- 
+Additional References:
+
+Allaire Security Bulletin (ASB00-14)
+http://www.macromedia.com/devnet/security/security_zone/asb00-14.html
+
+CVE-2000-0538
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0538
+
+--

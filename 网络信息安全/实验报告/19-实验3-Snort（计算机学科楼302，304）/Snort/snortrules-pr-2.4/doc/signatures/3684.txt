@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+3684
+
+--
+Summary:
+This rule should not generate an event, It is used to set a flowbit used
+in a later rule.
+
+--
+Impact:
+Not applicable.
+
+--
+Detailed Information:
+An error in the processing of bitmap images exists in Internet Explorer
+that can present an attacker with the opportunity to execute code of
+their choosing on a vulnerable system.
+
+The error exists due to poor boundary checking in the processing of
+bitmap images.
+
+--
+Affected Systems:
+	Microsoft Windows using Internet Explorer
+
+--
+Attack Scenarios:
+An attacker would need to supply a malformed bitmap image either in a
+web page or possibly via HTML email to a victim host.
+
+--
+Ease of Attack:
+Simple, exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft:
+http://www.microsoft.com/technet/security/bulletin/ms04-025.mspx
+
+--

@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+721
+
+--
+Summary:
+This event is generated when network activity indicating possible virus
+infection is detected.
+
+--
+Impact:
+Malicious code infection.  This event may indicate that an internal host
+may be infected with some kind of malicious code.
+
+--
+Detailed Information:
+This event may indicate a possible virus infection of a host on the
+protected network.
+
+--
+Affected Systems:
+	Various systems
+
+--
+Attack Scenarios:
+Viruses may propogate in many different ways. Many arrive in the form of
+email attachments that an unsuspecting user may trigger by opening the
+attachment. Once infected, many viruses have the ability to use the
+infected host as a means of spreading copies of itself to other machines
+on the protected and external networks.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Use antivirus software on hosts to terminate infectors.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

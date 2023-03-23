@@ -1,0 +1,77 @@
+Rule:
+
+--
+Sid:
+114
+
+--
+Summary:
+This event is generated when the Netbus trojan service is responding to 
+an attackers commands on port 12346
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a
+compromise of all resources the machine is connected to.
+--
+Detailed Information:
+The program is a backdoor designed for Windows. It allows anyone who
+knows the listening port number and password to remotely control the 
+host.  Intruders access the server using either a text or graphics based
+client.
+
+The backdoor program allows the remote user to execute commands, list
+files, start silent services, share directories, upload and download
+files, manipulate the registry, kill processes, list processes, as well
+as other options, as well as open/close the CD-ROM drive, send
+interactive dialogs to chat with the compromised system, listen to the
+system's microphone (if it has one), and a few other features. 
+
+--
+Affected Systems:
+	Windows 95
+	Windows 98
+	Windows NT
+	Windows 2000
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise may be due to the exploitation of another vulnerability and
+the attacker is leaving another way into the machine for further use.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+
+--
+False Positives:
+Security tool probing for netbus
+Other services configured for 12346
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow Telnet access to port 12346 from external sources.
+
+Use SSH as opposed to Telnet for access from external locations
+
+Delete the Trojan and kill any associated processes.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by John Liss
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+NetBus
+http://www.ntsecurity.net/
+
+--

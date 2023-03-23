@@ -1,0 +1,61 @@
+Rule:
+
+--
+
+Sid:
+405
+
+--
+
+Summary:
+This event is generated when An ICMP Source Host Isolated datagram is detected on the network.  
+
+--
+
+Impact:
+This is an indication of improperly configured routing equipment or network host.  RFC 1812 indicates that ICMP Type 3 ICMP Code 8 messages should never be generated.
+
+--
+
+Detailed Information: 
+This rule generates informational events about the network. Routers should never generate ICMP Type 11 Code 8 as they are in violation of RFC1812.   Large numbers of these messages on the network could indication routing problems, faulty routing devices, or improperly configured hosts.
+
+--
+
+Attack Scenarios:
+None Known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate these types of ICMP datagrams.
+
+--
+
+False Positives:
+None Known
+
+--
+
+False Negatives:
+None Known
+
+--
+
+Corrective Action:
+This rule detects informational network information, no corrective action is necessary.
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

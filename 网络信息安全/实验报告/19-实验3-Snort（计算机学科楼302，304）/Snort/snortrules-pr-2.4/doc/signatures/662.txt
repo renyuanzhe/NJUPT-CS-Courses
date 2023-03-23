@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+662
+
+--
+Summary:
+This event is generated when maliciously formatted "mail from" text is supplied.
+
+--
+Impact:
+Attempted administrator access.  A successful attack can allow remote execution of commands with root privileges. 
+
+--
+Detailed Information:
+A vulnerability exists in older versions of Sendmail that incorrectly parses message headers.  This vulnerability can allow anattacker to execute arbitrary commands as root.
+
+--
+Affected Systems:
+Sendmail versions prior to 8.6.10 and any version based on 5.x.
+
+--
+Attack Scenarios:
+An attacker can craft a malicious mail header that executes a command. 
+
+--
+Ease of Attack:
+Easy.  Use a maliciously formatted header.
+ 
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to version 8.6.10 or higher of Sendmail.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2308
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0203
+
+Arachnids:
+http://www.whitehats.com/info/IDS119
+
+
+--

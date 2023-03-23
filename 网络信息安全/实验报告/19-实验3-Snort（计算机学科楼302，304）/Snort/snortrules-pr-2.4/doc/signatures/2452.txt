@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+2452
+
+--
+Summary:
+This event is generated when a host in your network that has Yahoo Instant Messenger running attempts to maintain contact with a Yahoo IM server.
+
+--
+Impact:
+Possible policy violation.  Instant Messenger programs may not be appropriate in certain network environments.
+
+--
+Detailed Information:
+Hosts running Yahoo IM periodically communicate with a Yahoo IM server to maintain their connection.  This is a keep-alive message that simply indicates the presences of a host running Yahoo IM.
+
+--
+Affected Systems:
+Any host running Yahoo Instant Messenger.
+
+--
+Attack Scenarios:
+This particular type of Yahoo IM exchange has no known attacks, however it may represent a policy violation because the host is running Yahoo IM.
+
+--
+Ease of Attack:
+A host running Yahoo IM will automatically ping a Yahoo IM server.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+It may be possible for Yahoo IM traffic to use other ports than the default expected ones.  
+
+--
+Corrective Action:
+Disallow the use of IM clients on the protected network and enforce or implement an organization wide policy on the use of IM clients.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+--
+Additional References:
+Yahoo Protocol
+http://www.cse.iitb.ac.in/~varunk/YahooProtocol.htm
+
+--

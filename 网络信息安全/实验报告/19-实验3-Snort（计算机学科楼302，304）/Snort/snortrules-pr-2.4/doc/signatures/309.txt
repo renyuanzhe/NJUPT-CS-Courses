@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid: 309
+
+--
+Summary:
+This event is generated when an attempt to overflow the buffer of a UNIX or Linux system via Sniffit is made.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to gain remote access to the victim host or execute arbitrary code with the privileges of the superuser account.
+
+--
+Detailed Information:
+Sniffit is a network monitoring tool that can also be configured to log emails. If this is the case, some versions of the tool contain a vulnerability such that a stack overflow via this logging mechanism is possible by a remote attacker.
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply vendor supplied patches.
+
+Use alternate tools such as Snort.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0306
+
+Bugtraq:
+http://www.securityfocus.com/bid/2353
+
+--

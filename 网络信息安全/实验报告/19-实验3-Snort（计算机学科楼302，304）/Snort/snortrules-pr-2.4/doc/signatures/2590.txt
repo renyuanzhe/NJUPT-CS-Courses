@@ -1,0 +1,68 @@
+Rule:
+
+
+--
+Sid:
+2590
+
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow
+associated with the Mail Transfer Agent Exim.
+
+--
+Impact:
+A successful attack may allow the execution of arbitrary code on a vulnerable
+server with the privilege of the process running Exim.
+
+--
+Detailed Information:
+Exim is vulnerable to a buffer overflow, permitting an attacker to execute
+arbitrary code.  The vulnerability may be exploited if Exim is configured to
+verify header syntax in the e-mail message body.  This is not the default
+configuration.  If an attacker supplies a large number of spaces after certain
+header fields, it may be possible to cause a buffer overflow.
+
+--
+Affected Systems:
+Exim prior to version 4.34
+
+--
+Attack Scenarios:
+An attacker can create and send mail with a malformed header,
+possibly causing a buffer overflow and permitting the execution of arbitrary code.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Bugtraq:
+http://www.securityfocus.com/bid/10291
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0400
+
+Other:
+http://www.guninski.com/exim1.html
+
+--

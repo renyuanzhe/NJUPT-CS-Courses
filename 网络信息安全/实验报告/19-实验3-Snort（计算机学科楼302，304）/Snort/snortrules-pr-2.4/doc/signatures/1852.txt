@@ -1,0 +1,53 @@
+Rule:  
+
+--
+Sid:
+1852
+--
+Summary:
+This event is generated when an attempt is made to access the file robots.txt directly.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+Robots.txt access is usually made by search robots for site indexing. A webmaster sometimes adds information for areas of the site that should not be indexed by the engine. This can include user directories and files and directories used in administration of the server.
+
+The information gathered from robots.txt could be used for system compromise and control of the web server.
+
+--
+Attack Scenarios:
+The attacker could retrieve robots.txt from the server, then discover the path to an unprotected administration interface for the server. The attacker can then gain control of the webserver using this interface.
+
+--
+Ease of Attack:
+Simple. An attacker needs only to find a critical file listed in robots.txt and access it through a browser.
+
+--
+False Positives:
+Many search engine's have robots that check robots.txt for information about the site. This isn't a hack attempt.
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Consider using the robots Meta tag in web pages to disallow search engine indexing.
+
+Do not place any sensitive information in the root directory of the webserver. This will negate the need to add these entries to robots.txt.
+
+--
+Contributors:
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

@@ -1,0 +1,55 @@
+Rule:  
+
+--
+Sid:
+2203
+
+--
+Summary:
+This event is generated when an attempt is made to access everythingform.cgi on an internal web server. This may indicate an attempt to exploit a remote command execution vulnerability in Leif M. Wright's everythingform.cgi script.
+
+--
+Impact:
+Remote execution of arbitrary code, possibly leading to remote root compromise.
+
+--
+Detailed Information:
+Leif Wright's everythingform.cgi script is a Perl script that processes multiple forms. It contains a parsing vulnerability in a hidden "config" field that enables an attacker to run arbitrary shell commands with the security context of the web server.
+
+--
+Affected Systems:
+Web servers running Leif M. Wright Everythingform.cgi 2.0.
+--
+Attack Scenarios:
+An attacker uses a specially crafted value for the config field. Any commands included in the value are executed with the security context of the web server.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses everythingform.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable everythingform.cgi. 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/2101
+
+--

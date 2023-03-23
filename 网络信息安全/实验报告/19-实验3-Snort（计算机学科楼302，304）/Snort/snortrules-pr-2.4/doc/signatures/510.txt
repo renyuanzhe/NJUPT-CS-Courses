@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+510
+
+--
+Summary:
+This event is generated when an attempt is made to change the message on
+the LCD display on a JetDirect enabled HP printer.
+
+--
+Impact:
+User confusion and comedy, mostly.
+
+--
+Detailed Information:
+HP JetDirect printers allow remote machines to change the message that
+is displayed on the LCD panel via the PJL command. This event indicates
+that this command has been used in network traffic.
+
+--
+Affected Systems:
+	HP JetDirect enabled printers
+ 
+--
+Attack Scenarios:
+As part of an attempt to confuse and annoy users, an attacker may
+attempt to change the message displayed on the printers LCD screen.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Update to the latest JetDirect, and investigate the possibility of
+restricting access to a central print-server using the "allow: <ip>
+<netmask>" directive in a printer config file. 
+
+Disallow printer use from hosts outside the protected network.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Jon Hart <warchild@spoofed.org>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+
+1831
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a Denial of Service (DoS) condition in the Jigsaw web server from W3C.
+
+--
+Impact:
+Denial of Service.
+
+--
+Detailed Information:
+Jigsaw is a Java-based web server developed by W3C. Jigsaw version 2.2.1 is vulnerable to a DoS attack caused by improper handling of requests for DOS device names.
+
+Jigsaw web server versions prior to 2.2.1 (Build 20020711)  contain a Denial of Service vulnerability in a handler that processes HTTP requests for DOS device files. This may result in process threads hanging and a consumption of all available resources.
+
+
+--
+Affected Systems:
+	Jigsaw 2.2.1
+
+--
+Attack Scenarios:
+It is possible to crash the Jigsaw web server by requesting /servlet/con about 30 times.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+Certain HTTP requests may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest version of Jigsaw (2.2.1 Build 20020711 or later)
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/5258/
+
+--

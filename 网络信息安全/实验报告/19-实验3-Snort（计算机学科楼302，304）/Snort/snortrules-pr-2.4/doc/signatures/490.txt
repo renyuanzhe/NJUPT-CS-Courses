@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+490
+
+--
+
+Summary:
+This event is generated when network traffic containing the string
+BattleMail is observed.
+
+--
+
+Impact:
+Unknown
+
+--
+
+Detailed Information:
+Email communications containing the string "BattleMail" has been
+detected in network traffic going to a mail server on the protected
+network. This may indicate participation in an email gaming system by
+the recipient.
+
+--
+
+Affected Systems:
+	All email servers
+
+--
+
+Attack Scenarios:
+Not applicable
+
+--
+
+Ease of Attack:
+Simple, no exploit software required.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Not applicable
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+
+Additional References:
+
+Battlemail:
+http://www.thaicybersoft.com/download/internet/e-mail/BattleMail/
+
+--

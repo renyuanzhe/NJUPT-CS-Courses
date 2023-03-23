@@ -1,0 +1,88 @@
+Rule:
+
+--
+Sid:
+153
+
+--
+Summary:
+Donald Dick is a Trojan Horse allowing the attacker to access various 
+resources on the victim host. This event is generated when the attackers
+client connects to the Trojan server.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a
+compromise of all resources the machine is connected to.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows NT
+
+The Trojan changes system registry settings to add the Donald Dick 
+server to programs normally started on boot. Due to the nature of this 
+Trojan it is unlikely that the attacker's client IP address has been 
+spoofed.
+
+The default name of the server application is vmldir.vxd.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise can be in the form of a Win32 installation program that may
+use the extension ".jpg" or ".bmp" when delivered via e-mail for
+example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+Updated virus definition files are essential in detecting this Trojan.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Edit the system registry to remove the extra keys or restore a
+previously known good copy of the registry.
+
+Affected registry keys are:
+
+HKEY_LOCAL_MACHINE\system\CurrentControlSet\Services\VxD\
+
+Registry keys added:
+
+	VMLDR
+
+This contains the key StaticVxD = "vmldir.vxd"
+
+Delete the registry key VMLDR.
+
+Delete the Troajn application vmldir.vxd.
+
+A reboot of the infected machine is needed.
+
+--
+Contributors:
+Original rule written by unknown persons.
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Hackfix
+http://www.hackfix.org/miscfix/dd.shtml
+
+--

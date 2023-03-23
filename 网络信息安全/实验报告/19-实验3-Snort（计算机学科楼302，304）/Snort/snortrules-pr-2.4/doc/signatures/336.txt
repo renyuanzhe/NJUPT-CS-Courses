@@ -1,0 +1,70 @@
+Rule:
+Sid:
+336
+--
+Summary:
+This event is generated when an attempt is made to access roots home
+directory in an ftp session.
+
+--
+Impact:
+Serious. Information disclosure.
+
+--
+Detailed Information:
+An ftp command to change directories to root's home directory has been
+made. If roots home directory is world readable and is within the ftp
+root, the contents may be viewed or downloaded in an ftp session.
+
+Under normal ftp usage (by non-root users), this should never occur.  
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+Scenario A:
+1. Remote attacker has gained root password/access, or is able to access root's home directory.
+2. Attacker will be able to replace important system files at their will, possibly gaining shell access as root.
+
+Scenario B:
+1. System administrator (root) connects to the system via un-encrypted ftp.
+2. An attacker, listening in on the tcp/ip traffic, gains root's password since it was transmitted in 'clear-text'.
+3. The attacker can now log in as root.
+
+Scenario C:
+1. The ~root directory is world readable.
+2. Sensitive files that may exist in this directory can now be accessed by anyone.
+--
+Ease of Attack:
+Scenario A: depends on how the attacker gained root's password
+Scenario B: trivial for someone on the same network or on the route to the comprimiseable system.
+Scenario C: easy.
+--
+False Positives:
+None Known
+The administrator has legitimately logged into this machine from a remote location. 
+Note: this still has the potential for a security breach (see Scenario B).
+--
+False Negatives:
+None Known
+Accessing other system critical directories other than ~root (for example, /etc, where passwd/shadow files are kept) could indicate the same comprimise.
+--
+Corrective Action:
+ - Dissallow ftp login for root, consider using something more secure than ftp for root file transfers.
+ - Make sure root's home directory is NOT world readable.
+ - Root's password may have been discovered, take apropriate action.
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Jeremy Stashewsky <jstash@omitthis.uvic.ca>
+
+-- 
+Additional References:
+CVE CVE-1999-0082
+RFC 959: File Transfer Protocol http://www.ietf.org/rfc/rfc959.txt
+
+--

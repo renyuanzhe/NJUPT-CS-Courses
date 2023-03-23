@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+2057
+
+--
+Summary:
+helpout.exe.
+
+--
+Impact:
+Denial of Service
+
+--
+Detailed Information:
+It is possible to issue a denial of service to vulnerable versions of 
+the WebSphere caching proxy by sending an illegitimate request to the 
+cgi script helpout.exe.
+
+scanner nessus to scan the server for possible exploit opportunities.
+
+--
+Affected Systems:
+WebSphere caching proxy
+
+--
+Attack Scenarios:
+The attacker merely needs to send a bad request to helpout.exe.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-vulnerable version of WebSphere caching proxy 
+or disable the script helpout.exe.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=11162
+
+--

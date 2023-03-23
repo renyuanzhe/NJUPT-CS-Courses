@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+3694
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+buffer overflow associated with the IBM WebSphere Application
+Server mishandling of authentication variable values.
+
+--
+Impact:
+A successful attack can cause a buffer overflow on a vulnerable
+IBM WebSphere server, permitting the execution of arbitrary
+code on the vulnerable server.
+
+--
+Detailed Information:
+IBM WebSphere may use form-based authentication to permit access
+to applications.  The CGI variables j_username and j_password
+are used for this authentication process.  Overly long values
+passed to these variables can cause a buffer overflow and the
+subsequent execution of arbitrary code on the vulnerable server.
+This is due to a failure in the code to accommodate wide-character
+expansion for the receiving buffer.
+
+--
+Affected Systems:
+IBM WebSphere Application Server 5.0 through 5.0.2 without
+Cumulative Fix 11
+
+--
+Attack Scenarios:
+An attacker can send a malformed request that contains an overly
+long value for a vulnerable authentication variable.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+Other:
+
+--

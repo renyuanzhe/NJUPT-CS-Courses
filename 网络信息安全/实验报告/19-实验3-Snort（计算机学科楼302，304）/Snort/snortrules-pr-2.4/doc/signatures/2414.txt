@@ -1,0 +1,73 @@
+Rule:
+
+--
+Sid:
+2414
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the handling of ISAKMP data and SA keys.
+
+--
+Impact:
+Serious
+
+--
+Detailed Information:
+The Internet Security Association and Key Management Protocol (ISAKMP) 
+is used as a framework for an authentication method between peers using 
+secure keys.
+
+ISAKMP is a framework for authentication using cryptographic keys. It 
+specifically defines the process of key exchange as opposed to the 
+generation of a cryptographic key.
+
+ISAKMP also details the procedures for the required security 
+associations in network security services.
+
+--
+Affected Systems:
+	Kame Racoon
+
+--
+Attack Scenarios:
+The attacker may attempt to delete keys and security associations in
+hosts running the KAME IKE Daemon.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+ISAKMP:
+http://www.networksorcery.com/enp/protocol/isakmp.htm
+
+RFC:
+http://www.ietf.org/rfc/rfc2407.txt
+http://www.ietf.org/rfc/rfc2408.txt
+
+IANA:
+http://www.iana.org/assignments/isakmp-registry
+
+--

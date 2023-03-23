@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+1635
+
+--
+Summary: 
+This event is generated when an attempt is made to exploit a potential 
+buffer overflow using the APOP command.  If running a vulnerable mail 
+server, such as older XMail versions, this attack may lead to remote 
+execution of arbitrary code.
+--
+Impact:
+When succesfully exploited, the remote attacker can crash the POP3
+service or execute arbitrary code on the mailserver.
+--
+Detailed Information:
+The APOP command, used to submit authentication credentials to the POP3 
+server, has an overflowable buffer in XMail 0.58 and earlier.  If an 
+argument to the APOP command is longer than 256 characters, the service 
+will crash.  This error may be exploitable further, and could then allow
+the attacker to execute arbitrary code on the remote system.
+
+--
+Affected Systems:
+	XMail 0.58 or earlier
+
+--
+Attack Scenarios:
+An attacker could crash the POP server, thereby denying
+legitimate users access to their e-mail.  Skilled attackers could
+compromise the mailserver and obtain all incoming e-mail data.
+
+--
+Ease of Attack:
+The DoS attack is trivial to execute, as only an argument
+longer than 256 characters needs to be submitted.  Compromise of the
+mailserver requires more skill, but has been proven to be possible..
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade the XtraMail installation to a more recent
+version.  The most recent versions can always be found on the vendor's
+website, http://www.xmailserver.org/
+
+--
+Contributors:
+Snort documentation contributed by Maarten Van Horenbeeck (maarten@daemon.be)
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10559
+
+Bugtraq
+http://www.securityfocus.com/bid/1652
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0841
+
+--

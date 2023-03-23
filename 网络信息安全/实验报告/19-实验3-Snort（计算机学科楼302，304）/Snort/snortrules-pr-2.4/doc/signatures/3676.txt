@@ -1,0 +1,58 @@
+Rule:  
+
+--
+Sid:
+3676
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the web application NewsScript.
+
+--
+Impact:
+Unauthorized administrative access to the application.
+
+--
+Detailed Information:
+It is possible to bypass all authentication mechanisms present in
+newsscript.pl by simply supplying the content "admin" to the "mode"
+variable in a request to the script.
+
+--
+Affected Systems:
+	NewsScript.co.uk NewsScript
+
+--
+Attack Scenarios:
+An attacker can make a request to the script and include "mode=admin" in
+the request.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

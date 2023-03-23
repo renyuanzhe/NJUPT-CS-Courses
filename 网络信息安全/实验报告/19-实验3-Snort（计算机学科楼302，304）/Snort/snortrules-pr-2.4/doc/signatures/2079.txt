@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+2079
+
+--
+Summary:
+number for the rpc service lockd.
+
+--
+Impact:
+Intelligence gathering
+
+--
+Detailed Information:
+This may be an attacker probing for vulnerable versions of rpc services.
+In this case, the rpc service lockd.
+
+If a user connects to port 1024 being used by the rpc service lockd, a 
+denial of service can be issued by supplying random input to the 
+service. This is an attempt to ascertain whether or not that attack 
+could be successful.
+
+--
+Affected Systems:
+	Debian Linux 2.1, 2.2 pre potato and 2.2
+	MandrakeSoft Linux Mandrake 6.0, 6.1 and 7.0
+	RedHat Linux 6.0 sparc, i386 and alpha
+	RedHat Linux 6.1 sparc, i386 and alpha
+	RedHat Linux 6.2 sparc, i386 and alpha
+
+--
+Attack Scenarios:
+The attacker needs to send random data to port 1024 used by nlockmgr.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate patches for the system.
+
+Upgrade the software to the latest non vulnerable version.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1372
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0508
+
+--

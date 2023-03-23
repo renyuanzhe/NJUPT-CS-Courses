@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid: 306
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability in VQ Server to cause a Denial of Service (DoS).
+
+--
+Impact:
+Serious. A Denial of Service on the target server is possible.
+
+--
+Detailed Information:
+vqServer is a personal web server that runs on Microsoft Windows, Linux and Solaris. Version 1.4.49 suffers from a DoS condition if a long GET request is issued to the server.
+
+Affected Systems:
+	vqServer 1.4.49
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1610
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0766
+
+vqSoft:
+http://www.vqsoft.com/
+
+
+--

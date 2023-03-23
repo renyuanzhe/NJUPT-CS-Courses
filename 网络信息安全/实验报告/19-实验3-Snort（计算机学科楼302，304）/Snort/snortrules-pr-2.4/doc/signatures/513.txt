@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+513
+
+--
+Summary:
+This event is generated when a Cisco Catalyst switch responds to an external connection that it is listening on the remote management port. 
+
+--
+Impact:
+Denial of service.  A successful connection to the remote management port may allow an attacker access to the switch.
+
+--
+Detailed Information:
+TCP port 7161 is the remote management port for Cisco Catalyst switches.  A vulnerability exists that may allow a user to connect to this port on an affected switch and cause the supervisor module to reload, disabling service while in progress. 
+
+
+--
+Affected Systems:
+Cisco switches:
+
+      The Catalyst 12xx family, running supervisor software versions up to and including 4.29.
+
+      The Catalyst 29xx family (but not the Catalyst 2900XL), running supervisor software versions up to and including 2.1(5), 2.1(501), and 2.1(502). 
+
+      The Catalyst 5xxx series (including the Catalyst 55xx family), running supervisor software versions up to and including 2.1(5), 2.1(501), and 2.1(502).
+
+--
+Attack Scenarios:
+An attacker can exploit a vulnerability associated with the remote management port of Cisco switches, causing a denial of service.
+
+--
+Ease of Attack:
+Unknown.
+
+--
+False Positives:
+This event is generated if any host on the internal network is listening on TCP port 7161 and responds to an external connection request.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Disable external access to the Cisco switch remote management port.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats
+www.whitehats.com/info/IDS129
+
+CVE 
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0430
+
+--

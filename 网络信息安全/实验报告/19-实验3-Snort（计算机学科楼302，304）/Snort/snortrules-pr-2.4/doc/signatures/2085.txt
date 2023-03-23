@@ -1,0 +1,85 @@
+Rule:
+
+--
+Sid:
+2085
+
+--
+Summary:
+parse_xml.cgi script on a webserver.
+
+--
+Impact:
+Arbitrary code execution, information disclosure and possible cross site
+scripting.
+
+--
+Detailed Information:
+Multiple vulnerabilities exist in Apple Quick Time Streaming Server and 
+Apple Darwin Streamin Server, such that an attacker can gain information
+on the file system as an intelligence gathering activity for an attack 
+on vulnerable services.
+
+It is also possible for an attacker to inject malicious code into the 
+log file for the server, the impact of this would be to execute the code
+when viewed by the administrator.
+
+It is also directly vulnerable to cross site scripting issues.
+
+--
+Affected Systems:
+	Apple Darwin Streaming Server 4.1.2
+	Apple Quicktime Streaming Server 4.1.1
+
+--
+Attack Scenarios:
+In the case of injecting code to the log files, the attacker would need 
+to make requests to the streaming server with the code inserted in the 
+request.
+
+The attacker can execute an attack on the file system contents using a 
+browser, the attacker needs to include a NULL byte in the request to 
+reveal the directory structure.
+
+The cross site scripting issue does not need anything specific to be 
+done.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate patches for the systems affected.
+
+Upgrade to the latest non affected versions of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/6960
+http://www.securityfocus.com/bid/6990
+http://www.securityfocus.com/bid/6955
+http://www.securityfocus.com/bid/6956
+http://www.securityfocus.com/bid/6958
+
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0054
+
+--

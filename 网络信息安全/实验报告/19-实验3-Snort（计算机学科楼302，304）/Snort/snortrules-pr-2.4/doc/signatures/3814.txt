@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+3814
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow associated with an Internet Explorer client invoking the
+javaprxy.dll COM module.
+
+--
+Impact:
+A successful attack can cause a buffer overflow on a client and permit
+the execution of arbitrary code at the privilege level of the current
+user.
+
+--
+Detailed Information:
+Internet Explorer does not properly handle a COM object known as
+javaprxy.dll that is installed on hosts that run Microsoft Java Machine.
+When this COM object is invoked through a web page, the contents of the
+web page are copied to shared memory on the client host. When the web
+page contains a large amount of data, a buffer overflow can occur.
+
+In order to avoid potential evasion techniques, http_inspect should be
+configured with "flow_depth 0" so that all HTTP server response traffic
+is inspected.
+
+WARNING
+Setting flow_depth 0 will cause performance problems in some situations.
+WARNING
+
+--
+Affected Systems:
+	IE 5.01, 5.5 and 6
+
+--
+Attack Scenarios:
+An attacker can entice a user to visit a malicious site that returns
+code to invoke the javaprxy.dll COM module with a large amount of data
+in the HTML page.  This may cause a buffer overflow, enabling execution
+of arbitrary code on a vulnerable client.
+
+--
+Ease of Attack:
+Simple. Exploit code is available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Other:
+
+--

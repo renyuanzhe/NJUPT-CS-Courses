@@ -1,0 +1,67 @@
+Rule:  
+
+--
+Sid:
+2247
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the Persits AspUpload application.
+
+--
+Impact:
+Information disclosure. Possible retrieval of sensitive system files. 
+Installation of arbitrary files.
+
+--
+Detailed Information:
+Under certain circumstances it is possible to retrieve information from 
+outside the web root of a server using AspUpload by utilizing a 
+directory traversal technique. The same technique can also be used to 
+upload files of the attackers choosing to other areas of the file 
+system.
+
+The vulnerability exists in the sample scripts that accompany the 
+application.
+
+--
+Affected Systems:
+	AspUpload 2.1
+	
+--
+Attack Scenarios:
+The attacker can use a simple directory traversal technique when 
+supplying the filename for upload.
+
+--
+Ease of Attack:
+Simple. NO exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Remove the sample scripts installed by the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/3608
+
+--

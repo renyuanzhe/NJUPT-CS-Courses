@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+804
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer 
+overflow vulnerability in SWSoft ASPSeek search engine software.
+
+--
+Impact:
+Arbitrary code execution.
+
+--
+Detailed Information:
+SWSoft ASPSeek search engine software contains a buffer overflow 
+vulnerability where, if a sufficiently long string is sent to the s.cgi 
+script using the template (tmpl) variable, a buffer overflow condition 
+can occur. This may allow the execution of arbitrary code. 
+
+--
+Affected Systems:
+All Apache web servers running SWSoft ASPSeek 1.0.3 and earlier are 
+vulnerable.
+
+--
+Attack Scenarios:
+An attacker can send a crafted query to the s.cgi script, creating a 
+buffer overflow condition. This could then allow the attacker to execute
+arbitrary code from the system's command shell.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses s.cgi where the "tmpl" variable is 
+invoked, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to SWSoft ASPSeek 1.04 or later.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/2492
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0476
+
+--

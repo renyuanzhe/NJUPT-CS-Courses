@@ -1,0 +1,48 @@
+Rule:
+
+--
+Sid:
+1373
+
+--
+Summary:
+Attempted httpd configuration access via web
+
+--
+Impact:
+Attempt to gain information on system processes on webserver
+
+--
+Detailed Information:
+This is an attempt to gain intelligence on the configuration of a webserver. The httpd.conf file lists the configuration of the webserver including modules loaded on start and access authorization files. The attacker could possibly gain information needed for other attacks on the host.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains 'conf/httpd.conf'in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. Making the file read only by the superuser on the system will disallow viewing of the file by other users.
+
+--
+Contributors:
+Sourcefire Research Team
+
+-- 
+Additional References:
+
+
+--

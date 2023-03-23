@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid: 307
+
+--
+Summary:
+This event is generated when an attempt is made to exploit 
+vulnerable versions of the Chocoa IRC client.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to execute arbitrary code on the client.
+
+--
+Detailed Information:
+It is possible for a malicious attacker to exploit a vulnerability in the Chocoa IRC client by setting an IRC channel topic specially designed to cause a buffer overflow.
+
+Affected Systems:
+	Fujitsu Chocoa 1.0 beta 7r for Windows 9x and NT.
+
+
+--
+Attack Scenarios:
+The attacker would need to set a specially crafted IRC channel topic to cause the overflow.
+
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <brian.caswell@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0672
+
+Bugtraq:
+http://www.securityfocus.com/bid/573
+
+--

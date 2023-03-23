@@ -1,0 +1,63 @@
+Rule:  
+--
+Sid:
+491
+
+--
+Summary:
+This event is generated when a failed attempt to login to an FTP server
+is detected.
+
+--
+Impact:
+Unknown. Multiple events may indicate an attempt to enumerate accounts
+and passwords using brute force methodology.
+
+--
+Detailed Information:
+This event is generated when a failed attempt to login to an FTP server
+is detected.
+
+Multiple events may indicate an attempt to enumerate accounts
+and passwords using brute force methodology.
+
+--
+Affected Systems:
+	All FTP Servers
+ 
+--
+Attack Scenarios:
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Check FTP logs for access attempts.
+
+Disallow FTP access from sources external to the protected network.
+
+Consider using Secure Shell as a replacement for FTP services.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+RFC:
+http://www.faqs.org/rfcs/rfc959.html
+
+--

@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid: 2139
+
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerabliity in BEA Systems WebLogic server. 
+
+--
+Impact:
+Information gathering, source code disclosure.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to exploit a vulnerabliity in BEA Systems WebLogic server.
+
+A weakness in the configuration of the WebLogic server from BEA Systems allows an attacker to view the source code of .jsp and .jhtml pages that reside in the root directory of the webserver. A request for these documents prefixed with /*.shtml/ will exploit a vulnerability in the handling of Server Side Include Servlet (SSIServlet) such that the webserver will return the documents unparsed, rendering the source code viewable.
+
+--
+Affected Systems:
+BEA Systems WebLogic Enterprise 5.1 and 5.1.x
+
+--
+Attack Scenarios:
+An attacker can retrieve the source code of a .jsp file by making a web request in the form: http://www.foo.com/*.shtml/target.jsp.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

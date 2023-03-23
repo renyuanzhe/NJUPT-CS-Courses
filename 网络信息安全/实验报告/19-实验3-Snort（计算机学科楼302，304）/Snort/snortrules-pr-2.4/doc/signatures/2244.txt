@@ -1,0 +1,60 @@
+Rule:  
+
+--
+Sid:
+2244
+
+--
+Summary:
+This event is generated when an attempt is made to 
+
+--
+Impact:
+Serious. Unauthorized access.
+
+--
+Detailed Information:
+Certain versions of Lucent VitalNet allow access to resources without
+the need for a password.
+
+--
+Affected Systems:
+	Lucent VitalAnalysis 8.0, 8.1, 8.2
+	Lucent VitalEvent 8.0, 8.1, 8.2
+	Lucent VitalHelp 8.0, 8.1, 8.2
+	Lucent VitalNet 8.0, 8.1, 8.2
+	Lucent VitalSuite 8.0, 8.1, 8.2
+
+--
+Attack Scenarios:
+The attacker merely needs to guess a valid username and can gain access
+without the need for a password.
+
+http://victim.foo.com/cgi-bin/VsSetCookie.exe?vsuser=username
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

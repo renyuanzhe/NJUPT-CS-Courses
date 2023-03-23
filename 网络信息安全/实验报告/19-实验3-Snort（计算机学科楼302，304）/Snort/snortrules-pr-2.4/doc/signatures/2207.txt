@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2207
+
+--
+Summary:
+This event is generated when an attempt is made to access fileseek.cgi on an internal web server. This may indicate an attempt to exploit a directory traversal or remote command execution vulnerability in Wiley Computer Publishing Craig Patchett FileSeek.cgi.
+
+--
+Impact:
+Information gathering or remote execution of arbitrary code.
+
+--
+Detailed Information:
+FileSeek.cgi is an example script that locates and downloads files on a web server, available in "The CGI/Perl Cookbook," written by Craig Patchett and published by John Wiley & Sons. It contains two vulnerabilities due to erroneous parsing -- an attacker could use "....//" in the HEAD or FOOT parameter of an HTTP request to fileseek.cgi to view arbitrary files on the server or could use a similar method to execute shell commands on the web server. Both actions will be performed with the security context of the web server.
+
+--
+Affected Systems:
+Any web server running fileseek.cgi.
+
+--
+Attack Scenarios:
+An attacker sends a specially crafted HTTP request to a vulnerable web server, and is then able to view files on the server. In addition, an attacker could send a specially crafted HTTP request that contains shell commands to the web server. The web server would then attempt to execute the commands in the request.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses fileseek.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/6783
+http://www.securityfocus.com/bid/6784
+
+--

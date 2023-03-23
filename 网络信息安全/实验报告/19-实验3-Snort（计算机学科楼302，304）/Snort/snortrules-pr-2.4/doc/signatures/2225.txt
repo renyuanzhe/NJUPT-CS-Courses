@@ -1,0 +1,59 @@
+Rule:  
+
+--
+Sid:
+2225
+
+--
+Summary:
+This event is generated when an attempt is made to access gozila.cgi on an internal web server. This may indicate an attempt to exploit a denial of service vulnerability in the Linksys Etherfast BEFSR41 Cable/DSL Router web interface.
+
+--
+Impact:
+Denial of service.
+
+--
+Detailed Information:
+The Linksys Etherfast BEFSR41 Cable/DSL router web interface, Gozila.cgi, contains a denial of service vulnerability where, if a request is made for gozila.cgi is made without any arguments, the router crashes.
+
+--
+Affected Systems:
+Linksys Etherfast BEFSR41 Cable/DSL routers running firmware version 1.42.7 or earlier.
+
+--
+Attack Scenarios:
+An attacker sends http://routerhostname/gozilla.cgi? to a vulnerable router (where routerhostname is the router's host name). The router will crash.
+ 
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If a legitimate remote user accesses gozila.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade your router firmware to 1.43 or higher.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/6086
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-1236
+
+--

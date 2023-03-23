@@ -1,0 +1,62 @@
+SID:
+919
+--
+
+Rule:
+--
+
+Summary:
+This even indicates an attempt to exploit undocumented CFML tags on a 
+Allaire ColdFusion Server
+--
+
+Impact:
+Extensive server data retrieval including settings and passwords
+--
+
+Detailed Information:
+Undocumented CFML tags allow reading and decryption of sensitive data 
+contained on servers running Allaire ColdFusion Server 2.0 - 4.0.1. This
+data can be accesses by constructing a hosted application that accesses 
+these undocumented tags with the possibility of changing values on the 
+server and reading admin and studio passwords
+--
+
+Affected Systems:
+	Allaire ColdFusion Server 2.0 - 4.0.1
+--
+
+Attack Scenarios:
+A user with permission to create pages on the server installs an 
+application that accesses the undocumented CFML tags, accessing this 
+application would allow viewing and possible modifications of these 
+settings
+--
+
+Ease of Attack:
+Medium, Attackers need the ability to add files to the server. No "In 
+the Wild" exploits were available at type of writing
+--
+
+False Positives:
+None known
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Patches are available from Allaire, install them.
+--
+
+Contributors:
+Snort documentation contributed by matthew harvey <indexone@yahoo.com>
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+--

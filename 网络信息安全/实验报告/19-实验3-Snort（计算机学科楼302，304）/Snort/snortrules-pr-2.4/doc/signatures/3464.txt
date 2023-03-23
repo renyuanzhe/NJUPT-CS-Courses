@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+3464
+
+--
+Summary:
+This event is generated when an attempt is made to execute system
+commands via the cgi script awstats.pl.
+
+--
+Impact:
+Possible execution of system commands.
+
+--
+Detailed Information:
+Adavanced Web Statistics (awstats) is used to process web server log
+files and produces reports of web server usage.
+
+Some versions of awstats do not correctly sanitize user input. This may
+present an attacker with the opportunity to supply system commands via
+the "logfile" parameter. For the attack to be sucessful the "update"
+parameter must also have the value set to "1". This event indicates that
+an attempt has been made to pass a system command as a value to the
+"logfile" parameter the awstats.pl cgi script.
+
+--
+Affected Systems:
+	Awstats 6.1 and prior
+
+--
+Attack Scenarios:
+An attacker can supply commands of their choosing as a value for the
+logfile parameter by enclosing the commands in pipe charecters. For
+example: 
+
+ http://www.foo.com/cgi-bin/awstats.pl?update=1&logfile=|<command here>|
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software.
+
+Disallow access to awstats.pl as a CGI script.
+
+--
+Contributors:
+Sourcefire Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

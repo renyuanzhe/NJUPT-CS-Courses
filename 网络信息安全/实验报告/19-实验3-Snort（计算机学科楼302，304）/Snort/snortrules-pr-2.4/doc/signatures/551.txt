@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+551
+
+--
+Summary:
+This event is generated when activity by Peer-to-Peer (p2p) clients is detected.
+
+--
+Impact:
+Informational event. Unauthorized use of a p2p client may be in progress.
+
+--
+Detailed Information:
+This event indicates that use of a p2p client has been detected. This may be against corporate policy. p2p clients connect to other p2p clients to share files, commonly music and video files but can be configured to share any file on the local machine.
+
+This activity may not only use bandwidth but may also be used to transfer company confidential information to unauthorized hosts external to the protected network bypassing other security measures in place.
+
+--
+Affected Systems:
+Any host using a p2p client.
+
+--
+Attack Scenarios:
+This is indicative of the use of a p2p client.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Check the host and uninstall any p2p client found.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+OpenNap Specification
+http://opennap.sourceforge.net/napster.txt
+
+
+--

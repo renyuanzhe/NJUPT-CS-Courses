@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+1937
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer 
+overflow vulnerability using the LIST command on mail servers running 
+the qpopper daemon.
+
+--
+Impact: Remote Access. 
+This attack can allow an attacker to read other users mail as the Group 
+ID mail.
+
+--
+Detailed Information: 
+The attacker needs the username and password of a POP account on the 
+server.  After a successful POP login, the attacker can cause a buffer 
+overflow using the LIST command.  After successfully exploiting the 
+qpopper daemon the attacker has remote access of the server with the UID
+of the username used for the POP login and the GID of 'mail'.
+
+--
+Affected Systems: 
+	Qualcomm qpopper 3.0 and 3.0 beta 1 through beta 29.
+
+--
+Attack Scenarios: 
+An attacker can log in to a vulnerable mail server using a preexisting 
+POP account and enter an overly long argument with the LIST command, 
+causing a buffer overflow which may then result in remote access.
+
+--
+Ease of Attack: 
+Simple.  Exploits exist.
+
+--
+False Positives: 
+None known.
+
+--
+False Negatives: 
+None Known.
+
+--
+Corrective Action: 
+Upgrade to Qualcomm qpopper 3.0 beta 30 or higher.
+
+--
+Contributors: 
+Snort documentation contributed by Chris Davis <christopher.davis@guardent.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:  
+cve: CAN-2000-0096
+bugtraq: 948
+
+--

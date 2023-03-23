@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+3638
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with the Mercantec SoftCart CGI application.
+
+--
+Impact:
+Serious. Execution of arbitrary commands may be possible.
+
+--
+Detailed Information:
+Mercantec SoftCart software provides a shopping cart application for web
+storefronts. A vulnerability exists when SoftCart.exe is supplied an
+overly long parameter value.  This can cause a buffer overflow and the
+subsequent execution of remote software on a vulnerable server.
+
+--
+Affected Systems:
+	Mercantec SoftCart 4.00b
+
+--
+Attack Scenarios:
+An attacker can craft a URI that contains an overly long parameter
+value, causing a buffer overflow.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current nonaffected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

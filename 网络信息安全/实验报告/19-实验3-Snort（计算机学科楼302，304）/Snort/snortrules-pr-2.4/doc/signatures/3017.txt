@@ -1,0 +1,68 @@
+Rule: 
+
+--
+Sid: 
+3017
+
+-- 
+Summary: 
+An oversized request was sent to a WINS server.
+
+-- 
+Impact: 
+Client-supplied data is written to client-specified locations in memory,
+allowing for arbitrary code execution. Since WINS servers run with
+administrative privileges, this allows an attacker to gain
+administrative access remotely without any prior authentication.
+
+--
+Detailed Information:
+Vulnerable WINS servers write client-supplied data to a client-supplied
+memory address. This allows clients to supply arbitrary code for
+execution with administrative privileges. This attack does not require authentication.
+
+In order to reduce false positives, the rule looks for requests that are
+greater than 204 bytes. As the maximum length of a hostname is 192
+bytes, and a standard request has 12 bytes of headers, no standard
+request should exceed this length. Additionally, this rule checks to see
+if particular flags that are required to exploit this vulnerability are
+set in the client request.
+
+--
+Affected Systems:
+Microsoft Windows servers running the WINS service.
+
+--
+Attack Scenarios: 
+Since WINS clients are programmed to not exceed the maximum length for a
+request, an attacker would need to use a script which generated
+malformed WINS requests.
+
+-- 
+Ease of Attack: 
+Simple; exploits exist.
+
+-- 
+False Positives:
+This rule will generate false positives when replication occurs.
+Additionally, there may be unknown scenarios which generate false positives.
+
+--
+False Negatives:
+None known.
+
+-- 
+Corrective Action: 
+See the Microsoft Knowledge Base article referenced below.
+
+--
+Contributors: 
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Alex Kirk <alex.kirk@sourcefire.com>
+
+-- 
+Additional References:
+http://support.microsoft.com/kb/890710
+
+--

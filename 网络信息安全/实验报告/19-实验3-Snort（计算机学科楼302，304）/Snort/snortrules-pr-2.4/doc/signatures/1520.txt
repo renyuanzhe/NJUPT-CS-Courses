@@ -1,0 +1,90 @@
+Rule:  
+
+--
+Sid:
+1520
+
+--
+Summary:
+This event is generated when an attempt is made to access server-info.
+Using the Apache webserver, this url is generally handled by the
+mod_info module, which will happily disclose valuable information about
+your webserver which may aid in their attack.
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+The mod_info module "provides a comprehensive overview of the server
+configuration including all installed modules and directives in the
+configuration files" for the Apache webserver.  Successfully accessing the url
+that is handle by mod_info may give an attacker valuable information about
+the server.
+
+If mod_info is in use and the attacking host is allowed to access it,
+every possible configuration option that the Apache server is using can
+be viewed. This includes ACLs, modules, file and directory names, and
+other valuable information that will help an attacker determine ways of
+attacking the server.
+
+--
+Affected Systems:
+	Apache webservers with mod_info enabled.
+ 
+--
+Attack Scenarios:
+As part of an attack against an Apache webserver, an attacker may try to
+access "/server-info" which is typically handled by the mod_info module.  If
+sucessful, this will give valuable information about the webserver for
+use in further attacks. 
+
+--
+Ease of Attack:
+Simple. No exploit software is required.
+
+--
+False Positives:
+Few, but certainly possible.  Since this rule only checks for the
+existance of "/server-info" in the url, any url containing that string will
+trigger this rule.  A few common false positives may include urls like:
+
+http://victim/server-info/contact.html
+http://victim/really/long/directory/server-info.html
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Determine if server-info exists on the victim in question, and if the attacker
+is allowed to access it.
+
+If mod_info is necessary on this server, consider restricting access to
+it via Apache directives, i.e.:
+
+<Location /server-info>
+    SetHandler server-info
+    Order deny,allow
+    Deny from all
+    Allow from .yourdomain.net
+</Location>
+
+
+--
+Contributors:
+Snort documentation contributed by Jon Hart <warchild@spoofed.org>
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+
+-- 
+Additional References:
+
+Apache:
+http://httpd.apache.org/docs/mod/mod_info.html
+
+--

@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+2996
+
+--
+Summary:
+This event is generated when an attempt is made to shutdown a Windows
+system via SMB. 
+
+--
+Impact:
+Serious.
+
+--
+Detailed Information:
+This event indicates that an attempt was made to shutdown a Windows
+system via SMB across the network.
+
+It may be possible for an attacker to manipulate a Windows system
+from a remote location. Shutting down a system may lead to a Denial of
+Service for the target host.
+
+--
+Affected Systems:
+	Microsoft Windows systems.
+
+--
+Attack Scenarios:
+An attacker may be able to manipulate a target system using SMB. The
+attacker may gain complete control over the affected system.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the host for signs of system compromise.
+
+Turn off file and print sharing on the target host.
+
+Use a packet filtering firewall to disallow SMB access to the host from
+sources external to the protected network.
+
+Disallow remote registry manipulation.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

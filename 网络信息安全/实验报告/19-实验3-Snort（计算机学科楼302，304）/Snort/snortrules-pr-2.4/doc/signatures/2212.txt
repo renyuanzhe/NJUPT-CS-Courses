@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2212
+
+--
+Summary:
+This event is generated when an attempt is made to access imageFolio.cgi on an internal web server. This may indicate an attempt to exploit a cross-site scripting vulnerability in BizDesign ImageFolio 3.01.
+
+--
+Impact:
+Remote execution of arbitrary code, possible session hijack.
+
+--
+Detailed Information:
+BizDesign ImageFolio 3.01 is a CGI-based web server application that manages image galleries. It contains a cross-site scripting vulnerability in imageFolio.cgi, where input is not properly validated. An attacker can craft a URL that, when executed by a legitimate user, runs with the security context of the web server. In this way, the attacker can obtain a legitimate user's session cookie, thereby posing as the user for the duration of the session.
+
+--
+Affected Systems:
+Any systems running BizDesign Image Folio version 3.0.1 or lower.
+
+--
+Attack Scenarios:
+An attacker crafts a URL that, when activated by a legitimate user, executes code that obtains the user's cookie on the user's computer with the security context of the web server. The attacker can then pose as the user for the duration of the session.
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+If a legitimate remote user accesses imageFolio.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is unknown if this vulnerability has been fixed in ImageFolio 3.1. Contact the vendor, Bizdesign (http://www.bizdesign.com) for more information.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/6265
+
+--

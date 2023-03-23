@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid: 
+3460
+
+--
+Summary:
+This event is generated when a numeric argument to the REST command is
+detected.
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+FTP is used to transfer files between hosts. This event is generated
+when a numeric argument to the REST command is detected.
+
+If a numeric argument is supplied to the REST command on an affected
+HP-UX system, it may be possible for an attacker to discover the
+contents of a particular memory location identified by the argument.
+This may in turn lead to the disclosure of sensitive information on the
+host.
+
+--
+Affected Systems:
+	HP-UX 11.0 utilizing HP-UX ftpd 1.1.214 .4
+
+--
+Attack Scenarios:
+
+--
+Ease of Attack:
+Simple. Exploit code is not needed but code does exist.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow access to FTP resources from hosts external to the protected network.
+
+Use secure shell (ssh) to transfer files as a replacement for FTP.
+
+--
+Contributors:
+Sourcefire Research Team
+Alex Kirk <akirk@sourcefire.com>
+Brian Caswell <brian.caswell@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

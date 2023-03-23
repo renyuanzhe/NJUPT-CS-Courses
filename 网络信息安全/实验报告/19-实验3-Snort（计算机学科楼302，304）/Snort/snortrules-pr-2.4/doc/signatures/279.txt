@@ -1,0 +1,59 @@
+Rule:  
+
+--
+Sid:
+279
+
+--
+Summary:
+This event is generated when an attempt is made to issue a Denial of 
+Service attack that causes Bay/Nortel Nautical Marlin bridges to crash.
+
+--
+Impact:
+Denial of Service. Network traffic can be disrupted.
+
+--
+Detailed Information:
+Nautica Marlin bridges will crash if a UDP packet is received on the 
+SNMP port (161) which has a data length of 0.
+
+--
+Affected Systems:
+	Bay/Nortel Nautica Marlin Bridges
+
+--
+Attack Scenarios:
+The bridges can be crashed remotely.  The offending packet uses UDP 
+(which is not connection oriented) and can be easily spoofed. 
+
+--
+Ease of Attack:
+Simple.  Tools are available that can exploit this vulnerability.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Block connections to port 161 from unauthorized hosts using firewall or 
+router ACLs.  The release notes for the only available upgrade for this 
+product do not mention this vulnerability.  The product has been 
+discontinued.  
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+-- 
+Additional References:
+
+--

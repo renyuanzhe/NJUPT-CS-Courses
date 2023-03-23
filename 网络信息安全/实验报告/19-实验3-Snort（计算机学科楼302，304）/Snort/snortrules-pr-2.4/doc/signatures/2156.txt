@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+2156
+
+--
+Summary:
+This event is generated when an attempt is made to ascertain the status of the Apache module mod_gzip on a host. 
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to ascertain the status of the Apache module mod_gzip on a host from a source external to the protected network.
+
+mod_gzip is used to compress data sent by an Apache webserver in an attempt to preserve bandwidth and speed up communications between client and server.
+
+The attacker may be trying to gain information on the server by making a query to the mod_gzip_status page. This could lead to information disclusure which might then be used in further attacks against that host.
+
+--
+Affected Systems:
+Any host using the Apache module mod_gzip.
+
+--
+Attack Scenarios:
+An attacker can retrieve information on the server by making a request for the status of mod_gzip. This request would take the form http://www.foo.com/mod_gzip_status
+
+--
+Ease of Attack:
+Simple. No exploit required.
+
+--
+False Positives:
+The event will also be generated if Nessus is used to scan the host for this vulnerability.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Disable the mod_gzip module.
+
+Disallow access to mod_gzip_status from sources external to the protected network.
+
+Use the Apache directive <Location> to disallow access to the mod_gzip status page to the localhost only in the following manner:
+
+<Location /mod_gzip_status>
+    Order deny,allow
+    Deny from all
+    Allow from localhost
+</Location>
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

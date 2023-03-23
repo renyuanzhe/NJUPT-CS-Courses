@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid: 
+2337
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Tellurian TftpdNT.
+
+--
+Impact:
+Execution of arbitrary code. Possible unauthorised root access.
+
+--
+Detailed Information:
+FTP is used to transfer files between hosts. This event is indicative of spurious
+activity in FTP traffic between hosts.
+
+It is possible for an attacker to expoit a buffer overrun condition in
+Tellurian TftpdNT. User supplied filenames are not correctly handled by
+some versions of Tellurian TftpdNT, this may result in an attacker being
+able to cause the overrun condition to occur.
+
+--
+Affected Systems:
+	Tellurian TftpdNT 2.0 and prior
+
+--
+Attack Scenarios:
+An attacker may use a publicly available exploit script to take
+advantage of the vulnerability.
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+Disallow access to FTP resources from hosts external to the protected network.
+
+Use secure shell (ssh) to transfer files as a replacement for FTP.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <brian.caswell@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

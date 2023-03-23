@@ -1,0 +1,54 @@
+Rule: 
+
+--
+Sid:
+601
+
+--
+Summary: 
+This event is generated when an attempt is made to exploit a
+machine using Network Information Services (NIS).
+
+--
+Impact: 
+Unknown. This is traffic that should not be seen when using NIS and
+remote login services.
+
+--
+Detailed Information: 
+This event is generated when spurious data is sent to the rlogin service
+running on a machine that is using NIS.
+
+--
+Attack Scenarios: 
+An attacker needs to generate this traffic and send it directly to a
+machine. This is not normal network behavior.
+
+--
+Ease of Attack: 
+Simple, no exploit software required
+
+--
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action: 
+Investigate logs on the target host for further details and more signs of suspicious activity
+
+Use ssh for remote access instead of rlogin.
+
+--
+Contributors: 
+Original rule by Max Vision <vision@whitehats.com> modified from a signature written by Ron Gula
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,58 @@
+Rule:  
+
+--
+Sid:
+2197
+
+--
+Summary:
+This event is generated when an attempt is made to access cvsview2.cgi on an internal web server. This may indicate an attempt to exploit an information disclosure vulnerability in Mozilla Bonsai 1.3.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+Mozilla Bonsai, a CVS query tool, contains an information disclosure vulnerability in cvsview2.cgi. An attacker can discover the location of the Mozilla Bonsai application by sending a malformed request to the application, which produces an error. The error message shows the full path of the cvsview2.cgi file, providing the attacker with information about the server directory structure.
+
+--
+Affected Systems:
+Any system running Mozilla Bonsai 1.3.
+
+--
+Attack Scenarios:
+An attacker sends an erroneous request to cvsview2.cgi on the Bonsai server. The error message returns the full path of the script, allowing the attacker to discover more information about the server directory structure for possible use in later attacks.
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+If a legitimate remote user accesses cvsview2.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to a newer build of Mozilla Bonsai 1.3.
+
+If you are running Mozilla Bonsai on Debian 3.0, Debian has provided patches at http://security.debian.org/pool/updates/main/b/bonsai/.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/5517
+
+--

@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+629
+
+--
+Summary:
+This event is generated when the nmap port scanner and reconnaissance 
+tool is used against a host.
+
+When run with the '-O' option, it attempts to identify the remote  
+operating system.
+
+--
+Impact:
+Can provide useful reconnaissance information to an attacker.  Has been
+known to cause a denial of service on some older  hosts.
+
+--
+Detailed Information:
+nmap attempts to identify the remote operating system by looking for
+different services that are common or specific to  particular operating
+systems.  It also sends a variety of abnormal packets that are often
+handled differently by different  operating systems so that it can
+differentiate between them based on the responses.
+
+--
+Affected Systems:
+All
+
+--
+Attack Scenarios:
+nmap is often used before an attempt to gain access to a system.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known.  The signature may be produced by other scanners but is
+unlikely to be used for legitimate activity.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Block any TCP packets that have the SYN, FIN, PUSH and URGENT flags set
+using a firewall.  Block only packets that have all four of the flags
+set as they are individually and in other combinations necessary for
+normal TCP traffic.  If you block them  individually or in other
+combinations your network will not function correctly.
+
+--
+Contributors:
+Original Rule Writer Unknown (prime suspect is Marty Roesch)
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS05
+
+Nmap scanner:
+http://www.insecure.org
+
+--

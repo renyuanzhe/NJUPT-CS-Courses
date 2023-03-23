@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+501
+
+--
+Summary:
+This event is generated when a packet is discovered with loose source routing set in the IP options.
+
+--
+Impact:
+Loose source routing permits the dictation of a route to and from the destination rather than relying on standard dynamic routing.
+
+--
+Detailed Information:
+Loose source routing instructs the packet to traverse identified routers in transit to and from the desired destination.  Normal routing sends a packet one hop at a time allowing each interim router to determine the next hop.  This may permit an attacker to spoof a source IP yet receive the response by sniffing from a network associated with an identified loose source router.  A vulnerability exist in Windows 95, 98, and NT hosts that permits a vulernable destination host to accept a specially crafted source routed packet even though the host has a registry setting to drop it.
+
+--
+Affected Systems:
+Unless loose source routing is disabled, all hosts can accept them.
+
+--
+Attack Scenarios:
+An attacker can craft a special source routed packet to cause Windows 95, 98, and NT hosts to accept them even though a registry setting exists to drop source routed packets.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+This even will trigger if you allow loose source routed packets into your network.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Block all source routed (loose or strict) packets from entering your network.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/646
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0909
+
+Whitehats
+www.whitehats.com/info/IDS470
+
+--

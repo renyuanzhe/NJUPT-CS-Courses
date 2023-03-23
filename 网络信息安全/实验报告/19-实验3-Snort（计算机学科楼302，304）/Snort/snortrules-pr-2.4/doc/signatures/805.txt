@@ -1,0 +1,80 @@
+Rule:
+
+--
+Sid:
+805
+
+--
+Summary:
+This event is generated when an attempt is made to exploit an 
+authentication vulnerability in the WebSpeed WSIS Messenger 
+Administration Utility. 
+
+--
+Impact:
+Information gathering and system integrity. Unauthorized administrative 
+access to the to the WebSpeed configuration utility can allow an 
+attacker to view and change WebSpeed configuration, and possibly stop 
+WebSpeed services.
+
+--
+Detailed Information:
+The WSIS Messenger Administration Utility is a web-based administration 
+utility provided with the Progress WebSpeed 3.0 development environment 
+and transaction server. It allows WebSpeed administrators to remotely 
+manage the WebSpeed system. The configuration utility has a 
+vulnerability that allows unauthenticated users to configure services 
+when the WSMAdmin function is invoked using wsisa.dll.
+
+--
+Affected Systems:
+Any system running Progress WebSpeed 3.0 WSIS Messenger Administration 
+Utility.
+
+--
+Attack Scenarios:
+An attacker can access the WSIS Messenger Administration Utility, which 
+can then be used to view and change WebSpeed configuration. The attacker
+can potentially stop WebSpeed services. 
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses the web-based administration 
+utility, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable the WSIS Messenger Administration Utility.
+
+Install the appropriate patch. Patches can be found at
+http://www.progress.com/patches/patchlst/availpatche.html.
+
+Disallow access to the WSIS Messenger Administration Utilility from 
+sources external to the protected network.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/969
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0127
+
+--

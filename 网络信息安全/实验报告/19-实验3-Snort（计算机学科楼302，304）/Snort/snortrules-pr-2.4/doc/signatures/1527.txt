@@ -1,0 +1,67 @@
+Rule:  
+
+--
+Sid:
+1527
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the Basilix webmail PHP script.
+
+An attacker can access mysql.class file to obtain MySQL login and use it
+for further attacks.
+
+--
+Impact:
+Serious. Password disclosure which can lead to further system 
+compromise.
+
+authenticate directly to a mysql database. Many Sun Cobalt Linux servers use Basilix webmail
+
+--
+Detailed Information:
+A webserver usually sends files in the webroot to an anonymous user 
+without further processing. PHP scripts often include files (which 
+contain configuration variables, functions, etc.) that are stored 
+using a suffix that does not prevent a webserver sending them in clear 
+text. The ".class" suffix is not usually explicitly denied in a standard
+web server configuration and the file "mysql.class" may be sent to the 
+attacker.
+
+--
+Attack Scenarios:
+An attacker gets mysql.class containing database login credentials. The attacker can then connect to the database server using the login provided by mysql.class file and modify the database.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+File doesn't exist or mysql.class is for example a java class file publicly available on the server
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Update Basilix script (www.basilix.org)
+
+Check files which contain php code for a suffix that might be rendered in plaintext by the web server.
+
+Workaround - register .class the same way that the extensions .php, .php3 or.php4 are registered in the web server configuration file.
+Note: .class is usually used by java applets
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+-- 
+Additional References:
+
+
+--

@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+1772
+
+--
+Summary:
+This event is generated when an attempt is made to access the
+pbserver.dll component associated with the Microsoft Phone Book Service. 
+
+--
+Impact:
+Remote access. Malicious access of the pbserver.dll component can allow
+the execution of arbitrary commands on a vulnerable server.
+
+--
+Detailed Information:
+The Microsoft Phone Book Service allows dial-in clients to download
+phone book updates from the Internet Information Server (IIS) running
+the Phone Book Service.  The pbserver.dll is the Internet Services
+Application Programming Interface (ISAPI) that implements the update
+service.  A buffer overflow exists in pbserver.dll that may permit the
+execution of arbitrary commands on the server. 
+
+--
+Affected Systems:
+	Windows NT 4.0
+	Windows 2000 Server
+
+--
+Attack Scenarios:
+An attacker can craft an HTTP request for a phone book update to a host
+running the Phone Book Service.
+
+--
+Ease of Attack:
+Simple. Exploit code is available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Delete pbserver.dll if the Phone Book Service is unnecessary. 
+
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

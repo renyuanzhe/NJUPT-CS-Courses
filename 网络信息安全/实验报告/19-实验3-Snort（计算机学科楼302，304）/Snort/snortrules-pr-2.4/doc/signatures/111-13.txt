@@ -1,0 +1,59 @@
+Rule: 
+
+--
+Sid: 
+111-13
+
+-- 
+Summary: 
+This event is generated when the pre-processor stream4
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+This may indicate scanning activity.
+
+--
+Detailed Information:
+The pre-processor stream4 has detected network traffic that may indicate
+a stealth scan is in progress. That is, packets with both the SYN and FIN
+flags set have been detected. This is not normal behavior in TCP
+connections.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios: 
+An attacker may utilize scanning techniques to determine possible points
+of exploitation against a host.
+
+-- 
+Ease of Attack: 
+Simple. Many scanning tools exist.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+Corrective Action:
+Check the target host for signs of compromise.
+
+Ensure the system is up to date with any appropriate vendor supplied patches.
+
+--
+Contributors:
+Martin Roesch <roesch@sourcefire.com>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

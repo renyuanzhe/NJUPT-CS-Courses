@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+1188
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in WS_FTP.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible.
+
+--
+Detailed Information:
+Executing  site cpwd with an specially crafted argument can cause a buffer
+overflow in WS_FTP that would allow arbitrary code to be run on the ftp
+server.
+
+The 'site cpwd' command seems to be unique to ws_ftp. This command is used
+to allow users to change there passwords while using an ftp session. It is
+possible to execute 'site cpwd' with an specially crafted argument can cause
+a buffer overflow in WS_FTP. This would allow arbitrary code to be run on
+the ftp server. This requires that the user be logged into the ftp server
+before executing the 'site cpwd' command.
+
+--
+Affected Systems:
+	WS_FTP up to an including 3.12
+
+--
+Attack Scenarios:
+An attacker needs to authenticate to an ftp server running the affected
+software then supply a specially crafted command to cause the buffer
+overflow condition to occur.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+'site cpwd' is a valid command on ws_ftp and users may be allowed to change
+their passwords.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+Consider using scp as a secure replacement for ftp.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Ian Macdonald
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

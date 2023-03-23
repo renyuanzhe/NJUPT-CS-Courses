@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1550
+
+--
+Summary:
+This event is generated when an external attacker attempts to exploit a
+buffer overflow vulnerability in the ETRN command in NetWin DMail.
+
+--
+Impact:
+Severe. Remote execution of arbitrary code, leading to remote root compromise. 
+
+--
+Detailed Information:
+Some versions of NetWin DMail SMTP server contain a buffer overflow
+vulnerability in the ETRN command. An attacker can use an overly long
+string in an ETRN argument to cause a buffer overflow condition. This
+allows the attacker to crash the mail server or execute arbitrary code
+with root access. 
+
+--
+Affected Systems:
+	NetWin DMail 2.8a-h and prior
+	NetWin DMail 2.7q and prior
+
+--
+Attack Scenarios:
+An attacker sends an ETRN command with an overly long argument to a
+NetWin DMail SMTP server. The attacker can then crash the mail server or
+execute arbitrary code with root access. 
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+--

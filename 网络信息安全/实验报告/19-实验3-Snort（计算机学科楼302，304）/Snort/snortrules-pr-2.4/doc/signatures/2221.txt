@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2221
+
+--
+Summary:
+This event is generated when an attempt is made to access ws_mail.cgi on an internal web server. This may indicate an attempt to exploit a remote command execution vulnerability in cgiCentral WebStore 400 4.14.
+
+--
+Impact:
+Execution of arbitrary code. An attacker must be an authenticated WebStore administrator to successfully execute this exploit.
+
+--
+Detailed Information:
+cgiCentral WebStore 400 is an online shopping cart application for web servers. It contains a vulnerability in the "kill" parameter, where a malicious user with an authorized administrative WebStore account can execute arbitrary code on the web server and gain root access to the compromised server. 
+
+--
+Affected Systems:
+Any web server running cgiCentral WebStore 400 4.14 or WebStore 400 CS 4.14.
+
+--
+Attack Scenarios:
+An attacker with a valid WebStore administrator account sends a specially crafted HTTP request with shell commands in the URL's kill parameter. The shell commands are then executed with the security context of the server, allowing the attacker to obtain root access to the compromised machine.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses ws_mail.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is unknown if this vulnerability was fixed with WebStore 4.15. Contact the vendor, RDC Software (http://www.ratite.com/) for more information.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/2861
+
+--

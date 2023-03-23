@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+1137
+
+--
+Summary:
+This event is generated when an attempt is made to access the php 
+application Phorum using a default administrator account.
+
+--
+Impact:
+Severe - Phorum administration is controlled by the attacker
+
+--
+Detailed Information:
+Phorum is a popular PHP forum and versions 3.0.7 and previous are 
+vulnerable to this exploit.  An attacker can exploit a bug in Phorum's 
+auth.php script to gain administration access using a universal password
+(boogieman) supplied with the variable PHP_AUTH_USER. Phorum's PHP 
+scripts rely on auth.php to authenticate the user.
+
+--
+Attack Scenarios:
+The attacker requests /admin.php?PHP_AUTH_USER=boogieman from the Phorum
+PHP scripts. It is now possible to use the administration script to 
+modify all Phorum settings.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Update Phorum from www.phorum.org
+
+--
+Contributors:
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

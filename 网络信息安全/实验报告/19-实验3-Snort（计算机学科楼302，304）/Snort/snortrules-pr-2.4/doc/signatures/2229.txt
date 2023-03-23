@@ -1,0 +1,57 @@
+Rule:  
+
+--
+Sid:
+2229
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the PHP application phpBB.
+
+--
+Impact:
+Information disclosure possibly leading to serious system compromise.
+
+--
+Detailed Information:
+Some versions of phpBB Group phpBB suffer from a vulnerability that 
+allows an attacker to inject SQL queries of their choosing.
+
+This can result in the disclosure of passwords and other information 
+stored in the database. The data contained in the database may also be 
+corrupted by a malicious SQL query.
+
+--
+Affected Systems:
+	phpBB Group phpBB 2.0.4, 2.0.5
+
+--
+Attack Scenarios:
+The attacker can execute one of the publicly available exploit scripts.
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

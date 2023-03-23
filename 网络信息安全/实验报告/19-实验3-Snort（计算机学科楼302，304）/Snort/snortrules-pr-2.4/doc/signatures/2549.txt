@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+2549
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with the web interface support for the HP JetAdmin printer.
+
+--
+Impact:
+A successful attack may allow a sensitive system file to be overwritten.
+
+--
+Detailed Information:
+The HP Web JetAdmin provides a web interface for the administration of the HP
+Web JetAdmin printer.  A vulnerability is present that allows an existing file
+on the server to be overwritten. This problem exists because the script 
+/plugins/framework/script/tree.xms does not sanitize the value supplied to
+the parameter WriteToFile, permitting a directory traversal from the web root
+directory to any file. An attacker can supply the data to write to the specified
+file.
+
+--
+Affected Systems:
+HP Web JetAdmin 7.2.
+
+--
+Attack Scenarios:
+An attacker can overwrite a sensitive system file using the WriteToFile parameter
+and supplying the data to write to the file. 
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+The default HP Web JetAdmin port is 8000.  If an administrator selects a different port
+on which to run the web interface, no alert will be detected.  In that case, the rule
+should be altered to reflect the port on which the web interface runs.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software or apply the appropriate patch
+when it becomes available.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Bugtraq:
+http://www.securityfocus.com/bid/9973
+
+--

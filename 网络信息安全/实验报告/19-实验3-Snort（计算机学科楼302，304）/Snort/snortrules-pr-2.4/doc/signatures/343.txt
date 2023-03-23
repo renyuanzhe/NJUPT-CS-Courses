@@ -1,0 +1,60 @@
+SID:
+343
+--
+
+Rule:
+--
+
+Summary:
+This event is generated when an attack attempt is made against an ftp 
+server possibly running a vulnerable ftpd running on FreeBSD
+--
+
+Impact:
+Possible remote execution of commands on the affected server as the root user
+--
+
+Detailed Information:
+The Washington University ftp daemon (wu-ftpd) does not perform proper 
+checking in its SITE EXEC implementation, and allows user input to be 
+sent directly to printf. This allows an attacker to overwrite data and 
+eventually execute code on the server.
+
+--
+
+Affected Systems:
+Any system running wu-ftpd 2.6 .0 or below
+--
+
+Attack Scenarios:
+A remote attacker will attempt to execute commands on the ftp server 
+with root user privileges, over writing or modifying system files. This 
+can be done with anonymous and real user logins.
+--
+
+Ease of Attack:
+Simple, Exploits exist
+--
+
+False Positives:
+None known
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Upgrade to latest version which has fixes for this problem. Maybe even get rid of wu-ftp with something more secure
+--
+
+Contributors:
+Snort documentation contributed by matthew harvey <indexone@yahoo.com>
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+--

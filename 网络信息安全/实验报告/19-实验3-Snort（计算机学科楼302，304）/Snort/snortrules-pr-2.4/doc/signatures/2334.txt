@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2334
+
+--
+Summary:
+This event is generated when an attempt is made to access a Yak! FTP
+server using the default username and password.
+
+--
+Impact:
+Administrative access to the server.
+
+--
+Detailed Information:
+Yak FTP servers have a default username and password of "user" and 
+"y049575046", if this is not changed by the administrator it is possible 
+for an attacker to gain unauthorised access to the server.
+
+--
+Affected Systems:
+	Yak FTP servers
+
+--
+Attack Scenarios:
+An attacker merely needs to login to the server using the default 
+username and password.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Change the username and password.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

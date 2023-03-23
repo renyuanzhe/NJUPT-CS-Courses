@@ -1,0 +1,64 @@
+Rule: 
+
+--
+Sid: 
+111-15
+
+-- 
+Summary: 
+This event is generated when the pre-processor stream4
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. Possible attempt to evade an IDS.
+
+--
+Detailed Information:
+This event is generated whent the pre-processor stream4 detects abnormal
+Time To Live (TTL) values in a datastream. This may indicate an attempt
+to evade an IDS.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios: 
+An attacker can set the TTL values of all packets to a value so small
+that only the IDS will see the packet and it will not get to the target
+system.
+
+-- 
+Ease of Attack: 
+Simple. Tools such as fragroute enable an attacker to do this.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+
+Corrective Action:
+Check the target host for signs of compromise.
+
+Ensure the system is up to date with any appropriate vendor supplied patches.
+
+--
+Contributors:
+Martin Roesch <roesch@sourcefire.com>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Insertion, Evasion, and Denial of Service: Eluding Network Intrusion
+Detection:
+http://www.insecure.org/stf/secnet_ids/secnet_ids.html
+
+--

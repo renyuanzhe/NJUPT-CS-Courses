@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+985
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in a web server running Microsoft Internet Information
+Server.
+
+--
+Impact:
+Information gathering and system integrity compromise. Possible unauthorized
+administrative access to the server or application. Possible execution
+of arbitrary code of the attackers choosing in some cases. Denial of
+Service is possible.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to compromise a host
+running Microsoft Internet Information Server (IIS). Many known
+vulnerabilities exist for this platform and the attack scenarios are
+legion.
+
+--
+Affected Systems:
+	All systems running Microsoft IIS
+
+--
+Attack Scenarios:
+Many attack vectors are possible from simple directory traversal to
+exploitation of buffer overflow conditions.
+
+--
+Ease of Attack:
+Simple. Many exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+1226
+
+--
+Summary:
+This event is generated when an attempt to launch an X windows application on an X windows server is made.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a compromise of all resources the machine is connected to.
+
+--
+Detailed Information:
+Implementations of the X windows system from the X consortium may use weak authentication methods when allowing remote machines to connect to a host running X windows.
+
+XDM is used to allow remote users access to the remote X window server. When configured incorrectly, this may allow an unathorised user to connect to the display.
+
+This event is generated when a user outside the protected network opens an X windows application on the remote X server.
+
+--
+Attack Scenarios:
+The remote attacker may scan the host for listening X window servers, then connect to the remote host using XDM. The attacker may then execute an X windows application on the remote host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow connections to X servers from hosts outside the protected network.
+
+Apply the appropriate vendor patches.
+
+Upgrade to the latest version of the software.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS396
+
+--

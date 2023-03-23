@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+
+
+--
+Summary:
+This event is generated when an attempt is made to access a script not normally used in a production environment. 
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to access a test script (test.php) that would not normally be used in a production environment.
+
+The attacker may be trying to gain information on the php implementation on the host, this may be the prelude to an attack against that host using that information.
+
+In applications such as Horde or IMP, the test.php script may reveal valuable server information to the attacker.
+
+--
+Affected Systems:
+Any host using php applications such as Horde or IMP.
+
+Other php applications may use a file named test.php also.
+
+--
+Attack Scenarios:
+An attacker can retrieve a sensitive file containing information on the php application on the host. The attacker might then gain administrator access to the site or database.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If the script test.php exists and is normally used, this rule will generate an event.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the php implementation on the host. Ensure all measures have been taken to deny access to sensitive files.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

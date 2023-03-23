@@ -1,0 +1,61 @@
+Rule:
+
+--
+
+Sid:
+398
+
+--
+
+Summary:
+This event is generated when An ICMP Host Unreachable for Type of Server datagram is detected on the network.  
+
+--
+
+Impact:
+Routers will generate this message when the requested TOS (Type of Service) is not permitted to transverse the network.  This could be an indication of an improperly configured routing device or a improperly configured host on the network.
+
+--
+
+Detailed Information: 
+This rule generates informational events about the network.  Large numbers of these messages on the network could indication routing problems, faulty routing devices, or improperly configured hosts.
+
+--
+
+Attack Scenarios:
+None Known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate these types of ICMP datagrams.
+
+--
+
+False Positives:
+None Known
+
+--
+
+False Negatives:
+None Known
+
+--
+
+Corrective Action:
+This rule detects informational network information, no corrective action is necessary.
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

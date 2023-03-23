@@ -1,0 +1,60 @@
+Rule:  
+
+--
+Sid:
+2400
+
+--
+Summary:
+This event is generated when an attempt is made to access the CGI script
+edittag.pl.
+
+--
+Impact:
+Information Disclosure
+
+--
+Detailed Information:
+EditTag is a perl script that can be used to manage web site content.
+
+The edittag.pl CGI script may allow an attacker to leverage a directory
+traversal attack on a web server. Due to insufficient checks on user
+supplied input, it may be possible for an attacker to supply encoded
+"../" characters to traverse out of the web root and view sensitive
+system files on the web server.
+
+--
+Affected Systems:
+	EditTag
+
+--
+Attack Scenarios:
+An attacker can utilize this vulnerability to gain sensitive information
+that may be used in further attacks against the host.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version.
+
+--
+Contributors:
+Sourcefire Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

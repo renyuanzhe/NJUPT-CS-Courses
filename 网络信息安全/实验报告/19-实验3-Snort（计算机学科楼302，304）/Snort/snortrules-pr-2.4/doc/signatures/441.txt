@@ -1,0 +1,66 @@
+Rule:
+
+--
+
+Sid:
+441
+
+--
+
+Summary:
+This event is generated when an ICMP Router Advertisement message is found on the network.
+
+--
+
+Impact:
+
+--
+
+Detailed Information:
+Routers may use ICMP protocol 9 to advertise their information and presence on a network. Clients normally recieve this information from DNS if they use DHCP. Clients with statically assigned addresses do not need this information from an external source.
+
+It may be possible for an attacker to craft a packet of this type in such a way as to change the routing information on a DHCP enabled client.
+
+--
+
+Affected Systems:
+	Microsoft Windows 98
+	Sun Solaris 2.6, Sun OS 5.  
+
+--
+
+Attack Scenarios:
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate ICMP Address Mask Requests.
+
+--
+
+False Positives:
+Legitimate uses of ICMP type 9 messages are common.
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+ICMP Type 9 should be blocked at the upstream firewall.  This type of ICMP request should never originate from a host outside of the protected network.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+
+Additional References:
+None
+
+
+--

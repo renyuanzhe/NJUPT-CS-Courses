@@ -1,0 +1,56 @@
+Rule:
+
+--
+
+Sid:
+443
+
+--
+
+Summary:
+This event is generated when an ICMP Router Selection message is found on the network.
+
+--
+
+Impact:
+
+--
+
+Detailed Information:
+ICMP Address Mask Requests are defined in RFC 950 as the third method hosts may support for determing the address mask correspoding to its IP address.  In most implementations this method is not supported, and should not be normal traffic on most networks.  
+
+--
+
+Attack Scenarios:
+Attackers may use this ICMP Type to gather information about the subnet masks of a given network.
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate ICMP Address Mask Requests.
+--
+
+False Positives:
+Legitimate uses of ICMP Address Mask Requests exist.  Some hosts my implement this method as the final fall back option after static configuration and dynamic address mask configuration has failed.
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+ICMP Type 17 should be blocked at the upstream firewall.  This type of ICMP request should never originate from a host outside of the protected network.
+--
+
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+
+Additional References:
+None
+
+
+--

@@ -1,0 +1,49 @@
+Rule:
+
+--
+Sid:
+1364
+
+--
+Summary:
+Attempted lsof command access via web
+
+--
+Impact:
+Attempt to gain information on system processes on webserver
+
+--
+Detailed Information:
+This is an attempt to gain intelligence on the processes being run on a webserver. The lsof command lists information about files that are open by the running processes.  An open file may be a regular file, a directory, a block special file, a character special file, an executing text reference, a library, a stream or a network file (Internet socket, NFS file or Unix domain socket). The attacker could possibly gain information needed for other attacks on the system.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains 'lsof' in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. This command may also be requested on a command line should the attacker gain access to the machine.
+
+--
+Contributors:
+Sourcefire Research Team
+
+-- 
+Additional References:
+sid: 1329
+man lsof
+
+--

@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+661
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a problem with Majordomo software that allows arbitrary commands to be executed on the server.
+
+--
+Impact:
+Attempted administrator access.  This is an attempt to execute a command on a server where Majordomo is installed. 
+
+--
+Detailed Information:
+Majordomo is an application that automates mailing list management.  An input validation error allows attackers to use a malformed email header as a command that will be executed on the host.  To be vulnerable, the server must use a list or a hidden list and the configuration file must specify an advertise or noadvertise option.  This has been documented as either a local or remote attack on the host. 
+
+--
+Affected Systems:
+Majordomo versions up to and including 1.94.4.
+
+--
+Attack Scenarios:
+An attacker can send a malformed e-mail header to the Majordomo host.  The host executes a command that facilitates access to the host.
+
+
+--
+Ease of Attack:
+Simple. Use an appropriate malformed header and supply a command that enables access to the host. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to Majordomo version 1.94.5 or higher.
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2310
+
+Arachnids:
+http://www.whitehats.com/info/IDS143
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0207
+
+
+--

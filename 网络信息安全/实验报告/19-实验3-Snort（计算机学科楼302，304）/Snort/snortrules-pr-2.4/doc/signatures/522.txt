@@ -1,0 +1,86 @@
+Rule:  
+
+--
+Sid:
+522
+
+--
+Summary:
+This event is generated when an IPv4 fragment of dubiously small nature 
+was detected.
+
+--
+Impact:
+Many IDSes are known to have issues regarding the reassembly of IP
+fragments, and could miss an attack carried over such means.  Firewalls
+suffer from the same issues, and can be tricked into allowing packets
+through that should normally be rejected.  Furthermore, there is a small
+history of OS issues related to unorthodox fragmentation.
+
+--
+Detailed Information:
+IPv4 manages to adapt to various link layer protocols on a route via the
+fragmentation mechanism outlined in its RFC.  A router connecting two
+carrying media of varying MTU (Maximum Transmission Unit) can fragment
+packets of size too large to transmit on one wire before dispatch.  When
+datagrams stay within one MTU, the maximum packet sizes possible can be
+used without fragmentation, thus pairing flexibility with efficiency.
+
+Historically, handling of fragmentation has been less than stellar in
+both IP stacks and the IDS systems designed to protect them.  While the
+limited number of attacks based on fragmentation are easily picked up by
+anomaly- or signature-based system, IDSes which fail to properly
+reassemble fragments can miss any attack which is so fragmented.
+Firewalls have often proved susceptible to fragmented TCP or UDP
+headers, allowing traffic which should have been filtered to pass
+through.
+
+--
+Affected Systems:
+Any IDS/firewall lacking proper IPv4 fragment reassembly.
+
+--
+Attack Scenarios:
+An attacker may pass a fragment containing a TCP/UDP header which is
+allowed to pass through a firewall, then follow this up with a fragment
+which overwrites the previous headers, but is allowed due to poor
+connection tracking.
+
+An attacker may fragment an exploit, so that it is not detected by IPS
+nor filtered by IPS products.
+
+--
+Ease of Attack:
+Tools have been written to trivially fragment traffic; Dug Song's
+fragrouter program is a well-known example.
+
+--
+False Positives:
+It is unlikely that such a fragment would be seen in standard use of
+IPv4; while the last fragment in a series is typically smaller than the
+others, this signature explicilty matches the More Fragments bit.
+Nonetheless, a pedantic reading of the IPv4 RFC allows this, so long as
+the data length is a multiple of 8.
+
+--
+False Negatives:
+Attacks may still be fragmented into larger chunks.
+
+--
+Corrective Action:
+None
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nick Black, Reflex Security <dank@reflexsecurity.com>
+
+-- 
+Additional References:
+
+IPv4 RFC:
+http://www.faqs.org/rfcs/rfc791.html
+
+--

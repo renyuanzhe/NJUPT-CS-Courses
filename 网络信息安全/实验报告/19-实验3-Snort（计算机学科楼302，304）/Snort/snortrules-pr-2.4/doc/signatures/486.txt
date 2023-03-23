@@ -1,0 +1,67 @@
+Rule:
+
+--
+
+Sid:
+486
+
+--
+
+Summary:
+This event is generated when an ICMP destination unreachable
+(Communication with Destination Host is Administratively Prohibited)
+datagram is detected on the network.  
+
+--
+
+Impact:
+This message is generated when a datagram failed to traverse the
+network.  This could be an indication of routing or network problems.
+
+--
+
+Detailed Information: 
+This rule generates informational events about the network.  Large
+numbers of these messages on the network could indication routing
+problems, faulty routing devices, or improperly configured hosts.
+
+--
+
+Attack Scenarios:
+None known.
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate these types of ICMP datagrams.
+
+--
+
+False Positives:
+None known.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+This rule detects informational network information, so no corrective
+action is necessary.
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None.
+
+
+--

@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+1821
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in dvips on some RedHat Linux systems.
+
+--
+Impact:
+Execution of commands with the privileges of the lp daemon.
+
+--
+Detailed Information:
+dvips is used to convert DVI documents into PostScript format for
+printing. The line printer daemon may use dvips to print DVI documents
+using a filter.
+
+A configuration error in some distributions of RedHat Linux allows a
+remote attacker to execute commands via this utility.
+
+--
+Affected Systems:
+	RedHat Linux 6.2, 7.0 and 7.1
+
+--
+Attack Scenarios:
+The attacker can place the commands to be excuted in a DVI file and send
+that to the lp daemon.
+
+--
+Ease of Attack:
+Simple. No exploit software is required.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+
+Ensure that dvips is executed in safe mode by the lp daemon by
+specifying the use of the -R flag in the dvi-to-ps.fpi configuration file.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

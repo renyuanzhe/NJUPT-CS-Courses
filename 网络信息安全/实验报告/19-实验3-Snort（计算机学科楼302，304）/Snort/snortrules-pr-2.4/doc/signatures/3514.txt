@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+3514
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+directory traversal associated with an Oracle UTL_FILE command.
+
+--
+Impact:
+A successful attack can allow a malicious user to read, write,
+alter, or delete files outside the user's authorized directory.
+
+--
+Detailed Information:
+Oracle UTL_FILE commands allow a user to read, write, copy, or
+delete files in locations/directories authorized to the user.
+However, no check is performed to examine if the user attempts
+to employ a directory traversal to manipulate files outside of
+the authorized directories.  Specifically, the FOPEN, FOPEN_NCHAR,
+FREMOVE, FRENAME, and FCOPY commands are vulnerable to this
+exploit.
+
+Note that hosts using Microsoft Windows as the base operating system
+must set the $ORACLE_PORTS variable to any to potentially avoid missing
+any attacks.
+
+--
+Affected Systems:
+	Oracle 8i
+	Oracle 9i
+
+--
+Attack Scenarios:
+An authenticated user can attempt to manipulate files outside of
+the authorized directories.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known. Note that hosts using Microsoft Windows as the base
+operating system must set the $ORACLE_PORTS variable to any to
+potentially avoid missing any attacks.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

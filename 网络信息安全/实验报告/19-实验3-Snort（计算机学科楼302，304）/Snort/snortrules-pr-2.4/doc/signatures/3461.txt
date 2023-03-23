@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+3461
+
+--
+Summary:
+This event is generated when an attempt is made to overflow a buffer
+using the Content-Type parameter.
+
+--
+Impact:
+Serious. Code execution is possible.
+
+--
+Detailed Information:
+Internet Explorer does not correctly handle Content-Type or
+Content-Encoding headers returned from a server. It is possible to
+overflow a static buffer in urlmon.dll by supplying more than 300 bytes
+of data in the parameter for those headers.
+
+Specifically the error occurs when an image tag <img> is used to pass
+the excess data to both those header fields in a server response. Since
+some email clients use Internet Explorer to process HTML email messages,
+it is also possible to cause this overflow to occur via email.
+
+--
+Affected Systems:
+	Microsoft Windows systems
+
+--
+Attack Scenarios:
+An attacker can supply a malicious HTML file to a mail client containing
+excess data in the Content-Type and Content-Encoding headers that will
+overflow the buffer presenting them with the opportunity to write to
+various parts of memory and possibly execute code of their choosing.
+
+--
+Ease of Attack:
+Simple. Exploit code is publicly available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References
+
+--

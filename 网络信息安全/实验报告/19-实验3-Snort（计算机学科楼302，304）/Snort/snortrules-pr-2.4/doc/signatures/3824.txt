@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+3824
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a denial of
+service or buffer overflow associated with the MailEnable mail server.
+
+--
+Impact:
+A successful attack may permit a denial of service or buffer overflow
+that allows the execution of arbitrary code with system privileges.
+
+--
+Detailed Information:
+MailEnable is a Windows-based mail server.  A vulnerability exists in the
+MailEnable SMTP server, possibly allowing a denial of service of execution
+of arbitrary code with system privileges.  The vulnerability is
+associated with passing overly long arguments to the AUTH command.
+
+--
+Affected Systems:
+	MailEnable MailEnable Professional 1.54 and prior
+	MailEnable MailEnable Enterprise Edition 1.0.4 and prior
+
+--
+Attack Scenarios:
+An attacker can send a malicious SMTP payload with an overly long
+argument to the AUTH command, possibly causing a denial of service or a
+buffer overflow and the subsequent execution of arbitrary code with
+system privileges on the vulnerable server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+It may be possible for this alert to fire when the command AUTH is found
+in the data portion of the SMTP transfer instead of as an actual command.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

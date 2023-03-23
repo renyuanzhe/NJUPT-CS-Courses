@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+1409
+
+--
+Summary:
+This event is generated when an attempt is made to attack a device using SNMP v1.
+
+--
+Impact:
+Varies depending on the implementation. Ranges from Denial of Service (DoS) to code execution.
+
+--
+Detailed Information:
+SNMP is a widely adopted protocol for managing IP networks, including individual network devices, and devices in aggregate. 
+
+Several network devices come pre-installed with this protocol for management and monitoring.
+
+A number of vulnerabilities exist in SNMP v1, including a community string 
+buffer overflow, that will allow an attacker to execute arbitrary code or shutdown the service.
+
+--
+Affected Systems:
+Any implementation of SNMP v1 protocol
+	
+--
+Attack Scenarios:
+An attacker needs to send a specially crafted packet to UDP port 161 
+of a vulnerable device, causing a Denial of Service or possible execution of 
+arbitrary code.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable the SNMP v1 protocol, use SNMP v2 protocol as an alternative.
+
+Disable the use of SNMP for devices that do not need it.
+
+Use Ingress/Egress filtering on a packet filtering firewall.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2002-03.html
+
+--

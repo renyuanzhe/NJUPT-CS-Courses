@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2216
+
+--
+Summary:
+This event is generated when an attempt is made to access readmail.cgi on an internal web server. This may indicate an attempt to exploit a buffer overflow vulnerability in Ipswitch IMail 7.04 and earlier.
+
+--
+Impact:
+Denial of service.
+
+--
+Detailed Information:
+Ipswitch IMail is a mail server that supports multiple mail protocols. Its web mail implementation contains a vulnerability in readmail.cgi where, if a mailbox name with more than 248 dot characters (.) is requested, the server will crash. It has also been reported that this is caused by a buffer overflow error that may allow an attacker to execute arbitrary code, but this has not been confirmed.
+
+--
+Affected Systems:
+Mail servers running Ipswitch Imail 7.04 and earlier with web mail enabled.
+
+--
+Attack Scenarios:
+An attacker sends an HTTP request to readmail.cgi for a mailbox with more than 248 dot characters in the mailbox name parameter. The mail server will crash and must be restarted.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If a legitimate remote user accesses readmail.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to a newer version or apply the vendor-supplied hotfix available at ftp://ftp.ipswitch.com/Ipswitch/Product_Support/IMail/imail704.exe.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/3427
+
+--

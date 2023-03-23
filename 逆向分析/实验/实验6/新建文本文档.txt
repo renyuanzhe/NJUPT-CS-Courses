@@ -1,0 +1,3 @@
+已初始化数据块大小，编译时所构成的块的大小
+SizeOfImage 映象装入内存后总尺寸
+SizeOfHeadersMS头，PE头，SECTION表大小

@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid: 292
+
+--
+Summary:
+Versions of the file sharing software Samba 1.9.19 and prior contain a buffer overflow condition that can be exploited by supplying an overly long password to the Samba server.
+
+--
+Impact:
+System compromize presenting the attacker with the opportunity to
+gain remote access to the victim host or execute arbitrary code with the privileges of the user running the Samba server.
+
+--
+Detailed Information:
+Samba is used to share files and printers between hosts on a network. A buffer overflow in the handling of passwords exists such that an overly long password can trigger the vulnerability presenting the attacker with an opportunity to remotely compromise the server running the Samba software.
+
+Affected Systems:
+	Samba 1.9.19 and prior
+
+--
+Attack Scenarios:
+The attacker would need to supply an excessively long password.
+
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest version of Samba.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0182
+
+Bugtraq:
+http://www.securityfocus.com/bid/1816
+
+--

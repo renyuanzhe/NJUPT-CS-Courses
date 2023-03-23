@@ -1,0 +1,59 @@
+Rule:  
+--
+
+Sid:
+1104
+
+--
+
+Summary:
+This event is generated when an attempt is made to evade an IDS in a possible 
+web attack by sending an obfuscated request in small increments.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+Under normal circumstances, a web request fits inside a single packet. However,
+it is possible to obfuscate a web attack by sending the attack one character
+at a time.  This may evade some IDS systems. Tools such as Whisker can
+be configured to do this.
+
+--
+Affected Systems:
+	All Web Servers
+ 
+--
+Attack Scenarios:
+An attacker can use an automated tool, like Whisker, to launch an attack
+against a web server.
+
+--
+Ease of Attack:
+Simple. Exploits and tools are widely available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Check the host for signs of compromise.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

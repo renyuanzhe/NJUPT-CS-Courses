@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+3679
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability associated with Mozilla Firefox when processing the IFRAME
+tag.
+
+--
+Impact:
+A successful attack may permit execution of arbitrary code on a
+vulnerable client.
+
+--
+Detailed Information:
+A vulnerability exists in the way Mozilla Firefox handles the value
+supplied to the IFRAME tag "src" keyword.  Ordinarily the "src" keyword
+is used to supply the the URL of the document to display in the new
+frame created by the IFRAME tag. However, if supplied malcious
+javascript, it is possible to execute arbitrary code on a vulnerable
+client.
+
+--
+Affected Systems:
+	Mozilla Firefox 1.0.3 and previous versions
+	Mozilla Suite 1.7.7 and previous versions
+
+--
+Attack Scenarios:
+An attacker can entice a user to visit a malicious website that can
+execute arbitrary code on a vulnerable client.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+In order to avoid potential evasion techniques, http_inspect should be
+configured with "flow_depth 0" so that all HTTP server response traffic
+is inspected.
+
+WARNING
+Setting flow_depth 0 will cause performance problems in some situations.
+WARNING
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+
+--
+Additional References
+
+--

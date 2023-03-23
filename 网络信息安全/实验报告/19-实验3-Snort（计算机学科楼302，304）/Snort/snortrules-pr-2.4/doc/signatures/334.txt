@@ -1,0 +1,64 @@
+Rule:   
+
+--
+Sid: 334
+
+-- 
+Summary: 
+This event is generated when an attempt to copy a specific file to an FTP server is made.
+
+-- 
+
+Impact: 
+Serious. The attacker might gain the ability to execute commands remotely with the privileges of the affected user.
+
+--
+Detailed Information:
+This event is generated when an attempt to copy a ".forward" file to a victim host is made. A ".forward"file is used to configure email forwarding on UNIX systems. Usually it contains the email addresses where incoming email is forwarded. However, ".forward" file can also be used to forward email to programs (for example, "|IFS=' ' && exec /usr/bin/procmail -f- || exit 75 anton") and thus cause program execution triggered by arriving email messages. 
+
+This functionality can be used to activate a backdoor or start a daemon that listens for connections on a high port, launch a terminal session on the attacker's machine or initiate a reverse shell session. 
+
+This attack requires an established FTP session.
+
+--
+
+Attack Scenarios: 
+The attacker uploads a ".forward" file with commands to launch an "xterm" window on his machine into the user's home directory. Then he sends an email to the user whose ".forward" file was modified. That triggers the command in ".forward" and causes the xterm windows to be opened, providing shell access to a system with the privileges assigned to that user.
+
+-- 
+
+Ease of Attack: 
+The attack requires an access to a users home directory via FTP. This means that anonymous FTP access cannot be used for such an attack and a valid username and password is required. Additionally, the ability to upload files via FTP is required for a successful attack.
+
+-- 
+
+False Positives: 
+If the string ".forward"  is contained within the filename that is being uploaded to a server or within other FTP client responses, the rule will generate an event.
+
+--
+False Negatives: 
+None Known
+
+-- 
+
+Corrective Action: 
+Locate the uploaded ".forward" file and check it for signs of suspicious entries. 
+
+Check the server logs for other suspicious events that might have occurred within the same FTP session
+
+Disallow uploading of files via FTP and use Secure Shell (SSH) for transferring files by users.
+
+--
+Contributors: 
+Original rule writer Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS319
+
+--

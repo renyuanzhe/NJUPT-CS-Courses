@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+366
+
+--
+Summary:
+ping is a standard networking utility that determines if a target host
+is up. This rule indicates that the ping originated from a host running
+Unix.
+
+--
+Impact:
+Information Disclosure. Ping can be used as a reconnaissance tool.
+
+--
+Detailed Information:
+ping sends an ICMP Echo Request packet to an IP address.  If a host is
+up at that address it will reply with an ICMP Echo Reply.  The reply
+includes the data portion of the echo packet.  The data included in the
+Echo Request varies across different operating system implementations.
+
+--
+Affected Systems:
+All
+
+--
+Attack Scenarios:
+An attacker will often ping a machine to make sure it is up before
+attacking.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+This program is also used legitimately by users and/or network
+administrators to troubleshoot problems.  It is possible to emulate this
+ping signature using another ping utility.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+ICMP packets can be blocked with a packet filtering firewall.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+--
+Additional References:
+
+--

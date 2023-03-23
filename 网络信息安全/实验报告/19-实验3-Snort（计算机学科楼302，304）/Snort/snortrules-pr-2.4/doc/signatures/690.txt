@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+690
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft SQL.
+
+--
+Impact:
+Information gathering and data integrity compromise. Possible unauthorized
+administrative access to the server or application.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to gain unauthorized
+access to an implementation of Microsoft SQL server or client.  This can
+lead to unauthorized access and possibly escalated privileges to that of 
+the administrator. Data stored on the machine can be compromised and 
+trust relationships between the victim server and other hosts can be 
+exploited by the attacker.
+
+--
+Affected Systems:
+
+--
+Attack Scenarios:
+An attacker can access the authentication mechanism and supply his/her
+own credentials to gain access. Alternatively the attacker can exploit
+weaknesses to gain access as the administrator.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disallow administrative access from sources external to the protected
+network.
+
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

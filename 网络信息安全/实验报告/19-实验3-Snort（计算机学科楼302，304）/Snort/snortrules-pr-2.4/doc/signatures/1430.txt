@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1430
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerabilty on a Sun Solaris system.
+
+--
+Impact:
+Remote root access.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a known
+vulnerability in /bin/login when used by telnetd on Sun Solaris sytems.
+A buffer overflow condition is present in /bin/login used by telnetd
+that may present an attacker with the opportunity to execute code of
+their choosing after a sucessful exploit.
+
+--
+Affected Systems:
+	Sun Solaris 8.x and earlier
+
+--
+Attack Scenarios:
+An attacker may utilize one of the available exploit scripts.
+
+--
+Ease of Attack:
+Simple. Exploit scripts are publicly available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Consider using Secure Shell instead of telnet.
+
+Block inbound telnet access if it is not required.
+
+Upgrade to the latest non-affected version of the software
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

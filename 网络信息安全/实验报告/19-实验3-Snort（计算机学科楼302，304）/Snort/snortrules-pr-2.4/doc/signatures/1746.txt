@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+1746
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) cachefsd is listening.
+
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port cachefsd is using.  Attackers can also learn what versions of the cachefsd protocol are accepted by cachefsd.
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as cachefsd run.  The cachefsd RPC service is used by Solaris hosts to cache requests for remote file systems mounted by the Network File System (NFS).  There is a vulnerability associated with cachefsd that may cause a buffer overflow, allowing an attacker to execute abitrary code with the privileges of cachefsd, possibly root. 
+
+--
+Affected Systems:
+Solaris 2.5.1, 2.6, 7, 8, 9 
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where cachefsd runs.  This may be a precursor to an attack to exploit the cachefsd buffer overflow.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+If a legitimate remote user is allowed to perform NFS mounts, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for cachefsd, not probes of the cachefsd service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the cachefsd service itself. An attacker may attempt to go directly to the cachefsd port without querying the portmapper service, which would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=can-2002-0084
+
+Bugtraq:
+http://www.securityfocus.com/bid/4674
+
+
+--

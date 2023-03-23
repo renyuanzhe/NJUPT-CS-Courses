@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+2049
+
+--
+Summary:
+a MS-SQL database.
+
+--
+Impact:
+Disclosure of an instance of MS-SQL running on a host.
+
+--
+Detailed Information:
+nessus is being used to query for the existance of a MS-SQL database 
+running on a host. This may be the prelude to an attack against the 
+service.
+
+--
+Affected Systems:
+All systems running MS-SQL.
+
+--
+Attack Scenarios:
+This is a probe, the attacker merely needs to use nessus to search the 
+target for services.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Use a firewall to deny connections to port 1434.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10674
+
+--

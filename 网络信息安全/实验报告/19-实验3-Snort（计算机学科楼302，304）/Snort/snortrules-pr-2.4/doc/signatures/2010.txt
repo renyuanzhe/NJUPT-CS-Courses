@@ -1,0 +1,98 @@
+Rule:
+
+--
+Sid:
+2010
+
+--
+Summary:
+CVS is the Concurrent Versions System, commonly used to 
+help manage software development. It is possible for a remote
+attacker to exploit a bug in the cvs daemon that will allow the 
+perpetrator the ability to execute code, issue a denial of service, 
+compromise code being stored in CVS and read sensitive information. 
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a
+compromise of all resources on the machine. Software development could 
+be halted, code could be lost or stolen and code auditing after the fact
+could affect delivery of software.
+
+--
+Detailed Information:
+Specially crafted directory requests can be used to exploit a double 
+free memory reference bug in the CVS software. It is possible to force 
+the CVS daemon to execute an error that returns a pointer to already 
+freed memory. This is a well known bug.
+
+Since cvsd may be run as root via inetd, the compromise will present the
+attacker with root privileges on the machine. Any code the attacker is 
+able to execute will have root privileges.
+
+It is also possible for the attacker to bypass all write checks and be 
+able to write to the repository using the "anonymous" or "anoncvs" 
+accounts commonly used for read only access. The source code may then be
+compromised by the attacker who could choose to insert malicious code of
+his own making.
+
+If the CVS password database is writable by the CVS user the result is a
+remote root compromise.
+
+For CVS daemons running under changed root conditions (chroot), the rest
+of the operating system files may be protected but the entire CVS 
+directory structure is vulnerable.
+
+--
+Affected Systems:
+	CVS versions 1.11.4 and earlier
+	
+--
+Attack Scenarios:
+The attacker could pass a specially crafted directory request to trigger
+an error condition. The attacker may then be presented with the 
+opportunity to execute code or issue shell commands on some systems.
+
+--
+Ease of Attack:
+Simple, an exploit is available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+Connections to the server using zlib compression will not generate this
+event.
+
+--
+Corrective Action:
+Disable the CVS daemon in the file /etc/inetd.conf. Run the CVS daemon 
+as a user other than root that does not have a valid login to the 
+machine.
+
+Disable anonymous access to the cvs server.
+
+Update the CVS software to the latest non-affected version.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+www.cert.org/advisories/CA-2003-02.html
+www.kb.cert.org/vuls/id/650937
+
+CVE Entry:
+CAN-2003-0015
+
+CVS:
+http://ccvs.cvshome.org/servlets/NewsItemView?newsID=51
+
+--

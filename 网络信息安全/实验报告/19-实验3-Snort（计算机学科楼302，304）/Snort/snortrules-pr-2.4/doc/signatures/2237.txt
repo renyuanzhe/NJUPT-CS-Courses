@@ -1,0 +1,47 @@
+Rule:  
+
+--
+Sid:
+2237
+
+--
+Summary:
+This event is generated when an attempt is made to 
+
+--
+Impact:
+
+--
+Detailed Information:
+
+--
+Affected Systems:
+
+--
+Attack Scenarios:
+
+--
+Ease of Attack:
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

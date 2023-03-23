@@ -1,0 +1,61 @@
+Rule:  
+
+--
+Sid:
+2338
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in GtkFtpd.
+
+--
+Impact:
+Execution of arbitrary code. Possible unauthorized root access.
+
+--
+Detailed Information:
+GtkFtpd fails to perform sufficient checks on user supplied data to the
+daemon. An attacker may exploit this vulnerability to execute code of
+their choosing as the root user. This may also lead to remote root
+access to the server.
+
+--
+Affected Systems:
+	GtkFtpd 1.0.2, 1.0.3 and 1.0.4
+
+--
+Attack Scenarios:
+An attacker may use a publicly available exploit script to take
+advantage of the vulnerability.
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+Use scp/sftp as an alternative to ftp.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

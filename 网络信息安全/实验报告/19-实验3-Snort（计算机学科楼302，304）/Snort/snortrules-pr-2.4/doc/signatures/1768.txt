@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+
+1768 
+
+--
+Summary:
+This event is generated when an attempt is made to overflow a buffer in HTTP header field handler of Microsoft Internet Information Server (IIS) versions 4.0, 5.0, and 5.1.
+
+--
+Impact:
+Denial of Service, arbitrary code execution. Full administrative control is possible.
+
+--
+Detailed Information:
+A vulnerability exists in HTTP header process in ASP.DLL , a specially crafted packet sent to this processor will allow an attacker to disrupt the ISS service or run any arbitrary commands with the privileges of the ASP ISAPI extension.
+
+--
+Affected Systems:
+	Microsoft Internet Information Server 4.0 
+	Microsoft Internet Information Services 5.0 
+	Microsoft Internet Information Services 5.1 
+
+--
+Attack Scenarios:
+A remote attacker first probes the version of ISS server then ,could attempt overflow one of the HTTP header field buffers and execute arbitrary code on the system.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patch.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+Microsoft:
+http://www.microsoft.com/technet/security/bulletin/MS02-018.asp
+
+CERT:
+http://www.cert.org/advisories/CA-2002-09.html
+
+--

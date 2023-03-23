@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+
+1549
+
+--
+Summary:
+This event is generated when an attempt is made to overflow a buffer in an SMTP server via a long SMTP HELO command. 
+
+--
+Impact:
+A remote attacker could exploit this vulnerability to cause a denial of service, or possibly execute arbitrary code.
+
+--
+Detailed Information:
+Most SMTP servers do not properly validate the input string. A buffer overflow may occur when an attacker use a HELO command followed by 1024+ characters. If the server is vulnerable ,it will crash or close the connection, otherwise it will give an error message.
+
+--
+Affected Systems:
+
+	SMTP servers Any version
+	AppleShare IP Mail Server Any version
+	Mercury Mail Server Any version
+	SLMail v2.6 and earlier
+	
+
+--
+Attack Scenarios:
+telnet victim.foo.com 25
+helo victim
+220 victim SMTP Server Ready 
+HELO XXXXXXXXXXX[a thousand of these]XXXXXXXX 
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+--

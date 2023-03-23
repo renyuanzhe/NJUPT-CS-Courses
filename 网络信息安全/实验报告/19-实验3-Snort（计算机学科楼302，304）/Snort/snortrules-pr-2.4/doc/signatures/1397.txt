@@ -1,0 +1,61 @@
+Rule:  
+
+--
+Sid:
+1397
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the CGI program way-board.cgi.
+
+--
+Impact:
+Information disclosure. An attacker could have viewed sensitive
+documents and system files.  This could be a precursor to a future attack.
+
+--
+Detailed Information:
+Way-board is a Korean webboard web application.  It contains a
+vulnerability that can allow an attacker to view the contents of any
+file on the system.
+
+--
+Affected Systems:
+	Way Way-Board 2.0
+
+--
+Attack Scenarios:
+Attacker sends a simple URL like the following:
+http://www.victim.com/way-board/way-board.cgi?db=url_to_any_file%00
+
+--
+Ease of Attack:
+Simple. Exploit software is not required.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

@@ -1,0 +1,70 @@
+Rule:
+
+-- 
+Sid:
+2655
+
+-- 
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with an HP WebJetAdmin web server.
+
+-- 
+Impact:
+A successful attack may allow the execution of arbitrary code as root on UNIX
+and SYSTEM on Windows on a vulnerable server.
+
+-- 
+Detailed Information:
+The HP Web JetAdmin application allows users to manage HP JetDirect-connected
+printers within their intranet using a browser. The httpd core supports an
+exported function called ExecuteFile. A vulnerability exists that allows the
+uploading and execution of unauthorized files by posting a malicious http
+request with the script /plugins/framework/script/content.hts in conjunction
+with ExecuteFile function to the web server. Discovery of the vulnerability is
+credited to FX of Phenoelit.
+
+-- 
+Affected Systems:
+	HP Web JetAdmin 6.5.
+
+-- 
+Attack Scenarios:
+An attacker can create upload and execute a malicious file on a vulnerable server.
+
+-- 
+Ease of Attack:
+Simple.
+
+-- 
+False Positives:
+None known.
+
+-- 
+False Negatives:
+The default HP Web JetAdmin port is 8000. If an administrator selects a
+different port on which to run the web server, no event will be
+generated. In that case, the rule should be altered to reflect the 
+port on which the web server runs. 
+
+-- 
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+-- 
+Contributors:
+Thomas Alex <talex@edhacker.com>
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Phenoelit:
+http://www.phenoelit.de/stuff/HP_Web_Jetadmin_advisory.txt>
+
+Hewlett-Packard:
+http://h20000.www2.hp.com/bizsupport/TechSupport/Document.jsp?objectID=PSD_HPSBPI01026
+
+--

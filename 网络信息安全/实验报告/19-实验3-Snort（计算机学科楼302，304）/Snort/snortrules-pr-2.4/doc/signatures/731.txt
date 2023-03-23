@@ -1,0 +1,97 @@
+Rule:
+
+--
+Sid:
+731
+
+--
+Summary:
+QAZ is a Trojan Horse.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a compromise of all resources the machine is connected to.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+	Windows NT
+	Windows 2000
+	Windows XP
+
+No other systems are affected. This is a windows exceutable that makes changes to the system registry.
+
+The Trojan changes system startup files and registry settings to add the QAZ sever to programs normally started on boot.
+
+	SID	Message
+	---	-------
+	108	QAZ Worm Client Login access
+	731	Virus - Possible QAZ Worm (Indicates worm activity)
+	775	Virus - Possible QAZ Worm Infection (Indicates worm activity)
+	733	Virus - Possible QAZ Worm Calling Home (Indicates the worm is trying to send mail)
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This event is indicative of an existing infection being activated. Initial compromise can be in the form of a Win32 installation program that may use the extension ".jpg" or ".bmp" when delivered via e-mail for example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised. Updated virus definition files are essential in detecting this Trojan.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+This is a particularly difficult Trojan to remove and should only be attempted by an experienced Windows Administrator.
+
+Edit the system registry to remove the extra keys or restore a previously known good copy of the registry.
+
+Affected registry keys are:
+
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Current Version\Run
+
+Registry keys added are:
+
+	StartIE=C:\WINDOWS\notepad.exe qazwsx.hsq
+
+This will start the Trojan each time notepad is executed.
+
+Look for the existence of the file note.com. The file notepad.exe may have been replaced with a Trojaned version that is approximately 120 kb in size (the original is 52 kb).
+
+A machine reboot is required to clear the existing process from running in memory.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS501
+http://www.whitehats.com/info/IDS498
+http://www.whitehats.com/info/IDS499
+
+McAfee
+http://vil.nai.com/vil/content/v_98775.htm
+
+Symantec Security Response
+http://securityresponse.symantec.com/avcenter/venc/data/w32.hllw.qaz.a.html
+
+Diamond Computer Systems Security Advisory
+http://www.diamondcs.com.au/web/alerts/qaz.htm
+
+--

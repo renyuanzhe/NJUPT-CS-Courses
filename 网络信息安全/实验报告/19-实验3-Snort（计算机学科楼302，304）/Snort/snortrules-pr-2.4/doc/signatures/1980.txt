@@ -1,0 +1,75 @@
+Rule:
+
+--
+Sid:
+1980
+
+--
+Summary:
+Deepthroat is a Trojan Horse offering the attacker control of the target.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a compromise of all resources the machine is connected to. This Trojan also has the ability to delete data, steal passwords and disable the machine.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+
+The Trojan changes system registry settings to add the Deepthroat sever to programs normally started on boot.
+
+See also rules with sids 195, 1980, 1981, 1982 and 1983.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This event is indicative of an existing infection being activated. Initial compromise can be in the form of a Win32 installation program that may use the extension ".jpg" or ".bmp" when delivered via e-mail for example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised. Updated virus definition files are essential in detecting this Trojan. Once compromised, this Trojan grants the attacker the ability to almost completely control the target.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Edit the system registry to remove the extra keys or restore a previously known good copy of the registry.
+
+Affected registry keys are:
+
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\
+
+Registry keys added are:
+
+	Systemtray
+
+Removal of the files pddt.dat and systray.exe from the Windows system directory is required.
+
+Ending the process systray.exe is also necessary. A reboot of the infected machine is recommended.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS106
+
+Symantec Security Response
+http://securityresponse.symantec.com/avcenter/venc/data/deepthroat.trojan.html
+
+--

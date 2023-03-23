@@ -1,0 +1,103 @@
+Rule:
+
+--
+Sid:
+152, 157-158
+
+--
+Summary:
+Backdoor.Backconstruction is a Trojan Horse.
+
+--
+Impact:
+Possible theft of data via download, upload of files, execution of files
+and reboot the targeted machine.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+
+The Trojan changes system registry settings to add the Backconstruction
+sever to programs normally started on boot. Due to the nature of this
+Trojan it is unlikely that the attacker's client IP address has been
+spoofed.
+
+	SID	Message
+	---	-------
+	152	BackConstruction 2.1 Connection (outgoing TCP
+connection)
+	157	BackConstruction 2.1 Client FTP Open Request (incoming
+TCP connection)
+	158	BackConstruction 2.1 Server FTP Open Reply (outging TCP
+connection)
+
+This Trojan is commonly used to install other Trojan programs.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise can be in the form of a Win32 installation program that may
+use the extension ".jpg" or ".bmp" when delivered via e-mail for
+example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+Updated virus definition files are essential in detecting this Trojan.
+
+The Trojan server is located at <drive>:\WINDOWS\Cmctl32.exe
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Edit the system registry to remove the extra keys or restore a
+previously known good copy of the registry.
+
+Affected registry keys are:
+
+	HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\
+
+Registry keys added are:
+
+	Shell = "<drive>:\WINDOWS\Cmctl32.exe"
+
+Removal of this entry is required.
+
+Delete the file <drive>:\WINDOWS\Cmctl32.exe
+
+Ending the Trojan process is also necessary. A reboot of the infected
+machine is recommended.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS505
+
+Dark-e:
+http://www.dark-e.com/archive/trojans/backc/21/index.shtml
+
+Pest Patrol:
+www.pestpatrol.com/PestInfo/b/back_construction.asp
+
+--

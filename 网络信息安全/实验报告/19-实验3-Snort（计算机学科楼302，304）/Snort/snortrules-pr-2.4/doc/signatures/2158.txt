@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid:
+2158
+
+--
+Summary:
+This event is generated when an invalid BGP session is detected. 
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+This event indicates that an invalid Border Gateway Protocol (BGP) packet has been detected.
+
+BGP packets must have a datasize of at least 20 bytes. This event indicates that a BGP packet was detected with a datasize less than this amount. TCPDump may enter an endless loop trying to process this packet.
+
+--
+Affected Systems:
+This BGP packet may cause problems with TCPDump.
+
+--
+Attack Scenarios:
+An attacker would need to craft a special BGP packet with a type of 0 or a datasize of less than 20 bytes.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

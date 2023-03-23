@@ -1,0 +1,67 @@
+Rule:  
+
+--
+Sid:
+1792
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Mnews.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible.
+
+--
+Detailed Information:
+A buffer overflow condition exists in Mnews, an NNTP and mail client.
+The overflow can be caused by a server sending enough data with a 200
+response to overwrite stack memory and so present the attacker with the
+oppotunity to execute code of their choosing.
+
+--
+Affected Systems:
+	FreeBSD 4.1
+	FreeBSD 4.2
+	FreeBSD 4.3
+	FreeBSD 4.4
+	FreeBSD 4.5
+
+--
+Attack Scenarios:
+The attacker needs to send enough extra data with the 200 response from
+a server to cause the overflow.
+
+--
+Ease of Attack:
+Moderate.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0909
+
+Bugtraq:
+http://www.securityfocus.com/bid/4900
+
+--

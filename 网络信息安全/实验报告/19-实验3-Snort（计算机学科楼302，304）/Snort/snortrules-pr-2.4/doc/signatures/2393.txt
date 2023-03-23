@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+2393
+
+--
+Summary:
+This event is generated when an attempt is made to access the /_admin directory.
+
+--
+Impact:
+Unauthorized file upload or information gathering.  This can allow an attacker to upload unauthorized files to the web server or information disclosure.
+
+--
+Detailed Information:
+A vulnerability exists in the jbrowser web-based image gallery software that allows unchecked access to the _admin directory, possibly permitting an attacker to execute scripts found in this directory.  Execution of admin scripts upload.php3 and upload_ftp.php3 may allow the attacker to upload malicious files to the server or replace existing files.  Execution of the list_all.php script may allow an attacker to display files in directories, including those not in the web server root directory.
+
+--
+Affected Systems:
+Not reported.
+
+--
+Attack Scenarios:
+An attacker can craft a URL to execute the upload.php3, upload_ftp.php3, and list_all.php scripts to upload files or examine files on the vulnerable server. 
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Restrict access to the '_admin' directory to authorized users only. 
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+bugtraq
+http://www.securityfocus.com/bid/9537
+
+nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=12032
+
+--

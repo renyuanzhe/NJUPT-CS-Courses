@@ -1,0 +1,63 @@
+Rule:
+
+
+--
+Sid:
+980
+
+--
+Summary:
+This event is generated when an attempt is made to disclose the contents of a file on an host running Stalkerlab's CGIMail server. 
+
+--
+Impact:
+Intelligence gathering activity.  This attack can display the contents of a file on the server.
+
+--
+Detailed Information:
+
+Stalkerlab's CGIMail is a CGI program that permits an HTTP server to send SMTP mail using the data from the HTLM form.  A vulnerability exits in the CGImail.exe program that can disclose the contents of files on the web server.  This can be accomplished by locally modifying the Web page that sends data to the SMTP server.  The modifications would include setting specific variable values to file names that the attacker wishes to examine.  
+
+
+--
+Affected Systems:
+Hosts running Stalkerlab CGIMail 1.1.2 
+
+--
+Attack Scenarios:
+An attacker can modify an HTML form used by Stalkerlab CGIMail that passes data to the SMTP server.  This can permit disclosure of file contents on the server. 
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+No known remedy or patch is available.
+ 
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/1623
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0726
+
+--

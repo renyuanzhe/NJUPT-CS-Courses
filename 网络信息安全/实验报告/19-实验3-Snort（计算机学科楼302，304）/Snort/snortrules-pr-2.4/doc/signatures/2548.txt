@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+2548
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with the web interface support for the HP JetAdmin printer.
+
+--
+Impact:
+A successful attack may allow unauthorized files to be read or the injection 
+of a .hts script on a vulnerable server.
+
+--
+Detailed Information:
+The HP Web JetAdmin provides a web interface for the administration of the HP
+Web JetAdmin printer.  A vulnerability exists that allows unauthorized
+files to be read or a .hts script to be executed.  This is caused when the
+/plugins/hpjdwm/script/test/setinfo.hts script is supplied a value to the
+setinclude parameter that represents an unauthorized file to be read outside
+the web root or represents a .hts file that will be executed with system
+privileges on the vulnerable server. 
+
+--
+Affected Systems:
+HP Web JetAdmin 7.2.
+
+--
+Attack Scenarios:
+An attacker can execute the vulnerable script and supply a value to setinclude
+indicating an unauthorized file to be read or an .hts file to be executed. 
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+An authorized administrator who uses the setinclude parameter with the above
+script from a source IP outside of the trusted network will cause a false positive alert.
+
+--
+False Negatives:
+The default HP Web JetAdmin port is 8000.  If an administrator selects a different port
+on which to run the web interface, no alert will be detected.  In that case, the rule
+should be altered to reflect the port on which the web interface runs.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software or apply the appropriate patch
+when it becomes available.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Bugtraq:
+http://www.securityfocus.com/bid/9972
+
+--

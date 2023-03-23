@@ -1,0 +1,57 @@
+Rule: 
+
+--
+Sid: 1360
+
+-- 
+Summary:
+A web command execution attack involving the use of a
+"netcat" command
+
+-- 
+Impact: 
+Possible intelligence gathering activity or an attempt to gain elevated privileges on the server by using netcat to open another connection.
+
+-- 
+Detailed Information: 
+The attacker may have gained the ability to execute system commands remotely or the web server may be incorrectly configured to allow such access.
+
+This rule generates an event when a "netcat" command is used over a plain-text (unencrypted) connection on one of the specified web ports to the target web server. The "netcat" command may be used establish an interactive shell session to the machine and also transfer files over the connection.
+
+The rule looks for the "netcat" command in the client to web server network traffic and does not indicate whether the command was actually successful. The presence of the "netcat" command in the URI indicates that an attacker attempted to trick the web server into executing system in non-interactive mode i.e. without a valid shell session.
+
+Alternatively this rule may generate an event in an unencrypted HTTP tunneling connection to the server or a shell connection via another exploit against the web server.
+
+-- 
+Attack Scenarios: 
+An attacker uses a "netcat" command to move a rootkit to the system.
+
+--
+Ease of Attack: 
+Simple. No exploit software required
+
+-- 
+False Positives: 
+Any string containing 'nc' followed by space in the URL will trigger the alarm.
+
+--
+False Negatives: 
+none known
+
+-- 
+Corrective Action: 
+Check the web server software for vulnerabilities and possible upgrades or patches for the system to the latest version of the web software, also investigate the server logs for signs of compromise
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. Disallowing execution of this binary via a URI is suggested.
+
+--
+Contributors: 
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+
+-- 
+Additional References:
+
+--

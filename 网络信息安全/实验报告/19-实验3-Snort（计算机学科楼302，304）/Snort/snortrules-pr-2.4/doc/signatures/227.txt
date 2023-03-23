@@ -1,0 +1,56 @@
+Rule:
+--
+Sid:
+227
+
+--
+Summary:
+This event is generated when a Stacheldraht handler attempts to confirm that an agent has the ability to spoof a source IP.
+
+--
+Impact:
+Severe. This indicates that a Stacheldraht agent exists on the destination host. 
+
+--
+Detailed Information:
+The Stacheldraht DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack.  
+
+There are "handler" hosts that are used to coordinate the attacks and "agent" hosts that launch the attack.  In order for an agent host to make a good participant in a distributed denial of service, it must be able to spoof source IPs to elude detection.  After a host becomes an agent, a test is conducted to see whether the agent can spoof a source IP.  If the handler receives such a communication from the agent, it responds with an ICMP echo request with an ICMP identification number of 1000 and a content of "spoofworks" in the payload. 
+
+--
+Affected Systems:
+Any Stacheldraht compromised host.
+
+--
+Attack Scenarios:
+A host on which a Stacheldraht agent has been installed will attempt to send a packet with a spoofed source IP to the handler. If the handler receives this communication, it will reply to the agent informing it that all 32 bits of source IP of DDoS traffic can be spoofed. 
+
+--
+Ease of Attack:
+Simple. Stacheldraht code is freely available. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Use egress filtering in your network to prevent traffic leaving your network that is not part of the internal address space so source IPs cannot be spoofed.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS192
+
+--

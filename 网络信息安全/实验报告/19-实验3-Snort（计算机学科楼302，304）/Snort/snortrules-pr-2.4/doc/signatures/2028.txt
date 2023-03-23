@@ -1,0 +1,88 @@
+Rule:
+
+--
+Sid:
+2028
+
+--
+Summary:
+A user can change their password for Network Information Services (NIS) 
+using the ypasswd command. A vulnerability exists in ypasswd where
+an overly long username can cause a buffer overflow resulting in 
+unauthorized access to the remote machine.
+
+--
+Impact:
+Unauthorized super user access to the vulnerable host resulting in a 
+compromise of all data on the host and any network resources that host 
+is connected to. Full control of the victim is gained.
+
+--
+Detailed Information:
+The rpc.ypasswd service processes all password changes from 
+ypasswd. Supplying a specially crafted request to a NIS server 
+running this daemon in the form of a long username, the attacker can 
+cause a buffer overflow in that process.
+
+Since all master servers handling NIS resources run this daemon, the 
+resulting root access affects all NIS resources available on the LAN.
+
+An exploit for this vulnerability exists, hosts that have been 
+compromised using this vulnerability typically display two instances of 
+inetd running at the same time. The result of the exploit is a root 
+shell attached to port 77 of the host.
+
+--
+Affected Systems:
+	Caldera OpenServer 5.0.5
+	Caldera OpenServer 5.0.6
+	Solaris 2.6
+	Solaris 7
+	Solaris 8
+
+--
+Attack Scenarios:
+The attacker needs to craft a specially formulated request to the 
+rpc.ypasswd service containing a long username. An exploit for this 
+vulnerability exists.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply pacthes for the affected systems as soon as possible.
+
+Disable the rpc.ypasswd daemon.
+
+Disallow all RPC requests from external sources and use a firewall to 
+block access to RPC ports from outside the LAN.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CIAC:
+http://www.ciac.org/ciac/bulletins/m-008.shtml
+
+Security Focus Mailing List Archive:
+http://www.securityfocus.com/archive/1/187086
+
+CERT:
+http://www.kb.cert.org/vuls/id/327281
+
+--

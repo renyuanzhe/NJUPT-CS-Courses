@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+514
+
+--
+Summary:
+This activity is a sign of a host that has been compromised by the ramen worm, which is attempting to retrieve the worm binaries from a remote system.
+
+--
+Impact:
+Severe; this host issued a request to a malicious web server to download the ramen worm binaries.  After the binaries are downloaded, the compromised host acts as a scanner and could be used to attack other hosts.
+
+--
+Detailed Information:
+This rule looks for GET requests to a compromised webserver running on TCP port 27374.  The compromised webserver serves up the ramen binaries required to continue the propagation of the malicious code.  After the host is compromised, a random number generator selects IP address ranges to scan for other vulnerable hosts.  The ramen worm is wide spread, and affects vulnerable Red Hat Linux 6.2 and 7.0 machines.  The worm exploited well-known vulnerabilities in LPRng, rpc.statd, and wu-ftpd.
+
+--
+Attack Scenarios:
+This is a worm; after it is released, it self-propagates.  Once a vulnerable machine is found, worm binaries are downloaded and the newly compromised machine becomes a scanning agent to further the worm's propagation.
+
+--
+Ease of Attack:
+Simple execution of worm code.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+If the worm code is changed to contact a port other than 27374 tcp, then this rule would not catch the activity.
+
+--
+Corrective Action:
+
+--
+Contributors:
+Original rule writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Mike Poor <mike.poor@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS461
+
+CIAC:
+http://www.ciac.org/ciac/bulletins/l-040.shtml
+
+SANS:
+http://www.sans.org/y2k/ramen.htm
+
+--

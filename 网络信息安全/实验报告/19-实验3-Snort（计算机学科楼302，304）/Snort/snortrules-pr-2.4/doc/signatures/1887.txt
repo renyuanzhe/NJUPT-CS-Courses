@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid:
+1887
+
+--
+Summary:
+This event is generated when a web server infected by the slapper worm attempts to infect a web server running OpenSSL.
+
+--
+Impact:
+Attempted remote access.  The slapper worm attempts to exploit a buffer overflow vulnerability associated with vulnerable versions of OpenSSL, permitting the execution of arbitrary code on the vulnerable server.
+
+--
+Detailed Information:
+The Apache/mod_ssl worm, also known as slapper, exploits a buffer overflow vulnerability associated with certain versions of OpenSSL. It spreads by attempting to infect other vulnerable web hosts listening on TCP port 443.  If the attack is successful, the worm gains control over the vulnerable host and attempts to spread to other hosts.  
+
+--
+Affected Systems:
+Linux hosts running Apache with mod_ssl using SSLv2-enabled OpenSSL 0.9.6d or earlier on Intel x86 architectures.
+
+--
+Attack Scenarios:
+The slapper worm attempts to exploit a buffer overflow vulnerability associated with OpenSSL, permitting the execution of arbitrary code on the vulnerable server and facilitating the spread of the worm.
+
+--
+Ease of Attack:
+Simple.  Exploit code exists. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate patch or upgrade to the most current version of OpenSSL.
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CERT
+http://www.cert.org/advisories/CA-2002-27.html
+
+--

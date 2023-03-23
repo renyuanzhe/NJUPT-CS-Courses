@@ -1,0 +1,60 @@
+Rule:  
+
+--
+Sid:
+2263
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in versions of Sendmail.
+
+--
+Impact:
+Remote arbitrary code execution.
+
+--
+Detailed Information:
+A vulnerability exists in the prescan() function used in Sendmail prior
+to version 8.12.9. This function contains an error when converting a
+character to an integer value while processing SMTP headers.
+
+--
+Affected Systems:
+All systems using Sendmail.
+
+--
+Attack Scenarios:
+An attacker could exploit this condition to process code of their
+choosing and open a listening shell bound to a high port, thus opening the
+system to further compromise.
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade Sendmail to the latest non-affected verison.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2003-07.html
+
+--

@@ -1,0 +1,64 @@
+Rule:  
+--
+Sid:
+654
+
+--
+Summary:
+When connecting to port 25 (SMTP) on a computer running a vunarable SMTP server it is possible to perform a DoS attack. In some cases it might be possible to perform a security breach as well.
+
+--
+Impact:
+Depending on the vunerable software you may need to restart the SMTP server or perform some level of incident response.
+
+--
+Detailed Information:
+Vulnerable systems:
+	Avirt Mail 4.0 (build 4124)
+	Avirt Mail 4.2 (build 4807)
+	PakMail SMTP/POP3
+	Netscape Messaging Server 3.54/3.55/3.6
+
+More details can be found on the various sites listed below as the impact and details vary from system to system.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+Supply a large amount of data after the RCPT TO: header in your SMTP flow.
+
+--
+Ease of Attack:
+DoS: rather easy
+Security breach: probably hard
+
+--
+False Positives:
+These will occur rather frequently with the given rule. They are most common when subscribed to mailinglists.
+
+--
+False Negatives:
+None Known
+
+
+--
+Corrective Action:
+Upgrade software according to the instructions of your software manufacturer.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Hugo van der Kooij <hugo@vanderkooij.org>
+Josh Gray	Edits
+
+-- 
+Additional References:
+http://www.securiteam.com/exploits/6C00O1F00Y.html
+http://www.synnergy.net/downloads/advisories/SLA-2000-01.pakmail.txt
+http://online.securityfocus.com/bid/748
+
+--

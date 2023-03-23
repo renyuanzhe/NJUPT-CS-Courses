@@ -1,0 +1,55 @@
+
+--
+Sid:
+660
+
+--
+Summary:
+This event is generated when an attempt is made to expand the alias of root on a Sendmail server.
+
+--
+Impact:
+Reconnaissance.  This is an attempt to discover email addresses associated with the alias of root for a Sendmail server.
+
+--
+Detailed Information:
+An attacker may probe for email addresses associated with the alias of root on a Sendmail server.  The "expn" command expands the alias into a list of actual recipients associated with the alias.  This command can be used to determine who reads the mail sent to the administrator.  It may be used by spammers to get valid email accounts or may be used to discover valid accounts on the Sendmail server.
+
+--
+Affected Systems:
+Versions of Sendmail that do not disable expn.
+
+--
+Attack Scenarios:
+An attacker can telnet to the Sendmail server and issue the command "expn root" to gather email addresses associated with the alias of root.
+
+--
+Ease of Attack:
+Easy.  Telnet to the Sendmail server and issue the command "expn root". 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Edit the /etc/sendmail.cf file to disable expn by setting PrivacyOptions=noexpn. 
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS31
+
+
+--

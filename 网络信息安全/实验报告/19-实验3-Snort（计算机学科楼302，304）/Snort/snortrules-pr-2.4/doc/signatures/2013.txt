@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+2013
+
+--
+Summary:
+CVS is the Concurrent Versions System, commonly used to 
+help manage software development.
+
+--
+Impact:
+This may be an intelligence gathering activity or an attempt to view a 
+module the user does not have access to. Should this attempt be 
+succesful the entire CVS repository may be compromised.
+
+--
+Detailed Information:
+This rule detects attempts to connect to a CVS repository that fail due 
+indicate determined activity by an attacker to gain unauthorized access 
+to the CVS respository.
+
+The source code of software in the repository may be compromised by a 
+succesful attacker who could choose to insert malicious code of his own 
+making.
+
+--
+Affected Systems:
+	All versions of CVS
+	
+--
+Attack Scenarios:
+This may be an intelligence gathering activity or an attempt to view a
+module the user may not have access to.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+It is possible that an authorized user may mis-type the module name.
+
+--
+False Negatives:
+Connections to the server using zlib compression will not generate this
+event.
+
+--
+Corrective Action:
+Disable the CVS daemon in the file /etc/inetd.conf. Run the CVS daemon 
+as a user other than root that does not have a valid login to the 
+machine.
+
+Disable anonymous cvs access to the server where appropriate.
+
+Maintain checks on the password database and the CVS repository.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVS:
+http://www.cvshome.org/docs/
+
+--

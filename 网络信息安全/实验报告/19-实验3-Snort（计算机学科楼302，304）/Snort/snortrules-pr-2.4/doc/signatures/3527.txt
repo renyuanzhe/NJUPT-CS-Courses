@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+3527
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability associated with the Solaris printer daemon.
+
+--
+Impact:
+A successful attack may allow arbitrary commands to be executed on a
+vulnerable server.
+
+--
+Detailed Information:
+Solaris offers a printer daemon in.lpd that allows network users to
+print jobs over the network.  The receive printer job function allows a
+user to supply job control information for the print job.  A flaw exists
+in code that checks the printer name that may allow arbitrary commands
+to be executed on a vulnerable server.
+
+--
+Affected Systems:
+	Solaris 2.0-2.6, 7.0, 8.0
+
+--
+Attack Scenarios:
+An attacker can craft a print command that allows the execution
+of arbitrary commands on a vulnerable server.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

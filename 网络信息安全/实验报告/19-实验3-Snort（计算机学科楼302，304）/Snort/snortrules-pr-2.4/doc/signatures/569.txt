@@ -1,0 +1,94 @@
+Rule:
+
+--
+Sid:
+569
+
+--
+Summary:
+The snmpXdmi daemon is used on Sun Solaris systems to map Simple Network
+Management Protocol (SNMP) management requests to and from the Desktop 
+Management Interface (DMI).
+
+This daemon contains a boundary condition error that could result in a 
+buffer overflow that will present the attacker with super user access to
+the target host.
+
+--
+Impact:
+Complete control of the target machine.
+
+--
+Detailed Information:
+The snmpXdmi daemon is installed and enabled by default on the affected 
+systems below.
+
+DMI is used to manage components on client machines across a network. It
+can be used in conjunction with SNMP via a daemon such as snmpXdmi.
+
+A number of exploits for this vulnerability exist and are in use. The result of a sucessful attack is a complete root compromise of the victim host.
+
+Compromised systems are reported to display a number of commonalities such as:
+
+	A core file for snmpXdmi on /
+	Two instances of inetd running
+	Telnet and SSH backdoors running on high ports
+	An instance of an IRC proxy
+	System binaries replaced by rootkit versions
+	Network sniffers installed
+	Log files changed
+
+The system binaries 'ps' and 'netstat' cannot be trusted to show all 
+running processes since they may have been replaced by rootkit versions 
+specially modified so as to hide evidence of the compromise.
+
+--
+Affected Systems:
+Sun Solaris 2.6, 7.0, 8.0 for SPARC and Intel architectures
+
+--
+Attack Scenarios:
+The attacker must send specially crafted packets to the snmpXdmi daemon 
+or use one of the widely available exploits.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable the snmpXdmi service.
+
+Apply the appropriate patches for each affected system.
+
+Disallow all RPC requests from external sources and use a firewall to 
+block access to RPC ports from outside the LAN.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2417
+
+CERT:
+http://www.cert.org/advisories/CA-2001-05.html
+http://www.kb.cert.org/vuls/id/648304
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0236
+
+--

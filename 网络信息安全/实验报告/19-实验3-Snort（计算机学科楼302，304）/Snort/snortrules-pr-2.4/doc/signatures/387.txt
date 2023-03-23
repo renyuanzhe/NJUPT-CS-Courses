@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+387
+
+--
+Summary:
+This event is generated when an internal server replies to an external request for network subnet mask information, which may allow an attacker to learn information about the network for use in later attacks. 
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+If an attacker sends an ICMP request to an internal server for address mask information (SID 389 should trigger when this activity is seen), an internal server may reply with subnet mask information.  This can provide an attacker with information about subnet mask configuration that can be useful for future attacks.
+
+--
+Affected Systems:
+Any system that responds to ICMP address mask requests.
+
+--
+Attack Scenarios:
+An attacker can send an ICMP request for subnet mask information to the internal network. The server replies, providing the attacker with information about network subnet configuration.
+
+--
+Ease of Attack:
+Simple. Tools that use this method of information gathering are freely available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Use a packet filtering firewall that restricts ICMP type 17 (address mask requests) from entering the protected network, and restricts ICMP type 18 packets (address mask replies) from exiting the protected network.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski <matt.watchinski@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0524
+
+ArachNIDS
+http://www.whitehats.com/cgi/arachNIDS/Show?_id=ids216
+
+--

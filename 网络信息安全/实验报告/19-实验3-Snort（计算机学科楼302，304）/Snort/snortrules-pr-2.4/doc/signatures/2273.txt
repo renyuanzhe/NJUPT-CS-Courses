@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+2273
+
+--
+Summary:
+This event is generated when an attempt is made to gain access to an
+IMAP server using brute force methods.
+
+--
+Impact:
+Attempted remote access.  
+This event may indicate that an attacker is attempting to guess username 
+and password combinations. Alternately, it may indicate that an authorized 
+user has entered an incorrect username and password combination a number 
+of times.
+
+--
+Detailed Information:
+An IMAP server will issue an error message after a failed login attempt.  
+This may be an indication of an attacker attempting brute force guessing 
+of username and password combinations.  It is also possible that an authorized 
+user has incorrectly entered a legitimate username and password combination.  
+
+This event will be generated after a number of failed attempts, in this
+case thirty attempted logins in thirty seconds.
+
+--
+Affected Systems:
+IMAP servers.
+
+--
+Attack Scenarios:
+An attacker may attempt to guess username and password combinations.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+This event may be triggered by a failed IMAP login attempt from a remote user.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Investigate the host for signs of compromise.
+
+Check mail logs for repeated failed attempts to login using 
+one or more usernames.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

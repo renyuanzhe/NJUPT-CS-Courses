@@ -1,0 +1,63 @@
+
+Rule:
+
+--
+Sid:
+3655
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a denial of
+service or buffer overflow associated with the MDaemon mail server.
+
+--
+Impact:
+A successful attack may permit a denial of service or buffer overflow
+that allows the execution of arbitrary code with system privileges.
+
+--
+Detailed Information:
+MDaemon is a Windows-based mail server.  A vulnerability exists in the
+MDaemon SMTP server, possibly allowing a denial of service of execution
+of arbitrary code with system privileges.  The vulnerability is
+associated with passing overly long arguments to the SOML, SAML, SEND,
+or MAIL commands.
+
+--
+Affected Systems:
+	MDaemon 6.7.9.1 and prior
+
+--
+Attack Scenarios:
+An attacker can send a malicious SMTP payload with an overly long
+argument to the SOML, SAML, SEND, or MAIL commands, possibly causing a
+denial of service or a buffer overflow and the subsequent execution of
+arbitrary code with system privileges on the vulnerable server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+It may be possible for this alert to fire when a command such as SEND,
+or MAIL is found in the data portion of the SMTP transfer instead of as
+an actual command.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

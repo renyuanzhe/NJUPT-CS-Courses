@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+2081
+
+--
+Summary:
+number for the rpc service xfsmd
+
+--
+Impact:
+Intelligence gathering
+
+--
+Detailed Information:
+This may be an attacker probing for vulnerable versions of rpc services.
+In this case, the rpc service xfsmd.
+
+It is possible for an attacker to supply a meta character followed by
+any commands or code of his choosing to the xfsmd daemon.
+
+Due to a programming error, the service does not correctly check for the
+characters and they are not stripped from the request.
+
+The xfsmd daemon is not installed by default on IRIX systems but it is 
+part of an optional package.
+
+--
+Affected Systems:
+	IRIX 6.2
+	IRIX 6.3
+	IRIX 6.4
+	IRIX 6.5.x
+
+--
+Attack Scenarios:
+Exploits are widely available.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Patches are NOT available for this issue.
+
+Disable and remove the xfsmd daemon.
+
+Uprade to the latest non affected version of the operating system
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/5075
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0359
+
+SGI IRIX:
+ftp://patches.sgi.com/support/free/security/advisories/20020606-01-I
+
+--

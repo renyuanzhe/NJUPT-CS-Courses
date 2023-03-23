@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+2323
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the QuickStore CGI web application running on a server.
+
+--
+Impact:
+Information gathering and system integrity compromise. Possible unauthorized
+administrative access to the server or application.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to gain unauthorized
+access to the QuickStore CGI application running on a web server. This
+application does not perform stringent checks when validating the input
+from a user to the script. 
+
+The error document produced by the application may disclose sensitive
+information about the installation of the application.
+
+--
+Affected Systems:
+	QuickStore 2.12 and prior
+
+--
+Attack Scenarios:
+An attacker can supply input to the quickstore.cgi script using a single
+quote character in the "store" parameter. This will cause the script to
+generate an error and disclose the information described above.
+
+For example: http://vulnerable.com/cgi-bin/quickstore.cgi?store='
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

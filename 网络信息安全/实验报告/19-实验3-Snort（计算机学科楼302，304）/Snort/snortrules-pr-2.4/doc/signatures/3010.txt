@@ -1,0 +1,73 @@
+Rule: 
+
+--
+Sid: 
+3010
+
+-- 
+Summary: 
+This event is generated when an attacker attempts to find the victim's
+Windows directory with the RUX the Tick trojan.
+
+-- 
+Impact: 
+If successful, the attacker would gain unauthorized access to your
+system, enabling him to upload and execute file on your computer. The
+attacker can use this function to upload additional backdoors to the
+victim's sytem and execute them.
+
+--
+Detailed Information:
+When executed, RUX the Tick opens up its assigned port (default is
+22222) for communication with the attacker. RUX the Tick has three
+functions: Get Windows Directory, Get System Directory, and Upload And
+Execute File. Get Windows Directory and Get System Directory are used
+for reconnaissance. Upload And Execute File is mainly used to upload and
+run other backdoors onto the victim's computer.
+
+--
+Affected Systems:
+	Windows 95/98/ME/NT/2000
+
+--
+Attack Scenarios: 
+The victim must first install the server. Be wary of suspicious files
+because they often can be backdoors in disguise. Once the victim
+mistakenly installs the server program, the attacker usually will employ
+an IP scanner program to find the IP addresses of victims that have
+installed the program. Then the attacker enters the IP address, port
+number (which  is assigned to the server program by the attacker:
+default is 22222), and presses the connect button and he has access to
+your computer.
+
+-- 
+Ease of Attack:
+Simple.
+
+-- 
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+-- 
+Corrective Action: 
+Using Windows Task Manager, kill these processes: ruxserver.exe and
+server.exe. Use Windows Explorer to find ruxserver.exe and delete the file.
+
+Keep your anti-virus programs updated with the latest definitions.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Ricky Macatee <rmacatee@sourcefire.com>
+
+-- 
+Additional References:
+
+PestPatrol:
+http://www.pestpatrol.com/PestInfo/R/RUX.ASP
+
+--

@@ -1,0 +1,60 @@
+Rule: 
+
+--
+Sid: 609
+
+--
+Summary: 
+This event is generated due to the use of a suspicious login attempt
+
+-- 
+Impact: 
+Serious. If successful the attacker may have gained superuser access to the host.
+
+--
+Detailed Information: 
+This rule generates an event when a connection is made using "rsh" whilst passing the parameter "-froot".
+
+A bug in some implementations of the "rsh" daemon software allowed remote root access using the "-froot" parameter for the "rsh command"
+
+--
+Attack Scenarios: 
+If a UNIX machine has the "rsh" service running and is vulnerable to this bug, in can be exploited simply by running the "rsh" command with "-froot" flag. For example, rlogin host.foo.com -l -froot
+
+--
+Ease of Attack: 
+Simple, no exploit software required
+
+--
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+Corrective Action: 
+Investigate logs on the target host for further details and more signs of suspicious activity
+
+Use ssh for remote access instead of rlogin.
+
+Disable the "rsh" service if not used, apply a patch if appropriate.
+
+--
+Contributors: 
+Original rule by Max Vision <vision@whitehats.com> modified from a signature written by Ron Gula
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0113
+
+Arachnids:
+http://www.whitehats.com/info/IDS387
+
+--

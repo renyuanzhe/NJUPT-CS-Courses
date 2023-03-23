@@ -1,0 +1,63 @@
+Rule: 
+
+--
+Sid: 330
+
+-- 
+Summary: 
+This is an intelligence gathering activity. This event is indicative of a connection laundering attack against the finger daemon
+
+-- 
+Impact: 
+The attacker may obtain information about a third party host without making a direct connection to that host.
+
+--
+Detailed Information:
+The event is generated when an attempt to use a machine to run
+finger queries against a third party UNIX system is attempted. 
+
+The attack utilizes "finger forwarding" functionality, normally used to forward queries to a third party machine. The information is obtained without a direct connection to the said third party, since the target system performs a connection to the third party host for the attacker. 
+
+The Finger daemon is used to provide information about users on a UNIX system. It used to be installed and enabled by default on most UNIX/Linux systems. The attack if successful, will confirm that the target host will try to forward queries.
+
+--
+Attack Scenarios: 
+An attacker runs a finger query and obtains information about the root account. He then proceeds to compromise the system using the obtained data as a basis for the compromise.
+
+--
+Ease of Attack: 
+Simple, no exploit software required
+
+-- 
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+Corrective Action: 
+Disable the finger daemon or upgrade to a daemon without finger forwarding functionality
+
+
+--
+Contributors: 
+Original rule written by Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10073
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0105
+
+Arachnids:
+http://www.whitehats.com/info/IDS251
+
+--

@@ -1,0 +1,76 @@
+Rule:
+
+--
+
+Sid:
+476
+
+--
+
+Summary:
+This event is generated when Webtrends Security Scanner generates an ICMP echo
+request message.
+
+--
+
+Impact:
+ICMP echo requests are used to determine if a host is running at a
+specific IP address.  A remote attacker can scan a large range of hosts
+using ICMP echo requests to determine what hosts are operational on the
+network.
+
+--
+
+Detailed Information:
+Webtrends Ecurity Scanner generates a ICMP Echo Request message containing the
+following hex signature:
+
+|00000000454545454545454545454545|
+
+By searching for this string in a packet, it is possible to determine
+the type of host that generated the request.
+
+--
+
+Attack Scenarios:
+A remote attacker might scan a large range of hosts using ICMP echo
+requests to determine what hosts are operational on the network.
+
+--
+
+Ease of Attack:
+Simple.  The "ping" utility found on most operating systems can generate
+these types of ICMP messages.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+Packet generation tools can generate ICMP Echo requests with
+user-defined payloads.  This could allow attackers to replace this
+signature with binary values and conceal their operating system.
+
+--
+
+Corrective Action:
+To prevent information gathering, use a firewall to block incoming ICMP
+Type 8 Code 0 traffic.
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+http://www.whitehats.com/info/IDS307
+
+
+--

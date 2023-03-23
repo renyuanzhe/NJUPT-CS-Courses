@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1998
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in a PHP web application running on a server.
+
+--
+Impact:
+Information gathering and system integrity compromise. Possible unauthorized
+administrative access to the server or application. Possible execution
+of arbitrary code of the attackers choosing in some cases.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to access the file
+calendar.php. Multiple applications are vulnerable to SQL injection
+techniques that may lead to the execution of SQL code of the attackers
+choosing.
+
+--
+Affected Systems:
+	All systems running PHP calendar applications
+	VBulletin
+	Invision Power Board
+
+--
+Attack Scenarios:
+An attacker can manipulate user supplied variables to include SQL code
+of their choosing in the request to a vulnerable application.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

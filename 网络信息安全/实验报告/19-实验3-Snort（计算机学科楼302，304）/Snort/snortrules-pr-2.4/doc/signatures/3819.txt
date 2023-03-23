@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+3819
+
+--
+Summary:
+THIS RULE DOES NOT GENERATE AN EVENT, IT IS ASSOCIATED WITH SID 3820 AND
+IS USED TO SET A FLOWBIT PARAMETER.
+
+This event is generated when an attempt is made to exploit a
+vulnerability associated with Microsoft Windows Help.
+
+--
+Impact:
+Serious. Code execution is possible leading to unauthorized
+administrative access to the target host.
+
+--
+Detailed Information:
+Microsoft Windows Help uses the InfoTech protocol.
+
+A programming error in the processing of malformed InfoTech protocol
+messages can lead to the exposure of a buffer overflow condition. An
+attacker may be able to overflow this buffer and supply code of their
+choosing to be executed on the system with the privileges of the
+administrative account.
+
+In addition, applications may treat Windows Help as a trusted program
+and further exploitation and host firewall bypass may be possible.
+
+--
+Affected Systems:
+	Systems using Microsoft Windows
+
+--
+Attack Scenarios:
+An attacker can overflow a buffer by sending malformed data using the
+InfoTech protocol. The attacker may then insert code of their choosing
+to either run commands on the system or execute the code with the
+privileges of the administrative account.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Ricky McAtee <rmcatee@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

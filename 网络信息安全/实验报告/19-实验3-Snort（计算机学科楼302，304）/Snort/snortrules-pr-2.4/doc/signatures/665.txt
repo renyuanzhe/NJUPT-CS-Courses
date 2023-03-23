@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+665
+
+--
+Summary:
+This event is generated when a remote user attempts to exploit a Sendmail vulnerability where a remote user can execute arbitrary code on an server running older versions of Sendmail. 
+
+--
+Impact:
+Severe. Remote execution of arbitrary code, leading to remote root compromise. 
+
+--
+Detailed Information:
+Earlier versions of Sendmail contain a vulnerability in message header parsing. This vulnerability can be exploited by a remote user who sends an email message with a malformed MAIL FROM value to a vulnerable Sendmail implementation. The server then executes any arbitrary shell code included in the text of the email. 
+
+--
+Affected Systems:
+Systems running Sendmail versions lower than 8.6.10.
+
+--
+Attack Scenarios:
+An attacker sends an email using |usr/bin/tail|usr/bin/sh as the MAIL FROM value. Arbitrary shell code placed in the text of the email message is executed by the mail server with the security context of Sendmail.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to Sendmail version 8.6.10 or higher.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0203
+
+Bugtraq
+http://www.securityfocus.com/bid/2308
+
+CERT
+http://www.cert.org/advisories/CA-1995-08.html
+
+--

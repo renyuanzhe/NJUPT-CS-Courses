@@ -1,0 +1,67 @@
+Rule: 
+
+--
+Sid: 
+3033
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in a Samba implementation.
+
+-- 
+Impact: 
+Serious. Possible execution of arbitrary code.
+
+--
+Detailed Information:
+Samba is a file and print serving system for heterogenous networks. It
+is available for use as a service and client on UNIX/Linux systems and as
+a client for Microsoft Windows systems.
+
+Samba uses the SMB/CIFS protocols to allow communication between client
+and server. The SMB protocol contains many commands and is commonly used
+to control network devices and systems from a remote location. A
+vulnerability exists in the way the smb daemon processes commands sent by
+a client system when accessing resources on the remote server.The problem
+exists in the allocation of memory which can be exploited by an attacker
+to cause an integer overflow, possibly leading to the execution of
+arbitrary code on the affected system with the privileges of the user
+running the smbd process.
+
+--
+Affected Systems:
+	Samba 3.0.8 and prior
+
+--
+Attack Scenarios: 
+An attacker needs to supply specially crafted data to the smb daemon to
+overflow a buffer containing the information for the access control lists
+to be applied to files in the smb query.
+
+-- 
+Ease of Attack: 
+Difficult.
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patch
+
+--
+Contributors: 
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+239
+
+--
+Summary:
+This event is generated when a DDoS Shaft handler communicates with a Shaft agent.  It is also possible that this event may be generated when any host attempts to discover a Shaft agent.   
+
+--
+Impact:
+Attempted DDoS. If the listed source IP is in your network, it may be a Shaft handler or a host attempting to discover Shaft agents.  If the listed destination IP is in your network, it may be a Shaft agent.
+
+--
+Detailed Information:
+The Shaft DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack. Handlers communicate with agents to direct them to launch attacks. A handler may communicate with an agent using a UDP packet to destination port 18753 with a content of "alive tijgu.  This communication checks if an agent is alive and uses a default password of "tijgu".
+
+--
+Affected Systems:
+Any Shaft compromised host.
+
+--
+Attack Scenarios:
+A Shaft handler needs to discover if an agent is alive before directing it to launch an attack.
+
+--
+Ease of Attack:
+Simple. Shaft code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS255
+
+Miscellaneous:
+http://biocserver.cwru.edu/~jose/shaft_analysis/
+
+
+
+--

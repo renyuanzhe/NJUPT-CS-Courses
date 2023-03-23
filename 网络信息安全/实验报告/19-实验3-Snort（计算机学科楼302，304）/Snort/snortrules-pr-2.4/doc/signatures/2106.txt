@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+2106
+
+--
+Summary:
+This event is generated when a remote user sends an IMAP LSUB command
+with invalid data to port 143 on an internal server. This may indicate
+an attempt to exploit a buffer overflow vulnerability in the IMAP LSUB
+command. This vulnerability may affect other IMAP implementations.
+
+--
+Impact:
+Possible shell access on the IMAP server, leading to arbitrary code
+execution. The attacker must have a valid IMAP account on the mail
+server to attempt this exploit.
+
+--
+Detailed Information:
+When a large amount of data is sent to a vulnerable IMAP server in the
+LSUB command, a buffer overflow condition may occur. This can allow the
+attacker to access the shell, where arbitrary code can be executed. Note
+that this exploit can only be attempted by a user with a valid IMAP account.
+
+--
+Affected Systems:
+	University of Washington imapd versions 10.234 or 12.264. 
+
+--
+Attack Scenarios:
+An attacker with an IMAP account on the server can send a sufficiently
+long LSUB command to the IMAP server, creating a buffer overflow
+condition. This can then allow the attacker to gain shell access on the
+compromised server, possibly leading to the execution of arbitrary code.
+
+--
+Ease of Attack:
+Simple. Exploits exist, but the user must have a valid IMAP account on
+the server.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate patches for your operating system.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Vulneratility Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/1110
+
+CVE
+http://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=CVE-2000-0284 
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10374
+
+--

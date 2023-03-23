@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+1964
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow associated with the Remote Procedure Call (RPC) ToolTalk.
+
+--
+Impact:
+Remote root access. This attack may permit the execution of arbitrary
+commands with the privileges of root.
+
+--
+Detailed Information:
+The ttdbserverd RPC service, more commonly known as the ToolTalk
+database server, allows applications to communicate in the Common
+Desktop Environment (CDE).  The ToolTalk service receives ToolTalk
+messages created and sent by applications and delivers them to the
+appropriate recipient applications.  The ToolTalk database server is
+enabled by default on hosts with CDE.  A function in the code receives
+an argument for a pathname.  If an overly long pathname is passed to the
+function, a buffer overflow may occur, possibly allowing the execution
+of arbitrary commands with the privileges of root.
+
+--
+Affected Systems:
+	HP HP-UX 10.10, 10.20, 10.30, 11.0
+	IBM AIX 4.1, 4.1.1, 4.1.2, 4.1.3, 4.1.4, 4.1.5, 4.2, 4.2.1, 4.3
+	SGI IRIX 5.2, 5.3, 6.0, 6.0.1, 6.2, 6.3, 6.4
+	Sun Solaris 1.1, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.2, 2.0, 2.1, 2.2, 2.3,
+	2.4, 2.5, 2.5.1, 2.6
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where
+ttdbserverd runs.  Alternately, an attacker may attempt to execute the
+exploit code on any listening port in the RPC range if the portmapper is
+blocked.
+
+--
+Ease of Attack:
+Simple.  Exploit scripts are freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to
+RPC-enabled machines.
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

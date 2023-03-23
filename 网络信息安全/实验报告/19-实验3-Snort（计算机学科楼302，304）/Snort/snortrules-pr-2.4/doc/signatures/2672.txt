@@ -1,0 +1,59 @@
+Rule: 
+
+--
+Sid: 
+2672
+
+-- 
+Summary: 
+This event is generated when an attempt is made to access the file
+sresult.exe.
+
+-- 
+Impact: 
+Possible cross site scripting.
+
+--
+Detailed Information:
+The executable file sresult.exe does not properly sanitize user input,
+as a result it may be possible for an attacker to leverage the binary in
+a cross site scripting attack.
+
+--
+Affected Systems:
+	Webcam Corp Webcam Watchdog 4.0.1 a
+
+--
+Attack Scenarios: 
+An attacker can leverage the sresult.exe binary in a cross site
+scripting attack.
+
+-- 
+Ease of Attack: 
+Simple
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Uninstall the script sresult.exe
+
+Only allow usage from authenticated users
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

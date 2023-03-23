@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+3087
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow in Microsoft Browser Client Context Tool (W3Who.dll).
+
+--
+Impact:
+Denial of service or remote access. If the exploit is successful,
+an attacker can gain remote access to the host with system privileges.
+
+--
+Detailed Information:
+W3Who is an Internet Server Application Programming Interface (ISAPI)
+application dynamic-link library (DLL) that works within a Web page to
+display information about the calling context of the client browser and
+the configuration of the host server. W3Who is included in the Windows
+2000 Server Resource Kit.
+
+A boundary error within the processing of parameters can be exploited
+to cause a buffer overflow by passing an overly long parameter.
+
+--
+Affected Systems:
+Microsoft IIS with W3Who.dll. (W3Who.dll is not automatically installed
+with IIS.)
+
+--
+Attack Scenarios:
+An attacker can send a malformed HTTP request with an overly long
+parameter to W3Who DLL, subsequently causing a buffer overflow.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+Any overly large request URI with a reference to w3who.dll will be
+detected.
+
+--
+False Negatives:
+This rule only detects the attack when the parameters are passed
+as part of the URI (GET method).
+
+--
+Corrective Action:
+Disable the W3Who.dll ISAPI extension.
+
+--
+Contributors:
+nnposter@users.sourceforge.net
+
+--
+Additional References:
+
+Microsoft:
+http://support.microsoft.com/default.aspx?scid=kb;en-us;Q323640
+
+--

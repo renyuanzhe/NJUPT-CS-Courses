@@ -1,0 +1,60 @@
+Rule:  
+
+--
+Sid:
+1662
+--
+Summary:
+This event is generated when an attempt is made to access the home directory of the ftp user via http.
+
+--
+Impact:
+Medium - Possible unauthorized file access due a configuration error
+
+--
+Detailed Information:
+The FTP server might block access on ftp homedir to (anonymous) users, 
+but the folder can be read using the webserver.
+
+Apache UserDir module allows sharing home directory (sub-)folders, a 
+misconfiguration of the webserver or ftp user account may allow 
+unauthorized access to the ftp user directory.
+
+--
+Attack Scenarios:
+A FTP server blocks access to the ftp users homedir. A misconfiguration might allow an attacker to access the ftp users home directory.
+
+This home folder might contain critical files.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Visit http://httpd.apache.org/docs for UserDir configuration options or 
+remove UserDir module if not needed.
+
+Configure the ftp user to use a non-interactive nologin shell that does 
+not require a home directory.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+
+-- 
+Additional References:
+
+
+--

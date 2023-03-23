@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid:
+3522
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+buffer overflow associated with Computer Associates License
+software.
+
+--
+Impact:
+A successful attack can cause a buffer overflow of the host and
+the subsequent execution of arbitrary code.
+
+--
+Detailed Information:
+Computer Associates License software allows a site to maintain and
+handle licenses for CA products.  A server runs the software to
+facilitate this and it communicates with clients/agents on the
+network. A vulnerability exists in a GETCONFIG message that exchanges
+data with a listening server or client.  A fixed-size buffer is
+allocated for the data sent in this message, but no validation is
+performed by the receiving host to ensure that the data received fits
+in the allocated buffer.  If the received data cannot fix in the buffer,
+an overflow occurs and execution of arbitrary code on the vulnerable
+host is possible.
+
+--
+Affected Systems:
+	CA License 1.0.15, 1.53-57, 1.60, 1.60.2, 1.60.3, 1.61, 1.61.1,
+	           1.61.2, 1.61.8
+
+--
+Attack Scenarios:
+An attacker can craft a GETCONFIG message with excessive data, causing
+a buffer overflow on the vulnerable listening CA License server or
+client.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+iDefense Advisory:
+http://www.idefense.com/application/poi/display?id=213&type=vulnerabilities
+
+--

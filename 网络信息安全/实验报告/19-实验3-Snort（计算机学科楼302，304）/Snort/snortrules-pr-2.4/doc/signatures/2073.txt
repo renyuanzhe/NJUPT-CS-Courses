@@ -1,0 +1,76 @@
+Rule:
+
+--
+Sid:
+2073
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in Bugzilla.
+
+--
+Impact:
+Disclosure of sensitive information.
+
+--
+Detailed Information:
+The file globals.pl contains global variables used by Bugzilla 
+components. It is possible for this file to be read by a user via a web 
+browser.
+
+Details such as the username and password of the administrator account 
+for the database are stored in this file.
+
+--
+Affected Systems:
+Mozilla Bugzilla 2.4
+
+Mozilla Bugzilla 2.6
+
+Mozilla Bugzilla 2.8 for:
+	Microsoft Windows 95, 98, NT 3.51 and NT 4.0
+
+Mozilla Bugzilla 2.10
+
+--
+Attack Scenarios:
+The attacker merely needs to make a direct request for the file via a 
+browser or other agent.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate patches from the vendor.
+
+Ensure that the file globals.pl is not world readable.
+
+Upgrade to the latest version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0330
+
+Bugtraq:
+http://www.securityfocus.com/bid/2671
+
+--

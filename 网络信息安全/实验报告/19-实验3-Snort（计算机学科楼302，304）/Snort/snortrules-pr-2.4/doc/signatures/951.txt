@@ -1,0 +1,83 @@
+Rule:
+
+--
+Sid:
+951
+
+--
+
+Summary:
+This event is generated when an attempt is made to access a file with 
+Microsoft Personal Web Server login information.
+
+--
+
+Impact:
+If successful, the attacker can log into the system and modify web 
+content.
+
+--
+
+Detailed Information:
+On systems running Microsoft Personal Web Server the file authors.pwd 
+contains usernames and encrypted passwords for users who can author the 
+contents on this server. The attacker can guess the exact URL of this 
+file and request it, hence gaining insecure information.
+
+--
+
+Affected Systems:
+Certain versions of Microsoft Windows 95 or Windows 98 running Personal 
+Web Server 4.0. Windows NT installations are not affected.
+
+--
+
+Attack Scenarios:
+An attacker can request the file from its standard location, entering 
+the exact URL, and gain access to the system after cracking the 
+passwords found in the file.
+
+--
+
+Ease of Attack:
+Simple.
+
+--
+
+False Positives:
+None known.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Apply the appropriate vendor supplied patch.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Chaos <c@aufbix.org>
+
+-- 
+
+Additional References:
+
+Official fix:
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/MS99-010.asp
+
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10078
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0386
+
+
+
+
+--

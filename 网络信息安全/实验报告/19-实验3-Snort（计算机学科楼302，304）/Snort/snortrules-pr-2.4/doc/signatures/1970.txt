@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1970
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow in the Remote Data Services (RDS) component of Microsoft Data Access Components (MDAC).  
+
+--
+Impact:
+Remote Access.  If the exploit is successful, an attacker can gain remote access to the host.
+
+--
+Detailed Information:
+MDAC is a set of components that facilitates database access on Windows platforms.  The RDS component provides remote access to a database through Internet Information Services (IIS).  A vulnerability exists because of incorrect string handling with the RDS interface allowing an attacker to send a malformed HTTP request that overruns onto the heap.  This may allow execution of arbitrary code on the system. 
+
+--
+Affected Systems:
+Windows hosts running MDAC 2.1, 2.5, 2.6
+
+--
+Attack Scenarios:
+An attacker can send a malformed HTTP request that is improperly validated by RDS, subsequently causing a buffer overflow.
+
+--
+Ease of Attack:
+Difficult.  According to the Microsoft bulletin, a heap is more difficult to exploit than a stack overflow.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply security hotfix for Q329414.
+
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-1142
+
+Foundstone
+http://www.foundstone.com/knowledge/randd-advisories-display.html?id=337
+
+Microsoft
+http://support.microsoft.com/default.aspx?scid=kb;en-us;Q329414
+
+--

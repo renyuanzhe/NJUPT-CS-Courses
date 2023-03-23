@@ -1,0 +1,69 @@
+Rule: 
+
+--
+Sid: 
+2834
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in an Oracle database server.
+
+-- 
+Impact: 
+Serious. Possible execution of arbitrary code and Denial of Service.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a known
+vulnerability in an Oracle database implementation. Multiple buffer
+overflow conditions are present in numerous packages and procedures.
+
+Exploitation of these vulnerable procedures may allow an attacker to
+execute code of their choosing as the user running the database. In the
+case of databases running on Microsoft Windows platforms, this is the
+Local System account which may mean a compromise of the operating system
+as well as the database.
+
+This event indicates that an attempt has been made to exploit a
+vulnerability in the procedure generate_replication_package
+. This procedure is included in
+sys.dbms_repcat_mas.
+
+--
+Affected Systems:
+	Oracle Oracle9i
+
+--
+Attack Scenarios: 
+If an attacker can supply enough data to the procedure in question, it
+may be possible to cause the overflow condition to occur and present the
+attacker with the opportunity to execute code of their choosing.
+
+-- 
+Ease of Attack: 
+Simple.
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patch
+
+--
+Contributors: 
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

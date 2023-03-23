@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+1435
+
+--
+Summary:
+This event is generated when an attempt is made to query authors.bind on your DNS server.
+
+--
+Impact:
+Reconnaissance. This informs an attacker that version of BIND running is 9 or greater.
+
+--
+Detailed Information:
+Beginning with version of BIND 9, the authors of BIND created a new "feature" that would allow a user to query for the authors' names.  This feature is enabled by default allowing an attacker to query the DNS server and examine the response.  If the response returns the BIND authors' names, the attacker knows that the version of BIND running is 9 or higher.
+
+--
+Affected Systems:
+BIND versions 9.
+
+--
+Attack Scenarios:
+An attacker can execute this query to find DNS servers running BIND version 9 and higher.
+
+--
+Ease of Attack:
+Simple. Use the Unix command 'dig @ns.com authors.bind txt chaos'  
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Remove the ability to retrieve the authors.bind chaos record by either applying the patch from ISC or by modifying the servers configuration file. 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10728
+
+Arachnids:
+http://www.whitehats.com/info/IDS480
+
+--

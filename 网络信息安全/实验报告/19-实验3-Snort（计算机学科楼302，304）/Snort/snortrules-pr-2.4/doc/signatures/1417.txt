@@ -1,0 +1,77 @@
+Rule:
+  
+--
+Sid:
+1417
+
+--
+
+Summary:
+This event is generated when an SNMP-Trap connection over UDP to an SNMP
+daemon is made.
+
+--
+
+Impact:
+Information gathering
+
+--
+
+Detailed Information:
+The SNMP (Simple Network Management Protocol) Trap daemon usually 
+listens on port 161, tcp or udp.
+
+An attacker may attempt to send this request to determine if a device is
+using SNMP.
+
+--
+
+Affected Systems:
+Devices running SNMP daemons on well known ports.
+
+--
+
+Attack Scenarios:
+An attacker sends a packet directed to udp port 161, if sucessful a 
+reply is generated and the attacker may then launch further attacks 
+against the SNMP daemon.
+
+--
+
+Ease of Attack:
+Simple.
+
+--
+
+False Positives:
+None known.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Use a packet filtering firewall to protect devices using the SNMP 
+protocol and only allow connections from well-known hosts.
+
+--
+
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+
+-- 
+
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0013
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0012
+
+
+--

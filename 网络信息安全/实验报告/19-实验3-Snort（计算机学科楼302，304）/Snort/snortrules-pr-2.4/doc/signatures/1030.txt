@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+1030
+
+--
+Summary:
+This event is generated when an attempt is made to access the search97.vts file.
+
+--
+Impact:
+Intelligence gathering, remote execution of files, denial of service.  This attack can permit the viewing and execution of files on the vulnerable server.  Additionally, a denial of service attack exists, allowing a remote user to shut down the Verity software. 
+
+--
+Detailed Information:
+The Verity/Search'97 software provides a search engine.  A vulnerability exists with a CGI script associated with Verity software because of improper input checking.  This may permit an attacker to access and execute files as well as shut down the Verity software.
+
+--
+Affected Systems:
+Verity Search97 2.1
+
+--
+Attack Scenarios:
+An attacker can craft a URL to access the vulnerable search97.vts file to remotely read or execute files, or cause a denial of service.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate patch.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/162
+
+
+--

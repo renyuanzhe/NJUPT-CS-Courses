@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+2087
+
+--
+Summary:
+vulnerability in Sendmail.
+
+--
+Impact:
+The remote attacker can gain access to a machine with the credentials of
+the user running the Sendmail daemon, usually 'root'.
+
+--
+Detailed Information:
+A vulnerability exists in the Sendmail MTA Daemon that could allow an
+attacker the opportunity to gain root access.
+
+A programming error exists such that a buffer overflow can be caused
+using the header fields in an SMTP session. Using the '<' and '>'
+characters in the 'from' field, an attacker can increment a counter to
+the extent that the buffer exceeds it's limit.
+
+--
+Affected Systems:
+All systems using Sendmail prior to version 8.12.8
+	
+--
+Attack Scenarios:
+The attacker can craft an email message that contains a "from" header
+with enough sequences of "<>" to cause a counter to exceed it's maximum
+size thus causing the buffer overflow.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+All users of Sendmail should upgrade to the latest non-affected version
+as soon as possible.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2003-07.html
+http://www.kb.cert.org/vuls/id/398025
+
+CVE Entry
+CAN-2002-1337
+
+Sendmail:
+http://www.sendmail.org/8.12.8.html
+
+--

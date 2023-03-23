@@ -1,0 +1,66 @@
+Rule:  
+
+--
+Sid: 2103
+
+--
+Summary:
+
+A buffer overflow exists in the Samba file and print sharing software 
+that can allow a remote attacker to gain root privileges on the target 
+script to exploit this vulnerability.
+
+--
+Impact:
+
+An attacker can cause the target system running Samba to overflow a 
+buffer presenting the attacker with root privileges.
+
+--
+Detailed Information:
+It is possible for an anonymous user to cause a buffer overflow in a 
+character array by sending data greater than 1024 bytes to the variable 
+pname. This information is copied by another function causing the buffer
+overflow.
+
+Affected Systems:
+Samba versions 2.2.5 to 2.2.8
+
+may indicate an attacker verifying the root shell.
+
+--
+Attack Scenarios:
+The attacker needs to send pname a value larger than 1024 bytes.
+
+--
+Ease of Attack:
+Simple, an exploit script exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+No false negatives are known at this time.
+
+--
+Corrective Action:
+Upgrade to Samba versions 2.2.8a or Samba-TNG.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Digital Defense
+http://www.digitaldefense.net/labs/advisories/DDI-1013.txt
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0201
+
+--

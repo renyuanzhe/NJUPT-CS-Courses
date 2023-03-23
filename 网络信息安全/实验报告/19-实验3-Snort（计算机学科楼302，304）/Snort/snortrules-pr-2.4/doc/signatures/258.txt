@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+258
+
+--
+Summary:
+This event is generated when an exploit that targets vulnerabilities in 
+BIND 8.2 and 8.2.1 ("ADM named exploit 8.2/8.2.1") is executed against a
+local DNS server.
+
+--
+Impact:
+Severe. Remote code execution with the privileges of the BIND DNS daemon
+(named). 
+
+--
+Detailed Information:
+BIND is DNS server software shipped with a number of UNIX and 
+Linux-based operating systems. Attackers can exploit multiple 
+vulnerabilities in BIND versions between 8.2 and 8.2.1 to obtain remote 
+shell access. This enables the attacker to execute arbitrary code from 
+the command shell with the security privileges of the BIND DNS daemon 
+(named). If named is running as root, the attacker automatically obtains
+root privileges to the system.
+
+--
+Affected Systems:
+Any operating system running BIND implementations below 8.2.2.
+
+--
+Attack Scenarios:
+An attacker executes an exploit script against a vulnerable server, 
+obtaining shell access to the compromised machine. If named is running 
+as root, the attacker automatically obtains root privileges on the 
+server. Otherwise, the attacker can execute arbitrary code with the 
+privileges of named, which can lead to remote root compromise.
+
+--
+Ease of Attack:
+Simple. An exploit exists.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to BIND 8.2.2 or higher.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Judy Novak (judy.novak@sourcefire.com)
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+--

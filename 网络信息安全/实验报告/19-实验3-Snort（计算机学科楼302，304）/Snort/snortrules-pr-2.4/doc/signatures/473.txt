@@ -1,0 +1,77 @@
+Rule:
+
+--
+Sid:
+473
+
+--
+Summary:
+This event is generated when an ICMP Redirect Network message was
+detected in network traffic.
+
+--
+Impact:
+Unknown. Possible system crash, Denial of Service (DoS) for some
+embedded operating systems.
+
+--
+Detailed Information:
+Several susceptible IP Stack implementations may result in the system
+hanging or crashing when malformed or corrupted ICMP Redirect Network
+(Type 5, Code 0) packets are sent to them.  This vulnerability was first
+discovered in 1997.
+
+Under normal network conditions ICMP Redirect Network packets will occur
+in a number of situations. One such situation is when a host is on a
+subnet with more than one router. The host can only have one default
+gateway, and forwards all traffic for networks outside its own subnet to
+this gateway. If the default gateway detects that the gateway for this
+route is on the same subnet as the originating host, the default gateway
+forwards the packet onto this gateway and sends an ICMP Redirect Network
+to the originating host.
+
+This funtionality exists primarily to save network administrators from
+having to keep extensive routing tables on hosts, the host will remember
+the route learned from the ICMP Redirect Network message for a period of
+time, and will forward any traffic directly while it has the route in
+its cache.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios:
+A malicious user may send corrupted ICMP Redirect Net messages to
+networks in an attempt to crash a system.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+Any ICMP Network Redirect will generate an event.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Patches for Microsoft Windows NT 4.0 were included in SP4, and also
+release as a post SP3 fix - teardrop2-fix.  Fixes are also available for
+Windows 95 and various embedded systems.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft KB, Q154174
+--

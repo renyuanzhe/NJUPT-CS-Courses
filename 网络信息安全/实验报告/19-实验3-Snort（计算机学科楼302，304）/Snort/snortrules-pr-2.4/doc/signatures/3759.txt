@@ -1,0 +1,75 @@
+
+Rule:
+
+--
+Sid:
+3759
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Veritas Backup Exec Server.
+
+--
+Impact:
+A successful attack can allow an attacker to manipulate system registry
+setting on the target host.
+
+--
+Detailed Information:
+A vulnerability exists in the Veritas Backup Server handles DCERPC
+requests that attempt to alter registry values, enabling an attacker to
+modify the registry.
+
+The Backup Server accepts anonymous client requests, but fails to
+assign the appropriate privileges.  This allows an attacker to perform
+privileged tasks on the server.  One such task is altering registry
+values.
+
+This is done over TCP port 6106 using the DCOM identifier of
+93841fd0-16ce-11ce-850d-02608c44967b.  An attack must bind to this ID
+and then make a request for this ID.
+
+--
+Affected Systems:
+  Backup Exec 10.0 for Windows Servers rev. 5484
+  Backup Exec 9.1 for Windows Servers rev. 4691
+  Backup Exec 9.0 for Windows Servers rev. 4454
+  Backup Exec 9.0 for Windows Servers rev. 4367
+
+--
+Attack Scenarios:
+An attacker can craft a message to the server using the appropriate
+DCOM identifier to gain unauthorized administrative access to the host.
+
+--
+Ease of Attack:
+Simple. Exploits are publicly available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=232&type=vulnerabili
+ties
+
+--

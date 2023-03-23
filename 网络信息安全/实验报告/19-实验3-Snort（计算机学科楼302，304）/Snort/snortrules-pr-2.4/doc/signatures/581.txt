@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+581
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) pcnfsd is listening.
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port pcnfsd is using.  Attackers can also learn what versions of the pcnfsd protocol are accepted by pcnfsd.
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as pcnfsd run.  The pcnfsd RPC service handles printing and authentication over the network.  A vulnerability exists because of improper argument checking that allows execution of arbitrary commands with root privileges. 
+
+--
+Affected Systems:
+BSDI BSD/OS 2.1
+HP HP-UX 10.1, 10.10, 10.20, 11.0
+IBM AIX 3.2, 4.0, 4.1, 4.2
+SCO Open Server 5.0
+SCO Unixware 2.0, 2.0.3, 2.1
+SGI IRIX 6.5, 6.5.1 - 6.5.16 
+Sun Solaris 2.4, 2.5
+Sun SunOS 4.1, 4.1.1 - 4.1.4
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where pcnfsd runs.  This may be a precursor to accessing pcnfsd.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+If a legitimate remote user is allowed to access pcnfsd, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for pcnfsd, not probes of the pcnfsd service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the pcnfsd service itself. An attacker may attempt to go directly to the pcnfsd port without querying the portmapper service, which would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/5378
+
+CERT
+http://www.cert.org/advisories/CA-1996-08.html
+
+Arachnids 
+http://www.whitehats.com/info/IDS22
+
+
+--

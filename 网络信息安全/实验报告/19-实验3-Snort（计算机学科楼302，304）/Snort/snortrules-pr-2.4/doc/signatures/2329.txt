@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+2329
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft Windows Data Access Components.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible. Denial of Service
+(DoS)
+
+--
+Detailed Information:
+It may be possible for an attacker to send a specially crafted response
+to a client broadcast query searching for an SQL server. This response
+could take advantage of a buffer overrun condition in an MDAC component
+which may result in the attacker being presented with the opportunity to 
+execute code of their choosing with the privileges of the user running
+the service on the client system.
+
+A DoS condition may also manifest in MDAC version 2.8.
+
+MDAC is included by default on many Microsoft Windows systems. Client
+workstations may make regular broadcast announcements in an attempt to
+find SQL servers.
+
+--
+Affected Systems:
+	Microsoft Data Access Components 2.5
+	Microsoft Data Access Components 2.6
+	Microsoft Data Access Components 2.7
+	Microsoft Data Access Components 2.8
+
+--
+Attack Scenarios:
+The attacker may spoof the response from an SQL server to exploit the
+vulnerability.
+
+--
+Ease of Attack:
+Moderate..
+
+--
+False Positives:
+Since this rule cannot be constrained using ports and the connection
+state for MSDAC is not tracked, false positive events may occur under
+normal circumstances. The $SQL_SERVERS variable in snort.conf should be
+configured correctly to eliminate this behavior.
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches and service packs.
+
+Disallow access to database servers from sources external to the
+protected network.
+
+Disallow access to database servers from untrusted hosts.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

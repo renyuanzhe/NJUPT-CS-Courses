@@ -1,0 +1,58 @@
+Rule:
+--
+Sid:
+2277
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a directory
+traversal vulnerability in the cgi application PeopleSoft PeopleBooks.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event may indicate an attempt is made to exploit a directory
+traversal vulnerability in the cgi application PeopleSoft PeopleBooks.
+The script psdoccgi.exe does not sufficiently check script arguements
+for the "headername" and "footername" variables. An attacker may exploit
+this issue to access files outside the root of the web server.
+
+--
+Affected Systems:
+	PeopleTools versions 8.43 and earlier.
+
+--
+Attack Scenarios:
+An attacker can use directory traversal techniques to access sensitive
+system files to gain information necessary for further system
+compromise.
+
+--
+Ease of Attack:
+Simple. No exploit code required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

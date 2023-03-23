@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+3537
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+buffer overflow associated with the telnet client processing
+of environment variable commands.
+
+--
+Impact:
+A successful attack can cause a buffer overflow on a telnet
+client and permit the execution of arbitrary code at the
+privilege level of the current user.
+
+--
+Detailed Information:
+A telnet server can send environment variables to a connected client. If
+a server sends a command with multiple escapes for the characters x01,
+x02, x03 and xFF a fixed length buffer is exceeded and a buffer overflow
+condition occurs.
+
+This issue may be exploited by an attacker to execute code of their
+choosing on a vulnerable client.
+
+--
+Affected Systems:
+	Multiple Vendors.
+
+--
+Attack Scenarios:
+An attacker can send the environment commands with multiple escapes to
+overflow the buffer followed by the code to be executed.
+
+--
+Ease of Attack:
+Simple. Exploit code is available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+Use Secure Shell as an alternative method of remote access.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=221&type=vulnerabilities
+
+--

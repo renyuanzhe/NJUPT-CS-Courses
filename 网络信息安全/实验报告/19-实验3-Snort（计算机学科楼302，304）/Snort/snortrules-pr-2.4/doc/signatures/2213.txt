@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2213
+
+--
+Summary:
+This event is generated when an attempt is made to access mailfile.cgi on an internal web server. This may indicate an attempt to exploit a file disclosure vulnerability in Oatmeal Studios Mail File 1.10.
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+Mail File 1.10 is a Perl script that allows web site visitors to email files to any user using an online form. It contains a vulnerability where an attacker can craft a URL with an arbitrary file name in the "filename" argument. If the file exists on the server, it is emailed to the address that the attacker specifies in the URL. 
+
+--
+Affected Systems:
+Systems running Oatmeal Studios Mail File 1.10.
+
+--
+Attack Scenarios:
+An attacker sends a specially crafted HTTP request to a vulnerable web server with /../../../etc/passwd as the filename argument. If the web server's password file exists at that location, it is sent to the email address specified in the URL.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses mailfile.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable mailfile.cgi.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/1807
+
+--

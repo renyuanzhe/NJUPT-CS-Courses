@@ -1,0 +1,57 @@
+Rule:  
+
+--
+Sid:
+1777
+--
+Summary:
+This rule detects an attacker executing the STAT command along with file globbing character '*'. This affects Cisco equipment and Microsoft's IIS 4.0, 5.0, and 5.1. 
+
+--
+Impact:
+Severe; this vulnerablity is remotely exploitable, and is present on systems that are widely deployed.
+--
+Detailed Information:
+This rule detects an attacker executing the STAT command along with file globbing character '*'.  There is a vulnerability in Microsofts IIS 4.0, 5.0, and 5.1 servers,  that causes the service to crash once it receives the STAT command along with a large number of file globbing characters.  
+
+VisNetic and Titan FTP servers are also vulnerable to an attack which can present the attacker with the opportunity to break out of the ftp root directory using this command.
+
+--
+Affected Systems:
+Microsoft Internet Information Server 4, 5 and 5.1
+Some versions of Cisco equipment
+VisNetic FTP Server
+Titan FTP Server
+
+--
+Attack Scenarios:
+An attacker logs into a vulnerable hosts and executes the STAT command with multiple file globbing characters.  This would cause the service to crash.
+
+The attacker may also use Nessus to scan for a vulnerable server.
+
+--
+Ease of Attack:
+The attack can be executed with relative ease.
+--
+False Positives:
+None known to date
+--
+False Negatives:
+None known to date.
+--
+Corrective Action:
+Microsoft has released a IIS Security Roll-up Package that addresses this issue.  The Roll-up package can be found at: 
+http://www.microsoft.com/ntserver/nts/downloads/security/q319733/default.asp 
+More information on this package can be found at: 
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/MS02-018.asp
+--
+Contributors:
+Sourcefire Research Team
+mike.poor@sourcefire.com
+-- 
+Additional References:
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/MS02-018.asp
+http://www.microsoft.com/ntserver/nts/downloads/security/q319733/default.asp
+
+
+--

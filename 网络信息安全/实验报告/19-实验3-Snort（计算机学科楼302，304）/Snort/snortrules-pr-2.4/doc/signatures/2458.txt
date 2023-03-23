@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+2458
+
+--
+Summary:
+This event is generated when a host in your network that has Yahoo Instant Messenger running has joined a chat room or is examining chat rooms to join.
+
+--
+Impact:
+Possible policy violation.  Instant Messenger programs may not be appropriate in certain network environments.
+
+--
+Detailed Information:
+Yahoo IM provides a means of allowing users who share similar interests to join a chat room and exchange messages.  While there are no known exploits associated with exchanging messages, this type of activity may not be appropriate in certain network environments.  
+
+--
+Affected Systems:
+Any host running Yahoo Instant Messenger.
+
+--
+Attack Scenarios:
+No known attacks.
+
+--
+Ease of Attack:
+No known attacks.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+It may be possible for Yahoo IM traffic to use other ports than the default expected ones.  
+
+--
+Corrective Action:
+Disallow the use of IM clients on the protected network and enforce or implement an organization wide policy on the use of IM clients.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+--
+Additional References:
+Yahoo Protocol
+http://www.cse.iitb.ac.in/~varunk/YahooProtocol.htm
+
+--

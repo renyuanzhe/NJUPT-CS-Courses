@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid:
+1083
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability on a web server or a web application resident on a web
+server.
+
+--
+Impact:
+Information gathering and system integrity compromise. Possible unauthorized
+administrative access to the server. Possible execution of arbitrary code of 
+the attackers choosing in some cases.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to compromise a host
+running a Web server or a vulnerable application on a web server.
+
+Many known vulnerabilities exist for each implementation and the 
+attack scenarios are legion.
+
+Some applications do not perform stringent checks when validating the
+credentials of a client host connecting to the services offered on a
+host server. This can lead to unauthorized access and possibly escalated
+privileges to that of the administrator. Data stored on the machine can
+be compromised and trust relationships between the victim server and 
+other hosts can be exploited by the attacker.
+
+--
+Affected Systems:
+	All systems using a web server.
+
+--
+Attack Scenarios:
+Many attack vectors are possible from simple directory traversal to
+exploitation of buffer overflow conditions.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+Check the host logfiles and application logs for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

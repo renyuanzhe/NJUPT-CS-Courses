@@ -1,0 +1,70 @@
+Rule:
+  
+--
+Sid:
+1449
+
+--
+
+Summary:
+This event is generated when an attempt is made to log on anonymously to an ftp server.
+
+--
+
+Impact:
+Information gathering, further exploit/abuse possible.
+
+--
+
+Detailed Information:
+Anonymous logins are usually the first step in the process of gathering 
+data about a machine running the ftp server. The ftp server might be 
+abused for hosting illegal content or an exploit could be performed, 
+gaining elevated privileges.
+
+--
+
+Affected Systems:
+Machines running anonymous ftp servers.
+
+--
+
+Attack Scenarios:
+The attacker can run an automated script over a range of IP addresses to
+detect ftp servers that allow anonymous access and create a list of such
+servers, to be used later.
+
+--
+
+Ease of Attack:
+Simple.
+
+--
+
+False Positives:
+If the ftp server allows anonymous login to occur, this rule will 
+generate an event.
+
+--
+
+False Negatives:
+Attacker might use a username 'anonymous' instead of 'ftp' to gain 
+anonymous access.
+
+--
+
+Corrective Action:
+Disable anonymous access on your ftp server.
+
+--
+
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+
+-- 
+
+Additional References:
+
+--

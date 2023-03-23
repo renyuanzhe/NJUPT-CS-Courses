@@ -1,0 +1,69 @@
+Rule:  
+
+--
+Sid:
+544
+
+--
+Summary:
+This event is generated when an attempt is made to retrieve a file named
+"1mb" from an ftp server.
+
+--
+Impact:
+Possible abuse ftp behavior by hordes of warez sites, and the
+existance of (potentially) illegal files/software on an ftp server.
+
+--
+Detailed Information:
+Warez sites have been known to name "warez" files by their size.  Large
+files are split into smaller, more manageable chunks, and allow warez
+sites to store large files on ftp sites in a semi-organized manner.
+Once these files are uploaded, it is common practice for other warez
+users to attempt to retrieve them.
+
+--
+Affected Systems:
+ All FTP servers
+
+--
+Attack Scenarios:
+As part of an attempt to store elite warez on an ftp server, an
+attacker named the file "1mb" to indicate it's size.  This file is
+likely part of an archive that represents a larger, most likely
+illegal copy of media.
+
+--
+Ease of Attack:
+Simple. Exploit software is not required
+
+--
+False Positives:
+If a legitimate user has a legitimate file named "1mb", this rule may
+generate an event.
+
+--
+False Negatives:
+This will detect only files named 1mb.  If a warez site decides to
+start naming their files in a different way this rule will not generate
+an event.
+
+--
+Corrective Action:
+Inspect the ftp server for a file named 1mb. If it exists, determine
+if the file is legitimate, or if it was deposited by someone attempting
+to use the server to distribute non-legitimate files.
+
+Furthermore, evaluate the need for ftp write access.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Jon Hart <warchild@spoofed.org>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,71 @@
+
+Rule:
+
+--
+Sid:
+3652
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow condition in the CVS daemon via "cvs annotate".
+
+--
+Impact:
+Denial of Service on the files targeted by the exploit, code execution
+may be possible.
+
+--
+Detailed Information:
+CVS is the Concurrent Versions System, commonly used to help manage
+software development.
+
+This rule detects attempts to exploit a buffer overflow condition in
+the CVS daemon using the "annotate" command. A user with branching
+privileges needs to make a long revision string for a filename then use
+the cvs annotate command on that filename for the overflow to occur.
+
+--
+Affected Systems:
+	CVS 1.11.19 and prior
+	CVS 1.12.11 and prior
+	
+--
+Attack Scenarios:
+A user creates a revision string of 70 characters or more for a
+particular file. The user then issues the command "cvs annotate <file>"
+and the denial of service results for that file.
+
+--
+Ease of Attack:
+Simple if the conditions are met. Difficult to execute code.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable the CVS daemon in the file /etc/inetd.conf. Run the CVS daemon
+as a user other than root that does not have a valid login to the
+machine.
+
+Maintain checks on the password database and the CVS repository.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVS:
+http://www.cvshome.org/docs/
+
+--

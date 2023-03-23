@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+2547
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with the web interface support for the HP JetAdmin printer.
+
+--
+Impact:
+A successful attack may allow the execution of arbitrary code as root 
+on a vulnerable server.
+
+--
+Detailed Information:
+The HP Web JetAdmin provides a web interface for the administration of the HP
+Web JetAdmin printer.  A vulnerability exists that allows the uploading
+of unauthorized files using the script 
+/plugins/hpjwja/script/devices_update_printer_fw_upload.hts.  This capability
+was included to allow the upload of legitimate files, such as firmware updates,
+by an authorized administrator.  However, there is no file validation on the
+uploaded file, allowing the upload of any random file.  An attacker can upload
+a file with a .hts extension that subsequently can be executed when the
+attacker accesses the file using a web browser.
+
+--
+Affected Systems:
+HP Web JetAdmin 7.2.
+
+--
+Attack Scenarios:
+An attacker can create upload and execute a malicious file on a vulnerable server. 
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+An authorized administrator who uploads a file from an IP address outside the trusted
+network will cause a false positive alert.
+
+--
+False Negatives:
+The default HP Web JetAdmin port is 8000.  If an administrator selects a different port
+on which to run the web interface, no alert will be detected.  In that case, the rule
+should be altered to reflect the port on which the web interface runs.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software or apply the appropriate patch
+when it becomes available.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Bugtraq:
+http://www.securityfocus.com/bid/9971
+
+--

@@ -1,0 +1,65 @@
+Rule:
+--
+Sid:
+1043
+--
+Summary:
+This event is generated when an attempt is made to access the file 
+'viewcode.asp' on a web server.
+--
+Impact:
+If successful, this attack will display the contents of any file on the 
+server.   In addition, it has been reported that this tool is vulnerable
+to a denial of service attack.
+--
+Detailed Information:
+'viewcode.asp' is a utility that ships with various Microsoft products 
+and is meant to allow web site administrators to view the code of active
+server pages during development.   As it will display the contents of 
+any file on the server, it should not be present on a production system,
+but is installed by default with some products or as an option on 
+others.
+
+Also, the tool may be vulnerable to a denial of service attack.
+
+--
+Affected Systems:
+	Microsoft Site Server 3.0
+	Microsoft Site Server 3.0 Commerce Edition
+	Microsoft Commercial Internet System 2.0
+	Microsoft BackOffice Server 4.0
+	Microsoft BackOffice Server 4.5
+	Microsoft Internet Information Server 4.0
+
+--
+Attack Scenarios:
+An attacker can use this tool to steal data or to gather user 
+names/passwords and other information that could facilitate other types 
+of attack.
+--
+Ease of Attack:
+Simple. No exploit software required.
+--
+False Positives:
+None.
+--
+False Negatives:
+None.
+--
+Corrective Action:
+Remove any copies of 'viewcode.asp' from your server.
+--
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Kevin Peuhkurinen
+
+-- 
+Additional References:
+
+Insecure.org
+http://www.insecure.org/sploits/ms.backoffice.source.html
+
+Microsoft
+http://support.microsoft.com/default.aspx?scid=kb;en-us;Q231368&sd=tech
+
+--

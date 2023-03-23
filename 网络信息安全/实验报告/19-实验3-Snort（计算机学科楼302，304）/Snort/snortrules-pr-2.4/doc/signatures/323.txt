@@ -1,0 +1,59 @@
+Rule:   
+
+--
+Sid: 323
+
+-- 
+
+Summary: 
+This is an intelligence gathering activity.
+
+-- 
+
+Impact: 
+The attacker may obtain detailed information about the administrative super user account.
+
+--
+Detailed Information:
+This event is generated when an attempt to access information about the administrative account "root" on a UNIX system is made via the finger service. 
+
+The information that can be collected includes time and source address of the last login and/or current login sessions, type of shell, path to home directory, mail forwarding address (often reflecting the name of the person administrering the system) and the time when "root" email was last read. This information can be used in planning further attacks against the host.
+
+--
+
+Attack Scenarios: 
+The attacker learns that "root" has not logged in for a long time. He hypothesizes that the system is not often used and thus not likely to be patched or secured and may therefore, be vulnerable to a number of other attacks.
+
+-- 
+
+Ease of Attack: 
+Simple, no exploit software required
+
+-- 
+
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+
+Corrective Action: 
+Disable the finger daemon or limit the addresses that can access the service via firewall or TCP wrappers.
+
+--
+Contributors: 
+Original rule written by Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS376
+
+--

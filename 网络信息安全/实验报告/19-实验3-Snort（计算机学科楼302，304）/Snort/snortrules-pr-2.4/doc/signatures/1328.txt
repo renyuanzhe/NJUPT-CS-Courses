@@ -1,0 +1,76 @@
+Rule:
+
+--
+Sid:
+1328
+
+--
+Summary:
+Attempted ps command access via web
+
+--
+Impact:
+Attempt to gain information on system processes on webserver
+
+--
+Detailed Information:
+This is an attempt to gain intelligence on the processes being run on a
+webserver. The ps command lists the process status of running processes
+on a UNIX or Linux based system. The attacker could possibly gain
+information needed for other attacks on the system.
+
+Using "ps", the attackers would check for various running system
+services to exploit or for the presence of security software, such as
+host IDS or monitoring scripts. This rule looks for the "ps" command in
+the URI part of the client to web server connection and does not
+indicate whether the command was actually successful in displaying the
+list of processes. The presence of the "ps" command in the URI indicates
+that an attacker attempted to trick the web server into executing system
+commands in non-interactive mode i.e. without a valid shell session.
+
+Alternatively this rule may trigger in an unencrypted HTTP tunneling
+connection to the server or a shell connection via another exploit
+against the web server.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains '/bin/ps'in
+the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries
+outside of it's designated web root or cgi-bin. This command may also be
+requested on a command line should the attacker gain access to the
+machine. On BSD derived systems, setting the parameter
+"kern.ps_showallprocs" to zero will show only the processes being run by
+that user except for root who will still see all processes.
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Additional information from Anton Chuvakin <http://www.chuvakin.org>
+
+-- 
+Additional References:
+sid: 1329
+
+Manual page for ps.
+
+http://linux.about.com/library/cmd/blcmdl1_ps.htm
+
+--

@@ -1,0 +1,75 @@
+Rule:  
+
+Sid:
+1079
+
+--
+
+Summary:
+This event is generated when an attempt is made to use the
+PROPFIND WebDAV request method on a web server.
+
+--
+Impact:
+Information gathering. An attacker can get a directory listing for all 
+directories configured to support WebDAV in an Apache web server. This
+could by a prelude to a more serious attack.
+
+--
+Detailed Information:
+WebDAV is a web publishing protocol implemented by several web servers,
+including Apache.  Certain configurations of Apache, such as those in
+SuSE 6.0-7.0 and RedHat 6.2-7.0, have WebDAV enabled and misconfigured
+in such a way to allow directory listings of the entire server file
+structure -- specificially, WebDAV was enabled on the Document Root of
+the web server.  Since subdirectories of a WebDAV-enabled directory
+are automatically enabled as well, this caused the entire web server
+to have WebDAV enabled.
+
+Since a directory, or its parent directory, must have been 
+specifically declared for WebDAV to be enabled, configuration errors
+should be straightforward to find and correct.
+
+--
+Affected Systems:
+	Apache Web Server with WebDAV enabled and misconfigured.
+ 
+--
+Attack Scenarios:
+Attacker gets a listing by sending something like:
+PROPFIND / HTTP/1.1
+
+--
+Ease of Attack:
+Simple. Requires that the attacker hand-craft an HTTP request.
+
+--
+False Positives:
+Legitimate web publishers may use PROPFIND commands, this should not be
+allowed from resources external to the protected network.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Examine the packet to determine whether this was likely an attack or not.
+Try to determine whether this was from a legitimate web publisher or not.
+Try to determine whether the target web server was Apache with WebDAV
+enabled and misconfigured.
+
+Disallow this method of publishing from resources external to the
+protected network.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

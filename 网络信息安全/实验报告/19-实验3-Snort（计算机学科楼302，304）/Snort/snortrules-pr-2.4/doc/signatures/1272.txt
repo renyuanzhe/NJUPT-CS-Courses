@@ -1,0 +1,71 @@
+Rule:  
+
+--
+
+Sid:
+1272
+
+--
+
+Summary:
+This event is generated when an attempt is made to probe a host for the
+sadmind RPC service.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+Certain versions of sadmind on Solaris systems are vulnerable to a
+remotely exploitable buffer overflow condition. This event indicates
+that an attempt has been made to determine if the service is available
+on the target host.
+
+--
+Affected Systems:
+	Solaris 2.5 through 2.7
+ 
+--
+Attack Scenarios:
+An attacker runs an automated tool that connects to portmapper of the
+target host, probes for RPC, and repeatedly attacks the host to brute
+force the offset in the buffer overflow.
+
+--
+Ease of Attack:
+Simple. Tools are available and exploit code exists to exploit
+vulnerabilites in sadmind.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable the sadmind service.
+
+Disallow access to RPC services from hosts external to the protected
+network
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by David Wilburn <bug@gecko.roadtoad.net>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/866/exploit/
+
+CERT:
+http://www.cert.org/advisories/CA-1999-16.html
+
+--

@@ -1,0 +1,72 @@
+Rule:
+
+
+--
+Sid: 
+
+1885
+
+-- 
+Summary: 
+This rule has been placed in deleted.rules
+
+-- 
+Impact: 
+
+attacker might have gained an ability to execute commands
+remotely on the system.
+
+--
+Detailed Information:
+
+This signature triggers when a UNIX "id" command is used to confirm
+the user name of the currently logged in user over any unencrypted
+connection. Such connection can be either a legitimate telnet
+connection or a result of spawning a shell on FTP, POP3, SMTP or other
+port as a consequence of network exploit. The string "uid=" and
+"(http)" is an output of an "id" command indicating that the user
+has "http" account privileges, typically used by the web server
+process.  Seeing such a response indicates that some user connected
+over the network to a target web server and likely exploited the web
+server to launch a shell.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+
+a buffer overflow exploit against the WWW server
+results in "/bin/sh" being executed. An automated script performing an
+attack, checks for the success of the exploit via an "id" command.
+
+-- 
+Ease of Attack: 
+
+this post-attack behavior can accompany different attacks
+
+-- 
+False Positives:
+None Known
+
+the signature will trigger if a legitimate system
+administrator executes the "id" command over the telnet connection
+which uses one of the web ports, as defined in snort.conf
+
+--
+False Negatives: not known
+
+-- 
+Corrective Action:
+
+investigate the server for signs of compromise, run
+the integrity checking software, look for other IDS alerts involving
+the same IP addresses.
+
+--
+Contributors: Anton Chuvakin <anton@chuvakin.org>
+
+-- 
+Additional References:
+
+--

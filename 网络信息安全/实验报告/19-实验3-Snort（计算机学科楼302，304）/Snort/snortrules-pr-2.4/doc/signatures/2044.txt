@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+2044
+
+--
+Summary:
+The Point to Point Tunneling Protocol (PPTP) is used to connect client 
+machines to internal corporate resources using a Virtual Private Network
+(VPN) across a public network such as the Internet via an encrypted 
+session.
+
+
+--
+Impact:
+Possible loss of data from an internal network to an unknown external 
+source.
+
+--
+Detailed Information:
+This event indicates that a PPTP session from an internal resource to an
+unknown external source has been attempted. This may be an indication of
+an attempt to initialize an encrypted session for nefarious purposes.
+
+An internal user may try to use an encrypted tunnel to evade possible 
+detection when transferring files from an internal resource to an 
+unauthorized eternal party.
+
+--
+Affected Systems:
+All systems allowing PPTP connections from an internal to external 
+source.
+
+--
+Attack Scenarios:
+The user only needs to initiate a connection to an external source.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow PPTP transactions from the internal LAN to external sources.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

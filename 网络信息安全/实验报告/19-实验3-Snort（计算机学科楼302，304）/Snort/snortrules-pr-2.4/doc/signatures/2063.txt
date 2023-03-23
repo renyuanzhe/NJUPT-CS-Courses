@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+2063
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in Demarc PureSecure.
+
+--
+Impact:
+Administrative control of the Demarc PureSecure IDS, Information 
+disclosure
+
+--
+Detailed Information:
+Demarc PureSecure is a Snort based Intrusion Detection System. A 
+vulnerability exists where an attacker can bypass login authorization 
+using SQL injection.
+
+Versions of Demarc PureSecure up to 1.6 suffer from poor authentication 
+methods, where input in the form of specially constructed SQL queries 
+can allow an attacker to gain administrative access to the IDS.
+
+--
+Affected Systems:
+Demarc PureSecure prior to version 1.6
+
+--
+Attack Scenarios:
+The attacker needs to send specially constructed SQL queries directly to
+the Demarc login page.
+
+For example, the attacker might send his own variables for the session 
+id or session key in a query s_key=' OR current_session_id LIKE '%' the 
+attacker would of course, need to convert spaces to their encoded 
+equivalents and escape special characters.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/4520
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0539
+
+--

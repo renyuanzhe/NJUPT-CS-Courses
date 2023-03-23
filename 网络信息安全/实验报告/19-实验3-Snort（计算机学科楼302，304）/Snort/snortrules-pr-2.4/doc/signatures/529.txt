@@ -1,0 +1,68 @@
+Rule:  
+
+--
+Sid:
+529
+
+--
+Summary:
+This event is generated when an attempt is made to issue a Denial of
+Service (DoS) attack against a host using the RFPoison tool.
+
+--
+Impact:
+Serious. Denial of Service.
+
+--
+Detailed Information:
+The Microsoft Local Security Authority (LSA) service does not handle
+certain malformed requests correctly. This service allows for the
+manipulation of user privileges on the host. A specially crafted
+malformed request sent to the LSA service will cause the system to
+become unresponsive.
+
+--
+Affected Systems:
+	Microsoft Windows NT Workstation
+	Microsoft Windows NT Server
+	Microsoft Windows NT Terminal Server
+	
+--
+Attack Scenarios:
+An attacker can use the RFPoison tool against a host to generate the
+request necessary to cause the DoS.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+RFP:
+http://www.wiretrip.net/rfp/txt/rfp9906.txt
+
+Microsoft:
+http://support.microsoft.com/support/kb/articles/Q231/4/57.asp
+
+--

@@ -1,0 +1,81 @@
+Rule: 
+
+--
+Sid: 
+3014
+
+-- 
+Summary: 
+This event is generated when a victim host attempts to send a connection
+confirmation to an attacker using the Asylum 0.1 trojan.
+
+-- 
+Impact: 
+If successful, the attacker would gain unauthorized access to your system, enabling him to upload and execute files on your
+computer and reboot it at will, resulting in a full compromise of the victim's computer. 
+
+--
+Detailed Information:
+When executed, Asylum 0.1 opens up its assigned port (default is 23432) for communication with the attacker.
+Asylum 0.1 has four functions: Upload File, Open File, Reboot Computer, and Remove Server. 
+
+Upload File: Look for traffic on port 23432 containing UPL followed by a file location.
+Open File: Look for traffic on port 23432 containing RUN followed by a file location.
+Reboot: Look for the string "RBT" on port 23432.
+Remove Server: Look for the string "DIE" on port 23432.
+
+--
+Affected Systems:
+Windows 95/98/ME/NT/2000
+
+--
+
+Attack Scenarios: 
+The victim must first install the server. Be wary of suspicious files because they often can be backdoors in disguise.
+Once the victim mistakenly installs the server program, the attacker usually will employ an IP scanner program
+to find the IP addresses of victims that have installed the program. Then the attacker enters the IP address, port number (which 
+is assigned to the server program by the attacker: default is 23432), and presses the connect button and he has access to your computer.
+
+-- 
+
+Ease of Attack: 
+Easy. Simply a matter of pressing the connect button once the victim has installed the server.
+
+
+-- 
+
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+-- 
+
+Corrective Action:
+Delete the System Administration key (if found) in 
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run or
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices or
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run.
+
+Open the system.ini and (if found) replace shell=Explore.exe win32cmp.exe to shell=explore.exe
+
+Open the win.ini and (if found) delete load=c:\windows\wincmp32.exe or run=c:\windows\wincmp32.exe
+
+Find and delete the Asylum 0.1 trojan server file, usually called wincmp32.exe.
+
+Keep your anti-virus programs updated with the latest definitions.
+
+--
+Contributors:
+Original Rule Writer: Ricky Macatee <rmacatee@sourcefire.com> 
+Sourcefire Research Team
+
+-- 
+Additional References:
+http://www.pestpatrol.com/PestInfo/A/Asylum.asp
+http://www.dark-e.com/archive/trojans/asylum/01/index.shtml
+
+
+--

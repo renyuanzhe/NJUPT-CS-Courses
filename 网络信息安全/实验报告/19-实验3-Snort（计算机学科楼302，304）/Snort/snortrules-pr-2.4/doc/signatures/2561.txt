@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+2561
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with rsync.
+
+--
+Impact:
+A successful attack may allow files to be existing files to be overwritten
+or new files created on the rsync server.
+
+--
+Detailed Information:
+rsync is used to remote copy files.  A command line option "--backup-dir"
+can be used to specify a directory where backup files are to be placed.
+There is no validation of the argument supplied to this option to scrutinize
+it for proper formatting.  A malicious user can try to overwrite existing
+files or create new ones on a vulnerable host by supplying a value to
+"--backup-dir" that is relative to the root directory.
+
+--
+Affected Systems:
+Many Unix and Linux distributions running rsync.
+See http://www.securityfocus.com/bid/10247 for affected operating systems.
+
+--
+Attack Scenarios:
+An attacker can send a rsync command supplying the -backup-dir option
+with a path relative to the root file system, overwriting or creating
+new files on the vulnerable host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+Run the rsync server in a chroot environment.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+--
+Additional References
+
+CVE:
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0426
+
+Bugtraq:
+http://www.securityfocus.com/bid/10247
+
+--

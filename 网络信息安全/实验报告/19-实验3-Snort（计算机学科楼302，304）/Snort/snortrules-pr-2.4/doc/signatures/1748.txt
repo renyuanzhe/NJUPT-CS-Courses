@@ -1,0 +1,75 @@
+Rule:
+
+--
+Sid:
+1748
+
+--
+Summary:
+This event is generated when an attempt is made to send an overly long 
+FTP command, possibly with the intent to cause of denial of service or 
+buffer overflow in the 3CDaemon FTP server.
+
+--
+Impact:
+Attempted remote access or denial of service.  Successful execution of 
+this attack can cause a denial of service or buffer overflow, allowing 
+the execution of arbitrary commands on the vulnerable FTP server.
+
+--
+Detailed Information:
+3CDaemon is an FTP server for Windows hosts.  A buffer overflow 
+vulnerability exists in 3CDaemon revision 10.  The exploit is caused by 
+sending an FTP command that is 400 bytes or longer, causing the server 
+to crash or permitting a buffer overflow that may allow the execution of
+arbitrary commands with the privileges of the process running the FTP 
+server.  This attack does not require login access to the FTP server.
+
+--
+Affected Systems:
+
+	3Com 3CDaemon 2.0 revision 10
+
+--
+Attack Scenarios:
+An attacker may attempt to exploit this vulnerability by sending and 
+overly long FTP command, permitting the execution of arbitrary commands 
+or causing a denial of service against the vulnerable server.
+
+--
+Ease of Attack:
+Simple.  Exploit code is freely available. 
+
+--
+False Positives:
+This rule may generate an event if an FTP client provides a legitimate 
+request which is over 100 characters long. For example, when FTP clients
+store or request files with full path located in deep directory 
+hierarchies the full request might result in a filename that exceedes 95
+characters.
+
+This rule may also generate an event if Kerberos authentication is used
+for the FTP server.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software or apply the appropriate patch.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/4638
+
+--

@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+2056
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in a web server using the TRACE command.
+
+--
+Impact:
+Possible disclosure of information.
+
+--
+Detailed Information:
+The TRACE method is used when debugging a webserver to ensure that 
+server returns information to the client correctly. When used with other
+vulnerabilities it is possible to use the TRACE method to return 
+sensitive information from a webserver such as authentication data and 
+cookies.
+
+This is known as a Cross Site Tracing (XST) attack.
+
+--
+Affected Systems:
+All platforms running a webserver that responds to the TRACE method.
+
+--
+Attack Scenarios:
+The attacker needs to perform a TRACE request to a vulnerable server.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+The TRACE method is legitimate and may be used to debug a webserver or 
+can be used to debug other networking equipment.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable the webserver from responding to TRACE requests.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.kb.cert.org/vuls/id/867593
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=11213
+
+RFC:
+http://www.ietf.org/rfc/rfc2616.txt
+
+--

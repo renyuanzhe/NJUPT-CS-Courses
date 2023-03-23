@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid:
+657
+
+--
+Summary:
+This event is generated when an external user sends a HELP command with specific syntax to an internal SMTP server, which may indicate an attempt to exploit a buffer overflow vulnerability in NetManage Chameleon SMTP server. 
+
+--
+Impact:
+Severe. Remote execution of arbitrary code, leading to remote root compromise. 
+
+--
+Detailed Information:
+NetManage Chameleon SMTP server contains a buffer overflow vulnerability in the HELP command. If the HELP command is used with an argument longer than 514 characters, a buffer overflow condition occurs, allowing the execution of arbitrary code.
+
+--
+Affected Systems:
+Systems running NetManage Chameleon Unix 97 or NetManage Chameleon 4.5.
+
+--
+Attack Scenarios:
+An attacker sends an overly long string to a vulnerable NetManage Chameleon SMTP server in the HELP command. This causes a buffer overflow condition, allowing the attacker to execute arbitrary code on the server and obtain root privileges on the mail server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+alse Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest version of NetManage Chameleon SMTP server.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+
+--

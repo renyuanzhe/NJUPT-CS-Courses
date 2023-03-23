@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+3694
+
+--
+Summary:
+This event is generated when an attempt is made to poison the
+web cache of a Squid proxy server.
+
+--
+Impact:
+A successful attack can cause the web cache to be poisoned
+and to direct a user to a different URL than the request one.
+
+--
+Detailed Information:
+A Squid proxy server can cache resources to make access to them
+more efficient.  A malformed request sent to a Squid proxy
+server may be interpreted and processed differently than the
+actual responding web server.  A particular malformed request
+that contains two header "Content-Length" fields can be used
+to try to poison the cache by causing the Squid proxy server
+and an upstream server to process the contents differently.
+
+--
+Affected Systems:
+Squid Web Proxy 2.5.STABLE7 and prior versions.
+
+--
+Attack Scenarios:
+An attacker can poison the cache of a Squid proxy server,
+directing a user to a potentially malicious site.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+Other:
+
+--

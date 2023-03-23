@@ -1,0 +1,383 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+<title></title>
+<!-- Favicon Icon -->
+<!--<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">-->
+<!-- Bootstrap -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+<!-- Plugins -->
+<link rel="stylesheet" href="{% static 'css/core.css'%}">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<style>
+	#k1 {
+            background-color: #FFFFCC !important;
+		}
+	#k2 {
+            background-color: #FFFF99 !important;
+		}	
+	#k3 {
+            background-color: #CCFF99 !important;
+		}	
+	#k4 {
+            background-color: #CCFFCC !important;
+		}	
+	#k5 {
+            background-color: #99FFCC !important;
+		}	
+	#k6 {
+            background-color: #99FF99 !important;
+		}	
+	#k7 {
+            background-color: rgba(124, 117, 218, 0.3) !important;
+		}	
+	#kkk {
+            background-color: rgba(0, 0, 0, 0.1) !important;
+		}
+</style>
+<body id="top" class="stickyfooter header-fixed">
+<div class="animsition">
+	<div class="content">
+		<header class="header-wrap no-transparent">
+			<div class="header-container">
+				<div class="container clearfix">
+					<div class="pull-left">
+						<!-- Logo -->
+						<a href=index class="logo clearfix">Snow Whites & three dwarfs</a>
+					</div>
+					<div class="pull-right">
+						<!-- Menu Burger -->
+						<a href="#" class="fullscreen-menu-toggle">
+							<span>Menu</span>
+							<i class="menu-bars">
+								<i></i>
+								<i></i>
+								<i></i>
+							</i>
+						</a>
+					</div>
+
+				</div>
+			</div>
+			<!-- End header-container -->
+		</header>
+		<div id="fullscreen-navigation">
+			<div class="inner-wrap">
+				<nav>
+					<ul class="nav_menu">
+						<li><a href=index>Home</a></li>
+						<li><a href=me>Me</a></li></li>
+						<li><li><a href=mission_hall>Mission Hall</a></li></li>
+						<li><a href=login>Login</a></li>
+						<li><a href=register>Register</a></li>
+						<!--<li><a href="about.html">About US</a></li>-->
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- End fullscreen-navigation -->
+		<div>
+			<h1>任务类型名</h1>
+		</div>
+		<main>
+			<div class="mission">
+					<center><h2>任务类型名</h2></center>
+					<br>
+			</div>
+			
+			<section class="pt_50">
+				<div class="container">
+						{% for mission in LIST %}
+						{% if mission.mis_state == "已完成" %}
+						<div class="col">
+								<div id="kkk" class="col-md-4">
+									<div class="service-box">
+										<i class="pull-left"></i>
+										<div class="content-holder ">
+												<strong style="color: darkgrey">已被接受</strong>	
+											<h5>{{mission.mis_title}}</h5>
+											<p>{{mission.mis_content}}</p>
+										</div>	
+									</div>
+						</div>   
+						{% else %}
+						{% if forloop.counter == 1 %}
+						<div class="col">
+								<div id="k1" class="col-md-4">
+									<div class="service-box">
+										<i class="pull-left"></i>
+										<div class="content-holder">
+											<a href={% url '任务详情' forloop.counter %} >
+												<strong style="color: chartreuse">接受任务</strong>	
+											</a>
+											<h5>{{mission.mis_title}}</h5>
+											<p>{{mission.mis_content}}</p>
+										</div>	
+									</div>
+						</div> 
+						{% elif forloop.counter == 2 %}
+						<div class="col">
+								<div id="k2" class="col-md-4">
+									<div class="service-box">
+										<i class="pull-left"></i>
+										<div class="content-holder">
+											<a href={% url '任务详情' forloop.counter %} >
+												<strong style="color: chartreuse">接受任务</strong>	
+											</a>
+											<h5>{{mission.mis_title}}</h5>
+											<p>{{mission.mis_contact}}</p>
+										</div>	
+									</div>
+						</div> 
+						{% elif forloop.counter == 3 %}
+						<div class="col">
+								<div id="k3" class="col-md-4">
+									<div class="service-box">
+										<i class="pull-left"></i>
+										<div class="content-holder">
+											<a href={% url '任务详情' forloop.counter %} >
+												<strong style="color: chartreuse">接受任务</strong>	
+											</a>
+											<h5>{{mission.mis_title}}</h5>
+											<p>{{mission.mis_content}}</p>
+										</div>	
+									</div>
+						</div> 
+						{% elif forloop.counter == 4  %}
+						<div class="col">
+								<div id="k4" class="col-md-4">
+									<div class="service-box">
+										<i class="pull-left"></i>
+										<div class="content-holder">
+											<a href={% url '任务详情' forloop.counter %} >
+												<strong style="color: chartreuse">接受任务</strong>	
+											</a>
+											<h5>{{mission.mis_title}}</h5>
+											<p>{{mission.mis_content}}</p>
+										</div>	
+									</div>
+						</div> 
+						{% elif forloop.counter == 5 %}
+						<div class="col">
+								<div id="k5" class="col-md-4">
+									<div class="service-box">
+										<i class="pull-left"></i>
+										<div class="content-holder">
+											<a href={% url '任务详情' forloop.counter %} >
+												<strong style="color: chartreuse">接受任务</strong>	
+											</a>
+											<h5>{{mission.mis_title}}</h5>
+											<p>{{mission.mis_content}}</p>
+										</div>	
+									</div>
+						</div> 
+						{% elif forloop.counter == 6 %}
+						<div class="col">
+								<div id="k6" class="col-md-4">
+									<div class="service-box">
+										<i class="pull-left"></i>
+										<div class="content-holder">
+											<a href={% url '任务详情' forloop.counter %} >
+												<strong style="color: chartreuse">接受任务</strong>	
+											</a>
+											<h5>{{mission.mis_title}}</h5>
+											<p>{{mission.mis_content}}</p>
+										</div>	
+									</div>
+						</div> 
+						{% elif forloop.counter == 7 %}
+						<div class="col">
+								<div id="k7" class="col-md-4">
+									<div class="service-box">
+										<i class="pull-left"></i>
+										<div class="content-holder">
+											<a href={% url '任务详情' forloop.counter %} >
+												<strong style="color: chartreuse">接受任务</strong>	
+											</a>
+											<h5>{{mission.mis_title}}</h5>
+											<p>{{mission.mis_content}}</p>
+										</div>	
+									</div>
+						</div> 
+						{% else %}
+						<div class="col">
+								<div id="k1" class="col-md-4">
+									<div class="service-box">
+										<i class="pull-left"></i>
+										<div class="content-holder">
+											<a href={% url '任务详情' forloop.counter %} >
+												<strong style="color: chartreuse">接受任务</strong>	
+											</a>
+											<h5>{{mission.mis_title}}</h5>
+											<p>{{mission.mis_content}}</p>
+										</div>	
+									</div>
+						</div> 
+						{% endif %}
+						{% endif %}
+						{% endfor %}
+					<!--
+						<div class="col-md-4">
+							<div class="service-box">
+								<i class="pull-left"></i>
+								<div class="content-holder">
+									<a href=mission_hall>
+										<strong>任务2</strong>
+									<h5>任务2描述</h5>
+									<p>这里是任务描述</p>
+								</div>	
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="service-box">
+								<i class="pull-left"></i>
+								<div class="content-holder">
+									<a href=mission_hall>
+										<strong>任务2</strong>
+									</a>
+									<h5>任务3描述</h5>
+									<p>这里是任务描述</p>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="col">
+						<div class="col-md-4">
+							<div class="service-box">
+								<i class="pull-left"></i>
+								<div class="content-holder">
+									<a href=mission_hall>
+										<strong>任务4</strong>
+									</a>
+									<h5>任务4描述</h5>
+									<p>这里是任务描述</p>
+								</div>	
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="service-box">
+								<i class="pull-left"></i>
+								<div class="content-holder">
+									<a href=mission_hall>
+										<strong>任务5</strong>
+									</a>
+									<h5>任务5描述</h5>
+									<p>这里是任务描述</p>
+								</div>	
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="service-box">
+								<i class="pull-left"></i>
+								<div class="content-holder">
+									<a href=mission_hall>
+										<strong>任务6</strong>
+									</a>
+									<h5>任务6描述</h5>
+									<p>这里是任务描述</p>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="col">
+						<div class="col-md-4">
+							<div class="service-box">
+								<i class="pull-left"></i>
+								<div class="content-holder">
+									<a href=mission_hall>
+										<strong>任务7</strong>
+									</a>
+									<h5>任务7描述</h5>
+									<p>这里是任务描述</p>
+								</div>	
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="service-box">
+								<i class="pull-left"></i>
+								<div class="content-holder">
+									<a href=mission_hall>
+										<strong>任务8</strong>
+										</a>
+									<h5>任务8描述</h5>
+									<p>这里是任务描述</p>
+								</div>	
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="service-box">
+								<i class="pull-left"></i>
+								<div class="content-holder">
+									<a href=mission_hall>
+										<strong>任务9</strong>
+									</a>
+									<h5>任务9描述</h5>
+									<p>这里是任务描述</p>
+								</div>	
+							</div>
+						</div>-->
+					</div>
+				</div>
+			</section>
+			
+		</main>
+		<!-- End main -->
+		<a href="#top" class="scroll-top scroll-top-hidden">
+			<i class="fa fa-angle-up"></i>
+		</a>
+		<!-- End scroll-top -->
+	</div> 
+	<!-- End content -->
+	
+	<footer>
+		<div class="footer">
+			<div class="container">
+				<div class="text-center">
+					<!-- Footer Logo Text -->
+					<a href=index class="logo clearfix">Minidark</a>
+					<div class="footer-socials">
+						<a href="#" data-toggle="tooltip" data-placement="top" title="facebook">
+							<i class="fa fa-fw fa-facebook"></i>
+						</a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="twitter">
+							<i class="fa fa-fw fa-twitter"></i>
+						</a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="google plus">
+							<i class="fa fa-fw fa-google-plus"></i>
+						</a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="rss">
+							<i class="fa fa-fw fa-rss"></i>
+						</a>
+					</div>
+					<!-- End socials -->
+					<!-- End footer-menu -->
+					<p class="copy">
+						Copyright &copy; 2019.两个白雪公主和三个小矮人 All rights reserved.<a target="_blank" 
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer -->
+</div>
+<!-- End animsition -->
+<script src="{%static 'js/jquery-1.12.4.min.js'%}"></script>
+<script src="{%static 'js/libs.js'%}"></script>
+<!-- Custom -->
+<script src="{%static 'js/main.js'%}"></script>
+<script src="{%static 'js/script.js'%}"></script>
+</body>
+</html>

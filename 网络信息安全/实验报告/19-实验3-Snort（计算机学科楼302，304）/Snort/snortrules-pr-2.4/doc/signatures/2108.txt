@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+2108
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow condition in the Post Office Protocol (POP) command CAPA.
+
+--
+Impact:
+Possible remote execution of arbitrary code leading to a remote root 
+compromise.
+
+--
+Detailed Information:
+A vulnerability exists such that an attacker may overflow a buffer by
+sending multiple line feed characters to a POP server via the CAPA command.
+
+--
+Attack Scenarios:
+Simple.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+ZVON RFC Reference:
+http://www.zvon.org/tmRFC/RFC2449/Output/chapter5.html
+
+Gordano Knowledge Base:
+http://www.ntmail.co.uk/kb.htm?q=981
+
+ZVON RFC Reference:
+http://www.zvon.org/tmRFC/RFC2449/Output/chapter6.html
+
+--

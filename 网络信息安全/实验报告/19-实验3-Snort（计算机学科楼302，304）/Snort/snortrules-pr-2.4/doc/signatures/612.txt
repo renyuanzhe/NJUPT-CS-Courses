@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+612
+
+--
+Summary:
+This event is generated when a request is made via Remote Procedure Call (RPC) to list the logged in users. 
+
+--
+Impact:
+Reconnaissance.  A response to this request provides valid user names that can connect to the host.  
+
+--
+Detailed Information:
+The rusers RPC query is used to discover the users currently logged on to the host.  A response to this request provides valid user names that can connect to the host.  This information can be used to attempt a brute force guessing of associated passwords.
+
+--
+Affected Systems:
+All systems running rusers.
+
+--
+Attack Scenarios:
+An attacker may attempt to list all logged in users to gather information for a future brute force password attack.
+
+--
+Ease of Attack:
+Simple.   
+
+--
+False Positives:
+If a legitimate remote user is allowed to list users, this will generate a false positive.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0626
+
+--

@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+628
+
+--
+Summary:
+This event is generated when the nmap port scanner and reconnaissance 
+tool is used against a host.
+
+--
+Impact:
+This could be part of a full scan by nmap and could indicate 
+potential malicious reconnaissance of the targeted network or host.
+
+--
+Detailed Information:
+Some versions of Nmap's TCP ping, if selected, sends a TCP ACK with an 
+ACK number = 0. 
+
+Nmap can use TCP ping as a second alternative to ICMP Ping.
+
+--
+Affected Systems:
+All systems not protected by a stateful firewall are affected. The TCP 
+Ping targeted port does  not need to be open on the host being probed to
+determine if the machine is alive or not.
+
+--
+Attack Scenarios:
+The first thing an attacker does is to gather some information about its
+target, he may use Nmap to see if the potential target is alive on 
+certain network. Included as part of the "pinging" technique used by 
+Nmap, a TCP ping can be used on certain networks that don't allow the 
+ICMP Protocol.
+
+--
+Ease of Attack:
+Simple. Nmap requires no specialized experience to use it.
+
+--
+False Positives:
+This particular Nmap TCP Ping uses a TCP ACK with an ACK Number = 0. It 
+is possible that other tools may also send a TCP ACK with an ACK number 
+of Zero.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Any stateful firewall should be enough to protect a host from being "TCP
+ACK probed". If you have more suspicious/malicious activity from the 
+host doing the portscan, follow your standard procedure to asess the 
+potential threat. If you only detect TCP Pings, that may be just a TCP 
+Ping Sweep and it is not a real threat.
+
+--
+Contributors:
+Original Rule Writer Unknown (prime suspect is Marty Roesch)
+Snort documentation contributed by Jose Hernandez <jrseal76@hotmail.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+arachnids: ids28
+
+--

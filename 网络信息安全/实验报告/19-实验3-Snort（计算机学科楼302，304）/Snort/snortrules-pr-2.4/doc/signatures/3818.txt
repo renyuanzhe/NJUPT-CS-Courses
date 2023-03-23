@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+3818
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with the FutureSoft TFTP server.
+
+--
+Impact:
+Serious. Execution of arbitrary commands may be possible.
+
+--
+Detailed Information:
+A vulnerability exists in the FutureSoft TFTP server when processing
+overly long read or write requests for either a file name or transfer
+mode string.  This may cause a buffer overflow and the subsequent
+execution of arbitrary commands on a vulnerable server.
+
+--
+Affected Systems:
+	FutureSoft TFTP Server 2000 1.0 .0.1
+
+--
+Attack Scenarios:
+An attacker can send a read or write request with an overly long file
+name or transfer mode string.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current nonaffected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

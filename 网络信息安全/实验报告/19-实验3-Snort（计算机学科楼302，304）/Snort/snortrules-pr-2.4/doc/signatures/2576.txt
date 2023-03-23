@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+2576
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in a Oracle database implementation.
+
+--
+Impact:
+Serious. Execution of arbitrary code may be possible. A Denial of
+Service (DoS) condition may also be caused.
+
+--
+Detailed Information:
+Oracle databases may use an inbuilt procedure to generate triggers
+needed for database replication. The "generate_replication_support"
+procedure contains a programming error that may allow an attacker to
+execute a buffer overflow attack.
+
+This overflow is triggered by long strings in some parameters for the
+procedure.
+
+Oracle servers running on a Windows platform may listen on any arbitrary
+port. Change the $ORACLE_PORTS variable in snort.conf to "any" if this
+is applicable to the protected network.
+
+--
+Affected Systems:
+	Oracle 9i
+
+--
+Attack Scenarios:
+An attacker can supply a long string to either the "package_prefix" or
+"procedure_prefix" variables to cause the overflow. The result could
+permit the attacker to gain escalated privileges and run code of their
+choosing.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Application Security Inc.
+https://www.appsecinc.com/Policy/PolicyCheck93.html
+
+--

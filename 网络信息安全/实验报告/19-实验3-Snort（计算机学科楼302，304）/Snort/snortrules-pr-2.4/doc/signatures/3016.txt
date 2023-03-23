@@ -1,0 +1,90 @@
+Rule: 
+
+--
+Sid: 
+3016
+-- 
+Summary: 
+This event is generated when an attempt is made to request a connection on port 63536 using the Insane Network 4.0 trojan.
+
+-- 
+
+Impact: 
+If connected, the attacker could remotetly execute a multitude of functions resulting in a full compromise of the victim's machine.
+
+--
+Detailed Information:
+Insane Network 4.0 uses port 2000 as its default, but -2000, or port 63536, incarnations also exist.
+Insane Network 4.0 has a number of functions. The following strings are indicative of a particular Insane Network 4.0 attack.
+Be aware that some versions of Insane Network 4.0 will send their attack strings one letter at a time. For example,
+to send the bomb command, some versions will send only one letter per packet, resulting in bomb being spelled out in multiple packets.
+
+Format: Name of function (Description of what it does *only if necessary*) - string to look for
+
+Bomb ("Bombs" monitor) - bomb
+Snow (Makes monitor snowy) - snow
+Melt ("Melts" the screen) - melt
+Reverse (Reverses screen) - reverse
+Copy File - cp followed by a file name and the destination path
+Ctrl-Alt-Del (Enable/Disable Ctrl-Alt-Del) - cad -e (for enable) cad -d (for disable)
+Delete File - rm followed by a file name, including path
+File List - ls followed by directory
+File Sharing (Gets shared file password information) - share
+Dial-Up Passwords (Get Dial-up password information) - passwd
+Make Text File - mktext
+Popup Message - popup
+Read File - cat followed by a file name, including path
+Reboot - reboot
+Registry Edit - regrun
+Rename File - ren followed by a file and its new name
+Run File - exec followed by a file name, including path
+Shutdown - shutdown
+Taskbar (Enable/Disable Task Bar) - task -e (for enable) tast -d (for disable)
+Telnet - telnet
+
+--
+Affected Systems:
+Windows 95/98/ME/NT/2000
+
+--
+
+Attack Scenarios: 
+The victim must first install the server. Be wary of suspicious files because they often can be backdoors in disguise.
+Once the victim mistakenly installs the server program, the attacker usually will employ an IP scanner program
+to find the IP addresses of victims that have installed the program. Then the attacker enters the IP address, port number (which 
+is assigned to the server program by the attacker: default is 2000), and presses the connect button and he has access to your computer.
+
+-- 
+
+Ease of Attack: 
+Easy. Simply a matter of pressing the connect button once the victim has installed the server.
+
+
+-- 
+
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+-- 
+
+Corrective Action: 
+Remove insane network.exe and commands.txt
+Kill insane network.exe in the process list
+
+Keep your anti-virus software updated with the latest virus definitions.
+
+--
+Contributors:
+Original Rule Writer: Ricky Macatee <rmacatee@sourcefire.com> 
+Sourcefire Research Team
+
+-- 
+Additional References:
+http://www.pestpatrol.com/PestInfo/i/insane_network.asp
+
+
+--

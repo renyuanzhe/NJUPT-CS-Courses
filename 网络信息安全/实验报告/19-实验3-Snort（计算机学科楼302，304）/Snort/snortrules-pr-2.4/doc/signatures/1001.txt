@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+1001
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability on an iCat Carbo Server.
+
+--
+Impact:
+Serious. Information disclosure.
+
+--
+Detailed Information:
+The iCat Carbo server, which is part of the Electronic Commerce Suite, 
+does not properly check HTTP requests and will give access to any file 
+object residing on the system when it receives a request such as 
+http://target/carbo.dll?icatcommand=..\..\directory/filename.ext&catalogname=catalog
+
+--
+Affected Systems:
+	iCat Electronica Commerce Suite 3.0 
+
+--
+Attack Scenarios:
+An attacker can view any file on the server, including sensitive 
+password files. The information disclosed can then be used to facilitate
+further attacks on the system.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives: 
+None known.
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action: 
+None known.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com> 
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2126
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-1069
+
+--

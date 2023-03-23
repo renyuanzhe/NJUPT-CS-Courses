@@ -1,0 +1,60 @@
+Rule:
+
+--
+
+Sid:
+424
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP Mobile Registration Request datagram with an undefined ICMP Code.
+
+--
+
+Impact:
+ICMP Mobile Registration Requests were never implemented and have been replaced by UDP and TCP versions of the message.  ICMP Type 35 datagrams should never be seen in normal network conditions.
+
+--
+
+Detailed Information:
+ICMP Mobile Registration Request datagrams were developed before the development of RFC3344 (IP Mobility Support for IPv4).  Therefore these types of ICMP datagrams should never be seen in normal networking conditions.  
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+ICMP Type 35 datagrams are not normal network activity.  Hosts generating these types of datagrams should be investigated for nefarious activity
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

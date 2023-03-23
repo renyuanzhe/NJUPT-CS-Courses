@@ -1,0 +1,60 @@
+Rule:
+
+
+--
+Sid:
+2154
+
+--
+Summary:
+This event is generated when a remote user attempts to access autohtml.php on a web server. This may indicate an attempt to exploit a  vulnerability in PHP-Proxima, a web site portal application.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event may indicate an attempt to exploit a vulnerability in the autohtml.php script within PHP-Proxima. An attacker can use directory traversal techniques when accessing autohtml.php to view hidden files and directories on the web server with the access privileges of the server. In addition, an attacker can enter an arbitrary file name within the "name" parameter of the autohtml.php call, and if the file exists, the attacker can view it.
+
+--
+Affected Systems:
+Any server running PHP-Proxima.
+
+--
+Attack Scenarios:
+An attacker can use directory traversal techniques or use a specific filename in the "name" parameter of the URL when executing autohtml.php to view specific directories and files on the web server.
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+If a legitimate remote user accesses autohtml.php, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Comment out or remove the "include("autohtml/$name");" line from the autohtml.php script.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/7598
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11630
+
+--

@@ -1,0 +1,74 @@
+Rule:
+--
+
+Sid:
+499
+
+--
+
+Summary:
+This event is generated when a large ICMP packet is detected. Also known
+as the "Ping of Death".
+
+--
+Impact:
+Denial of Service (DoS) by system crash or bandwidth utilisation.
+
+--
+Detailed Information:
+Some implementations of the IP stack may result in a system crash 
+or may hang when a large ICMP packet is sent to them. Alternatively 
+a large number of these packets may result in link saturation, 
+especially where bandwidth is limited.
+
+This attack was prevalent a number of years ago when the TCP/IP stack of
+a number of operating systems could not handle large packet payloads.
+
+--
+Affected Systems:
+	Multiple older systems.
+
+--
+Attack Scenarios: 
+A malicious individual may send a series of large ICMP packets 
+to a host with the intention of either crashing or hanging the host, 
+or to saturate the available bandwidth.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+A number of load balancing applications use 1500 byte ICMP packets to 
+determine the most efficent route to a host by measuring the latency 
+of multiple paths.
+
+HP-UX systems configured with PMTU discovery will send echo requests 
+in response to several types of network connections. PMTU Discovery 
+is enabled in HP-UX 10.30 and 11.0x by default.
+
+Windows 2000 uses large ICMP payloads to determine the speed of a link
+when utilizing a Windows domain controller.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+ICMP Traffic - Seth Stein
+http://www.wfu.edu/~steinsj5/work/icmp.html
+
+--

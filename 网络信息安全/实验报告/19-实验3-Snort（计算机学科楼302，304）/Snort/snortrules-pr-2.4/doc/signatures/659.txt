@@ -1,0 +1,54 @@
+Rule:
+--
+Sid:
+659
+
+--
+Summary:
+This event is generated when a probe is sent to an SMTP server to determine if the decode alias is supported.
+
+--
+Impact:
+Intelligence gathering activity. This event could be an indication of reconnaissance or an actual attempt to overwrite a sensitive file. If the decode alias is present on the SMTP server, an attacker may use it to overwrite files. 
+
+--
+Detailed Information:
+The decode alias was included to allow email to be sent to a username of decode to process the email content through the uudecode program.  A malicious user could attempt to email a uuencoded file that would overwrite an existing sensitive file. 
+
+--
+Affected Systems:
+Older UNIX Sendmail versions (~1990-1996)
+
+--
+Attack Scenarios:
+An attacker can email a uuencoded file to the decode username to overwrite an existing sensitive file.  
+
+--
+Ease of Attack:
+Simple. Send email containing a uuencoded file to the username decode to overwrite an existing sensitive file.
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Remove decode in /etc/aliases.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS32
+
+
+--

@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+2501
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the Microsoft implementation of SSL Version 3.
+
+--
+Impact:
+Denial of Service (DoS).
+--
+Detailed Information:
+A vulnerability exists in the handling of SSL Version 3 requests that
+can be manipulated to cause a DoS condition in various software 
+implementations used on Microsoft operating systems.
+
+The condition exists because of poor error handling routines in the
+Microsoft Secure Sockets Layer (SSL) library. SSL requests containing an
+invalid field, sent to vulnerable systems can cause the affected host to stop 
+handling any further requests.
+
+--
+Affected Systems:
+	Microsoft Windows 2000, 2003 and XP systems using SSL
+
+--
+Attack Scenarios:
+An attcker needs to make an SSL request to an affected system that
+contains an invalid field.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+--
+Contributors:
+Sourcefire Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

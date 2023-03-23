@@ -1,0 +1,60 @@
+Rule:
+
+--
+
+Sid:
+390
+
+--
+
+Summary:
+This event is generated when an ICMP Alternate Host Address datagram is detected on the network.  This ICMP Type is not documented in an RFC, but may be implemented by routing equipment to direct hosts to the correct IP address or neighboring hosts.
+
+--
+
+Impact:
+This ICMP Type is not implemented in most standard operating systems and is a potential indication of information gathering activities.
+
+--
+
+Detailed Information:
+ICMP Type 6 (Alternate Host Address)  is not defined in an RFC and should not be considered legitimate network traffic.  
+
+--
+
+Attack Scenarios:
+Attackers may use this ICMP Type to gather information about the network.
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate ICMP Alternate Host Address datagrams.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+
+--
+
+Corrective Action:
+ICMP Type 6 datagrams should be blocked at the firewall.
+
+--
+
+Contributors:
+Original Rule wirter unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+583
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) rstatd is listening.
+
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port rstatd is using.  Attackers can also learn what versions of the rstatd protocol are accepted by rstatd. 
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as rstatd run.  The rstatd RPC service can be queried for performance statistics obtained from the kernel including network, disk, and CPU.  This can provide valuable information to determine which host may make a suitable target to participate in a particular attack. 
+
+--
+Affected Systems:
+All hosts running the UNIX portmapper.
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where rstatd runs.  This may be a precursor to querying rstatd for usage statistics.
+
+--
+Ease of Attack:
+Easy.  
+
+--
+False Positives:
+If a legitimate remote user is allowed to access rstatd, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for rstatd, not probes of the rstatd service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the rstatd service itself. An attacker may attempt to go directly to the rstatd port without querying the portmapper service, which would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS10
+
+
+--

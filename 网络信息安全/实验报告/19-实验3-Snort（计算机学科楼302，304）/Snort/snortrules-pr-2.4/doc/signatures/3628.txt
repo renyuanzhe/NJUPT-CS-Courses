@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid:
+3628
+
+--
+Summary:
+This rule generates an event when network traffic indicating that IDA
+Pro has been started on a machine connected to the network.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+Datarescue IDA Pro is a disassembler and debugger tool that runs on
+Windows and Linux systems. It is widely used in vulnerability and
+malware research. It allows a user to disassemble program code compiled
+on multiple platforms.
+
+--
+Affected Systems:
+	NA
+
+--
+Attack Scenarios:
+
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

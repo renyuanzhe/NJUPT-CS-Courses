@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+2016
+
+--
+Summary:
+Remote Procedure Call (RPC) is a facility that enables a machine to 
+request a service from another remote machine. This is done without the 
+request for available services on a host.
+
+--
+Impact:
+This may be an intelligence gathering activity that could be the prelude
+to an attack against a vulnerable service on the host.
+
+--
+Detailed Information:
+This RPC status request returns information pertaining to available RPC 
+services running on a host. This is not an attack against a host by 
+itself but may be an intelligence gathering activity in prelude to an 
+attack against a vulnerable service running on a target host.
+
+--
+Affected Systems:
+All machines running RPC services.
+
+--
+Attack Scenarios:
+The attacker merely needs to request information about services being 
+offered on a target machine using "rpcinfo" for example.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+When seen on a local area network a legitimate rpcinfo request will 
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+RPC services should not be available outside the local area network, 
+filter RPC ports at the firewall to ensure access is denied to RPC 
+enabled machines.
+
+Disable all RPC services where not needed.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats:
+http://www.whitehats.com/info/IDS15/
+
+--

@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+655
+
+--
+Summary:
+This event is generated when a buffer overflow is attempted on a Sendmail 8.6.9 server.
+
+--
+Impact:
+Attempted administrator access.  A successful buffer overflow attack can allow a remote attacker access to the Sendmail server at the privilege level of the user ID associated with Sendmail.
+
+--
+Detailed Information:
+A vulnerability exists in Sendmail version 8.6.9 that can be exploited by a buffer overflow attack.  This allows the attacker access to the Sendmail server at the privilege level of the user ID associated with Sendmail.  This attack can occur when a Sendmail server connects back to the ident service of the client requesting the Sendmail connection.  Because it is improperly validated by the Sendmail server, a malicious response can cause a buffer overflow. 
+
+--
+Affected Systems:
+Sendmail version 8.6.9.
+
+--
+Attack Scenarios:
+An attacker can request a connection to a Sendmail server, listen for the request for the ident service, and respond with a malicious payload to exploit the vulnerability.
+
+--
+Ease of Attack:
+Easy.  Exploit code is available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate patch or upgrade to a Sendmail version greater than 8.6.9.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Rule updated by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0204
+
+
+--

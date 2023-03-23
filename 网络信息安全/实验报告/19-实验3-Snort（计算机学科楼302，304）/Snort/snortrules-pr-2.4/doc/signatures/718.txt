@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+718
+
+--
+Summary:
+This event is generated when an attempted telnet login fails from a remote user.
+
+--
+Impact:
+Attempted remote access.  This event may indicate that an attacker is attempting to guess username and password combinations.  Alternately, it may indicate that an authorized user has entered an incorrect username and password combination.
+
+--
+Detailed Information:
+A telnet server will issue an error message after a failed login attempt.  This may be an indication of an attacker attempting brute force guessing of username and password combinations.  It is also possible that an authorized user has incorrectly entered a legitimate username and password combination.  Telnet traffic is passed in clear text so it is not recommended for remote connections.  Secure Shell is considered to be a more secure alternative.
+
+--
+Affected Systems:
+Telnet servers.
+
+--
+Attack Scenarios:
+An attacker may attempt to guess username and password combinations.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+This event may be triggered by a failed telnet login attempt from a remote user.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Consider using Secure Shell instead of telnet.
+
+Block inbound telnet access if it is not required.
+
+--
+Contributors:
+Original rule writer Max Vision <vision@whitehats.com>
+Documented by Steven Alexander<alexander.s@mccd.edu>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS127
+
+--

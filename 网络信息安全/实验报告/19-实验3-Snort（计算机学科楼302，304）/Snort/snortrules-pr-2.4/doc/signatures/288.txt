@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+288
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer 
+overflow in the POP3 service on Linux systems.
+
+--
+Impact:
+An attacker can gain access to a shell running with root privileges.
+
+--
+Detailed Information:
+This rule looks for a piece of shell code (executable code) that is
+used to exploit a known vulnerability in an older version of the POP3
+daemon distributed in Linux systems.
+
+--
+Affected Systems:
+Various Linux versions.
+
+--
+Attack Scenarios:
+The attack is done remotely and gives the attacker a command shell
+running with root privileges.
+
+--
+Ease of Attack:
+Simple.  An exploit is readily available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Install the available security patches from your linux vendor.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+--
+Additional References:
+
+--

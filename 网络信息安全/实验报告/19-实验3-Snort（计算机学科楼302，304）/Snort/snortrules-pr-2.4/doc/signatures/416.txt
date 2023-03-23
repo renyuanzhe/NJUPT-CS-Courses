@@ -1,0 +1,62 @@
+Rule:
+
+--
+
+Sid:
+416
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP Information Reply datagram with an undefined ICMP Code.
+
+--
+
+Impact:
+ICMP Information Reply datagrams contain the network number of the network segment the datagram was generated on.  This could be an indication of an improperly configured host attempting to locate the network number of the subnet it is located in.
+
+Undefined ICMP Code values should never been seen on the network.  This could be an indication of nefarious activity on the network.
+
+--
+
+Detailed Information:
+This message is generated in response to an ICMP Information Request Message.  Hosts that generated ICMP Information Request Messages are attempting to obtain the network number of subnet it is on.  In normal situations the ICMP Code should be set to 0, values other than 0 are undefined and should never be used.
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+ICMP Type 16 datagrams are not normal network activity.  Hosts generating ICMP Information Request messages or Information Reply Messages should be checked for configuration errors.
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

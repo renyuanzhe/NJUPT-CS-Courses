@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+
+344
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a 
+vulnerability in Wu-ftpd.
+
+--
+Impact:
+
+Serious. Full system compromise is possible.
+
+--
+Detailed Information:
+Some versions of Wu-ftpd contain an exploitable vulnerability in SITE 
+EXEC command, which can trigger a buffer overflow enabling an attacker 
+to gain root privileges. Anonymous access is enough for this exploit to 
+work.
+
+--
+Affected Systems:
+
+	Any version of Linux running wu-ftpd 2.6.0 and lower
+
+--
+Attack Scenarios:
+An attacker tries to connect to the server on port 21 anonymously. Then 
+he creates special directories using the MKD (make directory) command, 
+and then change its current FTP path into them using the CWD (change 
+current directory) command followed by a SITE EXEC on that directory. 
+
+
+--
+Ease of Attack:
+
+Simple. Exploit scripts are available.
+
+--
+False Positives:
+
+None known.
+
+--
+False Negatives:
+
+None known.
+
+--
+Corrective Action:
+Disable anonymous FTP access to your site.
+
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2000-13.html
+
+--

@@ -1,0 +1,75 @@
+Rule: 
+
+--
+Sid: 362
+
+-- 
+
+Summary: 
+This event is generated when an attempt to abuse an FTP servers functionality and configuration weaknesses is attempted.
+
+-- 
+Impact:
+Serious. The attacker may have the ability to execute commands remotely within an FTP session.
+
+-- 
+Detailed Information: 
+This event is generated when an attempt to abuse the built-in archive decompression functionality of the FTP server is attempted.
+
+Some FTP servers allow the user to compress/archive files on the fly whilst they are being uploaded or downloaded. For example, the user may be able to "tar" and download an entire directory in one command simply by requesting the "directory_name.tar". Additionally, the user may be able to specify the command the "tar" archiver will use for compression (normally, "gzip", "bzip2", etc) and have an FTP server erroneously accept this command. 
+
+If this command is a shell, an interactive session will be started.  The string " --use-compress-program" is an indicator that such a parameter is being given to "tar" utility.  The attack requires an established FTP session.
+
+--
+
+Attack Scenarios: 
+An FTP-only user with no shell access can connect to a server and execute a "/bin/bash" shell via this exploit. This will present the attacker with interactive access to a system.
+
+-- 
+
+Ease of Attack: 
+Simple. The attack requires an access via FTP to the target server. In the case of an anonymous FTP connection, the attack will only permit execution of software from within the chrooted anonymous FTP home. 
+
+If the session is that of a regular FTP user, any binary or executable file can be executed. No special exploit software is required.
+
+-- 
+
+False Positives: 
+Highly unlikely, but the legitimate use of this functionality might trigger a false alarm
+
+-- 
+
+False Negatives:
+None Known
+
+-- 
+
+Corrective Action: 
+Upgrade the FTP server software to a non-vulnerable version
+
+Restrict access to the FTP server to trusted users/IP addresses, 
+
+Disallow automatic file archival
+
+Disable FTP server and use secure shell (SSH) for transferring files.
+
+--
+Contributors: 
+Original rule writer Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS134
+
+Bugtraq:
+http://online.securityfocus.com/bid/2240
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0202
+
+--

@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+225
+
+--
+Summary:
+This event is generated when the Stacheldraht DDoS tool is used.
+
+--
+Impact:
+This indicates that a Stacheldraht agent exists on the source host and a handler exists on the destination host.
+
+--
+Detailed Information:
+The Stacheldraht DDoS uses a tiered structure of compromised hosts to coordinate and participate in a denial of service attack.  There are "handler" hosts that are used to coordinate the attacks and "agent" hosts that launch the attack.  A handler may probe for a Stacheldraht agent.  There is also "gag" program used to scan for Stacheldraht agents.  A response to a "gag" request will be an ICMP echo reply with an ICMP identification number of 669 and a string of "sicken" in the payload.  
+
+--
+Affected Systems:
+Any Stacheldraht compromised host.
+
+--
+Attack Scenarios:
+A handler may probe for a Stacheldraht agent or the "gag" program can be used to discover Stacheldraht agents.  The "gag" program can be run by a defender of a network if there is a suspected Stacheldraht agent on the network. An attacker could also run the "gag" program to find an agent.
+
+
+--
+Ease of Attack:
+Simple. The "gag" script is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Turn of all unnecessary services on hosts.
+
+Upgrade to the latest patch level.
+
+Use a packet filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS195
+
+--

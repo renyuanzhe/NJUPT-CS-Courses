@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1652
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in version 1.2 of NCSA web server.
+
+--
+Impact:
+File retrieval leading to compromise of confidential information, 
+potential root exploit.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to manipulate a cgi
+script to retrieve files outside the web root of version 1.2 of the NCSA
+web server.
+
+The vulnerability exists in the cgi script "campas"
+
+--
+Affected Systems:
+	web servers running a very old (1995) version of NCSA web 
+	server may have this cgi script installed.
+
+--
+Attack Scenarios:
+The attacker can make an HTTP GET request to the script and include
+variables to retrieve a sensitive system file in the following manner:
+
+GET /cgi-bin/campas?%0acat%0a/etc/passwd%0a
+
+--
+Ease of Attack:
+Simple. No exploit software required
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

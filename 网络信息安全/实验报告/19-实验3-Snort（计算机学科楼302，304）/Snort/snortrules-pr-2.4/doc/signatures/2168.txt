@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+2168
+
+
+--
+Summary:
+This event is generated when a possible outgoing virus is detected. 
+
+--
+Impact:
+Informational event. An virus on an infected host may be attempting to 
+propogate.
+
+--
+Detailed Information:
+This event indicates that an outgoing email message possibly containing 
+a virus has been detected.
+
+This rule generates an event when a filename extension commonly used by 
+viruses is detected.
+
+--
+Affected Systems:
+Any host.
+
+--
+Attack Scenarios:
+This is indicative of a virus infection.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+A legitimate attachment to an email may generate this event.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the host for signs of virus infection.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

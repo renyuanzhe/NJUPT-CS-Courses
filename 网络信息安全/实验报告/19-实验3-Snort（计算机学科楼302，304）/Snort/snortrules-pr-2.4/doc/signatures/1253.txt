@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1253
+
+--
+Summary:
+This event is generated after a sucessful exploit of the BSD derived Telnet daemon.
+
+--
+Impact:
+Remote root access.  This may or may not indicate a successful root 
+compromise of a telnet server.
+
+--
+Detailed Information:
+This event is generated after a possible sucessful attempt to compromise
+a server running a BSD derived version of Telnet. A buffer overflow
+condition exists that may present an attacker with the opportunity to
+execute code of their choosing.
+
+The attacker does not need to login to the server to exploit this
+vulnerability, only a connection to the server is needed.
+
+--
+Affected Systems:
+	Multiple Vendor Telnet servers running versions of telnetd derived
+	from the BSD telnet daemon.
+
+--
+Attack Scenarios:
+An attacker may utilize one of the available exploit scripts.
+
+--
+Ease of Attack:
+Simple. Exploit scripts are publicly available. This vulnerability may
+also be exploited by a worm.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Consider using Secure Shell instead of telnet.
+
+Block inbound telnet access if it is not required.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

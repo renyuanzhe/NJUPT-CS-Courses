@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+
+1636
+
+--
+Summary:
+This event is generated when an attempt is made to overflow a buffer in Xtramail.
+
+--
+Impact:
+An attacker can execute an arbitrary command with the privilege of the user running Xtramail, typically root.
+
+--
+Detailed Information:
+Xtramail is a Mail Transfer Agent ,normally listening on port 110 and 25. Older versions have a buffer overflow in the remote service when it is issued the large input strings in the Username field.
+
+There are several unchecked buffers in XtraMail 1.11, which when overflowed will crash the server and cause a denial of service.
+
+--
+Affected Systems:
+
+	Artisoft XtraMail v1.11
+
+--
+Attack Scenarios:
+The POP3 server buffer can be overflowed by sending more than 1500 characters to the PASS argument.
+
+The SMTP server buffer can be overflowed by sending more than 10,000 charcters in the HELO argument.
+
+The username buffer for remote administration can be overflowed by sending more than 10,000 characters.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+Certain types of binary file attachments could generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate patches
+
+Upgrade to the latest non-affected version of the software. 
+
+Block incoming attachments with .bat, .exe, .pif, and .scr extensions 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+http://www.securityfocus.com/bid/791
+
+--

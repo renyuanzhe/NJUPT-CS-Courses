@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2200
+
+--
+Summary:
+This event is generated when an attempt is made to access dnewsweb.cgi on an internal web server. This may indicate an attempt to exploit a buffer overflow vulnerability in NetWin DNews News Server 5.3.
+
+--
+Impact:
+Remote execution of arbitrary code, possibly leading to remote root compromise.
+
+--
+Detailed Information:
+NetWin DNews News is a web-based application that manages remote access to Internet newsgroups. When overly long arguments are used as arguments to some dnewsweb.cgi parameters (including but not limited to "group," "cmd," and "utag"), a buffer overflow condition may occur. This can lead to the remote execution of arbitrary code with the security context of DNews. 
+
+--
+Affected Systems:
+Any operating system running NetWin DNews News Server 5.3 or lower.
+
+--
+Attack Scenarios:
+An attacker transmits an overly long, specially crafted URL to the vulnerable DNews server, causing a buffer overflow condition. The attacker is then able to execute arbitrary code on the server with the security context of DNews. 
+
+--
+Ease of Attack:
+Simple. An exploit exists.
+
+--
+False Positives:
+If a legitimate remote user accesses dnewsweb.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to DNews News Server 5.4 or higher.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/1172
+
+--

@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+
+772
+
+--
+Summary:
+This event is generated when the PrettyPark virus attempts to spread.
+
+--
+Impact:
+Possible virus infection. Attempt to spread a virus/trojan.
+
+--
+Detailed Information:
+Prettypark is a Win32 based Internet worm. This spreads through the Internet by attaching itself to email messages.
+
+When the attached file is executed, it checks for the existence of Prettypark in memory, if it is not present it then installs Prettypark. After infecting it sends messages to all the email addresses listed in the address book with an attachment containing the virus.
+
+Prettypark is capable of revealing passwords and connects to IRC channels. System access is possible.
+
+--
+Affected Systems:
+Windows 95, 98 and NT
+
+--
+Attack Scenarios:
+This is virus propogation activity.
+
+--
+Ease of Attack:
+
+Simple.
+
+--
+False Positives:
+
+Possible in certain mail content
+
+--
+False Negatives:
+
+None known
+
+--
+Corrective Action:
+ 
+Use an Anti-Virus tool to remove it.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+http://www.nwinternet.com/~pchelp/bo/prettypark.htm
+--

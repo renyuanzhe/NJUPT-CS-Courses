@@ -1,0 +1,58 @@
+Rule: 
+
+--
+Sid: 
+2668
+
+-- 
+Summary: 
+This event is generated when an attempt is made to access the file
+processit.pl.
+
+-- 
+Impact: 
+Information Disclosure.
+
+--
+Detailed Information:
+The script processit.pl returns envirnoment variables used by the server
+hosting the application. This can divulge information valuable to an
+attacker that can be used in further attacks against the host.
+
+--
+Affected Systems:
+	All systems using processit.pl
+
+--
+Attack Scenarios: 
+An attacker can retrieve environment variables by accessing the script
+processit.pl, these can be used in further attacks against the system.
+
+-- 
+Ease of Attack: 
+Simple
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Uninstall the script processit.pl
+
+Only allow usage from authenticated users
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

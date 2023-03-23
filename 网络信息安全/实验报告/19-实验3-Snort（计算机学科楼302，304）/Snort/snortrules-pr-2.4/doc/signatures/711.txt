@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+711
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a flaw in SGI IRIX's telnetd.
+
+--
+Impact:
+Serious. Arbitrary code execution. Possible remote root compromise of 
+the host.
+
+--
+Detailed Information:
+When setting one of the _RDL environment variables, IRIX's telnetd logs 
+the information via syslog. When telnetd calls syslog, it is possible to
+manipulate the variable to overwrite values on the stack so that code 
+given is executed as the user telnetd is run as, typically root.
+
+--
+Affected Systems:
+	SGI IRIX versions 6.2 to 6.5.8
+	SGI IRIX versions 5.2 to 6.1 with patches 1010 and 1020. 
+
+--
+Attack Scenarios:
+An attacker can gain a root shell with this attack.
+
+--
+Ease of Attack:
+Simple. Exploit code exisits and is readily available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply patch from SGI.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS304
+
+Bugtraq:
+http://www.securityfocus.com/bid/1572
+
+--

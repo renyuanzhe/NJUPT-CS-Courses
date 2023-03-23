@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+1263
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) amountd (also known as autofsd) is listening.
+
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port amountd is using.  Attackers can also learn what versions of the amountd protocol are accepted by amountd. 
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as amountd run.  The amountd RPC service is used by UNIX hosts to automatically mount and unmount autofs files.  It can use name service maps to find file systems to mount.  A vulnerability is present in autofsd that allows an attacker to execute arbitrary commands.  The attacker requests a map name that is executable followed by a malformed client key and commands execute.  The server improperly interprets the input and executes the commands.
+
+--
+Affected Systems:
+IBM AIX 4.3, SGI IRIX 6.2, 6.3, 6.4, 6.5, and 6.5.1.
+
+--
+Attack Scenarios:
+An attacker can craft an amountd request that executes arbitrary commands on the remote file system. 
+
+--
+Ease of Attack:
+Easy.  Exploit code is widely available.
+
+--
+False Positives:
+If a legitimate remote user is allowed to access amountd, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for amountd, not probes of the amountd service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the amountd service itself. An attacker may attempt to go directly to the amountd port without querying the portmapper service, which would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Original rule modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/332/info/
+
+Arachnids:
+http://www.whitehats.com/info/IDS19
+
+
+--

@@ -1,0 +1,79 @@
+Rule:
+
+--
+Sid:
+
+1450
+
+--
+Summary:
+This event is generated when an attempt is made to send a malformed
+request to an SMTP server which may cause a Denial of Service.
+
+--
+Impact:
+Denial of Service (DoS)
+
+--
+Detailed Information:
+The SMTP standard command "EXPN" is provided by servers to help find
+user e-mail accounts.
+
+A malformed request to certain versions of Vintra MailServer can cause a
+DoS against that server.
+ 
+--
+Affected Systems:
+
+Vixar MailServer for Windows
+
+--
+Attack Scenarios:
+The attacker needs to connect to a vulnerable server and issue the
+following commands.
+
+>telnet victim.foo.com 25
+>helo victim
+>mail from:doctor
+>rcpt to:evil
+>expn *@
+
+--
+Ease of Attack:
+
+Simple. No exploit software required.
+
+--
+False Positives:
+
+None known.
+
+--
+False Negatives:
+
+None known.
+
+--
+Corrective Action:
+
+Disable the EXPN command on the SMTP server.
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Extra information from Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+NT Bugtraq:
+http://marc.theaimsgroup.com/?l=ntbugtraq&m=90222454131610&w=2
+
+Command Reference:
+http://www.ntmail.co.uk/kb.htm?q=980
+
+--

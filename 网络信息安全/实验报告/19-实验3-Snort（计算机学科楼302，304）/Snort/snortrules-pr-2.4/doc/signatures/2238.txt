@@ -1,0 +1,60 @@
+Rule:  
+
+--
+Sid:
+2238
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known vulnerability in BEA Systems WebLogic Enterprise.
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+Some versions of BEA Systems WebLogic Enterprise allow an attacker to 
+view the aplication source code of documents in the web root of the 
+server.
+
+--
+Affected Systems:
+	BEA Systems WebLogic Enterprise 5.1, 5.1.x
+
+--
+Attack Scenarios:
+An attacker can view the source code and use that information to further
+exploit the server.
+
+The attacker merely needs to prepend an HTTP request with 
+"/ConsoleHelp/" to view the source of any file.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1518
+
+--

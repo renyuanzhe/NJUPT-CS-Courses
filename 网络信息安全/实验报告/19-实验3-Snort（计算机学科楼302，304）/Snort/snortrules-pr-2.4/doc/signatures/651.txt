@@ -1,0 +1,55 @@
+Rule:  
+--
+Sid:
+651
+
+--
+Summary:
+Binary data in the packet matched one kind of byte sequence used as filler in buffer overflow attacks.
+
+--
+Impact:
+It is possible someone was attempting a buffer overflow to gain unauthorized access to one of your servers.
+
+--
+Detailed Information:
+This rule triggers when a binary pattern appears in the packet contents which matches one form of filler-bytes used in buffer overflow attacks. Buffer overflows allow execution of arbitrary code with the privlege level of the affected server process. A very detailed discussion of how basic buffer overflows work can be found in the text of "Smashing the stack for fun and profit" by Aleph One in Phrack #49.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+If the attacker suspects you have a server which is vulnerable to buffer overflow, they will attempt to exploit this vulnerability to gain access.
+
+
+--
+Ease of Attack:
+Tools that use buffer overflows with stealth nop are widely available.
+
+--
+False Positives:
+This byte pattern can naturally occur in almost any binary data, so file downloads, streaming media, etc can cause this to false positive. If this traffic appears to be coming from a web or ftp server outside your network to one of your client machines, it is likely a false alert caused by someone downloading a binary file. If this was directed at a port on one of your machines which is running a server process, you may want to check to see if it has been exploited.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Matt Kettler mkettler@evi-inc.com	Initial Research
+Josh Gray	Edits
+
+-- 
+Additional References:
+http://online.securityfocus.com/library/14
+
+
+--

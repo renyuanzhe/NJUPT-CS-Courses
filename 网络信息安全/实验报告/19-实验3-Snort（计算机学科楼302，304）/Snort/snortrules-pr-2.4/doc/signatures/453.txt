@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+453
+
+--
+Summary:
+This event is generated when an ICMP Timestamp request is made.
+
+--
+Impact:
+Information gathering.  An ICMP Timestamp request can determine if a host is active.
+
+--
+Detailed Information:
+An ICMP Timestamp request is used by the ping command to elicit an ICMP Timestamp reply from a listening live host.  This rule alerts on a generic ICMP request where no payload is included in the message or the payload does not match more specific rules. 
+
+If ICMP type 8 (echo) traffic is filtered at a firewall, and attacker may try to use type 13 (timestamp) as an alternative.
+
+--
+Affected Systems:
+All
+
+--
+Attack Scenarios:
+An attacker may attempt to determine live hosts in a network prior to launching an attack.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+An ICMP Timestamp request may be used to legitimately troubleshoot networking problems.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Block inbound ICMP Timestamp requests.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+Additional information by Steven Alexander<alexander.s@mccd.edu>
+
+--
+Additional References:
+
+
+--

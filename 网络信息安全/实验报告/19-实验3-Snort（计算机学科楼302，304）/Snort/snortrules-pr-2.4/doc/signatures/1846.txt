@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+1846
+
+--
+Summary:
+This event is generated when network traffic indicating the use of an
+application or service that may violate a corporate security policy.
+
+--
+Impact:
+This may be a violation of corporate policy since some applications can
+be used to bypass security measures designed to restrict the flow of
+corporate information to destinations external to the corporation. In
+some instances this event may indicate behavior contrary to best
+security practices.
+
+--
+Detailed Information:
+This event may indicate a violation of corporate policy. It may also
+indicate the use of services or applications that may be the antithesis
+of best security practices.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios:
+Violation of corporate security policy can manifest serious risk to
+company assets.
+
+--
+Ease of Attack:
+Not applicable
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure adherence to best security practices and strict adherence to
+corporate policy
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

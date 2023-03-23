@@ -1,0 +1,60 @@
+Rule:  
+
+--
+Sid:
+530
+
+--
+Summary:
+This event is generated when an attacker sends a blank username and blank password in an attempt to connect to the IPC$ (Interprocess Communication) pipe.
+
+--
+Impact:
+Information gathering. This attack can permit the disclosure of sensitive information about the target host.
+
+--
+Detailed Information:
+Null sessions allow browsing of Windows hosts by the "Network Neighborhood" and other functions.  A Null session permits access to a host using a blank user name and password.  At attacker may attempt to perform a Null session connection, disclosing sensitive information about the target host such as available shares and user names.
+
+--
+Affected Systems:
+Microsoft Windows hosts
+
+--
+
+Attack Scenarios:
+An attacker can send a blank username and blank password to try to connect to the IPC$ hidden share on the target computer.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+Null sessions may be used by legitimate processes in the same Windows domain.  
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+On Windows NT, 2000, XP set the registry key /System/CurrentControlSet/Control/LSA/RestrictAnonymous value to 1.
+
+--
+Contributors:
+Original rule written by Ian Viket <ian.vitek@infosec.se>
+Documented by Nawapong Nakjang <tony@ksc.net, tonie@thai.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids
+http://www.whitehats.com/info/IDS204
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0519
+
+--

@@ -1,0 +1,60 @@
+Rule:  
+--
+
+Sid:
+1139
+
+--
+
+Summary:
+This event is generated when an attempt is made to evade an IDS in a 
+possible web attack by sending an obfuscated request.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+Some CGI attacks can be accomplished by using HEAD instead of GET.
+Additionally, some web servers will interpret "/./" as simply "/".
+An attacker might try to combine these methods in an attempt to
+obfuscate an attack or during the reconnaissance phase of a penetration
+attempt in order to bypass an IDS.
+
+--
+Affected Systems:
+	All Web Servers.
+ 
+--
+Attack Scenarios:
+An attacker may use an automated tool, like Whisker, to obfuscate an
+attack.
+
+--
+Ease of Attack:
+Simple. Exploit scripts and tools are widely available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Examine the host for signs of compromise.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

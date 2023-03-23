@@ -1,0 +1,66 @@
+Rule:
+
+--
+
+Sid:
+475
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP datagram
+with Record Route IP options.
+
+--
+
+Impact:
+Packets containing IP Record Route options are used to emulate the functionality
+of traceroute. 
+
+--
+
+Detailed Information:
+The Record Route IP option is used to store routing information about the
+path a datagram takes to its destination.  ICMP ECHO packets with an IP header
+utilizing the Record Route option are used to emulate the functionality of
+traceroute.
+
+--
+
+Attack Scenarios:
+A remote attacker may attempt to use the Record Route IP option to determine
+routing information if traceroute fails.
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of datagram.
+
+--
+
+False Positives:
+Network diagnostic tools may generate these types of datagrams.
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Use ingress filtering to block incoming datagrams with the IP Record Route option.
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+http://www.whitehats.com/info/IDS238
+
+
+--

@@ -1,0 +1,87 @@
+Rule:
+
+--
+Sid:
+2095
+
+--
+Summary:
+vulnerability in the rpc service for the Calendar Manager Service Daemon
+(CMSD) used by XDR.
+
+--
+Impact:
+System compromise, denial of service, execution of arbitrary code, 
+information disclosure.
+
+--
+Detailed Information:
+A vulnerability exists in various implementations of external data 
+representation (XDR) libraries. An integer overflow in a component 
+(xdr_array) used by XDR can lead to a buffer overflow.
+
+The XDR libraries are widely used by multiple vendors to provide a 
+framework for data transmission across networks. This is most commonly 
+used in RPC implementations.
+
+A specially crafted rpc request containing a large number of arguments 
+to xdr_array can lead to remote system compromise and super user access 
+to the target host. Additionally, a denial of service and execution of 
+arbitrary code with the privilege of the super user is also possible 
+depending on the platform used.
+
+--
+Affected Systems:
+Multiple verndors including all those using:
+	Sun Microsystems Network Services Library (libnsl)
+	GNU C library with sunrpc (glibc)
+	BSD-derived libraries with XDR/RPC routines (libc)
+
+--
+Attack Scenarios:
+The attacker needs to send a specially crafted rpc request containing a 
+large number of arguments for xdr_array to the target host.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade the vendor libraries to the latest non-affected versions. Any 
+statically linked binaries and applications must be recompiled and 
+restarted after the upgrade.
+
+Disallow all RPC requests from external sources and use a firewall to 
+block access to RPC ports from outside the LAN.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/5356
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0391
+
+CERT:
+http://www.cert.org/advisories/CA-2002-25.html
+http://www.kb.cert.org/vuls/id/192995
+
+--

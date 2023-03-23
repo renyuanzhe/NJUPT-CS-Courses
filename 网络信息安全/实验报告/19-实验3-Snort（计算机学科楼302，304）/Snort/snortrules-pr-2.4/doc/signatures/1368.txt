@@ -1,0 +1,48 @@
+Rule:
+
+--
+Sid:
+1368
+
+--
+Summary:
+Attempted ps command access via web
+
+--
+Impact:
+Attempt to gain information on system files and filestructure
+
+--
+Detailed Information:
+This is an attempt to gain intelligence on the filesystem on a webserver. The ls command lists the files and filesystem layout on a UNIX or Linux based system. The attacker could possibly gain information needed for other attacks on the host.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains '/bin/ls'in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. This command may also be requested on a command line should the attacker gain access to the machine. 
+
+--
+Contributors:
+Sourcefire Research Team
+
+-- 
+Additional References:
+sid: 1369
+
+--

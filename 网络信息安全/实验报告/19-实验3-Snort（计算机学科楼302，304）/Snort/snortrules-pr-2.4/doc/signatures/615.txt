@@ -1,0 +1,94 @@
+Rule:  
+
+--
+
+Sid:
+
+615
+
+--
+
+Summary:
+
+An external host has requested to start communications with your host on
+port 1080.
+
+--
+
+Impact:
+
+Network reconnaissance.
+
+--
+
+Detailed Information:
+
+Improperly-configured SOCKS proxies can be abused to allow a hostile
+user to launch attacks and make them appear to come from your site.
+
+Additionally, if the proxy is behind a firewall or is a trusted host, it
+can be used to gain further access into your network and other hosts.
+
+--
+
+Affected Systems:
+
+Any system with a SOCKS proxy server installed.
+
+--
+
+Attack Scenarios:
+
+Attacker utilizes your misconfigured proxy to anonymize their other
+illegitimate activities or gain further access to your network.
+
+--
+
+Ease of Attack:
+
+Trivial or extremely difficult, depending on proxy configuration.
+
+--
+
+False Positives:
+Non-proxy applications running on port 1080, regardless of purpose, will
+trigger this alert every time any session begins.
+
+Ftp clients open a source tcp port greater than 1023 (an 'ephemeral' port).  If the 
+client opens port 1080 for the data connection, this rule will be triggered by return
+packets from the ftp server.  One way to cut down on these false
+positives for this rule might be to preceed it with a pass rule for
+'established' connections to 1080. This would only work with passive ftp
+transactions, where the client initiates both control and data sessions. Normal ftp 
+requires the server to initiate a connection to the client for data transfers after the client 
+sets up a control session.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Allow only internal users to connect to the proxy, or configure strong
+access control.
+
+--
+
+Contributors:
+Snort documentation contributed by Gene R Gomez (gene!AT!gomezbrothers!DOT!com)
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+False positive information contributed by jaffeld@duwamish.net
+
+-- 
+
+Additional References:
+
+UnderNet:
+http://help.undernet.org/proxyscan/
+
+
+--

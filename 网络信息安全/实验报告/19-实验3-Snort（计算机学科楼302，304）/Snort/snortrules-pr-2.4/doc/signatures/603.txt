@@ -1,0 +1,59 @@
+Rule: 
+
+--
+Sid: 603
+
+--
+Summary: 
+This event is generated when an attempt to modify access control permissions for remote shell logins is attempted.
+
+--
+Impact: 
+An attacker may have modified remote login permissions such that any host is allowed to initiate a remote session on the target host.
+
+-- 
+Detailed Information: 
+The rule generates an event when system reconfiguration is attempted via "rsh". 
+
+The command "echo + +" is used to relax access control permissions for r-services to allow access from any site without the need for password authentication. 
+
+This activity is indicative of attempts to abuse hosts using a default configuration. 
+
+Some UNIX systems use the "rsh" service to allow a connection to the machine for establishing an interactive session.
+
+--
+Attack Scenarios: 
+An attacker finds a machine with "rsh" enabled and reconfigures it to allow access from any location
+
+--
+Ease of Attack: 
+Simple, no exploit software required
+
+--
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+--
+Corrective Action: 
+Investigate logs on the target host for further details and more signs of suspicious activity
+
+Use ssh for remote access instead of rlogin.
+
+--
+Contributors: 
+Original rule by Max Vision <vision@whitehats.com> modified from a signature written by Ron Gula
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS385
+
+--

@@ -1,0 +1,158 @@
+Rule: 
+
+--
+Sid: 
+3064
+
+-- 
+Summary: 
+This event is generated when an attempt is made by the victim to send a
+connection confirmation to the attacker using the CrazzyNet trojan.
+
+-- 
+Impact: 
+If connected, the attacker could remotetly execute a multitude of functions
+resulting in a full compromise of the victim's machine.
+
+--
+Detailed Information:
+CrazzyNet uses port 17499. CrazzyNet has a number of functions. Each function is
+associated with an attack signal string
+that is sent to the victim. Be suspicious of the following strings:
+
+Format: Function Name - String To Look For
+
+Add Line To File - addlin
+Overwrite File With Added Line - ovwlin
+Add Icon To Desktop - addico
+Beep Sound - sndbep
+Change Windows Control Text - chgawc
+Change Resolution - chgres
+Chat - chatwy
+Get Clipboard Text - clpget
+Crazy Mouse On - crazym;1
+Crazy Mouse Off - crazym;0
+Delete File/Directory - delete
+Remove Windows Functions - remwma;0
+Download File - getfil
+Disable Ctl-Alt-Del - discad;0
+Enable Ctl-Alt-Del - discad;1
+Disable Windows Startup - wndsas;0
+Enable Windows Startup - wndsas;1
+Find Files - findfi
+Format - format
+Get Colors - getcol
+Get Computer Name - getcon
+Set Computer Name - setcon
+Get Date - gettad
+Set Date - settad
+Get Internet Explorer Start Page - geties
+Set Internet Explorer Start Page - chgies
+Get Mouse Position - getpos
+Set Mouse Position - setmse
+Get Clients Connected - geticc
+Get Computer Information - getinf
+Hide Picture - hidpic
+List Installed Programs - asplst
+Keylogger - keylog;1
+Kill Mouse - kilmse
+List Files And Directories - nextdr
+List ICQ - icqlst
+List Of Apps - lstapp
+Make Directory - makdir
+Monitor On - onmoni
+Monitor Off - ofmoni
+Get Mouse Double Click Time - getdcl
+Set Mouse Double Click Time - setdcl
+Open CD - opencd
+Close CD - closcd
+Ping - *ICMP Packet* Echo this string of data
+Play Sound - playsd
+Print Text - printt
+Refresh File Listing - refdir
+Run File - runfil
+Screen Dump - screen
+Get Screensaver - getfon
+Set Screensaver - setscr
+Enable Scrolling Text - scroll
+Disable Scrolling Text - sscrol
+Send To URL - senurl
+Send Key - runkey
+Send Message - msgbox
+Set Clipboard Text - clpset
+Set Desktop Image - chgdes
+Show Clock - sclock;1
+Hide Clock - sclock;0
+Show Desktop Icons - deskic;1
+Hide Desktop Icons - deskic;0
+Show Start Bar - startb;1
+Hide Start Bar - startb;0
+Show Task Bar - sotask
+Hide Task Bar - hitask
+Show Task Bar Icons - staskb;1
+Hide Task Bar Icons - staskb;0
+Show Picture - shopic
+Start CD loop - cdloop;1
+Stop CD loop - cdloop;0
+Steal Passwords - geticp
+Swap Mouse Buttons On - swpmse;1
+Swap Mouse Buttons Off - swpmse;0
+Terminate Application - terapp
+Get Text Box Cursor Blink Rate - getret
+Set Text Box Cursor Blink Rate - setret
+Upload File - uplfil
+Change Volume - volume
+Warp On - warpon
+Warp Off - warpof
+List Windows - wndlst
+
+-
+Affected Systems:
+Windows 95/98/ME/NT/2000
+
+--
+
+Attack Scenarios: 
+The victim must first install the server. Be wary of suspicious files because
+they often can be backdoors in disguise. 
+Once the victim has unknowingly installed the server, the attacker will usually
+employ an IP scanner tool to find vulnerable 
+systems. Once an IP is found, the attacker simply has to make the connection.
+-- 
+
+Ease of Attack: 
+Easy. Simply a matter of pressing the connect button once the victim has
+installed the server.
+
+
+-- 
+
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+-- 
+
+Corrective Action:
+CrazzyNet copies itself to C:\WINDOWS\Registry32.exe
+Delete the registry key Reg32=Registry32.exe found in
+HKCUU\Software\Microsoft\Windows\CurrentVersion\Run 
+Delete Registry32.exe from Win.ini and System.ini
+If found, delete Registry32.exe and server.exe
+Make sure to keep your virus definitions updated on your anti-virus software.
+
+--
+Contributors:
+Original Rule Writer: Ricky Macatee <rmacatee@sourcefire.com> 
+Sourcefire Research Team
+
+-- 
+Additional References:
+
+Pestpatrol:
+http://www.pestpatrol.com/PestInfo/C/CrazzyNet.asp
+
+--

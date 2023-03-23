@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+2407
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability on a web server or a web application resident on a web
+server.
+
+--
+Impact:
+Information gathering  and system integrity compromise. This rule generates 
+an event on a request for the util.pl file, part of the CalaCode @mail 
+Webmail system.  Some versions of this software are vulnerable to a cross 
+site scripting attack.
+
+--
+Detailed Information:
+When accessing the webmail service of @mail, a
+cross site scripting bug can be abused in the util.pl file.  When
+addressing the "settings" bar, Javascript code can be inserted into the
+"Displayed Name" field.
+
+This rule will also trigger on some scripted HTTP vulnerability
+scans.  Many vulnerability assessment tools include a check which will
+verify whether the util.pl file is available on a web server.  There are
+multiple other known vulnerabilities in version 3.64 of the @mail system,
+and the existance of this file would reveal its presence.
+
+--
+Affected Systems:
+	@mail version 3.64 and prior
+
+--
+Attack Scenarios:
+A user can submit malicious Javascript to the "Displayed
+Name" field.  As usual with most browsers, this script will be executed
+within the security context of the web site.  The session ID of the
+connection, which is available from within this security context, can be
+abused by the attacker to obtain access to the session and the user's e-mail account.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+Check the host logfiles and application logs for signs of compromise.
+
+--
+Contributors:
+Snort documentation contributed by Maarten Van Horenbeeck, GCIA <maarten@daemon.be>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

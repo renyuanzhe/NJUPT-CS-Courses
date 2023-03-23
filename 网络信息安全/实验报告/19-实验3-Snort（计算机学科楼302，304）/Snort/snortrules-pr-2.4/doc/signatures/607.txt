@@ -1,0 +1,60 @@
+Rule: 
+
+--
+Sid: 607
+
+--
+Summary: 
+This event is generated when an attempt to login using the "bin" account is made.
+
+--
+Impact: 
+An attacker may have gained the ability to initiate a remote interactive session on the server.
+
+--
+Detailed Information: 
+This event is generated when a connection using the "bin" account via  "rsh" is attempted. 
+
+This activity is indicative of attempts to abuse hosts using a default configuration. 
+
+Some UNIX systems used to ship with "bin" account enabled and no password required. Similarly, the "rshd" service was also enabled. This allowed an attacker to connect to the machine and establish an interactive session using the "bin" account.
+
+--
+Attack Scenarios: 
+An attacker finds a machine with default account "bin" and "rshd" service running and connects to it, then escalates his privileges to "root"
+
+--
+Ease of Attack: 
+Simple, no exploit software required
+
+--
+False Positives: 
+None Known
+
+--
+False Negatives: 
+If a local username is not the same as the remote one ("bin"), the rule will not generate an event.
+
+--
+Corrective Action: 
+Investigate logs on the target host for further details and more signs of suspicious activity
+
+Use ssh for remote access instead of rlogin.
+
+--
+Contributors: 
+Original rule by Max Vision <vision@whitehats.com> modified from a signature written by Ron Gula
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS384
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0651
+
+--

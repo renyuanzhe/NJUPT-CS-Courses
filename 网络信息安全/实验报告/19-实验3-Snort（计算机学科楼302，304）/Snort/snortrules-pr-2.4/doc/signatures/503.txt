@@ -1,0 +1,67 @@
+Rule:  
+
+--
+Sid:
+503
+
+--
+Summary:
+This event is generated when possible non-legitimate traffic is detected
+that should not be allowed through a firewall.
+
+--
+Impact:
+This can be used to pass through a poorly configured firewall.
+
+--
+Detailed Information:
+Traffic from port 20 is normally FTP traffic.  Commands are passed to an
+FTP server over port 21.  In order to download files, a client tells the
+FTP server to connect to the client on port 'X' where 'X' is a port 
+above 1023.  The FTP server then connects to the client on the given 
+port using the source port of 20.  Ports below 1024 are privileged, a 
+legitimate connection from an ftp server should always be to a port 
+above 1023.  Some misconfigured firewalls may blindly allow connections 
+to any port from a source port of 20.
+
+--
+Affected Systems:
+
+All
+
+--
+Attack Scenarios:
+An attacker could use a source port of 20 for TCP connections to bypass 
+a poorly configured firewall.  
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Connections from port 20 should only be allowed to ports >=1024.  A 
+better solution would be block this traffic entirely and force FTP 
+clients inside the firewall to use PASV mode.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS06
+
+--

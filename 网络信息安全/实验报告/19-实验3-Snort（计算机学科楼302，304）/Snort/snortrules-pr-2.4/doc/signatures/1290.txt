@@ -1,0 +1,81 @@
+Rule:  
+
+--
+Sid:
+1290
+
+--
+Summary:
+This event is generated when an attempt is made to load and run
+readme.eml, which is used as an infection vector for the nimda worm.
+
+--
+Impact:
+The source address is likely infected with the Nimda worm. The
+destination, without adequate AntiVirus protection and the proper
+patches, may now be infected and may attempt to infect other hosts using
+this or any of the other infection vectors that the Nimda worm uses.
+
+--
+Detailed Information:
+The nimda worm affects Microsoft Windows systems and attempts to spread
+via email, network shares and Microsoft IIS servers. A compromised
+server will attempt to spread and infect other vulnerable hosts.
+
+--
+Affected Systems:
+	Microsoft Windows 95, 98, ME, NT and 2000 
+
+--
+Attack Scenarios:
+This is worm activity.
+
+--
+Ease of Attack:
+Simple. Nimda is a worm, so the attack is automated. Exposure of unprotected
+systems to the internet has been know to result in an infection within
+15 minutes.
+
+--
+False Positives:
+None Known
+Web pages containing the Javascript as text in a web page may activate
+this alert. Web-sites detailing Nimda infection vectors may also trigger this event.
+
+--
+False Negatives:
+Nimda has multiple infection vectors. This rule alone will only detect
+a particular type.
+
+--
+Corrective Action:
+Ensure all servers within your domain are protected to the appropriate
+patch-levels to mitigate infection and spread of the Nimda worm.
+
+Ensure network clients in your domain are also appropriately patched and are
+running up to date AntiVirus software.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Giles Coochey	and Josh Gray
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2001-26.html
+
+Cisco:
+http://www.cisco.com/warp/public/cc/so/cuso/epso/sqfr/snam_wp.htm
+
+Microsoft:
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/topics/Nimda.asp
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/topics/NimdaIE6.asp
+
+SecurityFocus
+http://online.securityfocus.com/archive/75/215118
+
+--

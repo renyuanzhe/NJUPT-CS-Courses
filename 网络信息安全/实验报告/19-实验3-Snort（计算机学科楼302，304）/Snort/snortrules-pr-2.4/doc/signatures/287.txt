@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+287
+
+--
+Summary:
+This event is generated when a remote attacker attempts to exploit a 
+QUALCOMM Qpopper POP3 buffer overflow vulnerability in BSD operating 
+systems.
+
+--
+Impact:
+Remote execution of arbitrary code leading to remote root compromise.
+
+--
+Detailed Information:
+An exploit is available that takes advantage of a buffer overflow 
+vulnerability in QUALCOMM Qpopper POP3 mail server version 2.53 or 
+earlier. This exploit can be used to obtain root access to the 
+compromised server.
+
+--
+Affected Systems:
+BSD distributions that ship QUALCOMM Qpopper POP3 server version 2.53 or
+earlier.
+
+--
+Attack Scenarios:
+An attacker executes exploit code against a vulnerable server and 
+obtains root privileges on the compromised computer.
+
+--
+Ease of Attack:
+Simple. An exploit exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest version of QUALCOMM Qpopper appropriate for your 
+BSD distribution.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+CERT
+http://www.cert.org/advisories/CA-1998-08.html
+
+--

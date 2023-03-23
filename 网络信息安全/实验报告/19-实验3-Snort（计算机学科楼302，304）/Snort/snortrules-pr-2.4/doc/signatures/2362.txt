@@ -1,0 +1,63 @@
+Rule:  
+
+--
+Sid:
+2362
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the PHP web application YaBB SE.
+
+--
+Impact:
+Execution of arbitrary code on the affected system
+
+--
+Detailed Information:
+YaBB SE contains a flaw such that it may be possible for an attacker
+to include code of their choosing by manipulating the location of the
+script packer.php parameter when making a GET or POST  request 
+to a vulnerable system.
+
+It may be possible for an attacker to execute that code with the
+privileges of the user running the webserver, usually root.
+
+--
+Affected Systems:
+	YaBB SE YaBB SE 0.8
+	YaBB SE YaBB SE 1.4.1
+	YaBB SE YaBB SE 1.5 .0
+
+--
+Attack Scenarios:
+An attacker can make a request to an affected script and supply their
+own code in the packer.php script.
+
+--
+Ease of Attack:
+Simple. No exploit software required. Exploit code exists.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

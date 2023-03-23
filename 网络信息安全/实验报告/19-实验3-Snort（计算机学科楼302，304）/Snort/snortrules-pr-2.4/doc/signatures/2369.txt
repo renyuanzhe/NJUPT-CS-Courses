@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+2369
+
+--
+Summary:
+This event is generated when an attempt is made to access ISAPISkeleton.dll on a
+web server. This may indicate an attempt to exploit a cross-site 
+scripting vulnerability in BRS WebWeaver.
+
+--
+Impact:
+Arbitrary code execution, possible session hijack.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to exploit a 
+cross-site scripting vulnerability in BRS WebWeaver .
+An attacker can pass an argument to ISAPISkeleton.dll that may contain
+malicious code that could be executed on the victims machine. 
+
+--
+Affected Systems:
+	BRS WebWeaver 
+
+--
+Attack Scenarios:
+An attacker can pass a specific argument to ISAPISkeleton.dll that may
+contain malicious code.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

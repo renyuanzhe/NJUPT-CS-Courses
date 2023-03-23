@@ -1,0 +1,82 @@
+Rule:  
+
+--
+Sid:
+2444
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in multiple versions of Internet Security Systems software.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible leading to unauthorized 
+access to the affected host. Denial of Service (DoS).
+
+--
+Detailed Information:
+A vulnerability exists in the way that multiple ISS products parse ICQ
+messages. This can lead to execution of arbitrary code on hosts using
+the affected products.
+
+Due to insufficient bounds checking when ISS products parse protocol
+fields in ICQ SRV_META_USER data, a buffer overflow condition can be
+exploited to give an attacker the opportunity to execute arbitrary code
+and gain unauthorized administrative access to the host.
+
+It is possible that this condition can be exploited without the need for
+an established and valid ICQ session. The attacker could create packets
+originating from a host on port 4000 and send specially crafted data to 
+exploit the condition.
+
+--
+Affected Systems:
+	RealSecure Network 7.0, XPU 22.11 and prior
+	RealSecure Server Sensor 7.0 XPU 22.11 and prior
+	RealSecure Server Sensor 6.5 for Windows SR 3.10 and prior
+	Proventia A Series XPU 22.11 and prior
+	Proventia G Series XPU 22.11 and prior
+	Proventia M Series XPU 1.9 and prior
+	RealSecure Desktop 7.0 ebl and prior
+	RealSecure Desktop 3.6 ecf and prior
+	RealSecure Guard 3.6 ecf and prior
+	RealSecure Sentry 3.6 ecf and prior
+	BlackICE Agent for Server 3.6 ecf and prior
+	BlackICE PC Protection 3.6 ccf and prior
+	BlackICE Server Protection 3.6 ccf and prior
+
+--
+Attack Scenarios:
+An attacker may send specially crafted packets to a vulnerable system to
+cause the overflow condition to occur.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

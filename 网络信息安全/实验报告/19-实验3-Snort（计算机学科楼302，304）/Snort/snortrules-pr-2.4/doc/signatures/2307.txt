@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+2307
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the PayPal Storefront PHP web application running on a server.
+
+--
+Impact:
+Possible execution of arbitrary code of the attackers choosing.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the PayPal Storefront PHP web application running 
+on a server. It may be possible for an attacker to include code of their
+choosing from a source external to the server running the application.
+This code will execute with the privileges of the user running the web
+server.
+
+The vulnerability exists due to inadequate verification of include file
+locations in the application.
+
+--
+Affected Systems:
+	PayPal Store Front 3.0, others may also be affected.
+
+--
+Attack Scenarios:
+An attacker might include their code by including the URI to the script
+in the HTTP GET parameters when calling index.php.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+The content/pcre criteria: "content:"page="; pcre:"/page=(http|https|ftp)/i"; 
+Are met frequently by the strings "page=http" and "lastpage=http" which 
+occur relatively often in the text of cookies, most commonly ones associated 
+with MSN passport.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+False positive information contributed by Alan Whinery <whinery@hawaii.edu>
+
+--
+Additional References:
+
+--

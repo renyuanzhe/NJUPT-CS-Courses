@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+1806
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow associated with chunked encoding processing of HTR in Internet Information Services (IIS). 
+
+--
+Impact:
+Remote Access.  If the exploit is successful, an attacker can gain remote access of the target host. 
+
+--
+Detailed Information:
+A buffer overflow exists with chunked encoding processing associated with HTR in IIS.  Chunked encoding allows different sized chunks of data to be passed from the web client to the server.  HTR is an older scripting language still supported by IIS. A heap overflow vulnerability exists because of an error in chunked encoding data transfer associated with the Internet Services Application Programming Interface (ISAPI) extension that implements HTR.
+
+--
+Affected Systems:
+
+Microsoft IIS 4.0, 5.0 
+
+--
+Attack Scenarios:
+An attacker can craft a chunked encoded request to exploit the heap overflow.
+
+--
+Ease of Attack:
+Moderate.  Microsoft advises that this heap overflow is not as difficult to exploit as others.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+
+Apply the appropriate patch:
+
+  Microsoft IIS 4.0:
+     http://www.microsoft.com/Downloads/Release.asp?ReleaseID=39579
+  Microsoft IIS 5.0:
+     http://www.microsoft.com/Downloads/Release.asp?ReleaseID=39217 
+
+Investigate running the IIS Lockdown Tool to disable HTR functionality.
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0364
+
+Bugtraq
+http://www.securityfocus.com/bid/4855
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/ms02-028.asp
+
+--

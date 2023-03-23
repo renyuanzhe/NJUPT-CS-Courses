@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+1257 
+
+--
+Summary:
+This event is generated when an attempt is made to use WinNuke against a
+host.
+
+--
+Impact:
+Serious. Possible Denial of Service (DoS), this can cause a system to 
+crash or lose network connectivity
+
+--
+Detailed Information:
+An attacker can send a malformed data packet to and networked host over 
+TCP and cause a DoS, loss of network connectivity, or a system crash.
+
+--
+Affected Systems:
+	Windows NT Workstation and Server 4.0
+	Windows NT Workstation and Server 3.5.x
+	Windows 3.1x
+	Windows 95
+--
+Attack Scenarios:
+Program is run against a system in an attempt to knock the system off 
+the network. 
+
+--
+Ease of Attack:
+Simple. An attacker runs WinNuke and enters an IP address of a target 
+system.
+
+--
+False Positives:
+None Known.
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Since there is no known fix for several of the affected operating 
+systems, SMB traffic should be blocked at the firewall and all TCP 
+traffic on ports 139/135 should be dropped.
+ 
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by  Mike Rivett ebiz@rivett.org
+
+-- 
+Additional References:
+
+--

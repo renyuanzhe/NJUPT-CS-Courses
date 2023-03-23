@@ -1,0 +1,57 @@
+Rule:
+--
+Sid:
+2484
+
+--
+Summary:
+This event is generated when a remote user attempts to access source.jsp
+on a Tomcat web server. This may indicate an attempt to exploit a
+directory traversal vulnerability.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event may indicate an attempt to exploit a vulnerability in the
+source.jsp script. An attacker can use directory traversal techniques
+when accessing source.jsp to view hidden files and directories on the
+web server with the access privileges of the server. 
+
+--
+Affected Systems:
+	Apache Tomcat on Novell Netware 6.0
+
+--
+Attack Scenarios:
+An attacker can use directory traversal techniques when executing
+source.jsp to view directories and files on the web server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

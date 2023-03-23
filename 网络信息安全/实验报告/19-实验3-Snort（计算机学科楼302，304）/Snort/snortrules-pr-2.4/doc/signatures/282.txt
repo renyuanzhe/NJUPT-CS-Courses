@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+
+282
+
+--
+Summary:
+This event is generated when an attempt is made to issue a Denial of 
+Service (DoS) attack against a host running Arkiea backup software.
+
+--
+Impact:
+Denial of Service
+
+--
+Detailed Information:
+
+Arkiea package is a backup application that is used to manage backups 
+for a number of systems. A Denial of Service (DoS) vulnerability
+exists in nlservd program, if fed with large inputs, will cause a 
+program to crash.
+
+A vulnerability in the nlservd from the Arkiea backup application allows
+remote users to shut it down by sending it large amounts of input over 
+the network.
+
+--
+Affected Systems:
+
+	Arkeia 4.0
+	Arkeia 4.1	
+
+--
+Attack Scenarios:
+
+An attacker sends a overly large strings to a nlservd daemon, the 
+service will crash immediately.
+
+--
+Ease of Attack:
+
+Simple.
+
+--
+False Positives:
+
+None known
+
+--
+False Negatives:
+
+None known
+
+--
+Corrective Action:
+ 
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original Rule Writer Paul Bobby paul.bobby@lmco.com
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/662
+
+--

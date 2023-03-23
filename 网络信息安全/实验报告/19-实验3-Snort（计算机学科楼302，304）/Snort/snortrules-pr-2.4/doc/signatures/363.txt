@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+363
+
+--
+Summary:
+This event is generated when an external server sends an ICMP IRDP router advertisement message to an internal server. This may indicate an attempt to cause a denial of service by adding spoofed router information to an IRDP-enabled host's routing table.
+
+--
+Impact:
+Denial of service. 
+
+--
+Detailed Information:
+The ICMP Router Discovery Protocol (IRDP) is enabled by default on some Microsoft Windows and Sun Solaris operating systems. IRDP messages broadcast network routing information, and computers with IRDP enabled will store this routing information in their default routing tables. There is no way to determine whether the IRDP broadcast is authentic or spoofed, and some hosts will use the routes that appear in their local routing tables before using routes discovered via DHCP.
+
+An attacker can exploit this behavior by broadcasting IRDP messages with erroneous routing information to a target network. This will cause some IRDP-enabled hosts on that network to route traffic through the route advertised in the spoofed IRDP message. If the spoofed IRDP message contains nonexistent/inaccessible routing addresses, the target will not be able to connect to external networks, causing a denial of service. This may also facilitate man-in-the-middle attacks or interception of data by an attacker.
+
+Note that if an attacker is on the internal network, he/she can use valid routing addresses in the spoofed IRDP messages to passively monitor other machines or to perform "man-in-the-middle" attacks.
+
+--
+Affected Systems:
+Microsoft Windows 95
+Microsoft Windows 98
+Microsoft Windows 98SE
+Sun Solaris 2.6
+
+--
+Attack Scenarios:
+An attacker crafts spoofed IRDP broadcast messages and forwards them to a target network. If the messages are not filtered by the firewall and are broadcast to the internal network, some IRDP-enabled hosts begin routing traffic through the routes advertised in the IRDP broadcast message, which can cause a denial of service condition.
+
+--
+Ease of Attack:
+Simple. A proof-of-concept exists.
+
+--
+False Positives:
+This rule may generate an alert if legitimate ICMP traffic of type 9 is sent from an external server to an internal server.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+For vulnerable Windows computers, disable IRDP on the system (see http://support.microsoft.com/support/kb/articles/q216/1/41.asp).
+
+For vulnerable Solaris 2.6 computers, install the patch provided by Sun (see http://sunsolve.sun.com/pub-cgi/show.pl?target=patches/patch-access).
+
+Use a packet filtering firewall to block ICMP type 9 packets from entering the internal network.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>.
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+Additional information from Anton Chuvakin <http://www.chuvakin.org>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0875
+
+Arachnids:
+http://www.whitehats.com/info/IDS174
+
+Bugtraq:
+http://www.securityfocus.com/bid/578
+
+RFC:
+http://www.cotse.com/CIE/RFC/Orig/rfc1256.txt
+
+
+--

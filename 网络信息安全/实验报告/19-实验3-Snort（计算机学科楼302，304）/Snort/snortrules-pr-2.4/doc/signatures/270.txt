@@ -1,0 +1,77 @@
+Rule:
+
+--
+Sid:
+270
+
+--
+Summary:
+This event is generated when an attempt is made to issue a Teardrop 
+Denial of Service (DoS) attack.
+
+--
+Impact:
+Denial of Service.
+
+--
+Detailed Information:
+Teardrop exploits a vulnerability in some TCP/IP stack implementations.
+
+The program sends a specially crafted fragmented packet where the first
+fragment has offset 0 and data length N and the second fragment has an
+offset less than N (The fragments overlap).  The resulting packet cannot
+be properly assembled.
+
+Systems may hang or crash.
+
+--
+Affected Systems:
+	Windows 95
+	Windows NT 4.0 SP3 and earlier
+	HP HPUX 10.34 and earlier
+	Linux kernels 2.0.31 and earlier
+	FreeBSD 3.0 prior to October 27, 1998
+
+--
+Attack Scenarios:
+The can be done remotely against any open UDP port using a spoofed
+address.
+
+--
+Ease of Attack:
+Simple. Tools are readily available and require little knowledge on the 
+part of the attacker.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Patches are available from all affected vendors.  Newer versions from
+each vendor are not vulnerable.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexanders@mccd.edu>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/124
+
+CERT:
+http://www.cert.org/advisories/CA-1997-28.html
+
+FreeBSD:
+ftp://ftp.freebsd.org/pub/FreeBSD/CERT/advisories/old/FreeBSD-SA-98:08.fragment.asc
+
+--

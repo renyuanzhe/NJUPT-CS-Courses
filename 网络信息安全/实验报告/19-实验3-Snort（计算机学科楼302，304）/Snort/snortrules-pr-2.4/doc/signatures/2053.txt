@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+2053
+
+--
+Summary:
+Versions of the software tracking system Bugzilla prior to 2.14.1 are 
+prone to a vulnerability that allows some degree of account hijacking.
+
+--
+Impact:
+False data may be represented in the bug tracking database.
+
+--
+Detailed Information:
+Versions of Bugzilla prior to 2.14.1 and cvs version 2.15 prior to 
+20020103 allow non-authorized users to post comments as any user of 
+their choosing, including non-valid usernames.
+
+A check to verify the user is valid when posting comments is not 
+performed correctly. Using this an attacker might post comments as 
+another user in the bugzilla database.
+
+--
+Affected Systems:
+Bugzilla versions prior to 2.14.1 and cvs versions prior to 2.15 (cvs20020103)
+
+--
+Attack Scenarios:
+The attacker can manually edit the page to pass his own version of 
+variables to the script handling the comments. This script in turn 
+passes the data directly to another script that handles the posting of 
+bugs without checking the user database.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade Bugzilla to the latest non-affected version.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0008
+
+Bugzilla:
+http://www.bugzilla.org/security/2.14.1/
+http://bugzilla.mozilla.org/show_bug.cgi?id=108385
+http://bugzilla.mozilla.org/show_bug.cgi?id=108516
+
+--

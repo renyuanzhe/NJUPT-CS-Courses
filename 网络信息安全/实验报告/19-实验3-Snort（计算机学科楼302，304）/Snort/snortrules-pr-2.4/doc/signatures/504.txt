@@ -1,0 +1,67 @@
+Rule:  
+
+--
+Sid:
+504
+
+--
+Summary:
+This event is generated when possible non-legitimate traffic is detected
+that should not be allowed through a firewall.
+
+--
+Impact:
+This can be used to pass through a poorly configured firewall.
+
+--
+Detailed Information:
+
+Traffic from TCP port 53 is used by DNS servers for zone transfers.  
+Normal DNS traffic uses the UDP protocol.  An attacker could use a TCP 
+source port of 53 to pass through a poorly configured firewall.  DNS 
+traffic from port 53 using either UDP or TCP should be to a port above 
+1023.  Ports 1023 and below are privileged.
+
+--
+Affected Systems:
+
+All
+
+--
+Attack Scenarios:
+An attacker could use a source port of 53 for TCP connections to bypass 
+a poorly configured firewall.  
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Incoming connections from TCP port 53 should only be allowed to machines
+that need the ability to do zone tranfers.  
+
+Connections from TCP port 53 should only be allowed to ports >=1024 on 
+these machines.  
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS07
+
+--

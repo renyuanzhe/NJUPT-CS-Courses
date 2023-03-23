@@ -1,0 +1,93 @@
+
+
+Rule:
+
+--
+Sid:
+122-25
+
+--
+Summary:
+This event is generated when the pre-processor sfPortscan detects
+network traffic that may constitute an attack. Specifically a icmp
+sweep was detected.
+
+--
+Impact:
+Unknown. This is normally an indicator of possible network
+reconnaisance and may be the prelude to a targeted attack against the
+targeted systems.
+
+--
+Detailed Information:
+This event is generated when the sfPortscan pre-processor detects
+network traffic that may consititute an attack.
+
+A portscan is often the first stage in a targeted attack against a
+system. An attacker can use different portscanning techniques and tools
+to determine the target host operating system and application versions
+running on the host to determine the possible attack vectors against
+that host.
+
+More information on this event can be found in the individual
+pre-processor documentation README.sfportscan in the docs directory of
+the snort source. Descriptions of different types of portscanning
+techniques can also be found in the same documentation, along with
+instructions and examples on how to tune and use the pre-processor.
+
+--
+Affected Systems:
+	All.
+
+--
+Attack Scenarios:
+An attacker often uses a portscanning technique to determine operating
+system type and version and also application versions to determine
+possible effective attack vectors that can be used against the target
+host.
+
+--
+Ease of Attack:
+Simple. Many portscanning tools are freely available.
+
+--
+False Positives:
+While not necessarily a false positive, a security audit or penetration
+test will often employ the use of a portscan in the same way an
+attacker might use the technique. If this is the case, the
+pre-processor should be tuned to ignore the audit if so desired.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check for other events targeting the host.
+
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches as appropriate.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Daniel Roelker <droelker@sourcefire.com>
+Marc Norton    <mnorton@sourcefire.com>
+Jeremy Hewlett <jh@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Nmap:
+http://www.insecure.org/nmap/
+
+Port Scanning Techniques and the Defense Against Them - Roger
+Christopher, SANS:
+http://www.sans.org/rr/whitepapers/auditing/70.php
+
+Hypervivid Tiger Team - Port-Scanning: A Practical Approach
+http://www.hcsw.org/reading/nmapguide.txt
+
+--

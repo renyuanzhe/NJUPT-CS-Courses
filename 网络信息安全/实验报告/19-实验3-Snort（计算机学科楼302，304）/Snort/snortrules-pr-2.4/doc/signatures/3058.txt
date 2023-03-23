@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+3058
+
+--
+Summary:
+This event is generated when a remote user sends an overly long string 
+to an IMAP server via the command COPY. This may indicate an attempt to 
+exploit a buffer overflow condition.
+
+--
+Impact:
+Serious. Possible remote execution of arbitrary code, which may lead to
+a remote root compromise.
+
+--
+Detailed Information:
+When a large amount of data is sent to a vulnerable IMAP server in the 
+COPY command, a buffer overflow condition may occur. This can allow the
+attacker to execute arbitrary code, which may allow the attacker to gain
+root access to the compromised server.
+
+The attacker must use a valid IMAP account to exploit this condition.
+
+--
+Affected Systems:
+	IMAP servers
+
+--
+Attack Scenarios:
+An attacker can send a sufficiently long COPY command to the IMAP
+server, creating a buffer overflow condition. This can then allow the
+attacker to execute code of their choosing and possibly gain root access
+to the compromised server.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate patches for your operating system.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

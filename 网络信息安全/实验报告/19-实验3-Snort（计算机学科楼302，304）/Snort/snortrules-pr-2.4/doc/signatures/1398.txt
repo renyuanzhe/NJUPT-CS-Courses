@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid: 1398
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow condition in the dtspcd daemon.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to execute arbitrary code.
+
+--
+Detailed Information:
+Certain versions of the Common Desktop Environment (CDE) subprocess control service (dtspcd) contain a programming error that allows an attacker to execute arbitrary code.
+
+dtspcd is used to launch remote applications over a network connection. CDE is used on UNIX and Linux systems as a graphical window manager, it was the default X windows interface on Sun systems until the switch to Gnome.
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0803
+
+CERT:
+http://www.cert.org/advisories/CA-2002-01.html
+http://www.cert.org/advisories/CA-2001-31.html
+http://www.kb.cert.org/vuls/id/172583
+
+--

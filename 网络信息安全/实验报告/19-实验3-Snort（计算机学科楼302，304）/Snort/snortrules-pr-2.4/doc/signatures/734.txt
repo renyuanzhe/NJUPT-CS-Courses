@@ -1,0 +1,54 @@
+Rule:  
+
+--
+Sid:
+734
+
+--
+Summary:
+This event is generated when Matrix worm activity is detected.
+
+--
+Impact:
+Severe - Windows system files can be deleted/replaced/infected 
+(Wsock32.dll, Explorer.exe and Rundll32.exe). 
+
+The virus propagation is done when a user sends e-mail, but variants may
+exist that display other characteristics.
+
+--
+Detailed Information:
+Matrix worm is distributed via e-mail when a user sends some e-mail to a recipient. The attachement name is random. File suffixes can be .exe, .com, .bat, .pif, .scr, .jpg.pif.. etc. The worm code uses plugins which can make the virus really dangerous (e.x. installing backdoors). Removal could be difficult, but free removal tools exist (see below).
+
+--
+Attack Scenarios:
+An attacker sends the Matrix worm using a MIME exploit which executes the virus code automatically. The worm can now distribute itself using the mail client of the user and can install backdoors and infect EXE files.
+
+--
+Ease of Attack:
+Simple. The worm does all the distribution work.
+
+--
+False Positives:
+E-Mail that contains the body "Software provide by [MATRiX]"
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Symantec W95.MTX removal tool: http://www.sarc.com/avcenter/venc/data/w95.mtx.fix.tool.html
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+
+-- 
+Additional References:
+
+
+--

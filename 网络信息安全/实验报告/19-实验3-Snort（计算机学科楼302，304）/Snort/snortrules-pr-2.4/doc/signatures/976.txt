@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+976
+
+--
+Summary:
+This event is generated when an attempt is made to reference a .bat file to execute arbitrary commands on an Internet Information Services (IIS) server. 
+
+--
+Impact:
+Remote access.  This attack can execute arbitrary commands on the IIS server with the privileges of the user running IIS.
+
+--
+Detailed Information:
+Microsoft Internet Information Service (IIS) uses .bat and .cmd to execute code using the Common Gateway Interface (CGI).  A .bat file or .cmd file can be passed a malicious command to be executed on the server.  This is accomplished by preceding the malicious command with an ampersand.  This allows execution of arbitrary commands with the privileges of the user running IIS.
+
+--
+Affected Systems:
+Hosts running IIS 1.0
+
+--
+Attack Scenarios:
+An attacker can pass a .bat or .cmd file a malicious command to be executed.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to a more current version of IIS.
+ 
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft
+http://support.microsoft.com/support/kb/articles/Q148/1/88.asp
+http://support.microsoft.com/support/kb/articles/Q155/0/56.asp
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0233
+
+Bugtraq
+http://www.securityfocus.com/bid/2023
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10362
+
+--

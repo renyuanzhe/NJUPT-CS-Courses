@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2220
+
+--
+Summary:
+This event is generated when an attempt is made to access simplestmail.cgi on an internal web server. This may indicate an attempt to exploit a remote command execution vulnerability in Leif M. Wright's Simple Guestbook.
+
+--
+Impact:
+Remote execution of arbitrary code, possibly leading to remote root compromise.
+
+--
+Detailed Information:
+Leif Wright's Simple Guestbook uses a Perl script to manage web-based guestbook submissions. It improperly parses pipe metacharacters (|), allowing an attacker to place arbitrary shell commands between pipe characters in the guestbook value. These commands are then executed by the web server when it receives the request.
+
+--
+Affected Systems:
+Web servers running Leif M. Wright Simple Guestbook.
+
+--
+Attack Scenarios:
+An attacker uses a specially crafted value in the guestbook field between pipe characters. Any commands included in the value are executed with the security context of the web server.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses simplestmail.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable simplestmail.cgi. 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/2106
+
+--

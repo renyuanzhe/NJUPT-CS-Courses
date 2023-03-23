@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+2305
+
+--
+Summary:
+This event is generated when an attempt is made to access the script
+chatbox.php on a web server running a PHP application.
+
+--
+Impact:
+Denial of Service (DoS).
+
+--
+Detailed Information:
+This event is generated when an attempt is made to access the script
+chatbox.php on a web server. This application does not perform stringent 
+checks when validating data supplied by the user in the Name field of
+the script. HTML or script code supplied via that field may cause a
+Denial of Service condition to occur.
+
+--
+Affected Systems:
+	All systems running E107 versions 0.545 and 0.603, other versions may
+	also be affected
+
+--
+Attack Scenarios:
+The attacker could supply some offending HTML code into the name field
+and cause the DoS.
+
+--
+Ease of Attack:
+Simple.
+
+Proof of concept exists, in the name field enter:
+
+<script type=javascript>alert('foo')</script>
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

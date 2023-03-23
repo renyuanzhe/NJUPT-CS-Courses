@@ -1,0 +1,70 @@
+Rule:  
+
+--
+Sid:
+3004
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the Microsoft implementation of the ASN.1 Library.
+
+--
+Impact:
+Serious. Execution of arbitrary code, DoS.
+
+--
+Detailed Information:
+A buffer overflow condition in the Microsoft implementation of the ASN.1 
+Library. It may be possible for an attacker to exploit this condition by 
+sending specially crafted authentication packets to a host running a 
+vulnerable operating system.
+
+When the taget system decodes the ASN.1 data, exploit code may be included 
+in the data that may be excuted on the host with system level privileges. 
+Alternatively, the malformed data may cause the service to become 
+unresponsive thus causing the DoS condition to occur.
+
+--
+Affected Systems:
+	Microsoft Windows NT
+	Microsoft Windows NT Terminal Server Edition
+	Microsoft Windows 2000
+	Microsoft Windows XP
+	Microsoft Windows 2003
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0818
+
+US-CERT
+http://www.us-cert.gov/cas/techalerts/TA04-041A.html
+
+Microsoft
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/ms04-007.asp
+
+--

@@ -1,0 +1,54 @@
+Rule:  
+
+--
+Sid:
+2211
+
+--
+Summary:
+This event is generated when an attempt is made to access guestserver.cgi on an internal web server. This may indicate an attempt to exploit a remote command execution vulnerability in Lars Ellingsen's Guestbook system.
+
+--
+Impact:
+Remote execution of arbitrary code.
+
+--
+Detailed Information:
+Lars Ellingsen's Guestbook system is a CGI application for web-based guestbooks. It contains a parsing vulnerability in guestserver.cgi where an attacker can place executable code within pipe characters (|) in front of an email address in the email value of a guestbook form. Because the pipe metacharacter is not properly filtered, code placed in the email value is executed with the security context of the web server.
+
+--
+Affected Systems:
+Any web server running Lars Ellingsen's Guestbook system.
+
+--
+Attack Scenarios:
+An attacker prepends shell commands between pipe characters to an email address in the email value of a guestbook entry. When the form data is submitted, the web server attempts to execute the commands. 
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses guestserver.cgi on an internal web server, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Because Lars Ellingsen's guestbook system does not appear to be currently maintained, you may want to use a different guestbook application. As a workaround, you can change the 1 that appears on the line beneath <-guestbook.mailto_guest-> to 0 in the guestbook.config file.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+
+--

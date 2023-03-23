@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+2078
+
+--
+Summary:
+HTTP.
+
+--
+Impact:
+Data loss and disclosure of information.
+
+--
+Detailed Information:
+A vulnerability exists such that a carefully crafted SQL query can be 
+used by a malicious user that will delete all private messages for users
+on the system.
+
+The scripts do not perform detailed checking of SQL queries in some 
+instances. This leaves the system vulnerable to SQL injection 
+techniques.
+
+--
+Affected Systems:
+	phpBB Group phpBB 2.0.3
+
+--
+Attack Scenarios:
+The attacker can craft his own SQL query to be executed or use a known 
+exploit for this vulnerability.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non vulnerable version of phpBB.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/6634
+
+--

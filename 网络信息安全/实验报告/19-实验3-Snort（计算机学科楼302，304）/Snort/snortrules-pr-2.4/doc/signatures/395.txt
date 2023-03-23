@@ -1,0 +1,62 @@
+Rule:
+
+--
+
+Sid:
+395
+
+--
+
+Summary:
+This event is generated when an ICMP Destination Network Unknown datagram is detected on the network.  Gateway devices normally generate these ICMP messages when the destination network is unreachable.
+
+--
+
+Impact:
+This ICMP message will be generated when the destination network specified in the datagram is unreachable.
+
+--
+
+Detailed Information: 
+This rule generates informational events about the network.  Large numbers of these messages on the network could indication routing problems or faulty routing
+devices.
+
+--
+
+Attack Scenarios:
+None Known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate these types of ICMP datagrams.
+
+--
+
+False Positives:
+None Known
+
+--
+
+False Negatives:
+None Known
+
+--
+
+Corrective Action:
+This rule detects informational network information, no correct action is necessary.
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

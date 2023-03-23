@@ -1,0 +1,80 @@
+Rule:
+
+--
+Sid:
+953
+
+--
+
+Summary:
+This event is generated when an attempt is made to access a file with 
+Microsoft Personal Server administration information.
+
+--
+
+Impact:
+If successful, the attacker can log into the system and modify web 
+content, as well as modify other users' credentials.
+
+--
+
+Detailed Information:
+On systems running Microsoft Personal Web Server the file 
+administrators.pwd contains usernames and encrypted passwords for users 
+who can author contents and administer this server. The attacker can 
+guess the exact URL of this file and request it, hence gaining this 
+information.
+
+--
+
+Affected Systems:
+Certain versions of Microsoft Windows 95 or Windows 98 running Frontpage
+1.1 or Frontpage 98 Server Extensions. Windows NT installations are not 
+affected.
+
+--
+
+Attack Scenarios:
+An attacker can request the file from its standard location, entering 
+the exact URL, and gain access to the system after cracking the 
+passwords found in the file.
+
+--
+
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+
+False Positives:
+None known.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Disable the Personal Web Server.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Chaos <c@aufbix.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1205/info/
+
+
+
+
+--

@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+979
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a cross-site scripting vulnerability associated with a file having a .htw extension.
+
+--
+Impact:
+Cross-site scripting.  This attack may allow the execution of arbitrary commands on a victim host that visits a vulnerable server.
+
+--
+Detailed Information:
+The Microsoft Indexing Service is vulnerable to a cross-site scripting exploit because of a failure to properly filter user input associated with files with a .htw extension.  This vulnerability is associated with Indexing Service component (CiWebHitsFile). This may allow an attacker to execute abitrary code on the victim host that visits the vulnerable server.
+
+--
+
+Affected Systems:
+Microsoft Indexing Services for Windows NT 4.0 and Windows 2000
+
+
+--
+Attack Scenarios:
+An attacker can inject malicious code in a vulernable server.  This may allow execution of arbitrary code on the victim host that visits the vulnerable server. 
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the patch discussed in the referenced Microsoft Bulletin.
+ 
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/1861
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0942
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/ms00-084.asp
+
+--

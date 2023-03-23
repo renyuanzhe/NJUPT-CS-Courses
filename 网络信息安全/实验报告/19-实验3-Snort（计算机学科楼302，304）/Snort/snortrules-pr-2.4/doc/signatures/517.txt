@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+517
+
+--
+Summary:
+This event is generated when an attempt is made to query the XDMCP 
+service.
+
+--
+Impact:
+Serious. Information disclosure. Unauthorized access to the system.
+
+--
+Detailed Information:
+An XDMCP query can provide a wealth of information about a host such as 
+a login screen, a list of users on the host, and to bypass access 
+control restrictions used by tcpwrapper and to bypass the restriction of
+login by user "root" on the box.
+
+--
+Affected Systems:
+	Any UNIX based server running XDMCP.
+
+--
+Attack Scenarios:
+An attacker can use this to find out information about the machine and 
+then either launch a specific attack or connect to the X windows server 
+using XDMCP.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable XDMCP if not needed.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS476
+
+--

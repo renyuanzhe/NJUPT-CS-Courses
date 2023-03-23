@@ -1,0 +1,65 @@
+Rule:  
+
+--
+Sid: 320
+
+-- 
+Summary: 
+This event is generated when access to a known UNIX backdoor deployed by attackers is attempted. In this case it may be a connection to a Trojaned version of fingerd.
+
+-- 
+
+Impact: 
+Remote system compromise leading to a compromise of all resources the host is connected to.
+
+--
+Detailed Information:
+The rule generates an event when access to a "fingerd" backdoor is attempted, this was often found on compromised UNIX machines in the late 1990s. The Trojan finger daemon runs as "root" and is started by inetd with parameters from inetd.conf file unlike the regular finger daemon which runs as "nobody" and replaces the regular "fingerd" binary. It allows its owner to execute several commands remotely by sending a finger request to a specific user. Particularly, the finger request for the user "cmd_rootsh" spawns a root shell bound to the finger port and allows remote command execution.
+
+--
+
+Attack Scenarios: 
+An attacker gains access to a UNIX machine via a remote exploit, then downloads and deploys the "fingerd" trojan. Next, the attacker only needs to send a finger request to gain root access with no password.
+
+-- 
+
+Ease of Attack: 
+The victim host is most likely already compromised.
+
+-- 
+
+False Positives: 
+None known
+
+--
+False Negatives: 
+None known
+
+-- 
+
+Corrective Action: 
+
+Restore the system from a known good backup.
+
+Reinstall the operating system.
+
+--
+Contributors: 
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10070
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0660
+
+SANS:
+http://www.sans.org/y2k/TFN_toolkit.htm
+http://www.sans.org/y2k/fingerd.htm
+
+--

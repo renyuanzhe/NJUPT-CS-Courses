@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2924
+
+--
+Summary:
+This event is generated when repeated failed attempts are made to access
+an SMB share.
+ 
+--
+Impact:
+Unknown. Possible information disclosure and loss of data.
+
+--
+Detailed Information:
+This event indicates that multiple failed attempts have been made to
+access an SMB network share. This may indicate a determined effort by an
+unauthorized user to access information and data on a network share.
+
+--
+Affected Systems:
+	All systems sharing resources using SMB
+
+--
+Attack Scenarios:
+An attacker can make repeated attempts to access network shares in an
+attempt to gain information.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply strict access control to all networked resources.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

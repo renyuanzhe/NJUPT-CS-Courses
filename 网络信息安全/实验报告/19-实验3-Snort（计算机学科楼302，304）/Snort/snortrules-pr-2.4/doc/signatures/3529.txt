@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+3529
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a directory
+traversal associated with Computer Associates License software.
+
+--
+Impact:
+A successful attack can allow arbitrary files to be written or existing
+files to be overwritten on a vulnerable host.
+
+--
+Detailed Information:
+Computer Associates License software allows a site to maintain and
+handle licenses for CA products.  A server runs the software to
+facilitate this and it communicates with clients/agents on the network.
+A vulnerability exists in the PUTOLF message that exchanges data with a
+listening server or client.
+
+The PUTOLF allows a file to be written to the target host.  However, no
+validation is performed to look for a directory traversal outside of the
+authorized directory.  This may permit new files to be uploaded or
+existing files to be overwritten on the target host.
+
+--
+Affected Systems:
+	CA License 1.0.15, 1.53-57, 1.60, 1.60.2, 1.60.3, 1.61, 1.61.1, 1.61.2,
+              1.61.8
+
+--
+Attack Scenarios:
+An attacker can craft a PUTOLF message that contains directory traversal
+characters in the filename.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=212&type=vulnerabilities
+
+--

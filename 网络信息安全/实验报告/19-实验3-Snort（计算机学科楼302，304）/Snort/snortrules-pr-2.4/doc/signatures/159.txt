@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+159
+
+--
+Summary:
+This event is generated when an attempt is made to list files on a host infected with the NetMetro Trojan Horse.
+
+--
+Impact:
+Limited control of the target host.
+
+--
+Detailed Information:
+Due to the nature of this Trojan it is unlikely that the attacker's client IP address has been spoofed.
+
+The server portion opens TCP port 5031 by default to establish a connection between client and server.
+
+--
+Affected Systems:
+	Windows 95
+	Windows 98
+	Windows ME
+	Windows NT
+	Windows 2000
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This event is indicative of an existing infection being activated. Initial compromise can be in the form of a Win32 installation program that may use the extension ".jpg" or ".bmp" when delivered via e-mail for example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised. Updated virus definition files are essential in detecting this Trojan.
+
+The Trojan server is named NMS.exe.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+A reboot of the infected machine is recommended. The Trojan does not start automatically at boot time nor does it change any system registry settings.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS79
+
+Dark-e:
+http://www.dark-e.com/archive/trojans/NetMetro/index.html
+
+--

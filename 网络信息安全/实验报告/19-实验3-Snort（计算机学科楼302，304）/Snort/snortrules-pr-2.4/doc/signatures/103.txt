@@ -1,0 +1,119 @@
+Rule:
+
+--
+Sid:
+103
+
+--
+Summary:
+Subseven22 is a Trojan Horse.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a 
+compromise of all resources the machine is connected to. This Trojan 
+also has the ability to delete data, steal passwords and disable the 
+machine. Other versions are capable of launching DDoS attacks.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+	Windows NT
+	Windows 2000
+	Windows XP
+
+No other systems are affected. This is a windows exceutable that makes 
+changes to the system registry, Win.ini and System.ini. When first 
+executed the Trojan replicates itself and in most cases, gives the copy 
+a random name. This Trojan may use the file extensions ".exe" or ".dll".
+
+Subseven is an improved version of the Netbus Trojan (see sids 114, 
+115), Subseven DEFCON8 2.1 is an improved version of Subseven that 
+affects Windows 95 and 98 implementations.
+
+The Trojan changes system startup files and registry settings to add the
+Subseven sever to programs normally started on boot.
+
+	SID	Message
+	---	-------
+	103	subseven 22 (incoming TCP connection)
+	107	subseven DEFCON8 2.1 access (outgoing TCP connection)
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This 
+event is indicative of an existing infection being activated. Initial 
+compromise can be in the form of a Win32 installation program that may 
+use the extension ".jpg" or ".bmp" when delivered via e-mail for 
+example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised. 
+Updated virus definition files are essential in detecting this Trojan.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+This is a particularly difficult Trojan to remove and should only be 
+attempted by an experienced Windows Administrator.
+
+Edit the system registry to remove the extra keys or restore a 
+previously known good copy of the registry.
+
+Affected registry keys are:
+
+	HKEY_CLASSES_ROOT\exefile\shell\open\command
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Current Version\Run
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Current Version\RunServices
+	HKEY_LOCAL_MACHINE\Hardware\Data
+	HKEY_LOCAL_MACHINE\Hardware\Enum
+	HKEY_LOCAL_MACHINE\Software\Microsoft\DirectXMedia
+
+Registry keys added are:
+
+	HKEY_CLASSES_ROOT\.dl
+
+Removal of the replicant is also required, look for files ending in 
+".exe" or ".dll" in the <drive>:\Windows\ or <drive>:\Windows\System\ 
+folders that use alphanumeric file names. The name of the replicant may 
+be in one of the registry keys above.
+
+A machine reboot is required to clear the existing process from running 
+in memory.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Hackfix
+http://www.hackfix.org/subseven/
+
+McAfee
+http://vil.mcafee.com/dispVirus.asp?virus_k=10566
+http://vil.nai.com/vil/content/v_10566.htm
+
+Symantec Security Response
+http://securityresponse.symantec.com/avcenter/venc/data/backdoor.subseven22.html
+
+F-Secure:
+http://www.f-secure.com/v-descs/subseven.shtml
+
+--

@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+1972
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow vulnerability associated with BlackMoon FTP server PASS command. 
+
+--
+Impact:
+Remote access.  A successful attack may permit the remote execution of arbitrary commands with privileges of the process running the BlackMoon FTP server. 
+
+--
+Detailed Information:
+The BlackMoon FTP server offers FTP software for Windows hosts.  A vulnerability exists with the PASS command that can cause a buffer overflow and permit the execution of arbitrary commands with the privileges of the process running the BlackMoon FTP server.  The buffer overflow can be caused by supplying an overly long argument with the PASS command.   
+
+--
+Affected Systems:
+Hosts running BlackMoon FTP Server 1.0 through 1.5. 
+
+--
+Attack Scenarios:
+An attacker can supply an overly long file argument with the PASS command, causing a buffer overflow.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0126
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-1035
+
+--

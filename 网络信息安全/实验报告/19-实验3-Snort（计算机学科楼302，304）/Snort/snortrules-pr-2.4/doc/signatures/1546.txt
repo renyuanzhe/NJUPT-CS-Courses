@@ -1,0 +1,65 @@
+Rule:
+--
+Sid:
+1546
+--
+Summary:
+This event is generated when an attempt is made to issue a denial of 
+service attack against a Cisco router or switch.
+--
+Impact:
+If successful, the router will hang for two minutes, then reboot.   
+Under certain circumstances, the router will hang until power cycled 
+manually.
+--
+Detailed Information:
+The HTTP server that is part of some versions of the Cisco IOS software 
+has a bug that causes it to enter an infinite loop when handling a 
+request for "/%%".
+--
+Affected Systems:
+The following Cisco products can be affected.   Whether they actually 
+are vulnerable or not depends on the version of IOS that they are 
+running.   To properly determine if your product is vulnerable, see the 
+Cisco website referenced below.
+Cisco routers in the AGS/MGS/CGS/AGS+, IGS, RSM, 800, ubr900, 1000, 
+2500, 2600, 3000, 3600, 3800, 4000, 4500, 4700, AS5200, AS5300, AS5800, 
+6400, 7000, 7200, ubr7200, 7500, and 12000 series.
+Most recent versions of the LS1010 ATM switch.
+The Catalyst 6000 if it is running IOS.
+Some versions of the Catalyst 2900XL and 3500XL LAN switches.
+The Cisco DistributedDirector.
+--
+Attack Scenarios:
+This attack creates a denial of service.
+--
+Ease of Attack:
+Very easy.   
+--
+False Positives:
+Unlikely.
+--
+False Negatives:
+This signature only looks for attacks against systems that are included 
+in the $HTTP_SERVERS group.   Many administrators do not consider 
+routers or switches to be web servers, and therefore may not include 
+vulnerable devices in this group, causing an attack to proceed 
+unnoticed.   If you think one of your routers or switches is vulnerable, 
+reference it in the $HTTP_SERVERS group.
+--
+Corrective Action:
+Turn off the web server functionality, use access lists to ensure only 
+trusted hosts have access to the device, or upgrade your version of IOS.
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Kevin Peuhkurinen
+
+-- 
+Additional References:
+
+Cisco
+http://www.cisco.com/warp/public/707/ioshttpserver-pub.shtml
+
+--

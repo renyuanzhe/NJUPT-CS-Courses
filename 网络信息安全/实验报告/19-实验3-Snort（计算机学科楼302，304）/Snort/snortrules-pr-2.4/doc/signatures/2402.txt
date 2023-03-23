@@ -1,0 +1,88 @@
+Rule:
+
+--
+Sid:
+2402
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in ISS RealSecure and BlackICE products.
+
+--
+Impact:
+Serious. Execution of arbitrary code, DoS.
+
+--
+Detailed Information:
+A buffer overflow condition in the ISS Analysis Module can be triggered
+by an attacker sending a single SMB packet containing an AccountName
+greater than 300 bytes. It is possible for an attacker to exploit this
+condition by sending a specially crafted packet to a host serving network shares.
+
+When the systems running one of the affected ISS products decodes the
+SMB data, exploit code may be included and executed on the machine with 
+system level privileges. Alternatively, the malformed data may cause the service to become 
+unresponsive and cause a DoS condition.
+
+Sensors under attack will display "PAM_internal_error" as a message on
+the console.
+
+Sucessful exploitation of this issue could present an attacker with the 
+opportunity to execute code of their choosing on the target host with system
+privileges. It is also possible for a Denial of Service (DoS) condition to 
+be caused by an attacker attempting to exploit this condition.
+
+--
+Affected Systems:
+	RealSecure Network 7.0, XPU 20.15 through 22.9
+	Real Secure Server Sensor 7.0 XPU 20.16 through 22.9
+	Proventia A Series XPU 20.15 through 22.9
+	Proventia G Series XPU 22.3 through 22.9
+	Proventia M Series XPU 1.3 through 1.7
+	RealSecure Desktop 7.0 eba through ebh
+	RealSecure Desktop 3.6 ebr through ecb
+	RealSecure Guard 3.6 ebr through ecb
+	RealSecure Sentry 3.6 ebr through ecb
+	BlackICE PC Protection 3.6 cbr through ccb
+	BlackICE Server Protection 3.6 cbr through ccb
+
+--
+Attack Scenarios:
+An attacker may use this vulnerability to disable ISS sensors on a
+network or potentially use it to gain control of a machine running one
+of the affected products.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+This rule may not generate an alert if a legitimate SMB request contains a password
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Matt Watchinski <mwatchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+eEye
+http://www.eeye.com/html/Research/Advisories/AD20040226.html
+
+Bugtraq
+http://www.securityfocus.com/bid/9752
+
+--

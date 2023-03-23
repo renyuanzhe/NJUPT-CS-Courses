@@ -1,0 +1,79 @@
+Rule:
+
+--
+Sid:
+1971
+
+--
+Summary:
+Someone has attempted a format string attack that is successful against 
+the SITE EXEC command on vulnerable versions of WU-FTPD.
+
+
+--
+Impact:
+Severe; remote root compromise possible if user is running a version of 
+WU-FTPD prior to 2.6.2 as root.
+
+
+--
+Detailed Information:
+This attack is a format string attack against the implementation of the 
+SITE EXEC command in Washington University's ftp daemon.  This 
+vulnerability was widespread, due to the widespread use of wu-ftpd in 
+many of the Linux distributions. 
+
+This is an input validation problem, as wu-ftpd is not checking the user
+input that is passed directly into a format string for a printf/sprintf 
+function. With specific malicious data, it is possible to overwrite the 
+return address of the stack.  If properly done, when the function 
+attempts to return, it will return to the overwritten return address of 
+the function and it is possible to execute arbitrary commands.
+
+If running a vulnerable version of WU-FTPD as an anonymous ftp server, 
+this increases the exploitability dramatically, as the exploit must run 
+after a "user" has logged into the server.  Running the server allowing 
+anonymous logins means that any user, anywhere can log into the ftp 
+server and run the command.
+
+--
+Affected Systems:
+	Multiple vendor distributions of wuftpd  2.6.1 and earlier.  
+
+--
+Attack Scenarios:
+Attacker logs into an anonymous ftp server, checks to see if the SITE 
+EXEC command is implemented, and if it is, exploits the format string 
+attack, and executing arbitrary commands on the server. In most default 
+implementations of WU-FTPD the daemon was running as root and allowed 
+anonymous login.  If this is the case, the attacker would now have root 
+access to the system.   
+
+--
+Ease of Attack:
+Simple. Exploit scripts are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Patch all instances of WU-FTPD to the latest version, 2.6.2, as well 
+disallow anonymous access to the server.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Mike Poor <mike.poor@sourcefire.com>
+
+--
+Additional References:
+
+
+--

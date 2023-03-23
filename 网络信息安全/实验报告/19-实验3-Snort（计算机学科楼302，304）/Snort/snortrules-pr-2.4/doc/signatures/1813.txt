@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+1813
+
+--
+Summary:
+This event is generated when an ICMP request is made to gain information on available bandwidth.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+An ICMP request is used to elicit information on the bandwidth available on a connection. Digital Island is a company that specializes in content delivery systems.
+
+--
+Affected Systems:
+All
+
+--
+Attack Scenarios:
+An attacker may attempt to determine the bandwidth available to the host.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Block inbound ICMP requests.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

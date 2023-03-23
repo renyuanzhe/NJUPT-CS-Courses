@@ -1,0 +1,60 @@
+Rule:
+
+--
+
+Sid:
+409
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP Echo Reply with an invalid or undefined ICMP Code.
+
+--
+
+Impact:
+Information-gathering.  An ICMP Echo Reply message is sent in response to an ICMP Echo Request message.  If the ICMP Echo Reply message reaches the requesting host it indicates that the replying host is alive.  Most OS's (operating systems) will accept an ICMP Echo Reply message with an invalid or undefined ICMP code set as a valid ICMP Echo Reply.
+
+--
+
+Detailed Information:
+ICMP Type 0 Code 0 is the RFC defined messaging type for ICMP Echo Reply datagrams.  This type of message is used to determine if a host is active on the network.
+
+--
+
+Attack Scenarios:
+Remote attackers my generate ICMP Echo Reply datagrams with invalid ICMP Codes in an attempt to cause faults in the applications or hosts generating ICMP Echo Requests.
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Use ingress filtering to prevent ICMP Type 0 messages from entering the network.
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

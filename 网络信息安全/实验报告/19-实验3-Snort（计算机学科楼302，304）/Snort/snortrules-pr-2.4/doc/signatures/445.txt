@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+445
+
+--
+Summary:
+This event is generated when an ICMP "SKIP" message is generated.
+
+--
+Impact:
+Informational.  This indicates that an error condition was encountered when requesting the Simple Key Management Protocol for IP (SKIP) protocol to provide keying material.
+
+--
+Detailed Information:
+An ICMP "SKIP" message is issued when a SKIP request to provide keying material fails.  This may occur when the sender makes a request via a SKIP packet for some kind of algorithm, such as encryption, that is not supported by the receiver.  The receiver responds with this ICMP message to indicate that the requested algorithm is not supported. 
+
+--
+Affected Systems:
+This traffic should have no adverse impact.
+
+--
+Attack Scenarios:
+This is not an attack unless these messages are sent in volume for an attempted denial of service.
+
+--
+Ease of Attack:
+Simple. There are many packages available to generate ICMP messages.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+None.
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

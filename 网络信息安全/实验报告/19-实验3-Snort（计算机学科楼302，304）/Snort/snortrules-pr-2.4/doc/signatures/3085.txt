@@ -1,0 +1,59 @@
+Rules:
+
+--
+Sid:
+3085
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with AOL Instant Messenger (AIM) goaway message.
+
+--
+Impact:
+Serious. Execution of arbitrary commands may be possible.
+
+--
+Detailed Information:
+AIM is instant messaging software supplied by AOL Time Warner. A malicious
+URL offered in an AIM message or web page that sends an AIM client an overly
+long AIM "Away" message can cause a buffer overflow on a vulnerable client.
+This can permit the execution of arbitrary code on the client host.
+
+--
+Affected Systems:
+AOL Instant Messenger 5.5, 5.5.3415 Beta, 5.5.3595
+
+--
+Attack Scenarios:
+An attacker can send an overly long AIM "Away" message or a user could be
+enticed to view a site that embeds such a message.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+A Metasploit attack that exploits this vulnerability uses an HTTP port of
+8080.  Other HTTP ports can be used for this attack as well.
+
+--
+Corrective Action:
+Upgrade to the most current nonaffected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=121&type=vulnerabilities
+--

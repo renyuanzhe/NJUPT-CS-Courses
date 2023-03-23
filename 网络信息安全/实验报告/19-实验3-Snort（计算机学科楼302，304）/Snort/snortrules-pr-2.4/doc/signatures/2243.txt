@@ -1,0 +1,57 @@
+Rule:  
+
+--
+Sid:
+2243
+
+--
+Summary:
+This event is generated when an attempt is made to access the web cgi
+application ndcgi.exe.
+
+--
+Impact:
+Session hijacking. Unauthorized access to resources.
+
+--
+Detailed Information:
+Certain versions of Netdynamics web application present an attacker with
+the opportunity to steal session IDs and hijack user sessions from the
+information contained in the SPIDERSESSION and uniqueValue variables.
+
+--
+Affected Systems:
+	Netdynamics 4.x through 5.x
+
+--
+Attack Scenarios:
+The attacker can gain the information necessary to login using valid
+user credentials by reading the information contained in the
+SPIDERSESSION and uniqueValue variables.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

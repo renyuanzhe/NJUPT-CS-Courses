@@ -1,0 +1,79 @@
+Rule:
+--
+Sid:
+303
+
+--
+Summary:
+A specific inverse query has been performed against your DNS server as a
+precursor to a possible transaction signature (TSIG) buffer overflow 
+attack. 
+
+--
+Impact:
+attempt to gain access to information required for the TSIG exploit.  A 
+TSIG buffer overflow exploit attempt will usually follow if there is a 
+response to the inverse query.
+
+
+--
+Detailed Information:
+This is an attempt to perform a specific DNS inverse query against your 
+DNS server.  While this specific action is not harmful itself, it 
+signals a precusor to a possible buffer overflow attack for a TSIG 
+vulernability.  The inverse query is performed for reconnaissance for 
+the TSIG attack. 
+
+--
+Affected Systems:
+BIND Versions 4 and through 8.2 are susceptible to the inverse query 
+information leak.
+
+
+--
+Attack Scenarios:
+The envisioned scenario is that if a DNS server responds to the inverse 
+query and leaks information required in the actual attack, the exploit 
+code then attacks the TSIG buffer overflow vulnerability.  If this is 
+successful, the attacker gains access to the DNS server at the privilege
+of the DNS daemon, named (potentially root). 
+
+
+--
+Ease of Attack:
+Code is available to exploit the vulnerability.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+A user could change the exploit code.  For instance, a user could change
+the DNS identification number in the code to be something other than 
+0xABCD and the rule would not fire.
+
+--
+Corrective Action:
+Update to BIND versions greater than 8.2 to prevent the information 
+leak.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2302
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0010
+
+Arachnids:
+http://www.whitehats.com/info/IDS482
+
+--

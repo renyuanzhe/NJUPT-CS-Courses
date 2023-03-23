@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+1728
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known vulnerability in the ftp server included with version 2.6 of the Sun Solaris operating system.
+
+--
+Impact:
+Serious.
+
+--
+Detailed Information:
+An error in the ftp daemon supplied with version 2.6 of Sun's Solaris operating system can cause the daemon to overflow a buffer and generate a core file that is world readable.
+
+The attacker may also be able to fill the disk partition by generating core files.
+
+--
+Affected Systems:
+Sun Solaris 2.6
+
+--
+Attack Scenarios:
+An attacker can use a non-standard ftp client or initiate a session with the ftp server and issue a CWD ~ command. The attacker may then be able to read the core file and recover usernames and passwords for other users on the system
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

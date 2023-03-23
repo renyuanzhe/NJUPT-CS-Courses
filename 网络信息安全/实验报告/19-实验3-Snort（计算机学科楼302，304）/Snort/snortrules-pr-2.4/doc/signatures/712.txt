@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+712
+
+--
+Summary:
+This event is generated when an attempt is made to set an environment
+variable in a Telnet session to a server.
+
+--
+Impact:
+Unauthorized superuser access.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to use the environment
+variable ld_library_path in a Telnet session.
+
+--
+Affected Systems:
+	Telnet servers.
+
+--
+Attack Scenarios:
+An attacker can attempt to set the environment variable ld_library_path
+and then attempt to exploit a known vulnerability in some SunOS based
+systems.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Use ssh as an alternative to Telnet
+
+Block inbound telnet access if it is not required.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/43
+
+--

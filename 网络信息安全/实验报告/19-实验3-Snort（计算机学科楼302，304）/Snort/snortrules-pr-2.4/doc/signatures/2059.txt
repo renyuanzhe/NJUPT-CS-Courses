@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+2059
+
+--
+Summary:
+MsmMask.exe
+
+--
+Impact:
+Information disclosure
+
+--
+Detailed Information:
+Versions of MondoSearch prior to 4.4.5156 use a vulnerable version of a 
+cgi script named msmmask.exe. This script allows the attacker to view 
+the source of any file in a webservers root directory.
+
+vulnerabilities using the security scanner nessus.
+
+--
+Affected Systems:
+MondoSearch versions prior to 4.4.5156.
+
+--
+Attack Scenarios:
+The attacker needs to access the msmmask.exe script and request a file 
+in the servers web directory.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade the application to at least version 4.4.5156 or higher.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=11163
+
+--

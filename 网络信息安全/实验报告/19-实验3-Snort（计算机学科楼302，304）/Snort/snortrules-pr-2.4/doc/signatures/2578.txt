@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+2578
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a heap overflow
+associated with Kerberos V5.
+
+--
+Impact:
+A successful attack may cause a heap overflow, permitting the execution of
+arbitrary code.
+
+--
+Detailed Information:
+When Kerberos V5 uses a non-default configuration of enabling rules-based
+mapping, it is possible to cause a heap overflow and the subsequent
+execution of arbitrary code on the vulnerable host.  The attacker has
+to successfully authenticate in order to exploit the vulnerability.
+If an attacker supplies an overly long principal name, it may be possible
+to cause a heap overflow on the vulnerable Kerberos-enabled server.
+
+--
+Affected Systems:
+MIT Kerberos V5 including krb5-1.3.3
+
+--
+Attack Scenarios:
+An attacker authenticates to the Kerberos server and later supplies
+an overly long principle name when attempting to connect to a server
+that employs Kerberos authentication. This can cause a heap overflow
+and subsequent execution of code on a vulnerable server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+Dan Roelker <dan.roelker@sourcefire.com>
+
+--
+Additional References
+
+Other:
+http://web.mit.edu/kerberos/advisories/MITKRB5-SA-2004-001-an_to_ln.txt
+
+--

@@ -1,0 +1,95 @@
+Rule:  
+
+--
+Sid:
+339
+
+--
+Summary:
+
+--
+Impact:
+Severe; This is a remote exploit that could result in a root compromise.
+
+--
+Detailed Information:
+There is an off-by-one error in the replydirname() function in the BSD FTP deamon which is also present in many derivitave works.  This vulnerability allows an attacker to overflow the buffer by one byte, overwriting the first byte of the return pointer on the stack.
+
+--
+Affected Systems:
+	BSD ftpd 0.3.2
+	 + Progeny Debian 1.0
+	David A. Holland linux-ftpd 0.17
+	 + Progeny Debian 1.0
+	David Madore ftpd-BSD 0.2.3
+	  - Caldera OpenLinux 2.2
+	  - Caldera OpenLinux 2.3
+	  - Caldera OpenLinux 2.4
+	  - Debian Linux 2.0
+	  - Debian Linux 2.1
+	  - Debian Linux 2.2
+	  - Debian Linux 2.3
+	  - MandrakeSoft Linux Mandrake 6.0
+	  - MandrakeSoft Linux Mandrake 6.1
+	  - MandrakeSoft Linux Mandrake 7.0
+	  - MandrakeSoft Linux Mandrake 7.1
+	  - MandrakeSoft Linux Mandrake 7.2
+	  - RedHat Linux 5.0
+	  - RedHat Linux 6.0 x
+	  - RedHat Linux 7.0
+	  - Slackware Linux 4.0
+	  - Slackware Linux 7.0
+	  - Slackware Linux 7.1
+	NetBSD NetBSD 1.4
+	NetBSD NetBSD 1.4.1
+	NetBSD NetBSD 1.4.2
+	NetBSD NetBSD 1.5
+	OpenBSD 2.4
+	OpenBSD 2.5
+	OpenBSD 2.6
+	OpenBSD 2.7
+	OpenBSD 2.8
+Note: OpenBSD ships with the FTP daemon turned off, so this is not on by default.
+
+--
+Attack Scenarios:
+The attacker could log into a vulnerable OpenBSD anonymous FTP server, calculate the buffer size, fill the buffer and over write the lowest byte on the base pointer with a null byte.  This would result in the attacker controling that space on the stack, with full access to control the host at will.
+
+--
+Ease of Attack:
+Simple; there are script versions of this exploit in the wild.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Update your machine to the latest version of OpenBSD.  If you are running OpenBSD 2.8, use the following patch: http://www.securityfocus.com/data/vulnerabilities/patches/005_ftpd.patch
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Mike Poor <mike.poor@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids
+http://www.whitehats.com/info/IDS446
+
+Bugtraq
+http://www.securityfocus.com/bid/2124
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0053
+
+OpenBSD
+http://www.openbsd.org/errata28.html#ftpd
+
+--

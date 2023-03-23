@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+2588
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the PHP web application TUTOS.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the PHP web application TUTOS. The PHP application
+TUTOS is vulnerable to a path disclosure bug which may allow an attacker
+to gain information that can be used in further attacks against the
+system.
+
+The vulnerability surrounds the file note_overview.php, by manipulating
+input to the file an attacker may be presented with sensitive
+information regarding the system.
+
+--
+Affected Systems:
+	All systems using TUTOS.
+
+--
+Attack Scenarios:
+An attacker can leverage this vulnerability to gain information that may
+be useful in further attacks against the system.
+
+--
+Ease of Attack:
+Simple. Exploit software is not required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+Check the host logfiles and application logs for signs of compromise.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

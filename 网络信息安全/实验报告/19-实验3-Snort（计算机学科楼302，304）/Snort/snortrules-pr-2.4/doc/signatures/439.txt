@@ -1,0 +1,59 @@
+Rule:
+
+--
+
+Sid:
+439
+
+--
+
+Summary:
+This event is generated when an ICMP Type 19 Code 0 (ICMP Reserved for Security) datagram is detected on the network. 
+
+--
+
+Impact:
+ICMP Type 19 datagrams are not currently used by any known devices.
+
+--
+
+Detailed Information:
+ICMP Type 19 is not defined for use and is not expected network activity.
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Ingress filtering should be utilized to block incoming ICMP Type 19 datagrams
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

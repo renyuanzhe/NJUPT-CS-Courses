@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1225
+
+--
+Summary:
+This event is generated when an attempt to exploit a weakness in the authentication mechanism used to connect to an X windows server is made.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a compromise of all resources the machine is connected to.
+
+--
+Detailed Information:
+Implementations of the X windows system from the X consortium may use weak authentication methods when allowing remote machines to connect to a host running X windows.
+
+XDM is used to allow remote users access to the remote X window server. When configured incorrectly, this may allow an unathorised user to connect to the display.
+
+--
+Attack Scenarios:
+The remote attacker may scan the host for listening X window servers, then connect to the remote host using XDM.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow connections to X servers from hosts outside the protected network.
+
+Apply the appropriate vendor patches.
+
+Upgrade to the latest version of the software.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0241
+
+CIAC:
+http://ciac.llnl.gov/ciac/bulletins/g-04.shtml
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS396
+
+--

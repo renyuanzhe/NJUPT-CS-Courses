@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+1953
+
+--
+Summary:
+This event is generated when a request is made to discover the Process ID (PID) of the Remote Procedure Call (RPC) amd.
+
+--
+Impact:
+Information disclosure.  This request can allow an attacker to discover the PID associated with amd.
+
+--
+Detailed Information:
+The amd RPC service implements the automounter daemon on UNIX hosts.  The amd service automatically mounts and unmounts requested file systems.  An attacker can make a request to amd to discover its PID.  Learning the PID may help an attacker guess a range of likely PIDs associated with other running services that are either started before or after amd.  This may facilitate an attack against other running processes.  
+
+--
+Affected Systems:
+Any system running amd.
+
+--
+Attack Scenarios:
+An attacker may request the PID associated with amd.  This information may be used to attack other running processes if the attacker has some means of access to the target host. 
+
+--
+Ease of Attack:
+Simple. Execute the command 'amq -p -T -h hostname/IP'.
+  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+
+--

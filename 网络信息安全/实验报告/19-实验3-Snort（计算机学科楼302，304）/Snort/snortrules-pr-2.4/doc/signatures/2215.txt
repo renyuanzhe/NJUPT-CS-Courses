@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2215
+
+--
+Summary:
+This event is generated when an attempt is made to access nsManager.cgi on an internal web server. This may indicate an attempt to exploit an authentication vulnerability in Alabanza Control Panel 3.0 and earlier.
+
+--
+Impact:
+System integrity.
+
+--
+Detailed Information:
+Alabanza Control Panel 3.0 is an application that manages automated virtual domain administration. It contains a vulnerability which allows an attacker to bypass authentication using specially crafted HTTP requests to add, modify, or delete domains, or change MX and CNAME host information for managed hosts.
+ 
+--
+Affected Systems:
+Any domains managed by an administrator using Alabanza Control Panel 3.0 or earlier.
+
+--
+Attack Scenarios:
+An attacker crafts a URL that adds or deletes a virtual domain and transmits it to nsManager.cgi. The Alabanza Control Panel makes the requested change without prompting for a username or password.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses nsManager.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest version of the software, or apply the vendor-provided patch.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/1710
+
+--

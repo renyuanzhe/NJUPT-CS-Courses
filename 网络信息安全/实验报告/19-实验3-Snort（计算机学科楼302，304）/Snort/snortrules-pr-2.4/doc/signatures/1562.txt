@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+1562
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow associated with BFTPD version 1.0.13.
+
+--
+Impact:
+Remote root access.  A successful attack can allow the remote execution of arbitrary commands with privileges of root.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a vulnerability associated with the FTP SITE CHOWN command of a BFTPD server 1.0.13. A buffer overflow attack can be executed by sending an overly long argument with the SITE CHOWN command.  This attack requires login access to the vulnerable server via an authenticated or anonymous user.
+
+--
+Affected Systems:
+Hosts running BFTPD version 1.0.13. 
+
+--
+Attack Scenarios:
+An attacker may login to a vulnerable FTP server and supply an overly long file argument with the SITE CHOWN command, causing a buffer overflow and allowing the execution of arbitrary commands as root.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Disable the use of the SITE command on the vulnerable server by configuring /etc/bftpd.conf with:
+  ENABLE_SITE=no
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0065
+
+--

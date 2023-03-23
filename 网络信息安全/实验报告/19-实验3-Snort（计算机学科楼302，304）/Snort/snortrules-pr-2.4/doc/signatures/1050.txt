@@ -1,0 +1,53 @@
+Rule:
+--
+Sid:
+1050
+--
+Summary:
+This event is generated when a request is made to a webserver using the 
+the command 'GETPROPERTIES'. This may be an indication that a buffer 
+overflow attack may be in process.
+--
+Impact:
+If successful, this attack will allow attackers to run code of their 
+choosing on the victim server.
+--
+Detailed Information:
+The web publishing feature in iPlanet Web Server 4.1 is vulnerable to a 
+buffer overflow.
+--
+Affected Systems:
+iPlanet Web Server 4.1 up to Service Pack 8
+--
+Attack Scenarios:
+An attacker can spawn a remote shell on the server and execute any 
+command they desire.
+--
+Ease of Attack:
+Difficult.  Exploit code does not appear to exist as of June 2003, so an
+attacker would need to write the code themselves.
+--
+False Positives:
+Legimate uses of web publishing.
+--
+False Negatives:
+This vulnerability can be exploited using any number of web publishing 
+commands, however this rule only generates an event on one specific 
+command (GETPROPERTIES).
+--
+Corrective Action:
+Disable web publishing or upgrade your web server software.
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Kevin Peuhkurinen <kevin.peuhkurinen@hepcoe.com>
+
+-- 
+Additional References:
+
+NTBugtraq Archive:
+http://archives.neohapsis.com/archives/ntbugtraq/2001-q2/0035.html
+
+--

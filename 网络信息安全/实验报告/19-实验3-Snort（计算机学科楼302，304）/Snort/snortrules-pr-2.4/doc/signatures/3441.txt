@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+3441
+
+--
+Summary:
+This event is generated when an attempt is made to use the PORT command
+in an FTP session.
+
+--
+Impact:
+Serious. Unauthorized access to the target host. Information disclosure.
+
+--
+Detailed Information:
+The PORT command can be used in an FTP PORT bounce attack to establish
+a connection between the FTP server and another machine listening on 
+an alternative port.
+
+This may lead to unauthorized access to a target host listening on a 
+port not available from outside the protected network.
+
+--
+Affected Systems:
+	Systems using FTP
+
+--
+Attack Scenarios:
+An attacker can issue a PORT command from an FTP session to connect to 
+another machine listening on an alternate port. For example, from an 
+FTP session an attacker could connect to an internal host listening on 
+an alternate web port meant only for internal sessions.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/tech_tips/ftp_port_attacks.html
+
+--

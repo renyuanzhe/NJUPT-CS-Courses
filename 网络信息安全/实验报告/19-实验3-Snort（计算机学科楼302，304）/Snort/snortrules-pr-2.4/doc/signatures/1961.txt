@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+1961
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) rquotad is listening.
+
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port rquotad is using.  Attackers can also learn what versions of the rquotad protocol are accepted by rquotad. 
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as rquotad run.  The rquotad RPC service can be queried for user disk usage and the limits of a local file system which is mounted by a remote machine over NFS.  A vulnerability associated with rquotad may permit the execution of arbitrary commands with the privileges of root. 
+
+--
+Affected Systems:
+All hosts running the UNIX portmapper.
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where rquotad runs.  This may be a precursor to accessing rquotad.
+
+--
+Ease of Attack:
+Easy.  
+
+--
+False Positives:
+If a legitimate remote user is allowed to access rquotad, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for rquotad, not probes of the rquotad service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the rquotad service itself. An attacker may attempt to go directly to the rquotad port without querying the portmapper service, which would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

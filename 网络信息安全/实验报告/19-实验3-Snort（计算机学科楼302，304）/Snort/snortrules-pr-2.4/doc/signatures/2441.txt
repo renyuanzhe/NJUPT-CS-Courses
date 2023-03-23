@@ -1,0 +1,62 @@
+Rule:  
+
+--
+Sid:
+2441
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in ExploreAnywhere Software's NETObserve.
+
+--
+Impact:
+Execution of commands or control of remote machines being managed by the
+software.
+
+--
+Detailed Information:
+NETObserve is a software solution that can be used to remotely monitor
+and control Windows based machines. It's interface is accessed via HTTP.
+
+By setting a cookie value, used to send login information to NETObserve,
+to 0 an attacker can bypass any checks on login credentials. This can
+present the attacker with administrative privileges to the NETObserve
+application which can be used to manage other remote client machines.
+
+--
+Affected Systems:
+	NETObserve
+
+--
+Attack Scenarios:
+An attacker can set 'Cookie login:0' in a web request to the
+administrative interface and gain administrator access to the
+application.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

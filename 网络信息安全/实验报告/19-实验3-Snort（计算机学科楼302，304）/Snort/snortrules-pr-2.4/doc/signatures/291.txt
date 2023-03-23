@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+291
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer 
+overflow in the Cassandra NNTP service.
+
+--
+Impact:
+Denial of Service.
+
+--
+Detailed Information:
+The denial of service is caused by providing an unusually long login
+name.  The rule looks for a data payload of over 512 characters.
+
+--
+Affected Systems:
+	Cassandra NNTP server v1.10
+
+--
+Attack Scenarios:
+The attack is done remotely and causes denial of service.
+
+--
+Ease of Attack:
+Simple.  An exploit is readily available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Install the available security patches from your vendor.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS274
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=3DCAN-2000-0341
+
+--

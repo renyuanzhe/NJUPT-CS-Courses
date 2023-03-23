@@ -1,0 +1,115 @@
+Rule: 
+
+--
+Sid: 
+3009
+
+-- 
+Summary:
+This event is generated when an attempt is made to request a connection
+using the NetBus Pro 2.0 Trojan.
+
+-- 
+Impact: 
+If connected, the attacker could execute files remotely on your computer,
+capture an image of your desktop, send messages, steal your passwords,
+open and close your CD-ROM, play sounds, print documents, and even
+shutdown or reboot your computer, among many other things. The attacker
+will have almost total control of the PC should he connect successfully.
+
+--
+Detailed Information:
+NetBus Pro 2.0 incorporates its own protocol. It uses port 20034 by
+default, but it can be changed by the attacker.
+
+Its packets included a ten byte header followed by the packet's encrypted
+data. The first two bytes of the header are static: 42 4E.  The next two
+bytes indicate the size of the packet, followed by two bytes
+for the version number, followed by two random bytes, and the final ninth
+and tenth byte make up the command code. To look for an attack from one of
+these functions, the header of the suspicious packet will look like:
+
+	42 4E S1 S2 V1 V2 R1 R2 C1 C2
+
+NOTE: S1 and S2 are size byte one and size byte two. V1 and V2 are version
+number byte one and version number byte two. R1 and R2 are random bytes
+one and two. C1 and C2 are the command code bytes.
+
+The following is a list of the command codes for many of Net Bus Pro 2.0's
+functions:
+
+	Capture Desktop Image: 41 01
+	CD-ROM Open and Close: 60 01
+	Client Chat: 08 00
+	Execute File: 30 01
+	Reading Directory Listing: 50 00
+	Directory Traversal: 51 00
+	Go To URL: 33 01
+	Keyboard Tricks: 61 01
+	Keylogger: 40 01
+	Mouse Tricks: 65 01
+	Open Document: 33 01
+	Play Sound: 31 01
+	Plugin Manager: 90 00
+	Print Document: 34 01
+	Record Sound: 43 01
+	Redirect Application: 10 01
+	Redirect Port: 00 01
+	Registry Manager: 70 00
+	Remote Control: 73 01 and 72 01
+	Send Message: 40 00
+	Send Text: 64 01
+	Show Image: 32 01
+	Sound System: 80 00
+	System Administrator: 21 00
+	System Information: 30 00
+	Windows Manager: 60 00
+	Any Windows Exit Function(Shutdown, Reboot, etc.): 50 01
+
+--
+Affected Systems:
+Windows 95/98/ME/NT/2000
+
+--
+Attack Scenarios: 
+The victim must first install the server. Be wary of suspicious files
+because they often can be backdoor programs in disguise.
+
+Once the victim mistakenly installs the server program, the attacker
+will usually employ an IP scanner program to find the IP addresses of
+victims that have installed the program. The attacker then enters the IP
+address, port number (which is assigned to the server program by the
+attacker: default is 20034), and presses the connect button to gain access
+to the targeted system.
+
+-- 
+Ease of Attack: 
+Simple. Trojan Horse programs are widely available.
+
+-- 
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+-- 
+Corrective Action: 
+In order to get rid of it, you will have to uninstall the program,
+deleting the folder and its contents or uninstalling it from the
+Add/Remove Programs option under the control panel. The Trojan usually
+does not attempt to hide itself, making the process of finding it much easier.
+
+--
+Contributors:
+Sourcefire Research Team
+Ricky Macatee <rmacatee@sourcefire.com> 
+
+-- 
+Additional References:
+
+Dark-E:
+http://www.dark-e.com/archive/trojans/netbus/200/index.shtml
+
+--

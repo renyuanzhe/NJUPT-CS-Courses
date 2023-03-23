@@ -1,0 +1,80 @@
+Rule:
+
+--
+Sid:
+1333
+
+--
+Summary:
+Attempted id command access via web
+
+--
+Impact:
+Attempt to gain information on users and groups that exist on the host
+using the id command.
+
+--
+Detailed Information:
+This is an attempt to gain intelligence about the users on a webserver.
+id is a UNIX command that will return information about the system's
+users and groups. This information is valuable to an attacker who can
+use it to plan further attacks based on the users possible login
+information or be more effective in targeting specific users and groups
+who possess elevated privileges . The id command will return information
+on the user, the groups the user belings to and the users' "gid" and "uid".
+
+The rule looks for the "id" command in the client to web server network
+traffic and does not indicate whether the command was actually
+successful in showing the user information. The presence of the "id"
+command web traffic indicates that an attacker attempted to trick the
+web server into executing system in non-interactive mode i.e. without a
+valid shell session. 
+
+Alternatively this rule may trigger in an unencrypted HTTP tunneling
+connection to the server or a shell connection via another exploit
+against the web server.
+
+--
+Attack Scenarios:
+1. The attacker can make a standard HTTP request that contains
+'/usr/bin/id' in the URI which can then return sensitive information on
+groups and users present on the host. 
+
+2. This command may also be requested on a command line should the
+attacker gain access to the machine.
+
+3. An attacker uses a "id" command via a web server connection to test
+what username the web server runs under. He then looks for all the files
+writable by this user and find a web server configuration file with
+wrong permissions.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. 
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Additional information from Anton Chuvakin <http://www.chuvakin.org>
+
+-- 
+Additional References:
+sid: 1332
+
+man id
+
+--

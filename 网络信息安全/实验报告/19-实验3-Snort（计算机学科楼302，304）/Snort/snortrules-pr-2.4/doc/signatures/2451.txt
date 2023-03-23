@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+2451
+
+--
+Summary:
+This event is generated when a user in your network has successfully registered with a Yahoo Instant Messenger server to receive voice chat messages or is receiving voice chat messages.
+
+--
+Impact:
+Possible policy violation.  Instant Messenger programs may not be appropriate in certain network environments.
+
+--
+Detailed Information:
+Yahoo IM voice chat allows IM users to exchange audio messages.  This activity may not be appropriate in a corporate environment.
+
+--
+Affected Systems:
+Any host running Yahoo Instant Messenger.
+
+--
+Attack Scenarios:
+This particular type of Yahoo IM exchange has no known attacks, however it may represent a policy violation because the host is running Yahoo IM.
+
+--
+Ease of Attack:
+Easy to exchange voice messages.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+It may be possible for Yahoo IM traffic to use other ports than the default expected ones.  
+
+--
+Corrective Action:
+Disallow the use of IM clients on the protected network and enforce or implement an organization wide policy on the use of IM clients.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+--
+Additional References:
+Yahoo Protocol
+http://www.cse.iitb.ac.in/~varunk/YahooProtocol.htm
+
+--

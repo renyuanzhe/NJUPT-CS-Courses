@@ -1,0 +1,69 @@
+Rule: 
+
+--
+Sid: 
+3657
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in an Oracle database server. Specifically an attempt to
+access ctxsys.driload was detected.
+
+-- 
+Impact: 
+Serious. Possible unauthorized administrative access to the database.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a known
+vulnerability in an Oracle database implementation.
+
+Oracle database implementations suffer from an access validation issue
+that may present an attacker with the opportunity to gain administrative
+access to an affected server.
+
+Note that hosts using Microsoft Windows as the base operating system
+must set the $ORACLE_PORTS variable to any to potentially avoid missing
+any attacks.
+
+--
+Affected Systems:
+	Oracle Oracle8i 8.1.7.4
+	Oracle Oracle9i 9.2.0.4
+	Oracle Oracle9i 9.0.1.3
+
+--
+Attack Scenarios: 
+An attacker would need to execute an SQL query and bypass authentication
+and permissions by using ctxsys.driload in the query. The attacker could
+create a user and give that user DBA permissions on the database
+implementation.
+
+-- 
+Ease of Attack: 
+Simple.
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patch
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

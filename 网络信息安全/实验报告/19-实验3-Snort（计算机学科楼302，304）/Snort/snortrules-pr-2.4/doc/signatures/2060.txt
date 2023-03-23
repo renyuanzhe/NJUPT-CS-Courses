@@ -1,0 +1,77 @@
+Rule:
+
+--
+Sid:
+2060
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in DB4Web.
+
+--
+Impact:
+Information disclosure
+
+--
+Detailed Information:
+DB4Web is an application server used to access various sources of data 
+via a web interface.
+
+DB4Web does not handle the characters ":" and "\" correctly when they 
+are URL encoded. An attacker can use this flaw to gain access to 
+sensitive system information.
+
+Also the application does not correctly handle the use of extra "/" in a
+URI.
+
+It is also possible for the attacker to open arbitrary TCP connections 
+using DB4Web and may be able to use it for portscanning other hosts.
+
+--
+Affected Systems:
+
+--
+Attack Scenarios:
+The attacker merely needs to make a normal HTTP request with the 
+characters ":" or "\" encoded (%3A%5C) followed by the commands the 
+attacker wishes to run.
+
+The attacker can also make a request like 
+http://www.foo.com/cgi-bin/db4web_c/dbdirname//etc/passwd to view the 
+contents of the password file.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable access to DB4Web from external sources.
+
+Apply the appropriate vendor patches.
+
+Run the webserver in a chroot environment to mitigate the risks of 
+disclosure.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+DB4Web
+http://www.db4web.de/DB4Web/home/DB4Web/hotfix_e.html
+
+--

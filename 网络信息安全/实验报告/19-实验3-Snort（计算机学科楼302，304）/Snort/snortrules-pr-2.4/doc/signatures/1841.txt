@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1841
+
+--
+Summary:
+This event is generated when a client on the protected network has 
+possibly visited a website containing malicious javascript code.
+
+--
+Impact:
+Minimal
+
+--
+Detailed Information:
+Certain versions of Mozilla and Netscape may allow script code to access
+local cookie data.
+
+By accessing a maliciously coded webpage, a users cookie data from any 
+domain may be viewed by the website's administrator.
+
+--
+Affected Systems:
+	Mozilla versions prior to 1.0.1
+	Netscape versions prior to 6.2.1 
+
+--
+Attack Scenarios:
+A devious website admin creates a webpage with malicious code and 
+obtains sensitive cookie data from a visiting user's web browser about 
+any domain he wishes.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives: 
+Some peer-to-peer applications may cause this rule to generate an event.
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com> 
+Snort documentation contributed by Josh Sakofsky
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/5293
+
+--

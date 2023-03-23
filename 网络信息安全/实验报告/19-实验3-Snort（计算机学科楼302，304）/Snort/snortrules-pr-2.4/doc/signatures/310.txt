@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid: 310
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability in SmartMax MailMax mailserver.
+
+--
+Impact:
+Serious. Execution of arbitrary code on the target server is possible.
+
+--
+Detailed Information:
+MailMax is an email server for Windows platforms. Certain versions of the software contain a vulnerability that can allow execution of arbitrary code on the server with the privileges of the user running MailMax.
+
+Affected Versions:
+	MailMax 1.0
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2312
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0404
+
+--

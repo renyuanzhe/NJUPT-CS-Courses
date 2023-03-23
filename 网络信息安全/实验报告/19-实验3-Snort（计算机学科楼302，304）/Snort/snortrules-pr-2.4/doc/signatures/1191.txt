@@ -1,0 +1,81 @@
+Rule:  
+
+--
+Sid:
+1191
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability in some versions of Netscape Enterprise Server.
+ 
+--
+Impact:
+Information leak which could provide an attacker with the data needed to
+launch further attacks or gain more detailed information about your web
+server. Also, the html-rend command can be used to launch denial of
+service attacks. 
+
+--
+Detailed Information:
+A user can see a directory listing by appending a Web Publishing command
+to the end of a directory URL, for example: "http://www.sun.com/?wp-html-rend".
+
+This exploit will work on Netscape Enterprise Server regardless of
+directory indexing settings.  
+
+It will not work on iPlanet Web Server if directory indexing is set to
+"none" or "fancy" (the default). Web Publishing need not be enabled for
+this exploit to work.
+
+Additionally, on Windows NT and Windows 2000, a specially crafted URL
+can use this command to cause an access violation error and crash the web server. 
+
+--
+Affected Systems:
+	Netscape Enterprise Server 3.0, 3.51 and 3.6
+
+--
+Attack Scenarios:
+The gathering of information such as directory listings is valuable when
+planning to attack a web server. Also, this command may be used to carry
+out a denial of service (DoS) attack. 
+
+--
+Ease of Attack:
+Simple. No exploit software required however, an automated tool for
+scanning exists as does an exploit script.
+
+--
+False Positives:
+A web server that uses URLs which contain web publishing commands.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Disable directory indexing. For earlier versions of Netscape Enterprise
+Server, this may not fix the problem. On iPlanet, you can also change
+the indexing type to "fancy".
+
+To fix the potential DOS vulnerability, upgrade to at least iWS 4.1 SP8.
+
+--
+Contributors:
+Snort documentation contributed by Kevin Peuhkurinen
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+iPlanet Knowledge Base Article 4302:
+http://knowledgebase.iplanet.com/ikb/kb/articles/4302.html 
+
+iPlanet Knowledge Base Article 7761:
+http://knowledgebase.iplanet.com/ikb/kb/articles/7761.html 
+
+--

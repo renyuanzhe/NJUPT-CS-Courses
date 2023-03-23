@@ -1,0 +1,80 @@
+Rule:
+
+--
+Sid:
+1334
+
+--
+Summary:
+Attempted echo command access via web
+
+--
+Impact:
+Attempt to gain system environment information or an attempt to post
+information on the host using the echo command.
+
+--
+Detailed Information:
+This rule generates an event when a UNIX "echo" command is used over a
+plain-text (unencrypted) connection on one of the specified web ports to
+the target web server. The "echo" command may be used to modify the
+content of arbitrary files by means of shell output redirection.
+
+The rule looks for the "echo" command in the client to web server
+network traffic and does not indicate whether the command was actually
+successful. The presence of the "echo" command web traffic indicates
+that an attacker attempted to trick the web server into executing system
+commands in non-interactive mode i.e. without a valid shell session. 
+
+Alternatively this rule may generate an event in an unencrypted HTTP
+tunneling connection to the server or a shell connection via another
+exploit against the web server.
+
+This may also be an attempt to gain intelligence about the environment
+variables on a webserver. echo is a built-in shell command that will
+return information about the system's environment variables. This
+information is valuable to an attacker who can use it to plan further
+attacks based on the information returned.
+
+--
+Attack Scenarios:
+1. The attacker can make a standard HTTP request that contains
+'/bin/echo' in the URI which can then return sensitive information on
+system environment variables present on the host.  This command may also
+be requested on a command line should the attacker gain access to the machine.
+
+2. An attacker uses a "echo" command via a web server connection to add
+"+ +" to a corresponding ".rhosts" file which controls access
+permissions to the system via r-commands
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries
+outside of it's designated web root or cgi-bin. 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Additional information from Anton Chuvakin <http://www.chuvakin.org>
+
+-- 
+Additional References:
+
+man echo
+
+--

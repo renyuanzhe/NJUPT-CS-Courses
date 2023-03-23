@@ -1,0 +1,57 @@
+Rule:  
+
+--
+Sid:
+2206
+
+--
+Summary:
+This event is generated when an attempt is made to access ezman.cgi on an internal web server. This may indicate an attempt to exploit a buffer overflow vulnerability in EasyBoard 2000 1.27.
+
+--
+Impact:
+Remote execution of arbitrary code, possibly leading to remote root compromise.
+
+--
+Detailed Information:
+EasyBoard 2000 (EZBoard) is CGI-based bulletin board software for web servers. It contains a vulnerability that allows a malicious user to craft an HTTP request that causes a buffer overflow condition on the web server, and can overwrite system memory with data included in the URL. This enables the attacker to execute arbitrary code on the server with the security context of the web server.
+
+
+--
+Affected Systems:
+Systems running EasyBoard 2000 1.27.
+
+--
+Attack Scenarios:
+An attacker sends a specially crafted HTTP request to ezman.cgi on a vulnerable web server, creating a buffer overflow condition. The attacker is then able to execute arbitrary code with the security context of the web server. 
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses ezman.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is not known if this vulnerability has been patched by the vendor. However, Jin Ho Yu has submitted a third-party fix to the Bugtraq list. See http://marc.theaimsgroup.com/?l=bugtraq&m=101345069220199&w=2 for ezboard-fix.pl. 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/4068
+
+--

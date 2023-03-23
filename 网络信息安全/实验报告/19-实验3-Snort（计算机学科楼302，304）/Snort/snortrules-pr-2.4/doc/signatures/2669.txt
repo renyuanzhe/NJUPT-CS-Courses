@@ -1,0 +1,62 @@
+Rule: 
+
+--
+Sid: 
+2669
+
+-- 
+Summary: 
+This event is generated when an attempt is made to access the file
+ibillpm.pl.
+
+-- 
+Impact: 
+Possible unauthorized administrative access to the victim host.
+Information disclosure.
+
+--
+Detailed Information:
+The script ibillpm.pl is used to process billing and payment via a CGI
+application over the Internet.
+
+The application suffers from a weak default password scheme that could
+be used by an attacker to take control of a user account and view
+billing details.
+
+--
+Affected Systems:
+	iBill Internet Billing Company Processing Plus
+
+--
+Attack Scenarios: 
+An attacker can supply the username and default password for a user to
+the script to gain control.
+
+-- 
+Ease of Attack: 
+Simple
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Uninstall the script ibillpm.pl
+
+Only allow usage from authenticated users
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2194
+
+--
+Summary:
+This event is generated when an attempt is made to access CSMailto.cgi on an internal web server. This may indicate an attempt to exploit an input validation vulnerability in a form mail script distributed by CGIScript.NET.
+
+--
+Impact:
+Remote execution of arbitrary code and information disclosure.
+
+--
+Detailed Information:
+CSMailto.cgi is a Perl script that manages multiple email forms. An attacker can use a specially crafted URL to execute shell commands on the server and/or email files from the server to a remote email address.
+
+--
+Affected Systems:
+Any web server running CGIScript.NET CSMailto.cgi.
+
+--
+Attack Scenarios:
+An attacker places shell code in a URL sent to CSMailto.cgi on the web server. The server then executes the code.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses CSMailto.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is unknown if this vulnerability has been fixed. Contact the vendor, CGIScript.NET (http://www.cgiscript.net) for more information. 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/4579
+
+--

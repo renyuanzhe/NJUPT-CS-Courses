@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+520
+
+--
+Summary:
+This event is generated when a TFTP request is made with a directory designation of "/".  This may be an indication of an attempt to request or place files on the TFTP server outside the root directory configured for the TFTP server.
+
+--
+Impact:
+TFTP servers that allow files to be placed outside the configured root directory for the server may allow remote attackers to execute arbitrary commands on the system.  Additionally if the TFTP server allows directory transversal using the "/" designator it may be possible to retrieve files from other directories on the system.
+
+--
+Detailed Information:
+This rule searches for a "/" payload in TFTP requests.  Vulnerable TFTP servers may allow remote attackers to transfer files to directories outside the normal root directory configured for the TFTP server.  This could result in sensitive files being transfered off the system or arbitrary files being upload to the system.
+
+--
+Attack Scenarios:
+Using the "/" designator it may be possible to fool vulnerable TFTP server into placing files or retrieving files from outside the TFTP configured root directory.  Normally an attacker will attempt to retrieve sensitive system files such as "/etc/passwd" or "/etc/shadow" after determining if this attack vector is successful.  
+
+--
+Ease of Attack:
+Simple: Numerous tools and automated scripts exist for scanning large subnets for improperly configured TFTP servers.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives
+None Known
+
+--
+Corrective Action:
+Upgrade to the current version of your TFTP server solution, or contact the product vendor for patch information.
+
+Contributers:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski Matt.Watchinski@sourcefire.com
+
+Additional References
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0183
+
+Arachnids:
+http://www.whitehats.com/info/IDS138
+
+--

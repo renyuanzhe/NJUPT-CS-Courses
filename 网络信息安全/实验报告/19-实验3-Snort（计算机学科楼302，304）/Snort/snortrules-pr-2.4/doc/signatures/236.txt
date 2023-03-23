@@ -1,0 +1,60 @@
+Rule:
+--
+Sid:
+236
+
+--
+Summary:
+This event is generated when a Stacheldraht handler probes for a Stacheldraht agent on the destination host.
+
+--
+Impact:
+Severe. This indicates that a Stacheldraht handler may exist on the source host and an agent may exist on the destination host.
+
+--
+Detailed Information:
+The Stacheldraht DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack. 
+
+There are "handler" hosts that are used to coordinate the attacks and "agent" hosts that launch the attack. A handler can discover if a particular host is a Stacheldraht agent by sending it an ICMP echo reply with an ICMP identification number of 668 and a string of "gesundheit!" in the payload.
+
+--
+Affected Systems:
+Any Stacheldraht compromised host.
+
+--
+Attack Scenarios:
+A handler may attempt to discover if the destination host is a Stacheldraht agent. A script named "gag" can be used to generate this communication for a defender or attacker to discover if a host is a Stacheldraht agent.
+
+--
+Ease of Attack:
+Simple.  The gag script is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS194
+
+--

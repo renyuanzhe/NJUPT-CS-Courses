@@ -1,0 +1,65 @@
+Rule:
+--
+Sid:
+625
+
+Summary:
+--
+A TCP packet with all of the (unreserved) control bits set was
+detected as being destined for your machine. 
+
+--
+Impact:
+System recon.  Different operating-systems will respond in different
+ways depending on their particular stack implementation.  This allows
+attackers to determine things such as open/closed ports, ACLs, and the
+like.
+
+--
+Detailed Information:
+The ACK, FIN, PSH, RST, SYN, and URG control bits were set in a TCP
+packet.  
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+As part of a recon mission that may be an indicator to upcoming
+attacks, an attacker may attempt to determine what ports are listening
+on a given machine by sending a TCP packet with all of its control
+bits "lit up", hence the name XMAS scan -- its "lit up like a
+christmas tree."
+__
+Ease of Attack:
+Trivial.  Many of the popular portscanners/vulnerability testers, most
+notably nmap, allow anyone to inititiate an XMAS scan.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Determine what information an attacker may have gleaned from this
+attack.  Would your ports show as open or closed?  Consider
+implementing a stateful firewall on the victim machine, or at ingress
+points on your network.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Jon Hart <warchild@spoofed.org>
+
+-- 
+Additional References:
+http://rr.sans.org/firewall/egress.php
+
+--

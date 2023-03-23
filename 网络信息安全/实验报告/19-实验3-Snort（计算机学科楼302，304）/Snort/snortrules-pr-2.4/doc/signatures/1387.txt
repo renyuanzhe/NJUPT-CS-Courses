@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+
+1387
+
+--
+Summary:
+
+This event is generated when an attempt is made to overflow a buffer in Microsoft SQL server.
+
+--
+Impact:
+
+A successful attack will allow an attacker to run arbitrary code on the SQL Server using the privileges of the account that SQL Server is running under typically, administrator.
+
+
+--
+Detailed Information:
+
+Microsoft SQL Server has a exploitable overflow in raiserror() function. An attack can inject the malicious SQL commands containing an overly long input in attempt to overflow the buffer.
+
+Moreover, the specifier will enable an attack to execute an arbitrary command in a memory space, leading to a total system compromise.
+ 
+
+--
+Affected Systems:
+
+	Microsoft SQL Server 7.0 
+ 	Microsoft SQL Server 2000
+	
+
+--
+Attack Scenarios:
+
+An attacker could send arbitrary queries to a SQL server through web applications.
+
+--
+Ease of Attack:
+
+Moderately difficult, since the exploit depends on an ability to inject SQL commands to the SQL server.
+
+--
+False Positives:
+
+None known.
+
+--
+False Negatives:
+
+None known.
+
+--
+Corrective Action:
+
+Apply the appropriate vendor supplied patch.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2002-22.html
+
+--

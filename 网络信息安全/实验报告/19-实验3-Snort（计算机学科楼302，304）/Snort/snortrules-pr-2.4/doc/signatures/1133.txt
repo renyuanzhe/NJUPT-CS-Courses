@@ -1,0 +1,66 @@
+Rule:  
+ 
+--
+Sid:
+
+1133
+
+--
+Summary:
+This event is generated when the Cybercop vulnerability scanner is used 
+against a host.
+
+--
+Impact:
+Cybercop can be used to identify vulnerabilities on host systems.
+
+--
+Detailed Information:
+
+This particular packet is a part of Cybercop's OS identification.  
+Specially crafted packets are able to elicit different responses from 
+different operating systems.  This packet is likely to be part of a full
+Cybercop scan rather than an isolated event. 
+
+--
+Affected Systems:
+
+All
+
+--
+Attack Scenarios:
+Cybercop can be used by attackers to determine vulnerabilities present 
+on a host or network of hosts that could be used as attack vectors.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+This tool can be used legitimately by system and network administrators.
+Other vulnerability scanners may display the same behavior.
+
+--
+False Negatives:
+
+None known.
+--
+Corrective Action:
+TCP packets with SYN, FIN and PUSH set at the same time are abnormal, 
+use a packet filtering firewall to block them.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS145
+
+--

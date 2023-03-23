@@ -1,0 +1,63 @@
+Changed message since it really didn't reflect what was happening
+Rule:
+
+--
+Sid:
+989
+
+--
+Summary:
+This event is generated when an attempt is made to access the sensepost.exe file. 
+
+--
+Impact:
+Remote access. This attack may permit the execution of arbitrary commands on the vulnerable server. 
+
+--
+Detailed Information:
+A vulnerability associated Microsoft Internet Information Services (IIS) servers allows an attacker to escape the web root directory (inetpub) permitting navigation to unauthorized directories.  This vulnerability is exploitable by encoding characters in unicode because unauthorized directory traversal is not examined after the unicode decoding.  A widely available script exploits this vulnerability and copies the \winnt\system32\cmd.exe file to \inetpub\scripts\sensepost.exe, essentially allowing an attacker to execute arbitrary commands on the vulnerable host even after the patch has been applied. 
+
+--
+Affected Systems:
+Microsoft IIS 4.0, 5.0 
+
+--
+Attack Scenarios:
+An attacker can attempt to access the sensepost.exe file to execute arbitrary commands on the exploited server. 
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the patch referenced in the Microsoft link.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0884
+
+Bugtraq
+http://www.securityfocus.com/bid/1806
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/ms00-078.asp
+
+--

@@ -1,0 +1,57 @@
+Rule:  
+
+--
+Sid:
+2230
+
+--
+Summary:
+This event is generated when an attempt is made to access the web 
+administration interface for a Netgear router using the default username
+and password.
+
+--
+Impact:
+Administrative access to the router
+
+--
+Detailed Information:
+Netgear routers have a default username and password of "admin" and 
+"password", if this is not changed by the administrator it is possible 
+for an attacker to gain administrative access to the router.
+
+--
+Affected Systems:
+	Netgear routers
+
+--
+Attack Scenarios:
+An attacker merely needs to login to the interface using the default 
+username and password via a web browser.
+
+--
+Ease of Attack:
+Simple. NO exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Change the username and password.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

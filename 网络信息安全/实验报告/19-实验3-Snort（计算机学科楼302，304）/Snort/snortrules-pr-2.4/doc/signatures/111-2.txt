@@ -1,0 +1,63 @@
+Rule: 
+
+--
+Sid: 
+111-2
+
+-- 
+Summary: 
+This event is generated when the pre-processor stream4
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. Possible attempt to close a session by a third party.
+
+--
+Detailed Information:
+This event indicates that the pre-processor stream4 has detected an out
+of sequence packet with the RST flag set or a packet without the
+required RST and ACK flags in a TCP session. This is abnormal behavior
+and may constitute an attack or be an indicator of spurious activity on
+a network.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios: 
+An attacker may inject packets with the RST flag set into a session in
+an attempt to close the session and cause a Denial of Service (DoS)
+between server and client. This technique may also be used in session
+hijacking attempts.
+
+-- 
+Ease of Attack: 
+Moderate.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+
+Corrective Action:
+Check the target host for signs of compromise.
+
+Ensure the system is up to date with any appropriate vendor supplied patches.
+
+--
+Contributors:
+Martin Roesch <roesch@sourcefire.com>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

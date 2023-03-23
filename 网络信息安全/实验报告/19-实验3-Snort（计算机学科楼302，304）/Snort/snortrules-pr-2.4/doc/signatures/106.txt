@@ -1,0 +1,92 @@
+Rule:
+
+--
+Sid:
+106
+
+--
+Summary:
+Backdoor.AckCmd is a Trojan Horse that uses TCP ACK segments to
+communicate. This Trojan may bypass firewalls that do not keep track of
+the session state in a TCP transaction.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a
+compromise of all resources the machine is connected to. This Trojan
+also has the ability to delete data, steal passwords and disable the
+machine. Other versions are capable of launching DDoS attacks.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+	Windows NT
+	Windows 2000
+	Windows XP
+
+No other systems are affected. This is a windows executable that does
+not make changes to the system registry.
+
+AckCmd is a "proof of concept" Trojan.
+
+	SID	Message
+	---	-------
+	106	ACKcmdC trojan scan
+
+This event is indicative of an attacker attempting to locate AckCmd
+servers.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise can be in the form of a Win32 installation program that may
+use the extension ".jpg" or ".bmp" when delivered via e-mail for
+example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+Updated virus definition files are essential in detecting this Trojan.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Delete the file AckCmd.exe
+
+A machine reboot is required to clear the existing process from running
+in memory.
+
+In addition, the use of a firewall that correctly checks the state of a
+TCP session is recommended.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS485
+
+ntsecurity.nu
+ACK Tunneling Trojans
+http://ntsecurity.nu/papers/acktunneling/
+
+--

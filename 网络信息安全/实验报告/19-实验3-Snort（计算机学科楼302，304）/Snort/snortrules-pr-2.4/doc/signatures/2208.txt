@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2208
+
+--
+Summary:
+This event is generated when an attempt is made to access fom.cgi on an internal web server. This may indicate an attempt to exploit a cross-site scripting vulnerability in Faq-O-Matic.
+
+--
+Impact:
+Arbitrary code execution, possible session hijack.
+
+--
+Detailed Information:
+Faq-O-Matic is a CGI-based system that automates FAQ maintenance on a web server. Versions 2.712 and lower contain a cross-site scripting vulnerability where an attacker can craft a URL with malicious code in the "cmd" argument. If a legitimate user activates the URL, malicious code may be executed on the client computer with the security context of the web server.
+
+--
+Affected Systems:
+Systems running or accessing Faq-O-Matic version 2.712 or lower.
+
+--
+Attack Scenarios:
+An attacker crafts a URL that, when activated by a legitimate user, obtains the session cookie. This can allow the attacker to pose as the user for the duration of the session.
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+If a legitimate remote user accesses fom.cgi, this rule may generate an alert.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to Faq-O-Matic version 2.713 or higher. Upgrades are available at http://faqomatic.sourceforge.net.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/4023
+
+--

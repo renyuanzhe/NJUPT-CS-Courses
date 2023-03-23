@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+1638
+
+--
+Summary:
+This event is generated when a scan for the version of an ssh daemon is
+detected.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to scan a host. In
+particular an attempt has been made to scan for the version of the ssh
+daemon on the target host.
+
+This may be the prelude to an attack. Scanners are used to ascertain
+which ports a host may be listening on, whether or not the ports are
+filtered by a firewall and if the host is vulnerable to a particular
+exploit.
+
+--
+Affected Systems:
+	Any host using the ssh daemon.
+
+--
+Attack Scenarios:
+An attacker can determine if a vulnerable version of ssh is being used
+on a host, then proceed to exploit that vulnerablity.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+A scanner may be used in a security audit.
+
+--
+False Negatives:
+If the scanning tool does not send an identification string this rule
+will not generate an event.
+
+--
+Corrective Action:
+Determine whether or not the scan was legitimate then look for other
+events concerning the attacking IP address.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

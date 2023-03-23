@@ -1,0 +1,161 @@
+Rule:
+
+--
+Sid:
+115
+
+--
+Summary:
+This event is generated when the victim confirms the connection request 
+sent by the attacker using the NetBus Pro 2.0 trojan.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine. This Trojan
+also has the ability to scan machines and networks for open ports, it
+can also redirect legitimate traffic to other destinations. It can turn
+the infected host into an open proxy server.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+	Windows NT
+	Windows 2000
+	Windows XP
+
+The Trojan changes system registry settings to add the Netbus sever to
+programs normally started on boot. Due to the nature of this Trojan it
+is unlikely that the attacker's client IP address has been spoofed.
+
+	SID	Message
+	---	-------
+	109	netbus active (outgoing TCP connection)
+	110	netbus getinfo (incoming TCP connection)
+	115	netbus active (outgoing TCP connection)
+
+Server ports usually opened may be one of the following depending on the
+version of netbus: 12345, 12346, 20034
+
+NetBus Pro 2.0 incorporates its own protocol. It uses port 20034 by
+defualt, but it can be changed by the attacker. Packet data includes a
+ten byte header followed by the packet's encrypted data. The first two
+bytes of the header are static: 42 4E.  The next two bytes indicate the
+size of the packet, followed by two bytes for the version number,
+followed by two random bytes, and the final ninth and tenth byte make up
+the command code. To look for an attack from one of these functions, the
+header of the suspicious packet will look like: 42 4E S1 S2 V1 V2 R1 R2 C1 C2
+
+NOTE: S1 and S2 are size byte one and size byte two. V1 and V2 are
+version number byte one and version number byte two. R1 and R2 are
+random bytes one and two. C1 and C2 are the command code bytes.
+
+The following is a list of the command codes for many of Net Bus Pro 2.0's functions:
+
+	Capture Desktop Image: 41 01
+	CDROM Open and Close: 60 01
+	Client Chat: 08 00
+	Execute File: 30 01
+	Reading Directory Listing: 50 00
+	Directory Traversal: 51 00
+	Go To URL: 33 01
+	Keyboard Tricks: 61 01
+	Keylogger: 40 01
+	Mouse Tricks: 65 01
+	Open Document: 33 01
+	Play Sound: 31 01
+	Plugin Manager: 90 00
+	Print Document: 34 01
+	Record Sound: 43 01
+	Redirect Application: 10 01
+	Redirect Port: 00 01
+	Registry Manager: 70 00
+	Remote Control: 73 01 and 72 01
+	Send Message: 40 00
+	Send Text: 64 01
+	Show Image: 32 01
+	Sound System: 80 00
+	System Administrator: 21 00
+	System Information: 30 00
+	Windows Manager: 60 00
+	Any Windows Exit Function(Shutdown, Reboot, etc.): 50 01
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise can be in the form of a Win32 installation program that may
+use the extension ".jpg" or ".bmp" when delivered via e-mail for example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+Updated virus definition files are essential in detecting this Trojan.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+The manual removal of this Trojan should only be attempted by an
+experienced Windows system administrator.
+
+Edit the system registry to remove the extra keys or restore a
+previously known good copy of the registry.
+
+Affected registry keys are:
+
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices\
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+Registry keys added include:
+
+	Netbus Server Pro
+	PATCH "C:\windows\patch.exe /nomsg" - note: the entry may not necessarily be called PATCH
+	NetBuster = ""
+	SysCopy = "command /c copy %windir%\\keyhook.dl_ %windir%\\*.dll /Y"
+	Rundll32 = "rundll.dl_ /noadd"
+	Rundll = "regedit /s nbsetup2.reg"
+
+Later versions may also add one of these registry entries:
+
+	HKEY_LOCAL_MACHINE/SOFTWARE/UltraAccess Networks/NetBus Server/
+	HKEY_CURRENT_USER/NetBus Server/
+
+These entries should be deleted.
+
+The files rundll.dl_ (note the underscore, this is important) and
+nbsetup2.reg should be deleted if they exist.
+
+Ending the process is necessary. A reboot of the infected machine is recommended.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Ricky Macatee <rmacatee@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS401
+http://www.whitehats.com/info/IDS403
+
+Hackfix.org
+http://www.hackfix.org/netbusfix/index.shtml
+
+Dark-e Trojan Archive
+http://www.dark-e.com/archive/trojans/netbus/index.html
+
+--

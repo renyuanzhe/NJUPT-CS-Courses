@@ -1,0 +1,69 @@
+Rule:  
+
+--
+Sid:
+1455
+
+--
+Summary: 
+This event is generated when an attempt is made to access a web 
+application that may lead to exploitation of the application.
+
+--
+Impact: 
+Potentially harmful execution of binaries through perl open()
+
+--
+Detailed Information: 
+An open source calendar perl script by Matt Kruse, Allows commands to be
+executed without input verification using the perl open() function. ie
+/cgi-bin/calendar.pl place the string "|ping 127.0.0.1|" in the
+configuration file field, this executes the command "ping 127.0.0.1" 
+
+--
+Affected Systems:
+	Matt Kruse Calendar Script version 2.2.
+
+--
+Attack Scenarios: 
+An unauthenticated user can execute arbitrary programs on the server by
+accessing calendar.pl and inputting commands such as "|mail
+/etc/passwd|" into the configuration file field.
+
+--
+Ease of Attack: 
+Simple. No exploit software required.
+
+--
+False Positives: 
+If your webserver has pages by the name of calendar.pl this rule will
+fire often. Many sites now use calendar applications and this rule may 
+generate a large number of false positives, it does not distinguish 
+between perl cgi applications and php scripts. Consider tuning this rule
+for your site if it is generating a large number of false positives. If 
+you use a calendar application, consider changing the name of the script
+to something other than "calendar.pl".
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action: 
+Download a newer version of the cgi 
+
+--
+Contributors: 
+Original Rule Writer Unknown
+Snort documentation contributed by Aaron Navratil (Initial Research)
+Snort documentation contributed by Josh Gray (Edits)
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://online.securityfocus.com/bid/1215
+
+--

@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid:
+274
+
+--
+Summary:
+This event is generated when an attempt is made to issue a Denial of Service attack that works against some modems.
+
+--
+Impact:
+The system may be disconnected from it's dial-up connection.
+
+--
+Detailed Information:
+An ICMP Echo Request is sent to a target system with a payload that
+includes "+++ath".  The "+++" is an attention sequence that allows a
+user to enter commands to the modem.  "ath" is the modem hangup command.
+An ICMP Echo Reply includes the same payload as the associated request.
+On some modems, when the machine tries to reply to this packet, "+++ath"
+will be interpreted as a command and the modem will hangup.  The remote
+address can be spoofed.
+
+--
+Affected Systems:
+unknown
+
+--
+Attack Scenarios:
+A user can remotely cause a modem to disconnect.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Set a guard time on the modem. Contact the modem manufacturer for
+details. A guard time will cause the modem to wait after receiving
+"+++". Any further input during this wait, including "ath", will be 
+disregarded. 
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS264
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=3DCAN-1999-1228
+
+Security Focus:
+http://www.securityfocus.com/archive/1/10706
+
+--

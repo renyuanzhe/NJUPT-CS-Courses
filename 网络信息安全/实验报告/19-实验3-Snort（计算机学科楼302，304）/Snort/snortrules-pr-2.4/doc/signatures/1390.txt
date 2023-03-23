@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1390
+
+--
+Summary:
+This event is generated when an attempt is made to execute shellcode on 
+a host in the protected network from a source external to that network.
+
+--
+Impact:
+This set of instructions can be used as a NOOP to pad buffers on an x86 
+architecture machines.
+
+--
+Detailed Information:
+This is the x86 opcode for 'inc ebx'.  This can be used as a NOOP in an 
+x86 architecture, however as with all shellcode rules, this can cause 
+false positives.  Check to see if you are ignoring shellcode rules on 
+web ports, as this will reduce false positives.
+
+--
+Attack Scenarios:
+An attacker can pad buffers with this opcode, in an attempt to overflow 
+the buffer.
+
+--
+Ease of Attack:
+This is a generic rule designed to pick up this opcode in use.
+
+--
+False Positives:
+This will false positive if rule is not ignoring clear text ports every 
+time snort sees 24 'C' characters (hex code of 43) in a row.
+
+This is the x86 opcode for 'inc ebx'.  This can be used as a NOOP in an 
+x86 architecture, however as with all shellcode rules, this can cause 
+false positives.
+
+--
+False Negatives:
+none known
+
+--
+Corrective Action:
+none known
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Mike Poor <mike.poor@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CansecWest:
+http://cansecwest.com/noplist-v1-1.txt
+
+--

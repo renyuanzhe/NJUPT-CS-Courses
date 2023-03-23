@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid: 2140
+
+
+--
+Summary:
+This event is generated when an attempt is made to access the p-news bulletin board.
+
+--
+Impact:
+Possible escalation of privilege.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to access the p-news bulletin board. The p-news application has a flaw that allows normal users to escalate their privilege level to that of the administrator by using a malformed username.
+
+The attacker may be trying to gain administrator access.
+
+--
+Affected Systems:
+Any host using php.
+
+--
+Attack Scenarios:
+An attacker can take control of the application by supplying a specially crafted malformed username.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the php implementation on the host. Ensure all measures have been taken to deny access to sensitive files.
+
+Apply the appropriate vendor patches.
+
+Upgrade to the latest non-affected version of the software.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

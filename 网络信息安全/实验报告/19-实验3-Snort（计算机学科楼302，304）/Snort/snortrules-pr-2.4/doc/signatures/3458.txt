@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+3458
+
+--
+Summary:
+This event is generated when an attempt is made to exploit
+a buffer overflow associated with the Arkeia Client Backup
+server.
+
+--
+Impact:
+A successful attack may cause a buffer overflow and the
+subsequent execution of arbitrary code at the privilege
+level of the vulnerable service.
+
+--
+Detailed Information:
+A vulnerability exists in the Arkeia Client Backup server
+software for a type 84 request. This may cause a buffer
+overflow and the subsequent execution of arbitrary code
+on a vulnerable server. The vulnerability is caused by
+an overly long message length.
+
+--
+Affected Systems:
+	Arkeia version 5.3 and prior.
+
+--
+Attack Scenarios:
+An attacker craft a malicious type 84 request and send
+it to a vulnerable server.
+
+--
+Ease of Attack:
+Simple.  Exploits are publicly available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+There can be multiple messages in one transfer. The event is generated
+on the first message only.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Metasploit:
+http://metasploit.com/research/arkeia_agent
+
+--

@@ -1,0 +1,63 @@
+Rule: 
+
+--
+Sid:
+2545
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in AppleFileServer.
+
+-- 
+
+Impact: 
+Serious. Unauthorized remote administrative access.
+
+--
+Detailed Information:
+AppleFileServer is used to share files and mount remote drives between 
+machines using Apple Macintosh OS X. An error in the processing of
+PathName may lead to a buffer overflow. If the length of a string for
+AFPName is longer than the declared length, the buffer will be
+overflowed and may present an attacker with the opportunity to execute
+code of their choosing.
+
+--
+
+Attack Scenarios: 
+An attacker can supply an AFPName longer than what is expected by the
+service and overwrite portions of memory leading to the execution of
+code.
+
+-- 
+
+Ease of Attack: 
+Simple
+
+-- 
+
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+
+Corrective Action: 
+Disable AFP if not needed
+
+Apply the appropriate vendor supplied patch
+
+--
+Contributors: 
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

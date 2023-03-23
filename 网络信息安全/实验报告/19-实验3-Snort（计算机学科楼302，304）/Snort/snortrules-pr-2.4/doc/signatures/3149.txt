@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+3149
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability in Microsoft Internet Explorer.
+
+--
+Impact:
+Serious. Code execution is possible leading to unauthorized
+administrative access to the target host.
+
+--
+Detailed Information:
+Microsoft Internet Explorer uses the Object tag to identify ActiveX
+controls sometimes used in web content.
+
+A programming error in the processing of a buffer that handles the
+"item" parameter of an object tag can lead to the exposure of a buffer
+overflow condition. An attacker may be able to overflow this buffer and
+supply code of their choosing to be executed on the system with the
+privileges of the administrative account.
+
+The procedure that checks the length of a buffer that handles the item
+parameter may be bypassed by using the slash character either directly
+or via encoding methods. This vulnerability may be exploited whenever
+Internet Explorer is used to read HTML files.
+
+--
+Affected Systems:
+	Systems using Microsoft Windows
+
+--
+Attack Scenarios:
+An attacker can overflow a buffer by inserting extra data into the input
+parameter of a malicious html file. The attacker may then insert code of
+their choosing to either run commands on the system or execute the code
+with the privileges of the administrative account.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

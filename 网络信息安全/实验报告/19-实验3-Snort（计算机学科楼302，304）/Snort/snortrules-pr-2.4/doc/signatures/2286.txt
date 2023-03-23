@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+2286
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in a PHP web application running on a server.
+
+--
+Impact:
+Unauthorized electronic mail relaying.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to access the script
+friends.php included in the PHP application vbPortal. This may indicate
+an attempt to use the server as an email relay.
+
+--
+Affected Systems:
+	All systems running the PHP application vbPortal
+
+--
+Attack Scenarios:
+The attacker could access the friends.php script directly to send spam
+email to thousands of recipients using the server as a relay.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

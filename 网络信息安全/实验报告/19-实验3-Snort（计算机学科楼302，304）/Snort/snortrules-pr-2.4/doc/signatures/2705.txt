@@ -1,0 +1,75 @@
+Rule: 
+
+--
+Sid: 
+2705
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft GDI using a malformed JPEG image.
+
+-- 
+
+Impact: 
+Serious. Execution of arbitrary code is possible. Denial of Service
+(DoS),
+
+--
+Detailed Information:
+The Microsoft Graphics Device Interface contains a programming error
+in the handling of Joint Photographics Experts Group (JPEG) files. This
+error may allow an attacker to execute code of their choosing on a
+vulnerable system.
+
+Due to the popularity of jpeg files, and in order to provide accurate
+detection for the GDI JPEG vulnerability, sid 2705 may generate false
+positive events in certain situations. Since this rule may generate
+a number of false positives it is disabled by default.
+
+In order to avoid potential evasion techniques, http_inspect should be
+configured with "flow_depth 0" so that all HTTP server response traffic is
+inspected.
+
+WARNING
+Setting flow_depth 0 will cause performance problems in some situations.
+WARNING
+
+--
+Affected Systems:
+	All Microsoft systems including multiple Microsoft products
+
+--
+Attack Scenarios: 
+An attacker would need to supply a malformed jpeg image to a victim and
+have the use attempt to view the file.
+
+-- 
+Ease of Attack: 
+Medium.
+
+-- 
+
+False Positives:
+False positive events are known to occur with this rule, the incidence
+is low but may be an inconvenience in some installations.
+
+--
+False Negatives:
+None known.
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,77 @@
+Rule:
+
+--
+Sid:
+2090
+
+--
+Summary:
+servers is used.
+
+--
+Impact:
+System compromise, web site defacement, loss of data, execution of code.
+
+--
+Detailed Information:
+A vulnerability exists in a component used by the Microsoft Internet 
+Information Server 5.0 implementation of WebDAV. A specially crafted 
+overly long URI when processed by the server, triggers a buffer overflow
+in ntdll.dll which results in a system compromise of the targeted host.
+
+The exploit only affects versions of IIS 5.0 running on Microsoft 
+Windows 2000 prior to service pack 3. WebDAV is enabled by default on 
+that platform.
+
+used against a target server.
+
+--
+Affected Systems:
+Microsoft Internet Information Server 5.0 WebDAV on Windows 2000 prior 
+to Service Pack 3.
+
+--
+Attack Scenarios:
+The attacker is using a publicly available exploit script.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patch or service pack.
+
+Disable WebDAV services.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2003-09.html
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0109
+
+Bugtraq:
+http://www.securityfocus.com/bid/7116
+
+Microsoft Corporation:
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/ms03-007.asp
+http://www.microsoft.com/security/security_bulletins/ms03-007.asp
+
+--

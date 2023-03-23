@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+337
+
+--
+Summary:
+This event is generated when a remote attacker attempts to exploit a buffer overflow vulnerability in the IBM AIX FTP daemon.
+
+--
+Impact:
+Remote execution of arbitrary code leading to remote root compromise.
+
+--
+Detailed Information:
+The IBM AIX 4.3.x FTP daemon contains a buffer overflow vulnerability. An attacker can send an overly long string in the CEL command, causing a buffer overflow condition and allowing the attacker to execute arbitrary code.
+
+--
+Affected Systems:
+IBM AIX 4.3.x
+
+--
+Attack Scenarios:
+An attacker sends a suspiciously large amount of data to the FTP server in the CEL command, causing a buffer overflow condition. The attacker can then execute arbitrary code to obtain root privileges.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Install the patch provided by IBM. See http://www-1.ibm.com/services/continuity/recover1.nsf/MSS/ERS-SVA-E01-1999.004.1/$file/sva004.txt for an advisory and information about obtaining the patch.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+IBM
+http://www-1.ibm.com/services/continuity/recover1.nsf/MSS/ERS-SVA-E01-1999.004.1/$file/sva004.txt
+
+--

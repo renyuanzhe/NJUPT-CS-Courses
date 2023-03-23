@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+3194
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft Internet Information Server.
+
+--
+Impact:
+Serious. Code execution leading to unauthorized administrative access
+on the target host.
+
+--
+Detailed Information:
+Microsoft IIS contains a programming error that may allow an attacker to
+execute commands of their choosing on a vulnerable system. If a valid
+request for an executable file on the system is made, the server will
+honor the request and execute any commands sent to the system. It may be
+possible for an attacker to execute system commands sent to cmd.exe or
+an executable batch file (.bat) for example.
+
+--
+Affected Systems:
+	Microsoft IIS 4.0
+	Microsoft IIS 5.0
+
+--
+Attack Scenarios:
+An attacker can send a request to an executable file on the system and
+supply command arguments of their choice to the file. The server will
+honor the request and execute the attackers commands.
+
+For example, http://www.target.com/scripts/cmd.bat"+&+somecommand
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

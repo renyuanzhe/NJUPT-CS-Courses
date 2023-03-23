@@ -1,0 +1,75 @@
+Rule:
+
+--
+Sid:
+3533
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+buffer overflow associated with the telnet client processing
+of the LINEMODE option.
+
+--
+Impact:
+A successful attack can cause a buffer overflow on a telnet
+client and permit the execution of arbitrary code at the
+privilege level of the current user.
+
+--
+Detailed Information:
+A telnet client and server can negotiate various options such as
+the character set to be used in the communication exchange. One
+particular option is the LINEMODE.  Telnet LINEMODE provides a
+method of processing terminal characters by the client of a
+telnet connection.
+
+The LINEMODE option has a sub-option Special Local Character (SLC)
+that identifies the special characters in the telnet exchange.  A
+fixed-sized buffer is allocated to store the values sent in this
+command.  No validation is performed to ensure that the values
+received by the client fit in the allocated buffer, possibly causing
+a buffer overflow and the execution of arbitrary code on the client
+at the privilege level of the current user.
+
+--
+Affected Systems:
+See the original report by iDEFENSE referenced below.
+
+--
+Attack Scenarios:
+An attacker can entice a user to a malicious telnet server
+and return a LINEMODE command with an overly long set of
+SLC values.  This can cause an overflow, enabling execution
+of arbitrary code on a vulnerable client.
+
+--
+Ease of Attack:
+Simple. Exploit code is available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+Use Secure Shell as an alternative method of remote access.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=220&type=vulnerabilities
+
+--

@@ -1,0 +1,64 @@
+Rule:
+--
+Sid:
+1447
+
+--
+Summary:
+This event is generated when a malicious packet is sent to the Microsoft Terminal Server port.
+
+--
+Impact:
+Denial of service.  Sending repeated packets may cause a denial of service by consuming all available memory resources.
+
+--
+Detailed Information:
+A flaw exists in the Microsoft Terminal Server port on certain versions of Windows that may cause a denial of service of the vulnerable host by consuming all available memory resources.  This attack requires multiple malicious packets to cause a denial of service.
+
+--
+Affected Systems:
+Microsoft Windows 2000 Advanced Server SP2
+Microsoft Windows 2000 Advanced Server SP1
+Microsoft Windows 2000 Advanced Server
+Microsoft Windows 2000 Datacenter Server SP2
+Microsoft Windows 2000 Datacenter Server SP1
+Microsoft Windows 2000 Datacenter Server
+Microsoft Windows 2000 Server SP2
+Microsoft Windows 2000 Server SP1
+Microsoft Windows 2000 Server
+Microsoft Windows NT Terminal Server 4.0
+
+--
+Attack Scenarios:
+An attacker may attempt to cause a denial of service against a vulnerable server by sending repeated malicious packets.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the patches discussed in Microsoft Security Bulletin MS01-040.
+Block access to the Microsoft Terminal Server port from outside the network.
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0540
+
+--

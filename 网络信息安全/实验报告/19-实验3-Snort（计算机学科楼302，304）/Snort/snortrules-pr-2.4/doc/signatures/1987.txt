@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+1987
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a flaw in the
+X Windows Font Service.
+
+--
+Impact:
+Arbitrary code execution. Denial of Service.
+
+--
+Detailed Information:
+Certain versions of XFS distributed with Sun's Solaris are vulnerable to
+a remote buffer overflow. The Dispatch() routine within fs.auto does not
+provide adequate bounds-checking.
+
+--
+Affected Systems:
+	Sun Solaris 2.5.1 to 9 (Update 2)
+
+--
+Attack Scenarios:
+An attacker must have access to tcp port 7100. The attacker can then 
+either cause XFS to crash or run code as user "nobody".
+
+--
+Ease of Attack:
+Difficult
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable XFS in the inetd configuration file (normally /etc/inetd.conf 
+under line fs.auto).
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=11188
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-1317
+
+--

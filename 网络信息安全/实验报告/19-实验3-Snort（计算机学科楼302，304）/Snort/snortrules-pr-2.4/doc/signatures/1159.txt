@@ -1,0 +1,62 @@
+Rule:  
+--
+
+Sid:
+1159
+
+--
+
+Summary:
+This event is generated when an attempt is made to access the webplus
+CGI script.
+
+--
+Impact:
+Information Gathering.
+
+--
+Detailed Information:
+Some versions of TalentSoft Web+ contain vulnerabilities that can
+allow arbitrary files to be read or executed by an attacker. Disclosure
+of script source code is also possible.
+
+--
+Affected Systems:
+	TalentSoft Web+
+
+--
+Attack Scenarios:
+An attacker needs to supply a malicious request to the server containing
+webplus?script.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply any appropriate vendor supplied patches.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

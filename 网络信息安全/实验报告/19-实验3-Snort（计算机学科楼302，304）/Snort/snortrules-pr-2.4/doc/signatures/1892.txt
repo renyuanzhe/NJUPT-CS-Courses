@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid:
+1892
+
+--
+Summary:
+This event is generated when SNMP communications contain a NULL value 
+the authentication string.
+
+--
+Impact:
+Medium to Serious. Depending on if the community string was for 
+read-only, read-create or read-write an attacker could gain a varying 
+level of access to a system.
+
+--
+Detailed Information:
+An SNMP community string is the authentication process that a host 
+running SNMP uses to grant access.
+
+--
+Affected Systems:
+Numerous. Routers, switches, servers, NAS systems, many others.
+
+--
+Attack Scenarios:
+An attacker can launch a scan of all network attached devices looking 
+for port 161 (UDP) and then attempt to gain access using SNMP.
+
+--
+Ease of Attack:
+Simple. There are many free SNMP "tree walking" programs, an example of 
+such is getIF.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Make sure that all devices that have SNMP turned on have complex 
+passwords assigned.
+
+Disable unneeded WRITE / CREATE community strings.
+
+Since SNMP traffic is not encrypted, use a packet filtering firewall to 
+restrict SNMP communications to the protected network.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by  Mike Rivett ebiz@rivett.org
+
+-- 
+Additional References:
+
+GetIF:
+http://www.wtcs.org/snmp4tpc/getif.htm
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0517
+
+--

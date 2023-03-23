@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+1753
+
+--
+Summary:
+This event is generated when an attempt is made to access the as_web.exe component associated with the askSam Web Publisher software.
+
+--
+Impact:
+Cross-site scripting.  This may allow execution of arbitrary commands on a victim host that visits the vulnerable server.
+
+--
+Detailed Information:
+
+askSam Web Publisher is a product that allows the creation and publication of documents and databases on the Internet.  A vulnerability exists in the as_web.exe or as_web4.exe component that may allow cross-site scripting because of a failure to filter script and HTML when error messages are returned.  This may allow an attacker to execute arbitrary code on the victim host that visits the vulnerable server.
+
+--
+Affected Systems:
+askSam Web Publisher 4.0
+
+
+--
+Attack Scenarios:
+An attacker can inject malicious code in vulnerable askSam input fields that use as_web.exe or as_web4.exe. The may allow execution of arbitrary code on a victim host that visits the vulnerable server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Disable scripting language support in your browser and e-mail client software to prevent becoming a victim host.
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/4670
+
+--

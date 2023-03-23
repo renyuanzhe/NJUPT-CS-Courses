@@ -1,0 +1,61 @@
+Rule:  
+
+--
+Sid:
+256
+
+--
+Summary:
+This event is generated when an attempt is made to query authors.bind chaos 
+record on a DNS server.  
+
+--
+Impact:
+Information gathering. This activity may indicate reconnaisance before 
+an impending attack.
+
+--
+Detailed Information:
+Bind 9.x allows you get the authors.bind chaos record.  The ability to
+retrieve this file indicates that the machine is running at least a
+9.x variant of the bind nameserver.
+
+--
+Affected Systems:
+	All DNS Servers using Bind
+ 
+--
+Attack Scenarios:
+As part of a reconnaissance mission, an attacker may attempt to glean
+important information about network infrastructure by determining the
+bind version on a nameserver. If authors.bind is retrievable, this
+indicates that Bind 9.x is in use.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Remove the ability to retrieve the authors.bind chaos record by changing 
+the DNS configuration accordingly.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Jon Hart <warchild@spoofed.org>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

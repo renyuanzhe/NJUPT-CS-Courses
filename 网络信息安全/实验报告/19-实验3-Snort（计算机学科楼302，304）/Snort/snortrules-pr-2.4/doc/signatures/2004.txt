@@ -1,0 +1,85 @@
+Rule:  
+
+--
+Sid:
+2004
+
+--
+Summary:
+This event is generated when an attempt is made by the "Slammer" worm to
+compromise a Microsoft SQL Server. Specifically, this rule generates an 
+event when the worm activity eminates from the protected network.
+
+--
+Impact:
+A worm targeting a vulnerability in the MS SQL Server 2000 Resolution 
+Service was released on January 25th, 2003.  The worm attempts to 
+exploit a buffer overflow in the Resolution Service.  Because of the 
+nature of the vulnerability, the worm is able to attempt to compromise 
+other machines very rapidly.
+
+--
+Detailed Information:
+The Monitor Service provided by MS SQL and MSDE uses unchecked client
+provided data in an SQL version check function.
+
+The worm attempts to exploit a buffer overflow in this version request.
+If the worm sends too many bytes in the request that triggers the 
+version check, then a buffer overflow condition is triggered resulting 
+in a potential compromise of the SQL Server.
+
+This event is indicative of an existing infection on the protected 
+network. The event is generated on outgoing traffic.
+
+--
+Affected Systems:
+This vulnerability is present in unpatched MS SQL Servers.  The 
+following unpatched services containing MS SQL or Microsoft Desktop 
+Engine (MSDE) may potentially be compromised by this worm:
+
+* SQL Server 2000 (Developer, Standard, and Enterprise Editions)
+* Visual Studio .NET (Architect, Developer, and Professional Editions)
+* ASP.NET Web Matrix Tool
+* Office XP Developer Edition
+* MSDN Universal and Enterprise subscriptions
+
+--
+Attack Scenarios:
+This is worm activity.
+
+--
+Ease of Attack:
+Exploits for this vulnerability have been publicly published.
+
+A worm has been written that automatically exploits this vulnerability.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+
+Block external access to the MS SQL services on port 1433 and 1434 if 
+possible.
+
+Patches from Microsoft are available that fix this vulnerability.  The 
+patches are available from
+
+www.microsoft.com/technet/security/bulletin/MS02-039.asp
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

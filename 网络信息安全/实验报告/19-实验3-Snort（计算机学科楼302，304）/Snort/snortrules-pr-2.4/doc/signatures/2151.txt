@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid: 2151
+
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a weakness in a php application. 
+
+--
+Impact:
+Arbitrary code execution.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a vulnerability in a ttCMS or ttForum PHP application.
+
+It is possible for an attacker to include a PHP file of his choosing via a URL in ttCMS or ttForum PHP applications, the script is processed and executed with the privileges of the user running the webserver. This is due to poor checking of user supplied variables in the News.php and Install.php scripts.
+
+The vendor for these applications states that exploitation is not possible. However, proof of concepts for these issues have been circulated.
+
+--
+Affected Systems:
+Any host using ttCMS or ttForum.
+
+--
+Attack Scenarios:
+An attacker could include a PHP file of his choice by including the file name in a URI supplied to the webserver that would in turn process the script via either News.php or Install.php.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the php implementation on the host.
+
+Check the webserver log files for signs of this activity.
+
+Where possible, ensure the webserver is run as an unprivileged process.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/7542
+http://www.securityfocus.com/bid/7543
+
+
+--

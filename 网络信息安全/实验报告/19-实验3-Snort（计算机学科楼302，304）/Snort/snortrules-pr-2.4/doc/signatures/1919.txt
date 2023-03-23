@@ -1,0 +1,59 @@
+Rule:
+--
+Sid:
+1919
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow or denial of service vulnerability associated with FTP CWD command. 
+
+--
+Impact:
+Remote access or denial of service.  A successful attack can cause a denial of service or allow remote execution of arbitrary commands with privileges of the process running the FTP server. 
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit various vulnerabilities associated with the FTP CWD command of different FTP servers. It is possible to cause a denial of service attack or gain remote access to execute arbitrary commands with the privileges of the process running the FTP server by sending an overly long argument with the FTP CWD command. 
+
+--
+Affected Systems:
+Hosts running BlackMoon FTP Server 1.0 through 1.5. 
+Hosts running Argosoft FRP server 1.0.
+Hosts running TYPSoft FTP Server 0.7x. 
+
+--
+Attack Scenarios:
+An attacker can supply an overly long file argument with the CWD command, causing a denial of service or buffer overflow.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0126
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-1194
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-1035
+
+--

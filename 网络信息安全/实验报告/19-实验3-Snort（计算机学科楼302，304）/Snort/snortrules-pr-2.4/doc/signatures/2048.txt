@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+2048
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the rsync daemon (rsyncd).
+
+--
+Impact:
+Serious. Possible theft of data.
+
+--
+Detailed Information:
+rsync is used to synchronize data between two machines across a network.
+It achieves this by only sending the differences between the files on 
+each host.
+
+Since it does not require both hosts to have the data it is 
+synchronizing, it is possible to retrieve a number of files from one 
+host without the corresponding files being present on the receiving 
+host.
+
+This event is generated when an attempt is made to cause a buffer
+overflow condition to occur in the rsync daemon.
+
+--
+Affected Systems:
+	All systems using rsync.
+
+--
+Attack Scenarios:
+The attacker needs to send specially crafted packet data to a host
+running rsyncd.
+
+--
+Ease of Attack:
+Moderate.
+
+--
+False Positives:
+Systems using rsync to coordinate sets of data between hosts not in the 
+same LAN.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Access to files via rsync should be carefully managed using access 
+control lists.
+
+The transfer of files from an internal source to an external one should 
+be carefully managed using the appropriate firewall rules.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+rsync Home:
+http://samba.anu.edu.au/rsync/
+
+--

@@ -1,0 +1,54 @@
+Rule:
+
+--
+Sid:
+1485
+ 
+--
+Summary:
+This event is generated when an attempt is made to access the file mkilog.exe.
+
+--
+Impact:
+Remote access.  This attack may permit the execution of arbitrary commands on the vulnerable server.
+
+--
+Detailed Information:
+This mkilog.exe is a Common Gateway Interface (CGI) script that can be used to view and modify SQL database contents.  It posts data to another module, ctss,idc, that creates a table based on the parameters passed to it.  If an attacker passes parameters such as a valid username and password to create a table, it may be possible to alter the table to execute commands on the vulnerable server.
+
+--
+Affected Systems:
+
+
+Attack Scenarios:
+An attacker can attempt to exploit this vulnerability to execute remote commands on the vulnerable server. 
+
+--
+Ease of Attack:
+Easy.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Delete file /scripts/tools/ctss.idc
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10359
+
+--

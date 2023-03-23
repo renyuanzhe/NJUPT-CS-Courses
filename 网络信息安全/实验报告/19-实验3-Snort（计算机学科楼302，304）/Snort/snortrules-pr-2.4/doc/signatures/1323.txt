@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid: 1323
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a format string vulnerability in the rwhois daemon from Network Solutions.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to execute arbitrary code.
+
+--
+Detailed Information:
+Certain versions of rwhoisd from Network Solutions contain a programming error that allows an attacker to execute arbitrary code. The error is present when used with the Start of Authority (soa) file directive.
+
+Referral Whois (rwhois) is a directory service used to provide information on hosts and networks connected to the internet.
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0838
+
+Bugtraq:
+http://www.securityfocus.com/bid/3474
+
+--

@@ -1,0 +1,65 @@
+Rule:
+--
+Sid:
+474
+
+--
+Summary:
+This event is generated when an ICMP Echo Request from the Windows based
+scanner SuperScan is detected.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+SuperScan is a freely available Windows based scanner from Foundstone. 
+The scanners default behavior is to send an ICMP Echo Request before 
+starting the scan. This ICMP packet has a special payload of eight (8) bytes, 
+consisting of the number zero (0).
+
+This scanner is fairly popular among Windows users.
+
+--
+Affected Systems:
+	All
+ 
+--
+Attack Scenarios:
+SuperScan may be used as an information gathering tool to detect active hosts
+on a network by sending icmp echo requests. 
+
+--
+Ease of Attack:
+Simple.  SuperScan is widely available.
+
+--
+False Positives:
+Tools other than SuperScan may generate echo requests with the same content.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Johan Augustsson
+<johan.augustsson@adm.gu.se> and Josh Gray
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Foundstone
+http://www.foundstone.com/
+
+McAfee:
+http://vil.nai.com/vil/content/v_103727.htm
+
+--

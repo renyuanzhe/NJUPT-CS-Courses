@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+449
+
+--
+Summary:
+This event is generated when a routing device detects that a packet has exceeded the maximum number of allowable hops. 
+
+--
+Impact:
+Informational.  This indicates that a packet has been expired by an internal router.  This may be an indication of an attacker attempting a traceroute of a host in your network. 
+
+--
+Detailed Information:
+Each packet is assigned an initial Time To Live (TTL) value before being sent.  This value is usually determined by the operating system of the given TCP/IP stack.  The TTL value represents the maximum number of hops a packet may take before being expired by a routing device.  This is done to banish lost or misguided packets from the network.  The traceroute utility assigns its own TTL values to dictate the number of hops a packet takes, to discover all the routing devices that are traversed by a packet.  During the process, an ICMP "Time Exceeded in Transit" message may be observed. If a router in your network sends this message, it may be an indication that an attacker is attempting a traceroute of a host in your network.
+
+--
+Affected Systems:
+Any device that expires a packet will generate this ICMP message.
+
+--
+Attack Scenarios:
+An attacker may attempt a traceroute to discover your routing devices and network topology.
+
+--
+Ease of Attack:
+Simple. The UNIX traceroute and Windows tracert are provided utilities.
+
+--
+False Positives:
+It is possible to observe an ICMP "Time Exceeded in Transit" message sent outbound if any inbound packet has exceeded the maximum allowable hops.  This may be a indication of a lost packet or routing problems such as a routing loop.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Sites may elect to disable this ICMP message on the outbound interface to prevent releasing potentially value reconnaissance about the network topology.
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

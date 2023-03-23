@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+1042
+
+--
+Summary:
+This event is generated when an attempt is made to craft a URL
+containing the text 'Translate: f' in an attempt to view file source code.
+
+--
+Impact:
+Intelligence gathering.  This attack may permit disclosure of the source
+code of files not normally available for viewing.
+
+--
+Detailed Information:
+Microsoft Internet Information Services (IIS) 5.0 contains scripting
+engines to support various advanced files types such as .ASP and .HTR
+files.  This permits the execution of server-side processing.  IIS
+determines which scripting engine is appropriate to use depending on the
+file extension.  If an attacker crafts a URL request ending in
+'Translate: f' and followed by a slash '/', IIS fails to send the file
+to the appropriate scripting engine for processing.  Instead, it returns
+the source code of the referenced file to the browser.
+
+--
+Affected Systems:
+	Microsoft IIS 5.0
+
+--
+Attack Scenarios:
+An attacker can craft a URL to include the 'Translate: f' and followed
+by a '/' to disclose source code on the vulnerable server. 
+
+--
+Ease of Attack:
+Simple.  Attack scripts are freely available.
+
+--
+False Positives:
+Some Microsoft applications make use of the 'Translate: f' header and
+may cause this rule to generate an event. These include applications that use WebDAV
+for publishing content on a webserver such as Microsoft Outlook Web Access (OWA)
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patch.
+
+--
+Contributors:
+Original rule writer kinch@visto.com 
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+False positive information contributed by Javier Fernandez-Sanguino
+
+--
+Additional References:
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/MS00-058.asp
+
+--

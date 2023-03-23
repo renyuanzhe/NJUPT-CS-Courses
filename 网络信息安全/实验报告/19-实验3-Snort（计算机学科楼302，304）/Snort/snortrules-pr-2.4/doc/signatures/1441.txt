@@ -1,0 +1,49 @@
+Rule:
+
+Sid:
+1441
+
+Summary:
+This event is generated when a TFTP GET request is made for "nc.exe".  This could be an indication that a remote attacker has compromised a Windows based system and is attempting to move attack tools onto the system.
+
+Impact:
+In normal situations this is a good indication that the host transmitting the request has been compromised by a remote attacker.  If the request was successful it is a clear indication that the host is now under the control of a remote attacker.  Once "nc.exe" is executed on the compromised system a remote attacker will be able to run arbitrary commands with the privilege level of the user that exected "nc.exe"
+
+Detailed Information:
+NetCat (nc.exe) is a widely used Unix and Windows utility that reads and writes data across network connections.  It can be used to redirect an application's input and output across a network and allows remote attackers an easy way to move rootkits and other tools onto a compromised system.  
+
+Currently this rule searches for "nc.exe" in TFTP GET requests.  Many times this rule will detect the first stages of a remote compromise attempt, as many attackers use NetCat to gain a command prompt on Windows based systems.
+
+Affected Systems
+Windows 95
+Windows 98
+Windows NT
+Windows 2000
+
+Attack Scenarios:
+Remote attackers use "nc.exe" to gain a command prompt "cmd.exe" on Windows based systems.  This allows for easy manipulation of the underlying file system, and also creates a simple attack vector for uploading rootkits and tools.
+
+Ease of Attack:
+Simple.  TFTP (Trivial File Transfer Protocol) is a simple method for transfering binary files across the Internet.  It requires minimal skill to use and is easy to operate in a restricted environment.
+
+False Positives:
+This rule was created to catch TFTP GET requests for "nc.exe", if this file name is being used during a legitimate TFTP session this rule will generate a false positive.
+
+False Negatives:
+Any attacker who changes "nc.exe" to another filename will bypass this rule.
+
+Corrrective Action:
+The host generating the request should be investigated for evidence of a compromise.  If it is determined that the system has been compromised the only safe way to recover the system is to format the system drives and re-install the system.
+
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Matthew Watchinski <Matt.Watchinski@sourcefire.com>
+
+Additional References
+
+NetCat the Network Swiss Army Knife - http://www.atstake.com/research/tools/nc110.txt
+  
+
+
+--

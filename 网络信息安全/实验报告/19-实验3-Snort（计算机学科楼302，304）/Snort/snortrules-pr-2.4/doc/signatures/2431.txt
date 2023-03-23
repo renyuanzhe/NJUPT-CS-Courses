@@ -1,0 +1,61 @@
+Rule:  
+
+--
+Sid:
+2431
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in ISC INN Usenet/NNTP server.
+
+--
+Impact:
+Execution of arbitrary code is possible.
+
+--
+Detailed Information:
+A vulnerability exists in the network news transport protocol server
+from ISC. It may be possible for a remote attacker to exploit a buffer
+overflow condition in the software to execute code of the attackers
+choosing with the privileges of the user running the daemon.
+
+--
+Affected Systems:
+	ISC INN 2.4 .0
+
+--
+Attack Scenarios:
+An attacker may send specially crafted packets to a vulnerable system to
+cause the overflow condition to occur. Once successful the attacker may
+attempt to escalate privileges by using further local exploits.
+
+--
+Ease of Attack:
+Moderate.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

@@ -1,0 +1,47 @@
+Rule:
+
+--
+Sid:
+1349
+
+--
+Summary:
+Attempted /bin/python access via web
+
+--
+Impact:
+Attempt to execute a python script on a host.
+
+--
+Detailed Information:
+This is an attempt to execute a python script on a host. Python is a scripting language that is available on a wide variety of platforms. By default Python code runs with full access to all libraries and inbuilt commands available to the language. When combined with the access permissions of the user executing the script, the consequences of running arbitrary code can be devastating
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP transaction that includes a reference to Python in the URI.
+
+--
+Ease of Attack:
+Simple HTTP.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. Python may also be requested on a command line should the attacker gain access to the machine. Whenever possible, all python scripts on the host should be written using the restriceted access mode. This forces Python to execute the scripts in a "sandbox" which will disallow unsafe operations in the code.
+--
+Contributors:
+Sourcefire Research Team
+
+-- 
+Additional References:
+sid: 1350
+
+--

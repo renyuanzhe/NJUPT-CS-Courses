@@ -1,0 +1,63 @@
+Rule:  
+
+Sid:
+1087
+
+--
+
+Summary:
+This event is generated when an attempt is made to evade an IDS in a 
+possible web attack by obfuscating the request with tabs.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+Some web servers (e.g., some versions of Apache) will interpret tabs
+as spaces in web requests.  This is used by some tools (e.g., Whisker)
+in an attempt to evade IDS systems.
+
+--
+Affected Systems:
+	All systems running a web server
+
+--
+Attack Scenarios:
+An attacker runs an automated tool, like Whisker, against a web server, or
+runs an attack by hand with a URL similar to:  GET<tab>/<tab>HTML/1.0
+
+--
+Ease of Attack:
+Simple. Automated tools are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Examine the packet to see if a web request was being made. Try to
+determine what the requested item was (e.g., a file or CGI), and determine
+from the web server's configuration whether it was a threat or not
+(e.g., whether the requested file or CGI even existed or was vulnerable).
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Alex Kirk <alex.kirk@sourcefire.com>
+
+--
+Additional References:
+Arachnids:  415
+URL:  www.wiretrip.net/rfp/pages/whitepapers/whiskerids.html
+
+--

@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid: 301
+
+--
+Summary:
+This event is generated when an attempt is made to escalate privileges remotely using a vulnerability in LPRng.
+
+--
+Impact:
+System compromize presenting the attacker with escalated system privileges .
+
+--
+Detailed Information:
+LPRng is an implementation of the Berkeley lpr print spooling protocol. Some versions are vulnerable to a format-string attack that takes advantage of a bug in the syslog() wrapper. Successfull exploitation may present a remote attacker with the ability to execute arbitrary code using the privileges of the LPD daemon owner (typically root).
+
+Arbitrary addresses in the lpd process address space can be overwritten by sending specially crafted packets to the LPRng daemon listening on port 515 to execute arbitrary code or generate a segmentation violation.
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Disallow access to LPRng port 515 from external sources using a packet filtering firewall.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1712
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0917
+
+--

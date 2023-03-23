@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+2950
+
+--
+Summary:
+This event is generated when multiple stacked SMB requests are made.
+
+--
+Impact:
+Possible IDS evasion.
+
+--
+Detailed Information:
+This event is generated when multiple stacked SMB requests are detected.
+This behavior does not occur on a regular basis in normal network
+traffic. This event may indicate an attempt to evade an IDS.
+
+--
+Affected Systems:
+	All systems using SMB.
+
+--
+Attack Scenarios:
+An attacker might create multiple stacked SMB requests in an attempt to
+bypass an IDS.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+If the second and third stacked requests are of a combined length that
+is less than 37 bytes this rule will not generate an event.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Disallow the use of SMB.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

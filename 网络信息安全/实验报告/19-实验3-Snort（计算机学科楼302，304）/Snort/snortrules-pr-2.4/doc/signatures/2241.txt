@@ -1,0 +1,60 @@
+Rule:  
+
+--
+Sid:
+2241
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerablity in NetWin CWMail 2.7.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible.
+
+--
+Detailed Information:
+Certain versions of NetWin CWMail suffer from a buffer overflow 
+condition that can present an attacker with the opportunity to execute 
+code of their choosing on the server.
+
+--
+Affected Systems:
+	NetWin CWMail 2.7, a, b, c, d, f, i, j, k, l, m, n, o, p, q, s and t
+	
+--
+Attack Scenarios:
+The attacker would need to supply a large amount of characters to the
+"item=" parameter which could then cause the overflow condition to
+occur.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/4093
+
+--

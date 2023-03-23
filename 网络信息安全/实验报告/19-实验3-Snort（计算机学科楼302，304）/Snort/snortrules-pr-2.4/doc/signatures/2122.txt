@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+2122
+
+--
+Summary:
+This event is generated when a remote user uses a negative argument in the UIDL command sent to port 110 on an internal server.  This may indicate an attempt to exploit a boundary checking vulnerability in the POP UIDL command in the Alt-N MDaemon mail server.
+
+--
+Impact:
+The service will crash when it attempts to process the command. The attacker must have a valid POP account on the mail server to attempt this exploit.
+
+--
+Detailed Information:
+This event may indicate an attempt to exploit a boundary checking vulnerability in the UIDL command on the Alt-N MDaemon POP server. If an authenticated user sends the UIDL command with a negative argument to the POP server, the MDaemon service will crash when it attempts to process the command. Note that this exploit can only be attempted by an authenticated user with a valid IMAP account on the server.
+
+--
+Affected Systems:
+Any operating system that runs the following IMAP servers:
+  -Alt-N MDaemon 6.0.0
+  -Alt-N MDaemon 6.0.5
+  -Alt-N MDaemon 6.0.6
+  -Alt-N MDaemon 6.0.7
+
+
+--
+Attack Scenarios:
+An authenticated user can send a UIDL -1 command to the POP server, which will cause the service to crash.
+
+--
+Ease of Attack:
+Simple. Exploits and proof of concept exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to Alt-N MDaemon 6.5.0 or later.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/7445
+http://www.securityfocus.com/bid/6053
+
+--

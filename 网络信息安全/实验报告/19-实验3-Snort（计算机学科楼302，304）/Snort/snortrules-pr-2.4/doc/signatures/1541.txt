@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1541
+
+--
+Summary:
+This event is generated when an attempt is made to ascertain which 
+version of fingerd is running on a host. 
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to ascertain which 
+version of the finger daemon is running on a host. This may be the 
+prelude to an attack against that finger daemon.
+
+--
+Affected Systems:
+Any host running fingerd.
+
+--
+Attack Scenarios:
+An attacker can determine which version of fingerd is running then 
+attempt to exploit fingerd if it is found to be vulnerable to attack.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Disallow access to fingerd from sources external to the protected 
+network.
+
+Disable the finger daemon.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+GNU Finger Manual:
+http://www.gnu.org/software/finger/manual/
+
+--

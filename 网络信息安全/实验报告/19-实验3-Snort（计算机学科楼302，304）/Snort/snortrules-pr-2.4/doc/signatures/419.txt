@@ -1,0 +1,62 @@
+Rule:
+
+--
+
+Sid:
+419
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP Mobile Host Redirect datagram.
+
+--
+
+Impact:
+ICMP Mobile Host Redirect Messages alert base-stations to the movements of IP based mobile hosts, such as notebooks and palmtop computers.
+
+--
+
+Detailed Information:
+The Transparent Internet Routing for IP Mobile Hosts IETF draft defines ICMP Type 32 Code 0 as an ICMP Mobile Host Redirect Message.  This message was intended to be used by mobile computers to inform base-stations of their location on the network as they move from base-station to base-station.  
+
+This IETF draft was never ratified, and no hardware is known to exist that generates this type of ICMP datagram
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+ICMP Type 32 datagrams are not normal network activity.  Hosts generating these types of datagrams should be investigated for nefarious activity
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

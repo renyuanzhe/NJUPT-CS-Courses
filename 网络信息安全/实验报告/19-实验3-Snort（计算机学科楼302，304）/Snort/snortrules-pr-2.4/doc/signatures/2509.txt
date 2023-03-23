@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+2509
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overrun condition in Microsoft products via the Local Security Authority
+Subsystem Service (LSASS).
+
+--
+Impact:
+Remote execution of arbitrary code.
+
+--
+Detailed Information:
+A vulnerability exists in LSASS that may present an attacker with the
+opportunity to execute code of their choosing on an affected host.
+
+The problem lies in an unchecked buffer in the LSASS service, suscessful
+exploitation may present the attacker with the opportunity to gain
+control of the affected system.
+
+--
+Affected Systems:
+	Microsoft Windows 2000, 2003 and XP systems.
+
+--
+Attack Scenarios:
+An attcker needs to make a specially crafted request to the LSASS
+service that could contain harmful code to gain further access to the
+system.
+
+--
+Ease of Attack:
+Moderate.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Use a packet filtering firewall to deny access to TCP and UDP ports 135
+and 445, UDP ports 137 and 138 and TCP ports 139 and 593 from resources
+outside the protected network.
+
+Access should also be denied to ephemeral ports and any other ports used
+by RPC services from sources external to the protected network.
+
+--
+Contributors:
+Sourcefire Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

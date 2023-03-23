@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+1000
+
+--
+Summary:
+This event is generated when an attempt is made to access the bdir.htr file.
+
+--
+Impact:
+Information gathering.  This attack can disclose the directory structure on a vulnerable Internet Information Server(IIS).
+
+--
+Detailed Information:
+A vulnerability is exposed if an upgrade to IIS 4.0 is performed without deleting the remote administration scripts from IIS 3.0. Because of changes to the authentication methods between versions 3.0 and 4.0, these scripts can be accessed directly, and without authentication. An attacker can access one of these scripts, bdir.htr, to disclose the
+vulnerable server's directory structure.
+
+
+--
+Affected Systems:
+IIS 4.0 servers that are upgraded from IIS 3.0.
+
+--
+Attack Scenarios:
+An attacker can craft a URL to access the bdir.htr file, which can disclose the directory structures on the vulnerable server.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Remove the bdir.htr file if it is not required.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/2280
+
+
+
+--

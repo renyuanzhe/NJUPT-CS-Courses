@@ -1,0 +1,77 @@
+Rule:
+--
+Sid:
+648
+
+--
+Summary:
+A series of NOP instructions for Intel's x86 architecure was detected.
+
+--
+Impact:
+As part of an attack on a remote service, an attacker may attempt to
+take advantage of insecure coding practices in hopes of executing
+arbitrary code.  This procedure generally makes use of NOPs.
+
+--
+Detailed Information:
+The NOP allows an attacker to fill an address space with a large
+number of NOPs followed by his or her code of choice.  This allows
+"sledding" into the attackers shellcode.
+
+--
+Affected Systems:
+	All x86 based systems
+
+--
+Attack Scenarios:
+If a particular service was written using unsafe functions without
+bounds checking (strcpy(), strcat(), sprintf() etc...), it is possible
+to write arbitrary data to the address space of the service.
+Normally, this may just cause the program to die a horrible death.
+However, if you can get the return address to point to the beginning
+of the newly written data, it is possible to execute code of your
+choice.  This requires that the newly written data is actual
+executable data.  Since calculating exactly where the return address
+may point to is no small task, a popular technique is to pad the space
+leading up to your shellcode with NOPs.  This way, if the return
+address points anywhere in the series of NOPS, execution will slide
+down into your shellcode.
+
+--
+Ease of Attack:
+Not-so trivial.  This particular technique requires a knowledge of x86
+assembly coding, memory, and usually an intimate understanding of the
+code that one is attempting to exploit.  Unfortunately, there are
+hundreds upon hundreds of canned exploits that nearly anyone with the
+ability point-and-click can use and wreak havok with.
+
+--
+False Positives:
+The x86 NOP can frequently be found in day-to-day traffic,
+particularly when transfering large files. 
+
+--
+False Negatives:
+There are other techniques to emulate a NOP.  Additionally, if
+the attackers NOP sled is small enough (< 15), this particular attack
+may slip by.  Fortunately, NOP sleds are generally quite large.
+
+--
+Corrective Action:
+Determine if this NOP was part of an attack or simply part of an
+innocent stream of data.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Jon Hart <warchild@spoofed.org>
+
+-- 
+Additional References:
+
+
+--

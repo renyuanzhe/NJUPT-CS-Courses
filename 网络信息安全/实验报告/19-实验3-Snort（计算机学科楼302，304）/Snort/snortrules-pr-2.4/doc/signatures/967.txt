@@ -1,0 +1,73 @@
+Rule:
+--
+Sid:  
+967
+
+--
+Summary:  
+dvwssr.dll is a component installed with Windows NT Option Pack 4.0, 
+Personal Web Server for Windows 95 and 98 and Front Page 98 Server 
+Extensions. This component is vulnerable to a buffer overflow which 
+may allow for the execution of arbitrary code that would run in the 
+context of the system account.
+
+--
+Impact:
+Serious. Execution of arbitrary code and Denial of Service (DoS).
+
+--
+Detailed Information:  
+As with an abundance of other exploits related to Microsoft's Internet 
+Information Services and web server based implementations, it is 
+possible for an attacker to run code of choice against the vulnerable 
+web server.  It is also possible to use this exploit to stop the remote 
+server from responding which would result in a DoS.
+
+--
+Attack Scenarios:  
+   
+
+--
+Ease of Attack:  
+This attack would require for both the dvwssr.dll file to reside on the 
+web server and for the correct permissions to be in place in order for 
+the attack to be successful.  Using a script to send continued requests 
+for the file dvwssr.dll would make a denial of service attack fairly 
+easy.
+
+--
+False Positives:  
+Web requests or web based applications which use dvwssr.dll in a context
+which in not malicious in nature.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:  
+Remove dvwssr.dll from the web server and test all necessary 
+functionality.  See additional references for more information.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Chris Arsenault	<carsenault@firstedcu.org> and Josh Gray
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+
+--
+Additional References:
+
+Security Focus BugTraq ID
+http://www.securityfocus.com/bid/1109
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0260
+
+Microsoft ms00-025
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/ms00-025.asp
+ 
+
+--

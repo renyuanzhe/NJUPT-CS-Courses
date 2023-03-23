@@ -1,0 +1,77 @@
+Rule:
+
+--
+Sid:
+1269
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) rexd is listening.
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port rexd is using.  Attackers can also learn what versions of the rexd protocol are accepted by rexd.
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as rexd run.  The rexd RPC service allows remote program execution.  If weak authentication is used, an attacker user may run arbitrary commands as a user other than root.
+
+--
+Affected Systems:
+AIX 4.0
+Compaq Tru64 UNIX Any version
+HP-UX 10.20
+HP-UX 11
+Red Hat Linux 6.0
+Red Hat Linux 7.x
+Solaris 2.5.1
+Solaris 2.6
+Solaris 7
+Solaris 8
+Unix Any version
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where rexd runs.  This may be a precursor to accessing rexd.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+If a legitimate remote user is allowed to access rexd, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for rexd, not probes of the rexd service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the rexd service itself. An attacker may attempt to go directly to the rexd port without querying the portmapper service which, would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/37
+
+CERT
+http://www.cert.org/advisories/CA-1992-05.html
+
+Arachnids 
+http://www.whitehats.com/info/IDS23
+
+
+--

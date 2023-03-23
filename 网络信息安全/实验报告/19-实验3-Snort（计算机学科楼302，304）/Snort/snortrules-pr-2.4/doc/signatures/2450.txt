@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+2450
+
+--
+Summary:
+This event is generated when a user in your network has successfully logged into Yahoo Instant Messenger.
+
+--
+Impact:
+Possible policy violation.  Instant Messenger programs may not be appropriate in certain network environments.
+
+--
+Detailed Information:
+A user must successfully logon to an Yahoo Instant Messenger server before participating in any exchanges, such sending or receiving messages, files, or webcams, or chatting by voice.  Many of these activities are not appropriate in a corporate environment.  Also, the exchanges are transacted via Yahoo IM servers so there is no assurance of privacy.
+
+--
+Affected Systems:
+Any host running Yahoo Instant Messenger.
+
+--
+Attack Scenarios:
+Once logged in, a Yahoo IM user may unwittingly accept a malicious file that may contain a worm, virus, Trojan, or backdoor to name a few.
+
+--
+Ease of Attack:
+Easy. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+It may be possible for Yahoo IM traffic to use other ports than the default expected ones.  
+
+--
+Corrective Action:
+Disallow the use of IM clients on the protected network and enforce or implement an organization wide policy on the use of IM clients.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+--
+Additional References:
+Yahoo Protocol
+http://www.cse.iitb.ac.in/~varunk/YahooProtocol.htm
+
+--

@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+1276
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap
+GETPORT request to discover the port where the Remote Procedure Call
+(RPC) ypserv is listening.
+
+
+--
+Impact:
+Information disclosure. This request is used to discover which port
+ypserv is using. Attackers can also learn what versions of the ypserv
+protocol are accepted by ypserv. 
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can
+be queried to determine the port where RPC services such as ypserv run.
+The ypserv RPC service looks up information in the local Network
+Information Service (NIS) maps. The ypserv program provides the server
+function for Yellow Pages (YP) by providing clients information from NIS
+maps. Multiple vulnerabilities are associated with the ypserv RPC program.
+
+--
+Affected Systems:
+	All hosts running the UNIX portmapper.
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where ypserv
+runs. This may be a precursor to accessing ypserv.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If a legitimate remote user is allowed to access ypserv, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for ypserv, not
+probes of the ypserv service itself. Because RPC services often listen
+on fairly arbitrary ports, it may not be possible to detect misuses of
+the ypserv service itself. An attacker may attempt to go directly to the
+ypserv port without querying the portmapper service, which would not
+trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to
+RPC-enabled machines.
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

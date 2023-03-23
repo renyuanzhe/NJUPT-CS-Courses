@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid: 1897
+
+--
+Summary:
+This event is generated when an attempt is made to exploit 
+vulnerable versions of the Kerberos version 4 administration daemon 
+(kadmind).
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to execute arbitrary code or gain unauthorized access to the target host along with other hosts in the kerberos realm.
+
+--
+Detailed Information:
+kadmind is used to administer a Kerberos database on the master key distribution center (KDC) of a kerberos realm.
+
+A buffer overflow condition exists in kadmind4 such that when the daemon parses a length value in an administration request the attacker can gain the ability to execute arbitrary code with the privileges of the user running the daemon, usually root.
+
+Authentication is not required to cause the overflow.
+
+Affected Systems:
+	Multiple vendors using kadmind version 4
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <brian.caswell@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2002-29.html
+http://www.kb.cert.org/vuls/id/875073
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-1235
+
+--

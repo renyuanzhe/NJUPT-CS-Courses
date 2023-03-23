@@ -1,0 +1,77 @@
+Rule:
+
+--
+Sid:
+2041
+
+--
+Summary:
+The Extended Terminal Access Controller Access Control System (XTACACS) 
+is an authentication and authorization protocol derived from  CISCO 
+TACACS. It is used in TCP/IP networks where network servers authenticate
+clients from a master server.
+
+This event is generated when a failed login using XTACACS is observed.
+
+--
+Impact:
+This may be an intelligence gathering activity or an attempt to access 
+resources controlled by the XTACACS server.
+
+Multiple events from this rule may indicate the attempted enumeration of
+a valid user account using brute force methodology.
+
+--
+Detailed Information:
+When a user logs in to a server that uses XTACACS the server then makes 
+a request to a master server to determine the validity of the request. 
+The master server then verifies the login attempt and returns data 
+concerning that user which may include information regarding resources 
+the user is allowed access to in the form of an access list.
+
+--
+Affected Systems:
+All servers using XTACACS for authentication control.
+
+--
+Attack Scenarios:
+Regular user login method.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+This rule may generate an event when a legitimate user supplies an
+incorrect password or username when logging in to a device.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+XTACACS servers should only authenticate to known hosts and firewall 
+rules should prevent access to XTACACS enabled servers from outside the 
+local area network.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Network Information Library - Intel:
+http://www.intel.com/support/si/library/bi0414.htm
+
+The Internet Next Generation Project:
+http://ing.ctit.utwente.nl/WU5/D5.1/Technology/xtacacs/
+
+Xtacacs Home:
+http://www.netplex-tech.com/software/xtacacsd/
+
+--

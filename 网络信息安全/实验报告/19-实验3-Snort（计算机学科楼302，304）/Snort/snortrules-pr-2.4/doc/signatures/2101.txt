@@ -1,0 +1,81 @@
+Rule:  
+
+
+--
+Sid: 2101
+
+--
+Summary:
+
+A buffer overflow exists in the SMB (Server Message Block) Protocol 
+implementation in Microsfot Windows NT, Windows 2000, and Windows XP 
+that allows attackers to cause a denial of service via a NetShareEnum 
+request.
+
+--
+Impact:
+
+An attacker can cause the target system to lock up and require manual
+reboot.  With more research, an attacker may be able to exploit this
+buffer overflow and execute arbitrary code, but this research has not
+been made public at this time.
+
+--
+Detailed Information:
+
+SMB on a vulnerable system may crash if it recieves a specially crafted
+packet containing a NetServerEnum, NetServerEnum2, or NetServerEnum3 
+transaction request.  If either the paramaters "Max Parameter Count" or
+"Max Data Count" are set to 0, then a vulnerable system will crash.  
+NetServerEnum requests require an authorized user account, however 
+NetServerEnum2 and NetServerEnum3 require anonymous access.  Anonymous
+access is enabled by default.  This signature looks for both the "Max Parameter Count" and "Max Data Count" set to 0.
+
+--
+Attack Scenarios:
+
+Simple. An attacker would use one of the various publicly available 
+tools to launch this attack.
+
+--
+Ease of Attack:
+
+Numerous tools, including a windows binary (SMBDie.exe), have been made
+publicly available to exploit the denial of service portion of this 
+vulnerability.
+
+--
+False Positives:
+
+This rule may generate an event on functions other than NetServerEnum, 
+NetServerEnum2, or NetServerEnum3.  An SMB decoder is not available in 
+Snort, thus verification that the function being called is not feasable.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Install the patches available from Microsoft.  The patches are listed in
+Microsoft's advisory for this vulnerability.
+
+www.microsoft.com/technet/security/bulletin/MS02-045.asp
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@snort.org>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+cve,CAN-2002-0724
+
+Microsoft:
+url,www.microsoft.com/technet/security/bulletin/MS02-045.asp; 
+url,www.corest.com/common/showdoc.php?idx=262; 
+
+--

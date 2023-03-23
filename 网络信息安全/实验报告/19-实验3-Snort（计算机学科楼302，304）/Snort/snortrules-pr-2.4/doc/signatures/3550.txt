@@ -1,0 +1,72 @@
+Rule: 
+
+--
+Sid: 
+3549
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft Internet Explorer.
+
+-- 
+Impact: 
+Serious. Code execution may be possible.
+
+--
+Detailed Information:
+A programming error in Microsoft Internet Explorer may allow an attacker
+to execute code of their choosing on a vulnerable host. Specifically,
+the error lies in the handling of hostnames longer than 256 characters.
+When IE tries to process a hostname of this length or longer, the
+process may crash or cause the application to become unstable,
+presenting the attacker with an opportunity to execute code of their
+choosing on an affected system.
+
+--
+Affected Systems:
+	Internet Explorer 6 on Windows XP service pack 2
+
+--
+Attack Scenarios: 
+An attacker need only supply the victim with a hostname part of a URL of
+256 characters or more to cause the error to occur.
+
+-- 
+Ease of Attack: 
+Supplying the hostname of sufficient length is simple, exploitation
+afterwards is difficult.
+
+-- 
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patch
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+US-CERT:
+http://www.kb.cert.org/vuls/id/756122
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=229&type=vulnerabilities
+
+Microsoft:
+http://www.microsoft.com/technet/security/Bulletin/MS05-020.mspx
+
+--

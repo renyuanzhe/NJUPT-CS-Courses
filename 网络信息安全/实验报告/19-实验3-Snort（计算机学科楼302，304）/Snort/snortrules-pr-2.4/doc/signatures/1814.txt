@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+1814
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a flaw on a 
+Cisco VoIP telephone.
+
+--
+Impact:
+Denial of Service.
+
+--
+Detailed Information:
+Certain versions of Cisco's VoIP phones are vulnerable to an attack that
+can cause them to reboot when they recieve an http request such as 
+http://ciscophoneip/StreamingStatistics?<value> where <value> is an 
+integer value of arbitrary high value, typically a number greater than 
+32768.
+
+--
+Affected Systems:
+	Cisco VoIP Phones 7910, 7940, and 7960
+	  (software version 3.0 to 3.2)
+
+--
+Attack Scenarios:
+A remote user can send the exploit url to the phone, causing the phone 
+to reboot and disallowingthe user to place or recieve calls for up to 30
+seconds.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives: 
+None known.
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com> 
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/4794
+
+--

@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the Microsoft Windows Messenger service.
+
+--
+Impact:
+Serious. Denial of Service (DoS), execution of arbitrary code is
+possible.
+
+--
+Detailed Information:
+Due to improper length validation in the Microsoft Windows Messenger
+service, it may be possible for an attacker to overwrite portions of
+memory. This can result in the attacker being presented with the
+opportunity to execute code of their choosing. Under some circumstances
+a Denial of Service condition may be possible against the target host.
+
+Specifically, this vulnerability may present the attacker with the
+opportunity to execute code with the privileges of the local system
+account with full access to all resources on the target host.
+
+--
+Affected Systems:
+	Microsoft Windows NT Workstation 4.0, Service Pack 6a
+	Microsoft Windows NT Server 4.0, Service Pack 6a
+	Microsoft Windows NT Server 4.0, Terminal Server Edition, Service Pack 6
+	Microsoft Windows 2000, Service Pack 2, Service Pack 3, Service Pack 4
+	Microsoft Windows XP Gold, Service Pack 1
+	Microsoft Windows XP 64-bit Edition
+	Microsoft Windows XP 64-bit Edition Version 2003
+	Microsoft Windows Server 2003
+	Microsoft Windows Server 2003 64-bit Edition
+
+--
+Attack Scenarios:
+The attacker may use one of the available exploits to target a
+vulnerable host.
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches and service packs.
+
+Disable the Windows messenger service
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.kb.cert.org/vuls/id/575892
+
+Microsoft:
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/MS03-043.asp
+
+--

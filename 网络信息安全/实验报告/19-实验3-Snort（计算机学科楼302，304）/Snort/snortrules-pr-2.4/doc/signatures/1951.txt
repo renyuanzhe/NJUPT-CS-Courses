@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+1951
+
+--
+Summary:
+This event is generated when an attempt is made to mount a specific file system exported through Network File System (NFS). 
+
+--
+Impact:
+Remote access.  This mount request can give an attacker remote access to an NFS directory.
+
+--
+Detailed Information:
+The mountd Remote Procedure Call (RPC) implements the NFS mount protocol.  When an NFS client requests a mount of an NFS file system, mountd examines the list of exported file systems.  If the NFS client is permitted access to the requested file system, mountd returns a file handle for the requested directory.  An attacker or legitimate NFS client may request a mount of a specific file system.
+
+--
+Affected Systems:
+All systems running NFS.
+
+--
+Attack Scenarios:
+An attacker may attempt a mount of an NFS directory to read or change files.
+
+--
+Ease of Attack:
+Simple.   
+
+--
+False Positives:
+If a legitimate remote user is allowed to mount NFS file systems, this rule may trigger.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+
+--

@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+1755
+
+--
+Summary:
+This event is generated when a remote authenticated user sends a malformed request for partial mailbox attributes to an internal IMAP server, indicating an attempt to exploit a buffer overflow vulnerability in some versions of IMAP.
+
+--
+Impact:
+Remote execution of arbitrary code, possible denial of service. The attacker must have a valid IMAP account to attempt this exploit.
+
+--
+Detailed Information:
+Versions of University of Washington imapd that are compiled with RFC 1730 support contain a vulnerability where an authenticated user can send a malformed request for partial mailbox attributes to the IMAP server, causing a buffer overflow condition. The attacker can then run arbitrary code on the server or crash the server completely.    
+
+--
+Affected Systems:
+Any operating system running University of Washington imapd compiled with RFC 1730 support, which includes the following versions of University of Washington imapd:
+2000.0
+2000.0a
+2000.0b
+2000.0c
+2001.0
+2001.0a
+
+--
+Attack Scenarios:
+An attacker with a valid user account sends a malformed request for partial mailbox attributes, causing a buffer overflow condition. The attacker can then execute arbitrary code on the server or can crash the mail server.
+
+--
+Ease of Attack:
+Simple. Exploits exist, but the attacker must have a valid account on the IMAP server.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade University of Washington imapd to 2002.0 or higher, or apply the patch for your current version of UW IMAP appropriate to your operating system. The University of Washington has provided patches that address this vulnerability, and affected operating system vendors have distributed patches for their specific implementations of UW IMAP.
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+
+--

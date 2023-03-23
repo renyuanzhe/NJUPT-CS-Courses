@@ -1,0 +1,64 @@
+Rule:
+--
+Sid:
+1857
+--
+Summary:
+This event is generated when a client is requesting the file "robot.txt"
+from a web server.
+
+--
+Impact:
+Information Disclosure. This file may contain data that could provide an
+attacker with information that could assist in an attack on the server.
+
+--
+Detailed Information:
+In the early days of the web, when search engines first began indexing 
+sites, it was often desirable to tell the indexing programs, referred 
+to as robots, not to index certain parts of a site. A standarized 
+method of accomplishing this was created; by placing a file called 
+"robot.txt" or "robots.txt" in the root of your web site which search 
+engines could read and which would tell them what parts of your site you
+did not want indexed. However, this file can also be very valuable to 
+potential attackers if it contains information such as restricted 
+directories, cgi-bin locations, etc.
+
+--
+Affected Systems:
+Any web site that uses this method to communicate with robots.
+
+--
+Attack Scenarios:
+An attacker can read the "robot.txt" file and use any sensitive data in 
+it to profile your site in preparation for an attack.
+
+--
+Ease of Attack:
+Simple. No exploit software required. Any browser can request a copy of 
+"robot.txt" from the server.
+
+--
+False Positives:
+Many. Most automated search engine indexing programs still request this 
+file prior to crawling through a web site.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure that your "robot.txt" file, if you need one, does not contain any
+sensitive data.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Kevin Peuhkurinen
+
+-- 
+Additional References:
+
+--

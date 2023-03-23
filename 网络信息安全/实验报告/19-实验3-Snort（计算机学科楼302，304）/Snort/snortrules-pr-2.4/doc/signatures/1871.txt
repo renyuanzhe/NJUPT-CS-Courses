@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+1871
+
+--
+Summary:
+This event is generated when an attempt is made to access an Oracle 
+Application Server's XSQLConfig.xml configuration file.
+
+--
+Impact:
+Serious
+
+--
+Detailed Information:
+With the default installation of Oracle's  Application Server, it is 
+possible for an unauthorized user to view the XSQLConfig.xml file. This 
+file contains information such as the database server's name, user id's,
+and passwords.
+
+--
+Affected Systems:
+	Oracle 9i Application Server
+
+--
+Attack Scenarios:
+An attacker can use this to find out information about the database and 
+then use that information to compromise the server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives: 
+None known.
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action:
+Apply appropriate permissions to the file.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com> 
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0568
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10855
+
+--

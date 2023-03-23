@@ -1,0 +1,51 @@
+Rule:
+--
+Sid:
+484
+
+--
+Summary:
+This event is generated when an ICMP echo request is made from a host running Sniffer Pro/NetXRay software.
+
+--
+Impact:
+Information gathering.  An ICMP echo request can determine if a host is active.
+
+--
+Detailed Information:
+An ICMP echo request is used by the ping command to elicit an ICMP echo reply from a listening live host.  An echo request that originates from a Windows host running Sniffer Pro/NetXRay software contains a unique payload in the message request.
+
+--
+Affected Systems:
+All
+
+--
+Attack Scenarios:
+An attacker may attempt to determine live hosts in a network prior to launching an attack.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+An ICMP echo request may be used to legimately troubleshoot networking problems.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Block inbound ICMP echo requests.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

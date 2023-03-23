@@ -1,0 +1,133 @@
+Rule: 
+
+--
+Sid: 
+3063
+
+-- 
+Summary: 
+This event is generated when an attempt is made to request a connection using
+the Vampire 1.2 trojan.
+
+-- 
+Impact: 
+If connected, the attacker could execute a multitude of functions resulting in a
+complete compromise of the victim's machine.
+
+--
+Detailed Information:
+Vampire 1.2 uses port 1020 by default. This port cannot be changed by the attacker. 
+
+The following is a list of the commands for many of Vampier 1.2's functions
+(Command Name: Command String):
+
+Chat With Victim: chat
+Clear Recent Folder: cleardoc
+Close Windows: endwin
+Corrupt File: currfile
+Crazy Mouse: crazy
+Delete Directory: deletedir
+Delete File: delete
+Disk Space Left: space
+Disable CTRL-ALT-DEL: ctrldisable
+Enable CTRL-ALT-DEL: ctrlenable
+Fill Hard Drive: fillhd
+Find File: findfiles
+Format: format
+Get Active Windows: getact
+Get ICQ Number: geticq
+Get Local Time: gettime
+Get Operating System: getos
+Get Server Path: getpath
+Get System Owner: getowner
+Get Temp Directory: gettemp
+Get Windows Directory: getwin
+Get Current User: getname
+Get Disk Serial Number: getserial
+Get Hard Drive: gethd
+Get Organization: getorg
+Hang Up Modem: hangup
+ISP Account Info: ispinfo
+Kill Window: killtask\
+Logoff: logoff
+Make Directory: makedir
+Monitor Off: monitoroff
+Monitor On: monitoron
+Hide Mouse: hidemouse
+Show Mouse: showmouse
+Open Control Panel: panel
+Open Date And Time: date
+Open CD-ROM: cdopen
+Close CD-ROM: cdclose
+Open URL: www\
+Ping: ping
+Read A Drive: reada
+Reboot: reboot
+Kill Registry: regfuck
+Run Program: run
+Screenshot: screenshot
+Send Keys: text
+Send Message: sndmsg
+Set Computer Name: pcname
+Set Volume Label: setvolumelabel
+Shutdown: shutdown
+Hide Task Bar: hidetask
+Show Task Bar: showtask
+Wacky CR-ROM: wackycd
+--
+Affected Systems:
+Windows 95/98/ME
+
+--
+
+Attack Scenarios: 
+The victim must first install the server. Be wary of suspicious files because
+they often can be backdoors in disguise.
+Once the victim mistakenly installs the server program, the attacker usually
+will employ an IP scanner program
+to find the IP addresses of victims that have installed the program. Then the
+attacker enters the IP address and 
+presses the connect button and he has access to your computer.
+
+-- 
+
+Ease of Attack: 
+Easy. Simply a matter of pressing the connect button once the victim has
+installed the server.
+
+
+-- 
+
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+-- 
+
+Corrective Action: 
+In order to get rid of it, you must kill the following processes:
+vampire.exe or (if not there) server.exe
+
+You must delete the following files from your hard drive:
+vampire.exe or (if not there) server.exe
+
+Keep your anti-virus software updated.
+
+--
+Contributors:
+Original Rule Writer: Ricky Macatee <rmacatee@sourcefire.com> 
+Sourcefire Research Team
+
+-- 
+Additional References:
+
+Pestpatrol:
+http://www.pestpatrol.com/pestinfo/v/vampire_1_2.asp
+
+Dark-E:
+http://www.dark-e.com/archive/trojans/vampire/index.shtml
+
+--

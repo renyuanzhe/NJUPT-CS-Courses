@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+183
+
+--
+Summary:
+Q is a Trojan Horse offering the attacker remote access to the victim 
+host. This event is generated when raw ICMP packets are sent to the 
+victim server.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a
+compromise of all resources the machine is connected to.
+
+--
+Detailed Information:
+This Trojan affects UNIX operating systems.
+
+The Trojan is controlled by sending raw packets (TCP/UDP/ICMP) to the 
+victim host containing commands to be run as root.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. The 
+attacker can then choose to send raw data to the victim via TCP/UDP/ICMP
+from the broadcast address of a class C network.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Traffic originating from a broadcast address should not be allowed from 
+external sources or from internal sources to external destinations. 
+Judicious use of firewall rules is necessary.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS202
+
+--

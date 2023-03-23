@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+3813
+
+--
+Summary:
+This event is generated when an attempt is made to remotely execute a
+command using the awstats.pl configdir parameter vulnerability.
+
+--
+Impact:
+Serious. Execution of arbitrary commands may be possible.
+
+--
+Detailed Information:
+A vulnerability exists in processing awstats.pl, a tool that can be used
+to graphically display statistics about web, ftp, or mail servers.
+Proper sanitization is not performed on user-supplied data to the
+configdir parameter. Maliciously formatted input can allow the execution
+of arbitrary commands on a vulnerable server.
+
+--
+Affected Systems:
+	AWStats AWStats 5.0 - 6.2
+
+--
+Attack Scenarios:
+An attacker can supply malicious input to the configdir parameter of
+awstats.pl, enabling the execution of arbitrary commands on a vulnerable
+server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current nonaffected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=185&type=vulnerabilities
+
+--

@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+2580
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a heap overflow
+associated with Apache 1.3 proxy and cache module.
+
+--
+Impact:
+A successful attack may cause a heap overflow, permitting the execution of
+arbitrary code.
+
+--
+Detailed Information:
+When Apache 1.3 is used and the host is configured to be a web proxy,
+reverse proxy and/or cache server, a vulnerability exists that may
+allow a heap overflow and the subsequent execution of arbitrary code
+on the vulnerable server.  This may occur when the server receives
+a malformed response from a malicious web server that includes a
+negative content length value.  This can cause invalid memory access
+and a denial of service or heap overflow.
+
+--
+Affected Systems:
+Apache 1.3.x
+
+--
+Attack Scenarios:
+An attacker can entice a user to visit a malicious web server.  If
+a vulnerable server proxies the request and receives a malformed
+response, a heap overflow may occur.
+
+--
+Ease of Attack:
+Simple. Exploit code is publicly available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+
+--
+Additional References
+CVE:
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0492
+
+Other:
+http://www.guninski.com/modproxy1.html
+
+--

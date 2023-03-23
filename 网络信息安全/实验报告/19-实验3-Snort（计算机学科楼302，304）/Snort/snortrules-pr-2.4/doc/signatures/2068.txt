@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+2068
+
+--
+Summary:
+input handling error in BitKeeper.
+
+--
+Impact:
+Arbitrary code execution
+
+--
+Detailed Information:
+BitKeeper is a cross platform commercial application for managing 
+software development.
+
+When used in daemon mode, BitKeeper opens a listening service that can 
+be accessed via an ordinary http request. The input from this request is
+not correctly processed and allows execution of arbitrary code.
+
+A proof of concept exploit is available for this vulnerability.
+
+--
+Affected Systems:
+All versions of BitKeeper up to and including version 3.0 running in 
+daemon mode.
+
+--
+Attack Scenarios:
+The attacker can send a specially crafted URI to the listening service 
+that contains code the attacker wishes to execute.
+
+Proof of concept URI by Maurycy Prodeus:
+http://www.example.com:port/diffs/foo.c@%27;echo%20%3Eiwashere%27?nav=index.html|src/|hist/foo.c
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to version 3.0.1.
+
+Do not run BitKeeper in daemon mode.
+
+Disallow all access to the BitKeeper server via http.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/6588
+
+BitKeeper:
+http://www.bitkeeper.com/
+
+--

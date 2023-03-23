@@ -1,0 +1,69 @@
+Rule:  
+
+Sid:
+807
+
+--
+
+Summary:
+This event is generated when an attempt is made to download the wwwboard password file
+
+--
+Impact:
+Information disclosure.
+An attacker could crack the encrypted password and gain access to the wwwboard
+administrator account
+
+--
+Detailed Information:
+Releases of WWWBoard (Matt Wright's CGI webboard application) before
+version 2.0 Alpha 2.1 place the encrypted password for the web 
+application's administrator in a file called "passwd.txt" accessible
+from the web root.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+Attacker downloads the passwd.txt file and then launches a password
+cracker to brute force the password (the password is encypted via
+crypt(3), and password crackers for this format are ubiquitous).  If
+the password is successfully cracked (due to weak passwords or
+significant cracking resources), the attacker will have administrative
+access to the wwwboard web application.
+
+--
+Ease of Attack:
+Simple. Exploit software is not required.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Inspect packet to insure that it was an attempt to download the
+password file and not just a webpage discussing WWWBoard.
+Insure that local installations of WWWBoard are current and properly
+configured to not save the password file into a publically-accessible
+area.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+CVE:  CVE-1999-0953
+Bugtraq:  BID 649
+Arachnids:  463
+
+--

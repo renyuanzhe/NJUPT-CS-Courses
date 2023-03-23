@@ -1,0 +1,63 @@
+Rule: 
+
+--
+Sid: 
+111-1
+
+-- 
+Summary: 
+This event is generated when the pre-processor stream4
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+This may indicate scanning activity.
+
+--
+Detailed Information:
+The pre-processor stream4 has detected network traffic that may indicate
+a network scan is in progress. That is, a TCP datastream has been
+detected that does not conform to normal activity.
+
+An attacker may be able to determine the characteristics of a remote
+system by sending abnormal network data. The response can reveal the
+operating system type, indicate the presence of a firewall or show open
+and closed ports on the host.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios: 
+An attacker may utilize scanning techniques to determine possible points
+of exploitation against a host.
+
+-- 
+Ease of Attack: 
+Simple. Many scanning tools exist.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+Corrective Action:
+Check the target host for signs of compromise.
+
+Ensure the system is up to date with any appropriate vendor supplied patches.
+
+--
+Contributors:
+Martin Roesch <roesch@sourcefire.com>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,60 @@
+Rule:
+
+--
+
+Sid:
+408
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP Echo Reply in response to an ICMP Echo Request message.
+
+--
+
+Impact:
+Information-gathering.  An ICMP Echo Reply message is sent in response to an ICMP REcho Request message.  If the ICMP Echo Reply message reaches the requesting host it indicates that the replying host is alive.
+
+--
+
+Detailed Information:
+ICMP Type 0 Code 0 is the RFC defined messaging type for ICMP Echo Reply datagrams.  This type of message is used to determine if a host is active on the network.
+
+--
+
+Attack Scenarios:
+A remote attacker may use ICMP Echo Request datagrams to determine active hosts on the network in prelude of further attacks.
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Use ingress filtering to prevent ICMP Type 0 Code 8 messages from entering the network.
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

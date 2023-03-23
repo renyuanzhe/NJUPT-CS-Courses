@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+1044
+
+--
+Summary:
+This event is generated when an attempt is made to disclose the contents of a file on an Internet Information Server (IIS) host. 
+
+--
+Impact:
+Intelligence gathering activity.  This attack can display the contents of an Activer Server Page (ASP) file or other files located on the server. 
+
+--
+Detailed Information:
+A vulnerability exists in Windows NT 4.0 Option Pack and Windows 2000 Index Server.  The Index Server is a search engine used by IIS that allows a user's browser to search for text in HTML and other documents.   The Index Server has a Hit-Hightlighting component to highlight the text that satisifies the user's query.  A vulnerability exists in the webhits.dll file used to process the search, allowing the disclosure of file contents.  The .htw file extension is used by webhits.dll to perform hit-highlighting capabilities.
+
+--
+Affected Systems:
+Hosts running Microsoft Index Server 2.0
+
+--
+Attack Scenarios:
+An attacker can attempt to disclose the contents of a file by crafting a special URL to access the Hit-Highlighting component of the Index Server. 
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the patch discussed in the referenced Microsoft Bulletin.
+ 
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids
+http://www.whitehats.com/info/IDS237
+
+Bugtraq
+http://www.securityfocus.com/bid/1084
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0302
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/ms00-006.asp
+
+
+--

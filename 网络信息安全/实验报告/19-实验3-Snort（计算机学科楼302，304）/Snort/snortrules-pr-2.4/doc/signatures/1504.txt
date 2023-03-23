@@ -1,0 +1,53 @@
+Rule:  
+
+--
+Sid:
+1504
+
+--
+Summary:
+This event is generated when an attempt is made to access AFS from a source outside the protected network.
+
+--
+Impact:
+Serious. Unauthorized file access.
+
+--
+Detailed Information:
+The Andrew File System (AFS) is a popular networked file system much like NFS, it is often used in the enterprise or by educational institutions. 
+
+AFS utilises an Access Control List (ACL) to determine which hosts or networks are allowed to connect to the resources in the system. Misconfigured ACLs may allow an attacker to gain critical information.
+
+--
+Attack Scenarios:
+Badly configured ACL's allow an attacker that has access to the AFS service to read critical files and even upload files.
+
+--
+Ease of Attack:
+Simple. No exploit code is needed.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Use a packet filtering firewall to prevent unknown hosts from accessing the AFS service
+
+--
+Contributors:
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+
+-- 
+Additional References:
+
+
+--

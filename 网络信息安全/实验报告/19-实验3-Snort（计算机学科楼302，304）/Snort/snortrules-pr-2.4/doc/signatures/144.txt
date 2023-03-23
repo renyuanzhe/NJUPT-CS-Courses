@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+144
+
+--
+Summary:
+This event is generated when an FTP login by user "w0rm" was attempted. 
+This is an account used by the ADMw0rm-v1 worm.
+
+--
+Impact:
+Infected systems are left with a backdoor user account named 
+"w0rm" and an email with the victims ip address is emailed to the worms 
+creators.
+
+--
+Detailed Information:
+This worm exploits a vulnerability in BIND version 4.9.6 and is linux 
+specific. These attempts mean the box has probably already been 
+compromised.
+
+--
+Affected Systems:
+	Default installations of RedHat 4.0 to 5.2
+
+--
+Attack Scenarios:
+Standard Internet worm.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade BIND on vulnerable servers.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS01
+
+--

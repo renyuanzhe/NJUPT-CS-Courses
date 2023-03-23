@@ -1,0 +1,95 @@
+Rule:
+
+--
+Sid:
+146
+
+--
+Summary:
+Netsphere is a Trojan Horse offering the attacker access to the victims 
+filesystem, instant messaging clients and some control over peripherals.
+This event is generated when a Netsphere server responds to an attackers
+client.
+
+--
+Impact:
+Compromise of data integrity on the victim host as well as the 
+possibility of rendering the machine temporarily unusable.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+
+The Trojan changes system registry settings to add the Netsphere
+sever to programs normally started on boot. Due to the nature of this
+Trojan it is unlikely that the attacker's client IP address has been
+spoofed.
+
+The Trojan also gives the attacker the ability to access the victims 
+filesystem, turn the monitor on and off, control the mouse, access 
+instant messaging applications and render a pentium based machine 
+unusable.
+
+The Trojan is also known to use TCP ports 30100, 30101 and 30102.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise can be in the form of a Win32 installation program that may
+use the extension ".jpg" or ".bmp" when delivered via e-mail for
+example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+Updated virus definition files are essential in detecting this Trojan.
+
+The Trojan server is named NetSphereServer.exe.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Edit the system registry to remove the extra keys or restore a
+previously known good copy of the registry.
+
+Affected registry keys are:
+
+	HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\
+
+Registry keys added are:
+
+	NSSX
+
+Removal of this entry is required.
+
+Delete the file NetSphereServer.exe.
+
+Ending the Trojan process is also necessary. A reboot of the infected
+machine is recommended.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS76
+
+--

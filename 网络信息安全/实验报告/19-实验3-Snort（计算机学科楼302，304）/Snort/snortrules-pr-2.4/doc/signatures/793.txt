@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+793
+
+--
+Summary:
+This event is generated when an internal mail server sends an e-mail out of the network that may contain a Visual Basic Script (VBS) attachment. 
+
+--
+Impact:
+Malicious code infection.  This event may indicate that an internal host may be infected with some kind of malicious code.
+
+--
+Detailed Information:
+An outbound e-mail message that contains an attachment with a file name ending in ".vbs" may indicate that an internal host has been infected by some kind of malicious code.  A ".vbs" extension typically means that an attachment file is a Visual Basic Script.  A VBS attachment may contain executable code for a worm, virus, or trojan.
+
+--
+Affected Systems:
+Microsoft Windows hosts.
+
+--
+Attack Scenarios:
+Malicious code may be spread by e-mail containing attachments with files ending in ".vbs".
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+This alert will be triggered if e-mail is sent containing a legitimate VBS attachment.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Make sure that the suspected infected host has the most current anti-virus software.
+
+Run a virus scan on the suspected infected host.
+
+Configure your mail server to block attachments that contain executable code, such as those with extensions of ".vbs", ".exe", etc.
+
+--
+Contributors:
+Original rule writer unknown.
+Documented by Steven Alexander<alexander.s@mccd.edu>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

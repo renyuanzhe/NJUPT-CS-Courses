@@ -1,0 +1,60 @@
+Rule:
+ 
+--
+Sid:
+2155
+
+--
+Summary:
+This event is generated when a remote user attempts to access forum/index.php with the template parameter on a web server. This may indicate an attempt to exploit a remote code execution vulnerability in ttForum, a web-based bulletin board application.
+
+--
+Impact:
+Serious. Possible remote execution of arbitrary code, which may lead to a remote root compromise.
+
+--
+Detailed Information:
+This event may indicate an attempt to exploit a vulnerability in ttForum, a web-based bulletin board application. When an attacker sends a request to forum/index.php with a remote PHP file included in the "template" parameter, the web server will execute the code included in the linked PHP file.  
+
+--
+Affected Systems:
+Any server running ttForum.
+
+--
+Attack Scenarios:
+An attacker writes a PHP file containing executable code, and then sends a URI request to the forum/index.php on the vulnerable server with the crafted PHP file included in the template parameter. The web server will then attempt to execute the commands included in the linked PHP file.
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is not known if this vulnerability has been patched in recent versions. Contact the vendor (http://www.ttcms.com) for more details. 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/7542
+http://www.securityfocus.com/bid/7543
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11615
+
+--

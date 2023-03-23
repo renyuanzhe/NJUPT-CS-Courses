@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid: 
+2416
+
+--
+Summary:
+This event is generated when activity relating to spurious ftp traffic 
+is detected on the network.
+
+--
+Impact:
+Varies from information gathering to a serious compromise of an ftp 
+server.
+
+--
+Detailed Information:
+FTP is used to transfer files between hosts. This event is indicative of
+spurious activity in FTP traffic between hosts.
+
+The event may be the result of a transfer of a known protected file or 
+it could be an attempt to compromise the FTP server by overflowing a 
+buffer in the FTP daemon or service.
+
+--
+Attack Scenarios:
+A user may transfer sensitive company information to an external party 
+using FTP.
+
+An attacker might utilize a vulnerability in an FTP daemon to gain 
+access to a host, then upload a Trojan Horse program to gain control of 
+that host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow access to FTP resources from hosts external to the protected 
+network.
+
+Use secure shell (ssh) to transfer files as a replacement for FTP.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <brian.caswell@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

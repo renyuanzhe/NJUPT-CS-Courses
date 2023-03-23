@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+671
+
+--
+Summary:
+This event is generated when an external attacker attempts to exploit a vulnerability in Sendmail, where unexpected characters in ident messages are not properly parsed.
+
+--
+Impact:
+Severe. Remote execution of arbitrary code, leading to remote root compromise. 
+
+--
+Detailed Information:
+Sendmail 8.6.10 and earlier versions contain a vulnerability related to the parsing of unexpected characters (in this case, newline characters and a carriage return) in commands passed from ident to Sendmail. An attacker can use a specially crafted command with unexpected characters in an ident response to Sendmail. The message is not properly parsed and Sendmail forwards the response, with included commands, to its queue. The commands are then executed while the message awaits delivery in the Sendmail queue, causing the included arbitrary code to be executed on the server in the security context of Sendmail. 
+
+--
+Affected Systems:
+Systems running unpatched versions of Sendmail 8.6.10 or earlier.
+
+--
+Attack Scenarios:
+An attacker sends an email with newline characters and a carriage return, including a path variable of P=/bin/sh. Directives included in the transmission are executed while the message remains in the Sendmail queue.
+
+--
+Ease of Attack:
+Moderate. Multiple exploits exist, but the window of opportunity is small; the vulnerability must be exploited while the message is queued for delivery and must have sufficient time (the mail server must be busy/slow) to execute the commands.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest version of Sendmail.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0204
+
+Bugtraq
+http://www.securityfocus.com/bid/2311
+
+--

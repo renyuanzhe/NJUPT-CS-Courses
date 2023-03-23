@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+585
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) sadmind is listening.
+
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port sadmind is using.  Attackers can also learn what versions of the sadmind protocol are accepted by sadmind.
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as sadmind run.  The sadmind RPC service is used by Solaris hosts to remotely perform distributed system administration tasks such as adding new users.  There is a vulnerability associated with sadmind that may cause a buffer overflow, allowing an attacker to execute abitrary code with the privileges of sadmind, possibly root. 
+
+--
+Affected Systems:
+Solaris 2.3, 2.4, 2.5, 2.5.1, 2.6, and 7. 
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where sadmind runs.  This may be a precursor to an attack to exploit the sadmind buffer overflow.
+
+--
+Ease of Attack:
+Simple.  Exploit scripts are freely available. A worm was observed in 2001 that used the sadmind exploit (and an IIS vulnerability) to compromise systems and deface web pages. 
+
+--
+False Positives:
+If a legitimate remote user is allowed to access sadmind, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for sadmind, not probes of the sadmind service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the sadmind service itself. An attacker may attempt to go directly to the sadmind port without querying the portmapper service which, would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Original rule modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/866
+
+CERT:
+http://www.cert.org/advisories/CA-1999-16.html
+
+Arachnids:
+http://www.whitehats.com/info/IDS20
+
+
+--

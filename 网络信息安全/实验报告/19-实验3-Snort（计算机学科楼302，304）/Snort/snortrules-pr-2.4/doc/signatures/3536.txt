@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+3536
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+heap overflow associated with Mozilla's processing of a
+malformed GIF file.
+
+--
+Impact:
+A successful attack can cause a heap overflow on the client host
+running Mozilla and permit execution of arbitrary code at the
+privilege level of the current user.
+
+--
+Detailed Information:
+The Mozilla browser can read images from a file formatted in
+Graphics Interchange Format (GIF). The GIF format has optional
+"extension blocks" that supply additional information to a
+browser that can interpret and render it.
+
+An optional application block is one type of extension block.
+There is a vulnerability with particular sub-blocks associated
+with the application block that permits a signed variable that
+should contain a positive value to be treated as a negative
+number.  This may cause a heap overflow.
+
+In order to avoid potential evasion techniques, http_inspect
+should be configured with "flow_depth 0" so that all HTTP
+server response traffic is inspected.
+
+WARNING
+Setting flow_depth 0 will cause performance problems in some situations.
+WARNING
+
+--
+Affected Systems:
+	Mozilla Firefox and Thunderbird 1.0.1 and prior
+	Mozilla browser 1.7.5 and prior
+
+--
+Attack Scenarios:
+An attacker can entice a user to download a malicious GIF file
+that causes an overflow, enabling execution of arbitrary code
+on a vulnerable client.
+
+--
+Ease of Attack:
+Simple. Exploit code is available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+A malicious value found in any sub-block but the first will
+not trigger an alert.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+Other:
+
+--

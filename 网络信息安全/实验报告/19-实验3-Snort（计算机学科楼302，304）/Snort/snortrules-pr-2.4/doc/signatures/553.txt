@@ -1,0 +1,54 @@
+Rule: 
+
+--
+Sid: 
+553
+
+--
+Summary: 
+The event is generated when an attempt is made to log on to an FTP server with the username of "anonymous".
+
+--
+Impact: 
+Information gathering or remote access.  This activity may be a precursor to navigating through the accessible directories on the anonymous FTP server to do reconnaissance of the server.  Alternately, this may be a precursor of attempting an exploit, such as a buffer overflow, that may permit remote access to the vulnerable FTP server.
+
+--
+Detailed Information: 
+FTP servers may permit anonymous user access to share authorized public files.  FTP servers must have tighly restricted permissions to prevent anonymous users from navigating or writing to unauthorized directories.  If permissions are incorrectly assigned, an attacker may attempt to store unauthorized "warez" files of pirated software.  Alternately, anonymous access to a vulnerable FTP server may permit an attacker to exploit a buffer overflow, permitting execution of arbitrary commands on the host.
+
+--
+Affected Systems: 
+FTP servers allowing anonymous user access
+
+--
+Attack Scenarios: 
+An attacker may employ anonymous user access to do reconnaissance, store unauthorized files, or attempt an exploit on a vulnerable FTP server. 
+
+--
+Ease of Attack: 
+Simple
+
+--
+False Positives: 
+If anonymous user access is knowingly permitted, this rule may fire.  Consider disabling this rule to anonymous FTP server.
+
+--
+False Negatives: 
+An attacker may use the username "ftp" instead of "anonymous" to gain anonymous access.
+
+--
+Corrective Action: 
+Disable anonymous access on the FTP server if it is not required.
+
+--
+Contributors: 
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+-- 
+Additional References:
+
+--

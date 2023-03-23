@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+250
+
+--
+Summary:
+The event is generated when a DDoS mstream handler responds to an mstream client.
+
+--
+Impact:
+Severe.  If the source IP is in your network, it is possibly an mstream handler.  If the destination IP is in your network, it is possibly an mstream client.
+
+--
+Detailed Information:
+The mstream DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack. At the highest level, clients communicate with handlers to direct them to launch attacks.  A client may contact a handler using a TCP SYN packet to destination port 15104.  A listening handler would respond to this on source port 15104 with a string of ">" in the payload.
+
+--
+Affected Systems:
+Any mstream compromised host.
+
+--
+Attack Scenarios:
+After a host becomes an mstream handler, the client will attempt to communicate with the handler.  A handler will respond to this communication.
+
+
+--
+Ease of Attack:
+Simple. mstream code is freely available.
+
+--
+False Positives:
+A legitimate server port of 15104 will cause this rule to fire.  This rule may also generate a false positive if port 15104 is selected as an FTP data port.
+
+--
+False Negatives:
+There are other known client-to-handler ports in addition to 15104.
+
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0138
+
+
+--

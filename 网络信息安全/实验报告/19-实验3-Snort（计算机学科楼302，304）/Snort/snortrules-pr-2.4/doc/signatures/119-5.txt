@@ -1,0 +1,61 @@
+Rule: 
+
+--
+Sid: 
+119-5
+
+-- 
+Summary: 
+This event is generated when the pre-processor http_inspect
+detects network traffic that may constitute an attack.
+
+-- 
+
+Impact: 
+Unknown. This may be an attempt to obfuscate an attack an evade an IDS.
+
+--
+Detailed Information:
+This event is generated when the pre-processor http_inspect detects
+base36 encoded characters in a web request. This may be used in an
+attempt to obfuscate an attack against a webserver or to evade an IDS.
+
+--
+Affected Systems:
+	Microsoft IIS web servers (Asian)
+
+--
+Attack Scenarios: 
+An attacker need only encode a web request using base 36 encoding.
+
+-- 
+Ease of Attack: 
+Simple. Exploits exist
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+--
+Contributors:
+Daniel Roelker <droelker@sourcefire.com> 
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+HTTP IDS Evasions Revisited - Daniel Roelker
+http://docs.idsresearch.org/http_ids_evasions.pdf
+
+--

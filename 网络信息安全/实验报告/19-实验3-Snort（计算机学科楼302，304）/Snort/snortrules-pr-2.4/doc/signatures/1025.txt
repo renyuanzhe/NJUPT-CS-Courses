@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+1025
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a potential 
+weakness on a host running Microsoft Internet Information Server (IIS). 
+
+--
+Impact:
+Information gathering possible administrator access.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to exploit potential 
+weaknesses in a host running Microsoft IIS.
+
+This event indicates that an attempt has been made to access
+/scripts/perl on a web server. This may indicate that an attacker is
+attempting to run code of their choosing on that server.
+
+Perl should not be installed in a directory directly accessible via the
+Internet on a web server.
+
+--
+Affected Systems:
+	Any host using IIS with Active Perl installed.
+
+--
+Attack Scenarios:
+An attacker can retrieve a sensitive file containing information on the 
+IIS implementation. The attacker might then gain administrator access to
+the site, deface the content or gain access to a database.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+Access to a webserver that stores web cgi scripts in /scripts/perl/ will
+generate events.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the IIS implementation on the host. Ensure all measures have been 
+taken to deny access to sensitive files.
+
+Ensure that the IIS implementation is fully patched.
+
+Ensure that the underlying operating system is fully patched.
+
+Employ strategies to harden the IIS implementation and operating system.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

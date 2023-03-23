@@ -1,0 +1,62 @@
+Rule:
+
+--
+
+Sid:
+518
+
+--
+
+Summary:
+This event is generated when a TFTP PUT request is made.  This is an indication that someone is attempting to create or place a file on the server.
+
+--
+
+Impact:
+A TFTP PUT requests allows a remote attacker to create, modify, or replace files on the server running TFTP.  If the TFTP server allows anonymous TFTP PUT requests it could be possible to upload malicious files and payloads to the server.
+
+--
+
+Detailed Information:
+This rule will generate an event on in-bound TFTP PUT requests.  Attackers my use TFTP to upload and download files from a server that is properly or improperly configured.  This could result in malicious payload being uploaded to the server or sensitive files being downloaded.
+
+--
+
+Attack Scenarios:
+Attackers may use TFTP to upload and download files from server that are properly or improperly configured.  Normally attackers attempt to locate TFTP servers using automated scanners and tools.  Once a TFTP server is located an attempt to write files and get files from the TFTP server is made.  Depending on the results of those tests attackers may attempt to further exploit that system, by overwriting system files or downloading password files to access the system.
+
+--
+
+Ease of Attack:
+Simple: Numerous tools and automated scripts exist for scanning large subnets for improperly configured TFTP servers.
+
+--
+
+False Positives:
+Legitimate TFTP PUT requests for updating routers or other access devices may trigger this rule.  
+
+--
+
+False Negatives:
+None known
+
+--
+
+Corrective Action:
+The TFTP server should be configured to only allow PUT requests from trusted locations.
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski Matt.Watchinski@sourcefire.com
+
+--
+
+Additional References
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0183
+http://www.whitehats.com/info/IDS148
+
+
+--

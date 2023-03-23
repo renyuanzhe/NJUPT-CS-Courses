@@ -1,0 +1,64 @@
+Rule: 
+
+--
+Sid: 356
+
+-- 
+
+Summary:
+This event is generated when an attempt to retrieve a specific file, in this case the systems user database from an FTP server is made.
+
+-- 
+Impact: 
+Serious. The attacker may obtain a valid list of user names and/or encrypted passwords from the server.
+
+--
+Detailed Information:
+This event is generated when an attempt to download a copy of the "passwd" file from the server is made.
+
+The UNIX "passwd" file (typically located in "/etc/" directory) is used to hold the authentication information for system logins. This file needs to be readable by all system users. 
+
+Where shadow passwords are used, the actual encrypted passwords are stored in a separate file, only readable by root. It is possible to use various password cracking tools to obtain unencrypted passwords either by trying random character combinations, a predefined word list or a combination of public user information. The attacker may use the information contained in the passwd file to launch a dictionary attack against the victim host or other hosts the same users may have access to.
+
+--
+Attack Scenarios: 
+The attacker downloads a "passwd" file from a machine that does not use shadowed passwords and uses a tool like John-the-Ripper to crack the passwords used for several accounts. He then proceeds to login to the system remotely and possibly gain escalated privileges via a local exploit on the system.
+
+-- 
+
+Ease of Attack: 
+Simple. The attack usually requires FTP access to the /etc/ directory either by system misconfiguration or via a directory traversal technique. Also, in the rare circumstances the system administrator may have accidentally left a copy of a "passwd" file in a directory accessible for anonymous or other FTP users, which presents a high security risk and simplifies the attack.
+
+-- 
+
+False Positives: 
+If the string "passwd" is contained within an otherwise innocuous filename being retrieved from a server, the rule will generate an event. 
+
+Also, the anonymous FTP account often has a separate password file within the chrooted anonymous FTP directory (e.g. /var/ftp/etc/passwd). This file does not usually contain valid system usernames and passwords. While technically not a false positive, this may be considered a false alarm.
+
+--
+
+False Negatives:
+None Known
+
+-- 
+
+Corrective Action: 
+Identify the downloaded file and confirm that it indeed a valid system password file. Change the user passwords on the system and notify the users.
+
+Ensure that FTP access to sensitive system files is not allowed.
+
+--
+Contributors: 
+Original rule writer Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS319
+
+--

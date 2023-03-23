@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+1828
+
+--
+Summary:
+This event is generated when an attempt is made to use a known 
+vulnerability in the search functionality of certain web servers to view
+otherwise restricted files.
+
+--
+Impact:
+If successful, this attack will allow an attacker to view the contents 
+of any file on the server.
+
+--
+Detailed Information:
+The search engine in older versions of Netscape Enterprise Server and 
+its succesors uses HTML formatted pattern files to query users for 
+search paramters and return the results. The "NS-query-pat" command 
+allows clients to specify a pattern file other than the default. 
+Unfortunately, the search engine does not validate the filename 
+requested and allows clients to specify any file on the server, which is
+then displayed to the client.
+
+--
+Affected Systems:
+	Netscape Enterprise Server 3.6 and earlier
+	iPlanet Web Server 4.1
+	iPlanet/Sun ONE Web Server 6.0 up to Service Pack 4
+	Netscape Enterprise Server 6.0
+
+--
+Attack Scenarios:
+An attacker could use this vulnerability to find user names and 
+passwords, SSL certificate files and related passwords, source code, or 
+just about any other information on the server.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable the search engine or procure a patch from your web server vendor.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Kevin Peuhkurinen
+
+-- 
+Additional References:
+
+CVE
+CAN-2002-1042
+
+--

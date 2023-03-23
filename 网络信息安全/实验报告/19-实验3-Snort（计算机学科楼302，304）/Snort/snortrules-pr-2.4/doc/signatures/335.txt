@@ -1,0 +1,66 @@
+Rule: 
+
+--
+Sid: 335
+
+-- 
+Summary: 
+This event is generated when an attempt to copy a specific file to an FTP server is made.
+
+-- 
+
+Impact: 
+Serious. An attacker might gain the ability to remotely connect to a server via r-commands without using a password.
+
+--
+Detailed Information:
+This event is generated when an attempt to copy an ".rhosts" file to a server. An ".rhosts" file is used to configure remote access via r-commands (rlogin, rsh, rcp, rexec). 
+
+Specifically, the file might contain IP addresses (hostnames) or usernames that are allowed to connect to a server in the following format: "hostname [username]", where either can be a "+" character, indicating all hostnames or usernames. 
+
+The file might also contain a string "+ +" that indicates that everybody from any IP address is allowed to connect to server without using a password. The file is located in user's home directory.
+
+--
+
+Attack Scenarios: 
+An attacker uploads a ".hosts" file with "+ +" in it in the user's directory on the machine. He is then able to connect to a host via an "rlogin" command without entering a password, resulting in a shell session. If this is done in roots home driectory the attacker will have control of the victim host.
+
+-- 
+
+Ease of Attack: 
+The attack requires an access to any user's home directory via FTP. This means that anonymous FTP access cannot be used for such an attack and a valid username and password is required. Additionally, the ability to upload files via FTP is required for a successful attack.
+
+-- 
+
+False Positives: 
+If the string ".rhosts" is contained within the filename that is being uploaded to a server or within other FTP client responses, the rule will generate an event.
+
+--
+False Negatives: 
+None Known
+
+-- 
+
+Corrective Action: 
+Locate the uploaded ".rhosts" file and check it for signs of suspicious entries. 
+
+Check the server logs for other suspicious events that might have occurred within the same FTP session
+
+Disallow uploading of files via FTP and use Secure Shell (SSH) for transferring files by users.
+
+Disallow the use of r-commands for file transfer and login procedures.
+
+--
+Contributors: 
+Original rule writer Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS328
+
+--

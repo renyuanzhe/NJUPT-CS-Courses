@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+105-1
+
+--
+Summary:
+This event is generated when the pre-processor spp_bo detects network
+traffic that may constitute an attack. Specifically back orifice
+traffic was detected.
+
+--
+Impact:
+Unknown. This is possible Trojan activity.
+
+--
+Detailed Information:
+This event is generated when the spp_bo pre-processor detects network
+traffic that may consititute an attack.
+
+Back Orifice is a Trojan horse program for Microsoft systems. This event
+may indicate that this Trojan is active and in use on the protected
+network.
+
+--
+Affected Systems:
+	Microsoft Windows 95, 98, ME, NT, 2000
+
+--
+Attack Scenarios:
+This is Trojan activity. An attacker can use this Trojan to control the
+target host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

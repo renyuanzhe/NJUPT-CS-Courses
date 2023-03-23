@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1037
+
+--
+Summary:
+This event is generated when an attempt is made to access the showcode.asp file. 
+
+--
+Impact:
+Intelligence gathering.  This attack may permit viewing of files on the vulnerable server.
+
+--
+Detailed Information:
+Microsoft Internet Information Server (IIS) 4.0 has sample files that instruct web developers on the use of Active Server Pages (ASP).  One particular sample file, 'showcode.asp', allows files to be viewed on the vulnerable server.  This is caused by inadequate checking of user input supplied in the "source" parameter, allowing an attacker to navigate outside the directory where the sample files are located.
+
+--
+Affected Systems:
+IIS 4.0
+
+--
+Attack Scenarios:
+An attacker can craft a URL to reference the showcode.asp file, passing it a "source" parameter of the desired file to view. 
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Delete the showcode.asp file.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0736
+
+Bugtraq
+http://www.securityfocus.com/bid/167
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10007
+
+
+--

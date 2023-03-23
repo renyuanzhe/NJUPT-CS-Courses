@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+2051
+
+--
+Summary:
+designated root directory of a web server.
+
+--
+Impact:
+Theft of data and important system information may be disclosed to an 
+unauthorized party.
+
+--
+Detailed Information:
+The script handling file viewing from the vendor moreover.com contains an error that allows files outside the designated root directory to be viewed in a browser.
+
+The script does not perform checks for the characters ".." when supplied
+by a user in a URL. This allows a classic directory traversal attack to 
+be performaed against the server.
+
+--
+Affected Systems:
+Version 1.0 from moreover.com
+
+--
+Attack Scenarios:
+The attacker merely needs to enter a URL using ../ to traverse the file 
+system for example:
+http://www.foo.com/cgi-bin/cached_feed.cgi?../../../etc/passwd
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to version 2.0 or later
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1762
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0906
+
+--

@@ -1,0 +1,70 @@
+Rule:  
+
+--
+
+Sid:
+1196
+
+--
+
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the IRIX infosrch.cgi web application.
+
+--
+Impact:
+Execution of code of the attackers choosing is possible.
+
+--
+Detailed Information:
+sgi IRIX 6.5 through 6.5.7 ships with a web application called InfoSearch
+that is vulnerable to a remote execution attack.
+
+An attacker may have abused the infosrch.cgi web application that ships
+with IRIX 6.5 to remotely execute arbitrary commands as the webserver user.
+
+--
+Affected Systems:
+	SGI IRIX 6.5 to 6.5.7
+ 
+--
+Attack Scenarios:
+An attacker uses an existing, publically known exploit script, or
+sends a simple, handcrafted URL to the webserver such as:
+http://target/cgi-bin/infosrch.cgi?cmd=getdoc&db=man&fname=|/bin/id
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+The InfoSearch web application may legitimately be used to browse system
+documentation.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Examine the packet to determine whether malicious code was contained in
+the fname HTTP GET variable, such as unix shell commands.  If it looks
+like it may have been malicious code, determine whether the targetted
+web server was running a vulnerable version of IRIX.
+
+Upgrade to the latest non-affected version of the product.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

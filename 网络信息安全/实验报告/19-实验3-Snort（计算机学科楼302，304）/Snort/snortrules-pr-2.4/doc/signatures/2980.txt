@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+532
+
+--
+Summary:
+This event is generated when an attempt is made to access an administrative share on a Windows machine.
+
+--
+Impact:
+Serious. Possible administrator access on the victim machine. 
+
+--
+Detailed Information:
+This rule  generates an event when the hidden Netbios share Admin$, which is the Winnt directory, is accessed via SMB. 
+
+This is a poor security practice or an indication that a machine is being accessed remotely. 
+
+--
+Affected Systems:
+	Windows 9x
+	Windows 2000
+	Windows XP
+
+--
+Attack Scenario:
+This can be accessed from GUI "map network drive" remotely 
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Use a packet filtering firewall to disallow Netbios access from the unprotected network.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Jake Babbin 
+
+--
+References:
+
+arachnids 340 
+
+--

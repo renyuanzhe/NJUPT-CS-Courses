@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+3006
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability in Freespace 2.
+
+--
+Impact:
+A successful attack may present an attacker with the opportunity to
+execute arbitrary code on a vulnerable system.
+
+--
+Detailed Information:
+A vulnerability exists in in Freespace 2 that may allow an attacker to
+execute code of their choosing on a vulnerable system.
+
+The problem lies in the handling of data by the client application when
+processing server responses. Proper checks are not performed by the
+client application and large amounts of data in a server response may
+trigger a buffer overflow condition to occur, thus presenting the
+attacker with the opportunity to execute code.
+
+--
+Affected Systems:
+	Freespace 2
+
+--
+Attack Scenarios:
+An attacker may supply a large amount of data containing code of their
+choosing in a server response to client requests.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

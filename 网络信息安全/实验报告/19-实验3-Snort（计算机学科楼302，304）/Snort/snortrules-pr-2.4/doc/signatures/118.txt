@@ -1,0 +1,75 @@
+Rule:
+
+--
+Sid:
+118
+
+--
+Summary:
+Satans Backdoor is a Trojan Horse capable of stealing passwords. This 
+event is generated when an infected machine replies to the attackers 
+connection attempt.
+
+--
+Impact:
+Possible theft of data and passwords.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+	Windows NT
+	Windows 2000
+	
+The Trojan server always communcates via port 666 and cannot be changed 
+by the attacker. The server portion itself is named winvmm32.exe, this 
+also cannot be changed. The main purpose of this Trojan is password 
+stealing thus presenting the attacker with access to other machines and 
+possible further compromise of data.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise can be in the form of a Win32 installation program that may
+use the extension ".jpg" or ".bmp" when delivered via e-mail for
+example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+Updated virus definition files are essential in detecting this Trojan.
+
+The Trojan server is located called winvmm32.exe.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Delete the file winvmm32.exe.
+
+Kill the process winvmm32.exe.
+
+--
+Contributors:
+Orignal rule by  webmaster@tlsecurity.net
+
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS316
+
+--

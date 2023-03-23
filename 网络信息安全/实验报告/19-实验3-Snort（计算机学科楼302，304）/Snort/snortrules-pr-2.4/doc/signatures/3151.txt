@@ -1,0 +1,67 @@
+Rule: 
+
+--
+Sid:
+3151
+
+-- 
+Summary: 
+This event is generated when an attempt is made to access the host
+filestem via fingerd.
+
+-- 
+Impact: 
+Information gathering.
+
+--
+Detailed Information:
+This event is generated when a specific attack against a vulnerable
+version of the finger daemon is detected. 
+
+The Finger daemon is used to provide information about users on a UNIX
+system. A certain version of fingerd shipped with one release of FreeBSD
+4.1.1 contained an added feature that allows a remote user to request
+some files via the use of finger. This event indicates that such a
+request has been made.
+
+The feature also allowed any file or directory structure on the host
+readable by the "nobody" user to also be accessed, leading to
+unauthorized information disclosure.
+
+--
+Affected Systems:
+	FreeBSD 4.1.1 Release
+
+--
+Attack Scenarios:  
+An attacker can use finger to read a directory structure or file by
+making a request via finger.
+
+-- 
+Ease of Attack: 
+Simple, no exploit software is required, just a specially formatted
+finger query.
+
+-- 
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+Corrective Action: 
+Disable the finger daemon or limit the addresses that can access the
+service via a firewall or TCP wrappers.
+
+--
+Contributors: 
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

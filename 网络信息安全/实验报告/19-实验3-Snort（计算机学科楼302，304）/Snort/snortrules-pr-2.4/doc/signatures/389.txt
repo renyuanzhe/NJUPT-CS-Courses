@@ -1,0 +1,56 @@
+Rule:
+
+--
+
+Sid:
+389
+
+--
+
+Summary:
+This event is generated when an ICMP Address Mask Request message is found on the network with an invalid ICMP Code.  ICMP Address Mask Requests are used for automatically determining the 32-bit subnet mask for the network.  RFC 950 definesthe Code for ICMP Type 17 datagram to be 0, if this field is not 0 it could be an indication of an attack attempt.
+
+--
+
+Impact:
+Attacks may use an ICMP address Mask Request to determine the subnet mask of the network.  This information can be used to help develope a network diagram in lue of more focused attacks.
+--
+
+Detailed Information:
+ICMP Address Mask Requests are defined in RFC 950 as the third method hosts may support for determing the address mask correspoding to its IP address.  In most implementations this method is not supported, and should not be normal traffic on most networks.  
+
+--
+
+Attack Scenarios:
+Attackers may use this ICMP Type to gather information about the subnet masks of a given network subnet.
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate ICMP Address Mask Requests.
+--
+
+False Positives:
+None known.  ICMP Type 17 datagrams should never be generated with a code other than 0.
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+ICMP Type 17 should be blocked at the upstream firewall.  This type of ICMP request should never originate from a host outside of the protected network.
+--
+
+Contributors:
+Original Rule wirter unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

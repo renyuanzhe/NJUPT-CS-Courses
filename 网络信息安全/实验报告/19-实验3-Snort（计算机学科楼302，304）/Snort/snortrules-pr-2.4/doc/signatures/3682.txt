@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+3682
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability associated with Internet Explorer.
+
+--
+Impact:
+A successful attack can cause Internet Explorer to execute code of an
+attackers choosing in an email attachment.
+
+--
+Detailed Information:
+Internet Explorer suffers from a programming error that can cause an
+attachment to an email to be executed. The condition can be triggered
+when an incorrect MIME header is used for the attachment.
+
+--
+Affected Systems:
+	IE 5.01, 5.5 and 6
+
+--
+Attack Scenarios:
+An attacker can attach an excutable file to an email, give it a MIME
+type header that causes Internet Explorer to treat it as a benign
+attachment that can be safely opened by IE.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References
+
+--

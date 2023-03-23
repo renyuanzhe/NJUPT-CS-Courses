@@ -1,0 +1,53 @@
+Rule:
+
+--
+Sid:
+254
+
+--
+Summary:
+This event is generated when a specific DNS response is returned. In this case, there are no DNS authority records for the queried address record and has a DNS time-to-live value of one minute. 
+
+--
+Impact:
+Ranges from harmless to severe.  A successful corrupted DNS IP and name pairing can range from harmless (if the IP is not used) to severe (if a user is misdirected to a hostile IP).
+
+--
+Detailed Information:
+This is presumably from an attacker engaged in a race condition to respond to a legitimate DNS query.  An attacker may sniff a DNS query requeting an address record and attempt to respond before an actual DNS server can.  The spoofed response is atypical because it does not include the authoritative DNS servers in the returned record.  A legitimate DNS response will likely return the names of the authoritative DNS servers.  The response associated with this traffic has a DNS time-to-live value of one minute.  It is suspected that the TTL is set to expire quickly to eliminate any evidence of the spoofed response.
+
+--
+Affected Systems:
+Any DNS server not using DNSSEC.
+
+--
+Attack Scenarios:
+An attacker can spoof a DNS response to misrepresent a host name to IP pairing.  The forged IP number can direct a user to a potentially hostile IP address.
+
+--
+Ease of Attack:
+The attacker has to be able to sniff DNS queries and generate spoofed responses before the actual DNS server.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+This rule uses very specific DNS flag values that could be modified.  Also, if the DNS TTL value is changed from 1, this rule will not trigger.
+
+--
+Corrective Action:
+Consider using DNSSEC where appropriate.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+
+--

@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1811
+
+--
+Summary:
+This event is generated when a remote user has exploited a flaw in a 
+local SSH server.
+
+--
+Impact:
+Serious
+
+--
+Detailed Information:
+OpenSSH has a flaw in the challenge-response mechanism when configured 
+with either the "PAMAuthenticationViaKbdInt" or the 
+"ChallengeResponseAuthentication" options. This flaw can be exploited by
+a user who is not authenicated and can lead to the attacker obtaining a 
+root shell.
+
+--
+Affected Systems:
+OpenSSH versions 1.2 to 3.3, Solaris 9.0, IBM Linux 
+Affinity Toolkit, and HP HP-UX Secure Shell A.03.10.
+
+--
+Attack Scenarios:
+An attacker can cause the service to restart or hang, leaving the 
+service unavailable to users.
+
+--
+Ease of Attack:
+Simple. Exploit code available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to latest version of OpenSSH
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/5093
+
+--

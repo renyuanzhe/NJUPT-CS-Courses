@@ -1,0 +1,60 @@
+Rule:  
+
+Sid:
+1175
+
+--
+
+Summary:
+This event is generated when an attempt is made to access the
+wwwboard.pl web application on a web server.
+
+--
+Impact:
+Possible unauthorised remote administration of the webboard application.
+
+--
+Detailed Information:
+Some versions of WWWBoard, Matt Wright's CGI web application, have
+vulnerabities, including a default administration password for
+the web application, and a flaw in content checking for posts of followup
+messages that can allow an attacker to overwrite previous posts
+
+--
+Affected Systems:
+ Matt Wrights WWWBoard
+
+--
+Attack Scenarios:
+An attacker can gain control of the application by using the default
+username and password for the script.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+Normal, non-malicious accesses to wwwboard will generate events.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Do not use WWWBoard.
+
+Reconfigure the script to use a different administrator password.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+--

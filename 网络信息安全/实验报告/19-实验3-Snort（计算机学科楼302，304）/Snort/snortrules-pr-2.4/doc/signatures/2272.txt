@@ -1,0 +1,62 @@
+Rule:  
+
+--
+Sid:
+2272
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Coreutils LS.
+
+--
+Impact:
+Denial of Service, possible arbitrary code execution.
+
+--
+Detailed Information:
+The Coreutils ls command contains an integer overflow vulnerability
+which may present an attacker with an exploitation opportunity in
+software that uses this command. By supplying a large amount of data to
+the ls command in the form of the width variable, an attacker may cause
+a DoS to occur. It may also be possible to execute arbitrary code as the
+application becomes unstable.
+
+--
+Affected Systems:
+	Coreutils LS
+
+--
+Attack Scenarios:
+The attacker needs to supply a large amount of data in the width
+variable to the ls command.
+
+--
+Ease of Attack:
+Simple. No exploit software required although automated scripts do exist.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade the software to the latest non-affected version.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

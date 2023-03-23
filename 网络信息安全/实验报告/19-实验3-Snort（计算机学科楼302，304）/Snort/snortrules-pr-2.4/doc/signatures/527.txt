@@ -1,0 +1,80 @@
+Rule:
+
+--
+Sid: 527
+
+--
+Summary:
+This event is generated when traffic on the network is using the same 
+source and destination IP address.
+
+--
+Impact:
+Possible Denial of Service.
+
+--
+Detailed Information:
+Under normal circumstances traffic to and from the same IP address 
+should not be seen on the network. This may be an indicator for the Land
+attack tool.
+
+Some TCP/IP stacks hang or even crash when presented with a TCP SYN 
+packet containing the same source and destination IP address. Some 
+target hosts will crash others will be temporarily disabled.
+
+an indicator of unauthorized network use, reconnaisance activity or 
+system compromise. These rules may also generate an event due to 
+improperly configured network devices.
+
+A packet that has the same source and destination IP addresses directed to TCP
+port 7007 or 7778 can cause a denial of service for Windows Media Station or
+Windows Media Monitor on Windows 2000 hosts SP2, SP3, SP4 running Windows Media
+services 4.0 or 4.1 will also generate an event from this rule.
+
+--
+Affected Systems:
+	Multiple systems from multiple vendors.
+
+--
+Attack Scenarios:
+The attacker may send traffic from a spoofed source address, in this 
+case the victims IP address.
+
+The attacker may be using the Land attack tool.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Employ egress filtering at the border router or firewall.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+SANS:
+http://www.sans.org/rr/firewall/egress.php
+
+CERT:
+http://www.cert.org/advisories/CA-1997-28.html
+
+Bugtraq:
+http://www.securityfocus.com/bid/9825
+
+--

@@ -1,0 +1,129 @@
+Rule:
+
+--
+
+Sid:
+2126
+
+--
+
+Summary:
+This event is generated when a remote attacker attempts to overflow Microsoft's
+PPTP RAS service.  
+
+--
+
+Impact:
+Administrative Compromise.  This attack may permit executation of arbitrary
+commands with the privileges of the NT SYSTEM account.
+
+--
+
+Detailed Information:
+A buffer overflow exists when a malformed SCR (Start Control Request) PPTP 
+packet is received by the PPTP RAS service.  This may permit executation of
+arbitrary commands with the privileges of root. 
+
+--
+Affected Systems:
+Windows 2000 Professional
+Windows 2000 Server
+Windows 2000 Advanced Server
+
+--
+
+Attack Scenarios:
+Exploit code can be used to attack vulnerable PPTP RAS services to obtain
+SYSTEM level access to the remote host.
+
+--
+
+Ease of Attack:
+Difficult.  Currently Sourcefire is unaware of any publicly available 
+exploits for this vulnerability.
+
+--
+
+False Positives:
+PPTP clients that violate RFC2637 by generating overly long Host Name and
+Vendor Strings could potentially trigger this rule inadvertently.
+
+--
+
+False Negatives:
+None Known.
+
+--
+
+Corrective Action:
+Microsoft as released the following patches to correct the problem:
+
+Microsoft Windows 2000 Professional SP3:
+
+    Microsoft Patch Q329834
+    http://www.microsoft.com/windows2000/downloads/critical/q329834/default.asp?FinishURL=%2Fdownloads%2Frelease%2Easp%3FReleaseID%3D43606%26redirect%3Dno
+
+Microsoft Windows 2000 Server SP3:
+
+    Microsoft Patch Q329834
+    http://www.microsoft.com/windows2000/downloads/critical/q329834/default.asp?FinishURL=%2Fdownloads%2Frelease%2Easp%3FReleaseID%3D43606%26redirect%3Dno
+
+Microsoft Windows 2000 Advanced Server SP3:
+
+    Microsoft Patch Q329834
+    http://www.microsoft.com/windows2000/downloads/critical/q329834/default.asp?FinishURL=%2Fdownloads%2Frelease%2Easp%3FReleaseID%3D43606%26redirect%3Dno
+
+Microsoft Windows 2000 Terminal Services SP3:
+
+    Microsoft Patch Q329834
+    http://www.microsoft.com/windows2000/downloads/critical/q329834/default.asp?FinishURL=%2Fdownloads%2Frelease%2Easp%3FReleaseID%3D43606%26redirect%3Dno
+
+Microsoft Windows 2000 Advanced Server SP2:
+
+    Microsoft Patch Q329834
+    http://www.microsoft.com/windows2000/downloads/critical/q329834/default.asp?FinishURL=%2Fdownloads%2Frelease%2Easp%3FReleaseID%3D43606%26redirect%3Dno
+
+Microsoft Windows 2000 Professional SP2:
+
+    Microsoft Patch Q329834
+    http://www.microsoft.com/windows2000/downloads/critical/q329834/default.asp?FinishURL=%2Fdownloads%2Frelease%2Easp%3FReleaseID%3D43606%26redirect%3Dno
+
+Microsoft Windows 2000 Server SP2:
+
+    Microsoft Patch Q329834
+    http://www.microsoft.com/windows2000/downloads/critical/q329834/default.asp?FinishURL=%2Fdownloads%2Frelease%2Easp%3FReleaseID%3D43606%26redirect%3Dno
+
+Microsoft Windows 2000 Terminal Services SP2:
+
+    Microsoft Patch Q329834
+    http://www.microsoft.com/windows2000/downloads/critical/q329834/default.asp?FinishURL=%2Fdownloads%2Frelease%2Easp%3FReleaseID%3D43606%26redirect%3Dno
+
+Microsoft Windows XP Home SP1:
+
+    Microsoft Patch Q329834
+    http://download.microsoft.com/download/whistler/Patch/Q329834/WXP/EN-US/Q329834_WXP_SP2_x86_ENU.exe
+
+Microsoft Windows XP Professional SP1:
+
+    Microsoft Patch Q329834
+    http://download.microsoft.com/download/whistler/Patch/Q329834/WXP/EN-US/Q329834_WXP_SP2_x86_ENU.exe
+
+Microsoft Windows XP 64-bit Edition SP1:
+
+    Microsoft Patch Q329834
+    http://download.microsoft.com/download/whistler/Patch/Q329834/W64XP/EN-US/Q329834_WXP_SP2_ia64_ENU.exe
+
+--
+
+Contributors:
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-1214
+http://www.securityfocus.com/bid/5807
+
+
+--

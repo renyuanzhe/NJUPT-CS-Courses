@@ -1,0 +1,93 @@
+Rule:
+
+--
+Sid:
+2589
+
+--
+Summary:
+This event is generated when an attempt is made to return to
+a web client a file in the Content-Disposition Header with a
+Class ID (CLSID) embedded in the file name.
+
+--
+Impact:
+A successful attack may trick a client on a vulnerable host to download
+a malicious file that will be executed by the Windows Shell.
+
+--
+Detailed Information:
+Internet Explorer does not correctly handle or display specially
+crafted files in the browser dialogue where the user choses the
+action (e.g., open, save, cancel) for a downloaded file.
+Specifically, these are overly long file names that employ URL
+encoding of "." %2E before the file extension and contain the
+Class ID (CLSID) associated with the Windows Shell in the file name.
+
+This serves two purposes; the first is that the file name will
+be truncated in the user dialog so the user doesn't see the
+CLSID reference, making it appear to be a more innocuous file
+with a known extension such as mpg or pdf.  Second, the downloaded
+file will actually contain malcious commands that will be
+executed by the Windows Shell when opened because of the hidden
+CLSID in the file name.
+
+Currently, the only known CLSID that exploits this vulnerability
+is associated with the Windows Shell.  Yet, it may be possible
+for another CLSID to be discovered in the future that would be
+associated with a COM component that could be used for malicious
+purposes.
+
+--
+Affected Systems:
+	Windows NT Workstation/Server 4.0 SP6a
+	Windows NT Workstation/Server 4.0 SP6a with Active Desktop
+	Windows NT Server 4.0 Terminal Server Edition SP6
+	Windows 2000 SP2-SP4
+	Windows XP and XP SP1
+	Windows XP 64-Bit Edition SP1
+	Windows XP 64-Bit Edition Version 2003
+	Windows Server 2003
+	Windows Server 2003 64-Bit Edition
+
+--
+Attack Scenarios:
+An attacker can entice a user to visit a web server that
+will return a malicious file with a file name that contains
+a CLSID, perhaps enabling the execution of the malicious
+code when the file is opened.
+
+--
+Ease of Attack:
+Simple. Exploit code is publicly available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+CVE:
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0420
+
+Bugtraq:
+http://www.securityfocus.com/bid/9510
+
+Other:
+http://www.microsoft.com/technet/security/bulletin/ms04-024.mspx
+
+--

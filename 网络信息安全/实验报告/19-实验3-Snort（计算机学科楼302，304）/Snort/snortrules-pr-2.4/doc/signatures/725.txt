@@ -1,0 +1,91 @@
+Rule:
+
+--
+Sid:
+725
+
+
+--
+Summary:
+This event is generated when worm activity is detected. More specifcally
+this event indicates possible "My Romeo" propogation.
+
+--
+Impact:
+Serious. The victim host may be infected with a worm.
+
+--
+Detailed Information:
+This worm propogates via electronic mail and exploits a known
+vulnerability in the way that versions of Microsoft Outlook and Internet
+Explorer handle trusted HTML pages. The worm is launched via a compiled
+HTML file (.chm) which is used by Microsoft WIndows Help.
+
+The executable part of the worm is called from within the trusted
+compiled HTML file. The worm attempts to propagate using hard coded
+addresses of SMTP servers.
+
+This worm is also Known As: Romeo and Juliet, W32/Verona, TrojBlebla.A
+
+--
+Affected Systems:
+	Microsoft Windows 9x
+	Microsoft Windows 2000
+
+--
+Attack Scenarios:
+Symantec Anti-Virus center states that the worm arrives as an email
+message that has an HTML body and two attachments named Myjuliet.chm
+and Myromeo.exe. The subject of the email is selected at random from
+the following set:
+
+Romeo&Juliet
+hello world
+subject
+ble bla, bee
+I Love You ;)
+sorry...
+Hey you !
+Matrix has you...
+my picture
+from shake-beer
+
+--
+Ease of Attack:
+Simple. This is worm activity.
+
+--
+False Positives:
+Legitimate electronic mail containing the known subject lines used by
+MyRomeo may cause this rule to generate an event.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches and service packs.
+
+Use Anti-Virus software to detect and delete virus laden email.
+
+This worm makes changes to the system registry, removal of the affected
+registry keys should be done using an appropriate virus removal tool or
+by an experienced Windows administrator.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+McAfee
+http://vil.nai.com/vil/content/v_98894.htm
+
+Symantec Security Response
+http://securityresponse.symantec.com/avcenter/venc/data/w32.blebla.worm.html
+
+--

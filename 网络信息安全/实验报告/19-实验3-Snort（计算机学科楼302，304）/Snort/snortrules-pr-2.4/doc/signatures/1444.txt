@@ -1,0 +1,82 @@
+Rule:
+
+--
+
+Sid:
+1444
+
+--
+
+Summary
+This event is generated when a TFTP GET request is made.  This is an 
+indication that someone is attempting to download a file on the server.
+
+--
+
+Impact
+A TFTP GET requests allows a remote attacker to download files on the 
+TFTP server.  If the TFTP server allows anonymous TFTP GET requests it 
+is possible to download any of the published files on the server..
+
+--
+
+Detailed Information
+This rule will generate an event on in-bound TFTP GET requests.  A TFTP 
+GET request is generated when an attempt to download a file from the 
+server is initiated.
+
+--
+
+Attack Scenarios
+Attackers may use TFTP to upload and download files from server that are
+properly or improperly configured.  Normally attackers attempt to locate
+TFTP servers using automated scanners and tools.  Once a TFTP server is 
+located an attempt to write files and get files from the TFTP server is 
+made.  Depending on the results of those tests attackers may attempt to 
+further exploit that system, by overwriting system files or downloading 
+password files to access the system.
+
+Cisco ONS platforms allow unauthenticated access to files via TFTP. This
+event may be generated when an attempt is made to access files on a 
+Cisco device using TFTP.
+
+--
+Ease of Attack
+Simple: Numerous tools and automated scripts exist for scanning large
+subnets for improperly configured TFTP servers.
+
+--
+False Positives
+Legitimate TFTP GET requests for polling routers or other network
+devices may trigger this rule.  
+
+--
+False Negatives
+None known
+
+--
+Corrective Action
+The TFTP server should be configured to only allow GET requests from
+trusted locations.
+
+--
+Contributors
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski <Matt.Watchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+
+Additional References
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0183
+
+Arachnids:
+http://www.whitehats.com/info/IDS148
+
+Bugtraq:
+http://www.securityfocus.com/bid/9699
+
+--

@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+1973
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow vulnerability associated with ProFTP FTP server MKDIR command. 
+
+--
+Impact:
+Remote access.  A successful attack may permit the remote execution of arbitrary commands with privileges of the process running the ProFTP server. 
+
+--
+Detailed Information:
+A vulnerability exists with the MKDIR command that can cause a buffer overflow and permit the execution of arbitrary commands with the privileges of the process running the Pr oFTP server.  The buffer overflow can be caused by supplying an argument of greater than 255 characters designating the new directory name.  
+--
+Affected Systems:
+Hosts running ProFTP 1.2.0pre4 
+
+--
+Attack Scenarios:
+An attacker can supply an overly long file argument with the MKDIR command, causing a buffer overflow.
+
+--
+Ease of Attack:
+Simple.  Exploit code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0991
+
+Bugtraq:
+http://www.securityfocus.com/bid/612
+
+--

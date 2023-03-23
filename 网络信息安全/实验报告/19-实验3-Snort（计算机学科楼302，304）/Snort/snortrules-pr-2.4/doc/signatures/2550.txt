@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+2550
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow 
+associated with Winamp's processing of a .XM file module name.
+
+--
+Impact:
+A successful attack may permit a buffer overflow that allows the execution
+of arbitrary code at the privilege level of the user running Winamp.
+
+--
+Detailed Information:
+Winamp is a media file player for Windows developed by Nullsoft.  A buffer
+overflow exists because of insufficient bounds checking while parsing fields
+in a .XM file.  An overly long module name may cause the buffer overflow 
+permitting the execution of arbitrary code at the privilege level of the user 
+running Winamp.
+
+--
+Affected Systems:
+Winamp 2.x, 3.x, and 5.0-5.02
+
+--
+Attack Scenarios:
+An attacker can create and send a malformed .XM tracker name that may cause
+a buffer overflow and the subsequent execution of arbitrary code on the
+vulnerable host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+
+--
+Additional References
+
+Other:
+http://www.nextgenss.com/advisories/winampheap.txt
+
+--

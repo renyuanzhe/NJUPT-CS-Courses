@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+3626
+
+--
+Summary:
+This event is generated when an attempt is made to cause a denial of
+service against a host by causing it to send unnesessarily small packets.
+
+--
+Impact:
+A successful attack can cause a denial of service by convincing a host
+that it must send small packets to destination hosts.
+
+--
+Detailed Information:
+The ICMP path MTU message informs a host that the packet size it has
+sent must be fragmented and will be dropped unless it is reduced to the
+designated MTU. An attacker can send a spoofed ICMP path MTU message to
+a host causing it to send very small packets. The patch for this
+vulnerability causes the host to ignore any ICMP path MTU messages with
+a suggested MTU size less than 576.
+
+--
+Affected Systems:
+	Windows 98, 98 SE, ME
+	Windows 2000
+	Windows XP Service Pack 1
+	Windows XP Service Pack 2
+	Windows Server 2003
+
+--
+Attack Scenarios:
+An attacker can send spoofed ICMP path MTU messages to a host that
+contain unreasonably small MTU's to use when sending packets.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Other:
+http://www.microsoft.com/technet/security/bulletin/MS05-019.mspx
+--

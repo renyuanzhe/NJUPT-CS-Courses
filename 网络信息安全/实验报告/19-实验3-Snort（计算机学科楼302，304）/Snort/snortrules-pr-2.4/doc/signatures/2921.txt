@@ -1,0 +1,62 @@
+Rule: 
+
+--
+Sid: 
+2921
+
+-- 
+Summary: 
+This event is generated when an inverse query attempt is made using UDP.
+
+-- 
+
+Impact: 
+Possible execution of arbitrary code.
+
+--
+Detailed Information:
+Bind 8 contains a programming error that may present an attacker with
+the opportunity to execute code of their choosing on an affected server.
+
+The error occurs in the handling of malformed transactions. When using
+UDP this can result in the attacker causing a stack overflow in named.
+
+--
+Affected Systems:
+	Bind 8.
+
+--
+Attack Scenarios: 
+An attacker needs to send a specially crafted and malformed query to an
+affected server.
+
+-- 
+Ease of Attack: 
+Moderate.
+
+-- 
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+-- 
+Corrective Action: 
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+
+-- 
+Additional References:
+
+
+--

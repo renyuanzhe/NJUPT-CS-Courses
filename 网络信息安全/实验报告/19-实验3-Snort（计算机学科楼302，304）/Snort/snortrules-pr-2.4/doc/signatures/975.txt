@@ -1,0 +1,66 @@
+Should be obsolete when httpinspect is used
+Rule:
+
+--
+Sid:
+975
+
+--
+Summary:
+This event is generated when an attempt is made to access an Active Server Page (ASP) .asp file to disclose its contents. 
+
+--
+Impact:
+Intelligence gathering activity.  A vulnerability exists that discloses the .asp file contents when the file name is appended with "::$DATA".
+
+--
+Detailed Information:
+Microsoft Internet Information Service (IIS) uses Active Server Page to supply HTML and server-side scripting.  ASP files use a .asp extension.  When the file name is appended with "::$DATA", the contents of the file are disclosed instead of executing the .asp file.
+
+--
+Affected Systems:
+Hosts running IIS 3.0, IIS 4.0
+
+--
+Attack Scenarios:
+An attacker can attempt to reference a .asp file appended with "::$DATA" to see the contents of the file.  Sensitive information may by disclosed depending on the selected file. 
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to a more current version of IIS.
+ 
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft
+http://support.microsoft.com/default.aspx?scid=kb;EN-US;q188806
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0278
+
+Bugtraq
+http://www.securityfocus.com/bid/149
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10362
+
+--

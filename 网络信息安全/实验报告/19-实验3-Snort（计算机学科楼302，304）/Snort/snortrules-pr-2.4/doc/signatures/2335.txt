@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid: 
+2335
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in AppleShare IP FTP Server.
+
+--
+Impact:
+Denial of Service (DoS)
+
+--
+Detailed Information:
+FTP is used to transfer files between hosts. This event is indicative of spurious
+activity in FTP traffic between hosts.
+
+It is possible for a user to supply data to an FTP command, in this case
+RMD, and cause the service to become unavailble to other users.
+
+--
+Affected Systems:
+	Apple AppleShare IP 5.0, 5.0.1, 5.0.2, 5.0.3
+	Apple AppleShare IP 6.1, 6.2, 6.3, 6.3.1
+
+--
+Attack Scenarios:
+An attacker needs to login to the service and use the RMD command in a
+specific manner to cause the DoS.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+Disallow access to FTP resources from hosts external to the protected network.
+
+Use secure shell (ssh) to transfer files as a replacement for FTP.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <brian.caswell@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

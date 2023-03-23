@@ -1,0 +1,64 @@
+Rule:  
+
+--
+Sid:
+1538
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the Cassandra NNTP server.
+
+--
+Impact:
+Denial of Service (DoS) 
+
+--
+Detailed Information:
+A vulnerability exists in the Cassandra NNTP server for Windows such
+that an unusually long login name will cause a DoS condition to occur.
+This is due to an unchecked buffer in the code that handles login
+attempts. A login name that exceeds 10 000 characters will trigger the
+overflow.
+
+--
+Affected Systems:
+	Atrium Software Cassandra NNTP Server 1.10
+
+--
+Attack Scenarios:
+An attacker needs to supply a login username containing 10 000 or more
+characters to cause the DoS.
+
+--
+Ease of Attack:
+Simple. No exploit software is required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1156
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0341
+
+--

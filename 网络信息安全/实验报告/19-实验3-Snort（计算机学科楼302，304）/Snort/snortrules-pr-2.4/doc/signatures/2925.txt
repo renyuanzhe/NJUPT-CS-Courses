@@ -1,0 +1,68 @@
+Rule: 
+
+--
+Sid: 
+2925
+
+-- 
+Summary: 
+This event is generated when an image fitting the profile of a web bug
+has been detected in network traffic.
+
+-- 
+
+Impact: 
+Information disclosure.
+
+--
+Detailed Information:
+Web bugs are 1x1 pixel image files that are found in web pages or HTML
+email. These are often used to monitor and track a users activity on the
+web. Information such as the browsers IP address, cookie information,
+time, browser version and other user identifiable charateristics can be
+collected using web bugs.
+
+This rule identifies an image that conforms to the usual size and format
+of a web bug.
+
+--
+Affected Systems:
+	All.
+
+--
+Attack Scenarios: 
+An attacker can use this type of image in an HTML email or on a web
+page to gather information about the host and user. Since these images
+can be not only small but transparent, they are almost undetectable in
+HTML pages.
+
+-- 
+Ease of Attack: 
+Simple.
+
+-- 
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+-- 
+Corrective Action: 
+Disallow the use of HTML email
+
+Use a web proxy server to strip all web bug images from server
+responses.
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+2448
+
+--
+Summary:
+This event is generated when an attempt is made to access the file
+setinfo.hts on a machine using HP Web JetAdmin.
+--
+Impact:
+Remote execution of arbitrary code.
+
+--
+Detailed Information:
+HP Web JetAdmin is software used to remotely manage HP networked
+peripheral devices. It may also be used to manage non-HP products also.
+It may be possible for a remote user to execute code of their choosing
+using the web interface.
+
+This is due to insufficient checking of user supplied input in the file
+setinfo.hts.
+
+--
+Affected Systems:
+	HP Web JetAdmin 7.5
+
+--
+Attack Scenarios:
+An attacker can supply any code of their choosing directly to the script
+in question and manipulate any device being managed by the software.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References
+
+--

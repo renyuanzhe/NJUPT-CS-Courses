@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+1725
+
+--
+Summary:
+This event is generated when an attempt is made to disclose the contents of an Active Server Page (ASP) using a malformed HTR request. 
+
+--
+Impact:
+Information gathering.  Fragments of the source code of an ASP may be returned possibly disclosing sensitive information.
+
+--
+Detailed Information:
+HTR is an older scripting language still supported by Internet Information Service (IIS).  HTR requests are preocessed by ISM.DLL that improperly evaluates malformed HTR requests.  This may disclose parts of the source code associated with a .asp file referenced in the request. 
+
+--
+Affected Systems:
+
+Microsoft IIS 4.0, 5.0 
+
+--
+Attack Scenarios:
+An attacker can craft a malformed request to disclose source code possibly revealing sensitive information. 
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the patch referenced in the Microsoft link.
+
+Consider running the IIS Lockdown Tool to disable HTR functionality.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0063
+
+Bugtraq
+http://www.securityfocus.com/bid/1488
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/ms00-031.asp
+
+--

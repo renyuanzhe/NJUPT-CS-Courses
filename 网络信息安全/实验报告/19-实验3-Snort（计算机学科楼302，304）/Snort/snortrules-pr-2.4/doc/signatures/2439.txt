@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+2439
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Real Networks RealPlayer/RealOne player.
+
+--
+Impact:
+Serious. Execution of arbitrary code.
+
+--
+Detailed Information:
+RealNetworks RealPlayer/RealOne player is a streaming media player for
+Microsoft Windows, Apple Macintosh and UNIX/Linux based operating systems.
+
+A buffer overrun condition is present in some versions of the player
+that may present a remote attacker with the opportunity to execute code
+of their choosing on a client using one of these players.
+
+--
+Affected Systems:
+	Real Networks RealOne Desktop Manager
+	Real Networks RealOne Enterprise Desktop 6.0.11 .774
+	Real Networks RealOne Player 1.0
+	Real Networks RealOne Player 2.0
+	Real Networks RealOne Player 6.0.11 .868
+	Real Networks RealOne Player version 2.0 for Windows
+	Real Networks RealPlayer 8.0 Win32
+	Real Networks RealPlayer 8.0 Unix
+	Real Networks RealPlayer 8.0 Mac
+	Real Networks RealPlayer 10.0 BETA
+
+--
+Attack Scenarios:
+An attacker may supply a malformed file to the client to exploit the
+issue.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid: 305
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow condition in ElectroTechnical Laboratories Delegate proxy server.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to gain remote access to the victim host with the privileges of the root user.
+
+--
+Detailed Information:
+Numerous buffer overflow conditions exist in ElectroTechnical Laboratories Delegate proxy server. It is possible for a remote attacker to gain a root shell on the victim host.
+
+Affected Systems:
+	ETL Delegate 5.9.x
+	ETL Delegate 6.0.x
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original rule writer unkown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0165
+
+Bugtraq:
+http://www.securityfocus.com/bid/808
+
+--

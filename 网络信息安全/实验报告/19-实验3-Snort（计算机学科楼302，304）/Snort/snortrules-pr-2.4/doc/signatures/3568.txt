@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+3568
+
+--
+Summary:
+This rule should not generate an event.
+
+--
+Impact:
+Execution of arbitrary code leading to full administrator access of the 
+machine. Denial of Service (DoS).
+
+--
+Detailed Information:
+When an attempt is made to bind to the Microsoft Message Queuing (MSMQ)
+system over a network connection, this rule sets a flowbit parameter for
+use in other rules.
+
+A programming error in the MSMQ subsystem may present an attacker with
+the opportunity to overflow a fixed length buffer and execute code of
+their choosing on an affected host.
+
+This rule should not generate an event.
+
+--
+Affected Systems:
+	Windows 98 and 98SE
+	Windows 2000 sp 3 and sp 4
+	Windows XP
+
+--
+Attack Scenarios:
+
+--
+Ease of Attack:
+Simple. Expoit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Block access to RPC ports 135, 139 and 445 for both TCP and UDP 
+protocols from external sources using a packet filtering firewall.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

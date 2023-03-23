@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+1266
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) mountd is listening.
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port mountd is using.  Attackers can also learn what versions of the mountd protocol are accepted by mountd.
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as mountd run.  The mountd RPC service allows remote file system access through Network File System (NFS).  A vulnerability exists in the code that logs NFS mount activity that can cause a buffer overflow, allowing the execution of arbitrary code as root.
+
+--
+Affected Systems:
+Caldera OpenLinux Standard 1.2
+RedHat Linux 2.0, 2.1, 3.0.3, 4.0, 4.1, 4.2, 5.0, 5.1
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where mountd runs.  This may be a precursor to accessing mountd.
+
+--
+Ease of Attack:
+Simple.  Execute 'showmount -e host/IP'.
+
+--
+False Positives:
+If a legitimate remote user is allowed to access mountd, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for mountd, not probes of the mountd service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the mountd service itself. An attacker may attempt to go directly to the mountd port without querying the portmapper service, which would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/121
+
+CERT
+http://www.cert.org/advisories/CA-1998-12.html
+
+Arachnids 
+http://www.whitehats.com/info/IDS13
+
+
+--

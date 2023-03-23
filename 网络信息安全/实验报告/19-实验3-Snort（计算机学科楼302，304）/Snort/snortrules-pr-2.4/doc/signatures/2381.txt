@@ -1,0 +1,65 @@
+Rule:  
+
+--
+Sid:
+2381
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Checkpoint Firewall-1
+
+--
+Impact:
+Serious. Unauthorized administrative access to the firewall
+
+--
+Detailed Information:
+A vulnerability exists in Checkpoint Firewall-1 that may allow a remote
+attacker to gain control of the firewall. The issues lies in the
+handling of HTTP requests by the Security Server and Application
+Intelligence modules of the Firewall's administration console.
+
+By supplying a malformed scheme in a URI an attacker may present the
+attacker with the opportunity to send data of their choosing to the
+sprintf() system call.
+
+--
+Affected Systems:
+	Checkpoint Firewall-1
+	
+--
+Attack Scenarios:
+An attacker must supply specially crafted packets containing malformed
+URI schema with the data they wish to send to the sprintf() function.
+This may then present the attacker with administrative privileges on the
+server.
+
+--
+Ease of Attack:
+Moderate.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Disallow external access to the Firewall-1 administrative interface.
+
+Disable the Web interface to the firewall if possible
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

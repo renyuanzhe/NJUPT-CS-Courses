@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+1610
+
+--
+Summary:
+An attempt to access a script (formmail) in the cgi-bin which has known
+vulnerabilities.
+
+Formmail is a freely available perl script that is used to send data
+collected via a form to specified addresses.
+
+--
+Impact:
+Attempt to gain information about the web-server environment variables.
+Could also be an attempt to execute commands on the web-server that will
+execute with the privilege of the user owning the daemon running the
+server. The script may also be used to relay SPAM or to disclose the
+contents of files on the host.
+
+--
+Detailed Information:
+This could be an attempt to gain intelligence about the web-server that
+might be used to further exploit the machine. The environment variables
+of the web-server might be retrieved and sent via email to an address of
+the attackers choosing. More importantly this could be an attempt to
+execute commands on the web-server. Should this be successful, the
+commands would execute with the privileges of the user owning the httpd daemon.
+
+--
+Attack Scenarios:
+Formmail receives information from a form via an HTTP POST. This
+includes the email addresses to which the form data is sent. A URI in
+the form of a POST to the formmail script could be crafted to send
+environment variables to a specified email address.
+
+--
+Ease of Attack:
+Simple. Exploit software is not required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Web-servers should not be allowed to view or execute files and binaries
+outside of it's designated web root or cgi-bin. The web-server httpd
+daemon should be run as a non-privileged user without login access to
+the host. The formmail script should be updated to a non-vulnerable
+version as soon as possible.
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

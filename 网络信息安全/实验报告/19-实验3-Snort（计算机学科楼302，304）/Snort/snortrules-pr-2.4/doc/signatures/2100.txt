@@ -1,0 +1,123 @@
+Rule:
+
+--
+Sid: 2100
+
+--
+Summary:
+Subseven 2.1 Gold is a Trojan Horse offering complete control of the 
+infected host.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a 
+compromise of all resources the machine is connected to. This Trojan 
+also has the ability to delete data, steal passwords and disable the 
+machine. Other versions are capable of launching DDoS attacks.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+
+No other systems are affected. This is a windows executable that makes 
+changes to the system registry, Win.ini and System.ini. When first 
+executed the Trojan listens on either port 27374 or port 1243.
+
+Subseven is an improved version of the Netbus Trojan (see sids 114, 
+115), Subseven 2.1 Gold is an improved version of Subseven that 
+affects Windows 95 and 98 implementations.
+
+The Trojan changes system startup files and registry settings to add the
+Subseven server to programs normally started on boot.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This 
+compromise can be in the form of a Win32 installation program that may 
+use the extension ".jpg" or ".bmp" when delivered via e-mail for 
+example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised. 
+
+Updated virus definition files are essential in detecting this Trojan.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+This is a particularly difficult Trojan to remove and should only be 
+attempted by an experienced Windows Administrator.
+
+Edit the system registry to remove the extra keys or restore a 
+previously known good copy of the registry.
+
+Affected registry keys are:
+
+  HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+    HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices
+
+Registry key added:
+
+	Winloader
+
+Also affected:
+
+	HKEY_CLASSES_ROOT\exefile\shell\open\command
+
+This registry key should be blank, i.e. ""
+
+The registry should also be searched for the entry  
+
+  HKEY_CLASSES_ROOT\.dl 
+
+if this exists it should be deleted.
+
+This Trojan may also be started from the files win.ini and system.ini, 
+remove the entry run=MSREXE.exe and change the line 
+shell=Explorer.exe MSREXE.exe to the default value shell=explorer.exe.
+
+Removal of the Trojan is also required, look for the file "MSREXE.exe" 
+in the <drive>:\Windows\ or <drive>:\Windows\System\ folders.
+
+Additionally, the files "RUN.EXE", "WINDOS.EXE" or "MUEEXE.EXE" may also
+be present on the system and should be removed along with any references
+to them in the start up locations in the same manner as for MSREXE.exe.
+
+Note, these file names are the default ones and can be changed by the 
+attacker.
+
+A machine reboot is required to clear the existing process from running 
+in memory.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Hackfix
+http://www.hackfix.org/subseven/
+
+McAfee
+http://vil.mcafee.com/dispVirus.asp?virus_k=10566
+
+Dark-e:
+http://www.dark-e.com/archive/trojans/subseven/gold/index.shtml
+
+--

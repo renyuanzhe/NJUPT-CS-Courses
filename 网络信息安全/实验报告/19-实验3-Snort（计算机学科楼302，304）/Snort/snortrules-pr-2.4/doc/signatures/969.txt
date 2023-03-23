@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+969
+
+--
+Summary:
+This event is generated when an attempt is made to request a file by the HTTP LOCK method.
+
+--
+Impact:
+Denial of service.  Repeated successful attempts can consume all CPU resources subsequently crashing the victim server. 
+
+--
+Detailed Information:
+The WebDAV (Web Distributed Authoring and Versioning) component of Microsoft's Internet Information Services (IIS) provides extensions to the HTTP protocol allowing users to edit and manage files on the remote web server.  A specially crafted request processed by WebDAV can consume CPU resources on the web server host causing it to crash.
+
+--
+Affected Systems:
+Windows 2000 systems running IIS 5.0.
+
+--
+Attack Scenarios:
+An attacker can craft an HTTP request processed by WebDAV that exhausts CPU resources and causes the system to crash. 
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Consider using the IIS Lockdown Tool to disable WebDAV if it is not necessary.
+
+Download and install the appropriate patch mentioned in the Microsoft bulletin.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/2736
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/ms01-016.asp
+
+--

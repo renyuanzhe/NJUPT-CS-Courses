@@ -1,0 +1,54 @@
+Rule:
+
+--
+Sid:
+3448
+
+--
+Summary:
+This rule does not generate an event. It is used in conjunction with
+other rules to reduce the possibility of false postives from occuring.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+This rule does not generate an event. It is used in conjunction with
+other rules to reduce the possibility of false postives from occuring.
+
+--
+Affected Systems:
+	NA
+
+--
+Attack Scenarios:
+NA
+
+--
+Ease of Attack:
+NA
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+NA
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

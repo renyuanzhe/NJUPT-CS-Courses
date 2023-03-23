@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+1260
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in AOLServer.
+
+--
+Impact:
+Possible Denial of Service (DoS) and execution of arbitrary code.
+
+--
+Detailed Information:
+A vulnerability exists in versions of AOL Server that may allow an
+attacker to overflow a fixed length buffer and execute code of their
+choosing on a vulnerable host.
+
+The problem lies in the processing of user supplied passwords used in
+basic authentication to the host. A long password may exceed a fixed
+length buffer and allow an attacker to overwrite portions of memory and
+execute code of their choosing.
+
+--
+Affected Systems:
+	AOL AOLServer 3.0 and 3.2
+
+--
+Attack Scenarios:
+An attacker needs to supply a password 2048 bytes in length to trigger
+the overflow.
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-vulnerable version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

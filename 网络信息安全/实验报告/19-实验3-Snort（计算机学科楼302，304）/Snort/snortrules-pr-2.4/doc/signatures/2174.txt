@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+2176
+
+
+--
+Summary:
+This event is generated when an attempt is made to access a system
+file via SMB. 
+
+--
+Impact:
+Serious. This file contains important operating system information.
+
+--
+Detailed Information:
+This event indicates that an attempt was made to access a file
+containing important operating system information using SMB across the
+network.
+
+--
+Affected Systems:
+Microsoft Windows systems.
+
+--
+Attack Scenarios:
+If this file is accessible via SMB the attacker can manipulate the
+operating system registry settings.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the host for signs of system compromise.
+
+Turn off file and print sharing on the target host.
+
+Use a packet filtering firewall to disallow SMB access to the host from
+sources external to the protected network.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+Microsoft Technet
+http://support.microsoft.com/support/kb/articles/q153/1/83.asp
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0562
+Winreg
+http://www.rutherfurd.net/python/winreg/
+
+
+--

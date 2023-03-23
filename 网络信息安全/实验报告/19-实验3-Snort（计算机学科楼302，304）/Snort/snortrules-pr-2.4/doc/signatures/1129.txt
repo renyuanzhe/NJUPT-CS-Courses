@@ -1,0 +1,75 @@
+Rule:
+--
+Sid:
+1129
+--
+Summary:
+This event is generated when an attempt is made to access the file 
+".htaccess" from a web server.
+
+--
+Impact:
+If this request is successful, it could provide an attacker with 
+valuable information needed to compromise the website.
+
+--
+Detailed Information:
+Most UNIX based web servers, such as Apache and Netscape Enterprise 
+Server, use ".htaccess" files to customize security settings on a 
+per-directory level. These files can specify things like what users 
+have access to what resources, hosts that are allowed or denied, and 
+what type of authentication system to use.   This type of data would be 
+most useful for carrying out an attack on the site.   Fortunately, all 
+modern web servers deny client access to these files by default.
+
+--
+Affected Systems:
+Any system that uses ".htaccess" files and which have misconfigured the 
+server to allow client access to them.
+
+--
+Attack Scenarios:
+This is an information gathering operation which could facilitate an 
+attack.
+
+--
+Ease of Attack:
+It is simple to send a request for this file, but the request would only
+be successful if the file exists and the server allows access to it.
+
+--
+False Positives:
+While unlikely, certain web servers that are set up to host multiple 
+users' sites may allow access to this file by the site owners.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+First determine if the attack is successful by requesting the file 
+yourself. If the request is granted, ensure that your web server is 
+configured to deny access to all files that begin with ".ht".
+
+The default configuration for the Apache HTTP Server should include the 
+following section to prevent access to .ht files:
+
+<Files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+</Files>
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Kevin Peuhkurinen
+-- 
+Additional References:
+
+Webdeveloper.com
+http://www.webdeveloper.com/servers/servers_htaccess_magic.html
+
+--

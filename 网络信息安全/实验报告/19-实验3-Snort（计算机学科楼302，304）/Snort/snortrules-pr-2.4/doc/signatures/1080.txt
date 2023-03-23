@@ -1,0 +1,67 @@
+Rule:  
+--
+Sid:
+1080
+
+--
+
+Summary:
+This event is generated when an attempt is made to access the Unify eWave 
+ServletExec uploader servlet, which may lead to a web server compromise.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible.
+
+--
+Detailed Information:
+Unify eWave ServletExec is a webserver-based JSP and Java Servlet
+environment available for many popular web servers (e.g., Apache, Netscape
+web server, and IIS).  Versions of ServletExec before 3.0E contain a
+vulnerability in UploadServlet that could allow an attacker to upload
+arbitrary files, including executables used to compromise the web server.
+
+--
+Affected Systems:
+Unify eWave ServletExec versions before 3.0E. 
+
+--
+Attack Scenarios:
+Attacker sends a simple HTTP GET or POST like the following:
+GET http://target/servlet/com.unify.ewave.servletexec.UploadServlet HTTP/1.0
+
+The attacker could upload any arbitrary file onto the web server, including
+executable code that can then be used to compromise the web server.
+
+--
+Ease of Attack:
+Relatively simple handcrafted HTTP GET or POST.
+
+--
+False Positives:
+It is possible that legitimate web administrators could use UploadServlet.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Examine the packet to see if a web request was being done.  Try to
+determine if the request was by a legitimate web admin or not.
+Determine from the web server's configuration whether it was a threat or not
+(e.g., whether the web server even runs ServletExec, and if so whether
+it was running a vulnerable version).
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Alex Kirk <alex.kirk@sourcefire.com>
+
+--
+Additional References:
+
+--

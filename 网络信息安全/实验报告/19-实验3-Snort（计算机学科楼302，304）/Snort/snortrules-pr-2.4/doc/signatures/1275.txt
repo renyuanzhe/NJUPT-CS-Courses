@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1275
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) yppasswd is listening.
+
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port yppasswd is using.  Attackers can also learn what versions of the yppasswd protocol are accepted by yppasswd. 
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as yppasswd run.  The yppasswd RPC service handles password change requests from the program yppasswd.  This program is used to change a user password in Network Information Service (NIS) environments where a centralized database exists to distribute passwords throughout a network.  Multiple vulnerabilities are associated with the yppasswd RPC program.
+
+--
+Affected Systems:
+All hosts running the UNIX portmapper.
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where yppasswd runs.  This may be a precursor to querying yppasswd for usage statistics.
+
+--
+Ease of Attack:
+Easy.  
+
+--
+False Positives:
+If a legitimate remote user is allowed to access yppasswd, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for yppasswd, not probes of the yppasswd service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the yppasswd service itself. An attacker may attempt to go directly to the yppasswd port without querying the portmapper service, which would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS14
+
+
+--

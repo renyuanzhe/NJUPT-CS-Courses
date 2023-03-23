@@ -1,0 +1,64 @@
+Rule:
+--
+Sid:
+246
+
+--
+Summary:
+This event is generated when an mstream agent responds to an mstream handler's "ping" request.
+
+--
+Impact:
+Severe.  If the listed source IP is in your network, it may be an mstream agent.  If the listed destination IP is in your network, it may be an mstream agent.
+
+--
+Detailed Information:
+The mstream DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack.  There are "handler" hosts that are used to coordinate the attacks and "agent" hosts that launch the attack.  A handler can probe to see if an agent is active by sending it a UDP packet to destination port 10498 with a string of "ping" in the payload.  An active agent will reply with a UDP packet to destination port 6838 with a string of "pong" in payload.
+
+--
+Affected Systems:
+Any mstream compromised host.
+
+--
+Attack Scenarios:
+A mstream agent may respond with a "pong" to a "ping" request from a handler. 
+
+--
+Ease of Attack:
+Simple. mstream code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+There are other known agent-to-handler ports in addition to 6838.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+NAI:
+http://vil.nai.com/vil/content/v_98662.htm
+SecurityFocus:
+http://www.securityfocus.com/archive/82/58040
+CERT:
+http://www.cert.org/incident_notes/IN-2000-05.html
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0138
+
+--

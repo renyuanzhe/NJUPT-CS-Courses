@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+3192
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a host via a
+vulnerability in Windows Media Player.
+
+--
+Impact:
+Serious. Code execution leading to unauthorized administrative access
+to the target host.
+
+--
+Detailed Information:
+A directory traversal vulnerability in Windows Media Player can be
+exploited via a malicious skin file downloaded from a remote machine.
+This may allow an attacker to execute code of their choosing on an
+affected host and gain administrative access to that host.
+
+--
+Affected Systems:
+	Microsoft Windows Media Player 7.1
+	Windows Media Player for Windows XP
+
+--
+Attack Scenarios:
+An attacker can create a malformed skin file and make it available for
+automatic download and installation by a user.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+
+--
+Additional References:
+
+--

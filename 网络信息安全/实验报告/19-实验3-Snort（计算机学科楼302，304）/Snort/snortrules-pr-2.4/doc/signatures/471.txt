@@ -1,0 +1,68 @@
+Rule:
+
+--
+
+Sid:
+471
+
+--
+
+Summary:
+This event is generated when Icmpenum v1.1.1 generates an ICMP datagram.
+
+--
+
+Impact:
+ICMP echo requests are used to determine if a host is running at a
+specific IP address.  A remote attacker can scan a large range of hosts
+using ICMP echo requests to determine what hosts are operational on the
+network.
+
+--
+
+Detailed Information:
+Icmpenum v1.1.1 generates an ICMP Type 0 datagram with an ICMP ID of 666, an ICMP
+sequence number of 0, and an ICMP datagram size of 0.  
+
+--
+
+Attack Scenarios:
+A remote attacker might scan a large range of hosts using ICMP echo
+requests to determine what hosts are operational on the network.
+
+--
+
+Ease of Attack:
+Simple.  Packet generation tools can generate this type of ICMP packet
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+Packet generation tools can generate ICMP Echo requests with
+user-defined payloads that emulate this application.
+
+--
+
+Corrective Action:
+To prevent information gathering, use ingress filtering to block
+incoming ICMP Type 8 Code 0 traffic.
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+http://www.whitehats.com/info/IDS450
+
+
+--

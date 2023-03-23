@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+2485
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow 
+associated with Norton Internet Security 2004 AntiSpam feature.
+
+--
+Impact:
+A successful attack may permit a buffer overflow that allows the
+execution of arbitrary code in the context of LOCAL_SYSTEM.
+
+--
+Detailed Information:
+Norton Internet Security 2004 provides desktop security for Windows hosts.
+A buffer overflow exists in a module associated with the AntiSpam feature of 
+Norton Internet Security. This is an ActiveX module that has been labeled
+"safe for scripting" allowing it to be accessed and run via a client's
+web browser on a host running a vulnerable version of Norton Internet
+Security 2004. If an attacker can entice a user on a vulnerable host to
+a malicious web server, it is possible to invoke the faulty ActiveX
+component.  This may cause a buffer overflow and the execution of arbitrary
+code in the context of LOCAL_SYSTEM.
+
+--
+Affected Systems:
+Norton Internet Security 2004, Norton Internet Security Pro 2004 versions before 7.0.3.8
+
+--
+Attack Scenarios:
+An attacker can entice a user on a vulnerable host to a malicious web
+page and execute the faulty ActiveX component, possibly causing
+a buffer overflow and the subsequent execution of arbitrary code on the
+vulnerable host.
+
+-- Ease of Attack:
+Difficult unless exploit code becomes available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell<bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Bugtraq:
+http://security.focus.com/bid/9916
+
+--

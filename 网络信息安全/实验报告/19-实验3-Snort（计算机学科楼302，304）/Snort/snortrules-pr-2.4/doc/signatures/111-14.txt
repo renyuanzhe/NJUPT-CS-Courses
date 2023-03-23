@@ -1,0 +1,58 @@
+Rule: 
+
+--
+Sid: 
+111-14
+
+-- 
+Summary: 
+This event is generated when the pre-processor stream4
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. This may indicate an attempt to evade an IDS.
+
+--
+Detailed Information:
+This event indicates that the pre-processor stream4 has detected forward
+overlapping packets that may indicate an attempt is being made to evade
+detection by an IDS.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios: 
+An attacker can attempt to hide malicious payload data by sending
+fragmented packets that overlap.
+
+-- 
+Ease of Attack: 
+Simple. Tools such as fragroute contain this functionality.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+Corrective Action:
+Check the target host for signs of compromise.
+
+Ensure the system is up to date with any appropriate vendor supplied patches.
+
+--
+Contributors:
+Martin Roesch <roesch@sourcefire.com>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+
+1800
+
+--
+Summary:
+This event is generated when an incoming email containing the Klez worm is detected.
+
+--
+Impact:
+System compromise and further infection of target hosts.
+
+--
+Detailed Information:
+W32/Klez.h@MM exploits the vulnerability in Microsoft Internet Explorer (ver 5.01 or 5.5 without SP2), enabling it to execute email attachments.
+
+Once executed, it can unload several processes including Anti-virus programs.
+
+The worm is able to propagate over the network by copying itself to network shares (assuming sufficient permissions exist). Target filenames are chosen randomly, and can have single or double file extensions.
+
+--
+Affected Systems:
+	Microsoft Internet Explorer (ver 5.01 or 5.5 without SP2)
+
+--
+Attack Scenarios:
+This virus can be considered a blended threat. It mass-mails itself to email addresses found on the local system, then exploits a known vulnerability, spreads via network shares, infects executables on the local system.
+
+--
+Ease of Attack:
+Simple. This is worm activity.
+
+--
+False Positives:
+Certain binary file email attachments can trigger this alert.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor suppled patches.
+
+Block incoming attachments with .bat, .exe, .pif, and .scr extensions 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+Symantec:
+http://securityresponse.symantec.com/avcenter/venc/data/w32.klez.h@mm.html
+
+--

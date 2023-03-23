@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+1922
+
+--
+Summary:
+This event is generated when an attempt is made to forward a Remote Procedure Call (RPC) request through the portmapper service.
+
+--
+Impact:
+Information disclosure.  This can detect and request RPC services offered.
+
+--
+Detailed Information:
+The RPC "callit" procedure allows the portmapper to act as a proxy to forward requests to other RPC services offered by the host. This allows an attacker to call an RPC service on the same host without knowing the port number associated with the RPC service.    
+
+--
+Affected Systems:
+All hosts running portmapper.
+
+--
+Attack Scenarios:
+An attacker can use the portmapper proxy to circumvent any required authentication when sending requests to the actual port associated with an RPC service.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+According to RFC 1057, this proxy feature supports broadcasts to RPC services using the well-known portmapper port.  Legitimate hosts may attempt to use the proxy feature.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines.
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+RFC:
+http://www.ietf.org/rfc/rfc1057.txt
+
+
+--

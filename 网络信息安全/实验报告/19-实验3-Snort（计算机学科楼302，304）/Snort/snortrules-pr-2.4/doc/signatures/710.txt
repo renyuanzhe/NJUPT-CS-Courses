@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid:
+710
+
+--
+Summary:
+This event is generated after an attempted login to a telnet server 
+using the username OutOfBox.
+
+--
+Impact:
+Unauthorized remote access.
+
+--
+Detailed Information:
+Some SGI machines are shipped with an easy setup group of scripts to
+assist the user when setting up the host. This group of programs is
+called EZsetup and may install some passwordless default accounts on the 
+machine.
+
+This event is generated when an attempt is made to login to a server
+using the username OutOfBox via Telnet. This is a default account on some
+SGI based machines. The password may also be OutOfBox or it may not have
+a password assigned.
+
+Repeated events from this rule may indicate a determined effort to guess
+the password for this account.
+
+--
+Affected Systems:
+	SGI Telnet servers.
+
+--
+Attack Scenarios:
+An attacker may attempt to connect to a telnet server using the username
+OutOfBox.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable the OutOfBox account.
+
+Choose the most secure options when using EZsetup.
+
+Use ssh as an alternative to Telnet
+
+Block inbound telnet access if it is not required.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

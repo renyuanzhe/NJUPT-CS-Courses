@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+952
+
+--
+
+Summary:
+This event is generated when an attempt is made to use a Frontpage 
+client to connect and/or publish content to a web server with Frontpage 
+Server Extensions-enabled. 
+
+--
+
+Impact:
+An attacker can modify web content, access privileged files or modify 
+other users' privileges on the Frontpage-enabled virtual host.
+
+--
+
+Detailed Information:
+Microsoft Frontpage is a web-content managing and publishing 
+application, which also comes with server extensions for Microsoft IIS 
+and Apache web servers. The extensions enable the servers to display 
+dynamic content, as well as perform certain levels of web-server 
+administration.
+
+--
+
+Affected Systems:
+All systems running FPSE.
+
+--
+
+Attack Scenarios:
+An attacker can gain the FPSE username and password via sniffing, social
+engineering or brute force guessing. After successfully logging on to 
+the system, the attacker can alter web contents, modify login 
+information for other users and generally control the web server.
+
+--
+
+Ease of Attack:
+After gaining the login credentials the attack is trivial. 
+
+--
+
+False Positives:
+If FrontPage authoring is allowed from resources external to the 
+protected network this rule will generate an event.
+
+--
+
+False Negatives:
+Not known.
+
+--
+
+Corrective Action:
+Disable FPSE if it is not needed for web-content management.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Chaos <c@aufbix.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2144
+
+--

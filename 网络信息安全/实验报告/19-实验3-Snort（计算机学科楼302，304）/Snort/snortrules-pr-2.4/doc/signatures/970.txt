@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+1283
+
+--
+Summary:
+This event is generated when an attempt is made to cause a denial of service of WWW Publishing Service and IIS Administration software.
+
+--
+Impact:
+Denial of service.  This attack may cause a vulnerable server to stop.
+
+--
+Detailed Information:
+Outlook Web Access (OWA) is an optional feature of Microsoft Exchange Server that allows a user to access mail through a web interface supported by Internet Information Services (IIS).  A denial of service of the support software WWW Publishing service and IIS Administration can occur when a user enters a long string of '%' characters in the Log On field in OWA and enters these characcters in the username and password field received in the NT challenge dialog.
+
+--
+Affected Systems:
+Microsoft Exchange Server 5.5 and Microsoft Exchange Server 5.5 SP1, SP2, SP3, SP4
+
+--
+Attack Scenarios:
+An attacker can enter a long string of '%' characters in OWA Log On and challenge fields to cause a denial of service against a vulnerable server.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the most current version of Microsoft Exchange Server.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/3223
+
+--

@@ -1,0 +1,61 @@
+Rule:  
+
+--
+Sid:
+1271
+
+--
+Summary:
+This event is generated when an attempt is made to probe a host for the
+rusers RPC service.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+The rusers RPC service is used to remotely list all logged in users on a
+machine. This information may be useful to an attacker when targeting a
+remote host.
+
+--
+Affected Systems:
+	All systems running the rusers RPC service
+ 
+--
+Attack Scenarios:
+An attacker runs a vulnerability assessment tool, or the standard Unix
+rusers command.  The attacker may use information gleaned from this to
+better target his attacks.
+
+--
+Ease of Attack:
+Simple. Tools to probe the rusers service come standard with most Unix variants.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable the rusers service.
+
+Disallow access to RPC services from hosts external to the protected
+network
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+2991
+
+--
+Summary:
+This event is generated when an attempt is made to bind to the winreg
+service.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to bind to the RPC
+service for winreg.
+
+--
+Affected Systems:
+	Windows systems
+
+--
+Attack Scenarios:
+An attacker may attempt to bind to the service to manipulate host
+settings.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Block access to RPC ports 135, 139 and 445 for both TCP and UDP 
+protocols from external sources using a packet filtering firewall.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+Microsoft Technet
+http://support.microsoft.com/support/kb/articles/q153/1/83.asp
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0562
+Winreg
+http://www.rutherfurd.net/python/winreg/
+
+--

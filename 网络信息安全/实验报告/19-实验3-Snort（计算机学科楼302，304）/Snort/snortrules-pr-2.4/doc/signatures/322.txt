@@ -1,0 +1,70 @@
+Rule:   
+
+--
+Sid: 322
+
+-- 
+Summary: 
+This event is genrated when an attempt is made to query the finger daemon to ascertain a list of usernames on a system.
+
+-- 
+
+Impact: 
+Information gatthering, the attacker may obtain the list of some accounts existing on the victim system as a prelude to further compromize.
+
+--
+Detailed Information:
+
+The rule is triggerred when an attempt to use a search feature in
+"cfingerd" version of a finger daemon is attempted. The search feature
+allows the attacker to obtain the lists of accounts existing on the
+target system by issuing a specially crafted finger request to
+"search" for information. Knowing the list of accounts might
+facilitate a password guessing attacks, email attacks or other abuse.
+
+--
+
+Attack Scenarios: an attacker learns that "guest" account exists and
+has never been used. He then guesses that the password for this
+account and logs in to the system remotely using telnet.
+
+-- 
+
+Ease of Attack: 
+Simple, no exploit software required
+
+-- 
+
+False Positives:
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+
+Corrective Action: 
+Look for other IDS events involving the same IP addresses. 
+
+Look for suspicious logins to the affected system.
+
+Disable the finger daemon or apply a vendor patch that removes the vulnerability
+
+--
+Contributors: 
+Original rule writer Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS375
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0259
+
+--

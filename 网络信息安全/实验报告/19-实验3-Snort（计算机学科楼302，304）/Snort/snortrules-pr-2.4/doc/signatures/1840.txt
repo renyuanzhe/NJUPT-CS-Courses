@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+1840
+
+--
+Summary:
+This event is generated when a client on the protected network has 
+possibly visited a website containing malicious javascript code.
+
+--
+Impact:
+Minimal
+
+--
+Detailed Information:
+Implementations of Javascript in multiple browsers on multiple platforms
+contain an error that may lead to a user inadvertantly running
+Javascript code of an attackers choosing. IP address lookup for a fully
+qualified domain name is not performed when choosing whether Javascript 
+should be executed, if the hostname is served from a DNS server
+controlled by the attacker it may be possible for the attacker to run
+code of their choosing. 
+
+--
+Affected Systems:
+	Multiple browsers on multiple platforms.
+
+--
+Attack Scenarios:
+An attacker might try to fool a user into clicking a link in an email
+that points at an intranet server. The attacker is then able to run
+Javascript from a secondary host purporting to be the intranet server.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives: 
+None known
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com> 
+
+-- 
+Additional References:
+
+--

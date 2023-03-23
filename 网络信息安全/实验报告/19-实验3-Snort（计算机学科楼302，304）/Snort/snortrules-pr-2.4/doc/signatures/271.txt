@@ -1,0 +1,67 @@
+Rule:  
+--
+Sid:
+271
+
+--
+Summary:
+This event is generated when an attempt is made to issue a Denial of
+Service attack against a host or network by generating traffic between 
+your udp echo port and their udp chargen port.
+
+--
+Impact:
+Potential Denial of service (DoS) condition for the target host, hosts
+between the target host and the attacker, and more.
+
+--
+Detailed Information:
+Traffic was detected between the udp echo port on a host on the
+protected network and the udp chargen (character generator) service.  
+Due to the connectionless nature of udp, a single packet from the udp chargen
+service to a listening udp echo service will result in mass quantities
+of traffic back and forth between the two services.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+An attacker will find a host that still provides the udp chargen service
+and generate traffic between it and the udp echo service on a machine.
+If proper ingress/egress filtering is not in place, this traffic can be 
+trivially spoofed provided the attacker has elevated privledges on the 
+attacking/initiating machine (the source port being less than 1024).
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable the chargen service unless it is absolutely needed, and apply
+ingress and egress filtering.
+
+Additionally, disable the udp echo service.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Jon Hart <warchild@spoofed.org>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+
+--

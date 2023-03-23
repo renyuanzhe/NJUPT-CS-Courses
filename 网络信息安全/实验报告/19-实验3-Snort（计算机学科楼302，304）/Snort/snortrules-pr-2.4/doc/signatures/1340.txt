@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1340
+
+--
+Summary:
+Attempted tfp command access via web
+
+--
+Impact:
+Possible attempt to gain information using the Trivial File Transfer
+Protocol (tfp) to  access sensitive files on a webserver. It is also
+possible that an  attempt is being made to remotely boot or reboot a
+device using  tfp.
+
+--
+Detailed Information:
+This is an attempt to gain intelligence from sensitive system files on a
+webserver.  Tftp is a variation of the File Transfer Protocol that can
+be used to  transfer files from one host to another, one feature it has
+is that it  can be used to boot or reboot various network devices
+without authentication  being needed. The attacker could possibly gain
+information needed  for other attacks on the system, including the
+retrieval of password  files.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains 'tfp' in the
+URI which can  then return requested files to an external server.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries
+outside  of it's designated web root or cgi-bin. This command may also
+be requested  on a command line should the attacker gain access to the
+machine.  Non-essential binaries should be removed from a webserver once
+it is in  production.
+--
+Contributors:
+Sourcefire Research Team
+
+-- 
+Additional References:
+
+CERT
+http://www.cert.org/advisories/CA-1990-02.html
+
+--

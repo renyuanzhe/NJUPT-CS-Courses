@@ -1,0 +1,112 @@
+Rule:
+
+--
+Sid:
+121
+
+--
+Summary:
+Infector is a Trojan Horse.
+
+--
+Impact:
+Possible theft of data via download, upload of files, execution of files
+and reboot the targeted machine.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+
+The Trojan changes system registry settings to add the Infector sever to
+programs normally started on boot. Due to the nature of this Trojan it 
+is unlikely that the attacker's client IP address has been spoofed.
+
+	SID	Message
+	---	-------
+	117	Infector 1.x
+	120	Infector 1.6 Server to Client
+	121	Infector 1.6 Client to Server Connection Request
+
+This Trojan is commonly used to install other Trojan programs.
+
+The Trojan also makes changes to the system registry and win.ini file.
+
+Notification of an active server is achieved via IRC or ICQ.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This 
+event is indicative of an existing infection being activated. Initial 
+compromise can be in the form of a Win32 installation program that may 
+use the extension ".jpg" or ".bmp" when delivered via e-mail for 
+example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised. 
+Updated virus definition files are essential in detecting this Trojan.
+
+The Trojan server is located at <drive>:\WINDOWS\Apxil32.exe a backup 
+copy is made and usually named D3x32.drv.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Edit the system registry to remove the extra keys or restore a 
+previously known good copy of the registry.
+
+Affected registry keys are:
+
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices
+
+Registry keys added are:
+
+	apxil32 = apxil32.exe
+
+Removal of this entry is required.
+
+Delete the file <drive>:\WINDOWS\Apxil32.exe
+
+Ending the Trojan process is also necessary. A reboot of the infected 
+machine is recommended.
+
+A change is also made to the win.ini file, the line run=apxil32.exe 
+apxil32.exe is added and should be deleted.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS315
+http://www.whitehats.com/info/IDS502
+http://www.whitehats.com/info/IDS503
+
+Diamond Computer Systems Security Advisory
+http://www.diamondcs.com.au/web/alerts/infector.htm
+
+Megasecurity:
+http://www.megasecurity.org/trojans/i/infector/Infector_all.html
+
+Simovits:
+http://www.simovits.com/trojans/tr_data/y1627.html
+
+--

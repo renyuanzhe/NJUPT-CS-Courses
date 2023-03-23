@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+1855
+
+--
+Summary:
+This event is generated when activity indicating the presence of a
+variant of the Stacheldraht DDOS tool is detected.
+
+--
+Impact:
+Distributed Denial of Service (DDoS) is possible.
+
+--
+Detailed Information:
+Stracheldraht is a Distributed denial of service tool normally found on
+Sun Solaris machines. It is made up of a Client, handler and agent. The
+clients connects to the handler. Handlers can connect with up to 1000
+agents. Communication between the client and the handler is conducted
+using tcp and the communication between the handler and the agent can be
+either tcp or icmp_echoreply. This rule detects the a message sent from
+the agent to the handler. This message is used to tell the handler that
+the machine is still alive and able to take requests. The handler will
+then reply with the string "ficken". This traffic differs from the
+traffic described on
+http://staff.washington.edu/dittrich/misc/stacheldraht.analysis because the
+packets have an icmp id of 6666 rather than 666 as noted in the analysis.
+
+--
+Affected Systems:
+	Sun Solaris
+ 
+--
+Attack Scenarios:
+The agent can be used to mount a distributed denial of service attack. It
+also indicates that a machine is compromised.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+The icmp id along with the keywords may be changed in the
+source code which would then evade this rule.
+
+--
+Corrective Action:
+Disconnect power from the machine and perform forensic analysis on the
+hard drives.
+
+--
+Contributors:
+Snort documentation contributed by Ian Macdonald
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

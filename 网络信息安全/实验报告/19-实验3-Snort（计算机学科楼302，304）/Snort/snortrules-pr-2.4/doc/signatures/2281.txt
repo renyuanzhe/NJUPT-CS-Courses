@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+2281
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the PHP web application MediaWiki running on a server.
+
+--
+Impact:
+Possible execution of arbitrary code and unauthorized administrative
+access to the target system.
+
+--
+Detailed Information:
+This event indicates that an attempt may have been made to exploit a
+known vulnerability in the PHP application MediaWiki . This application
+does not perform stringent checks when handling user input, this may 
+lead to the attacker being able to execute PHP code and include php files 
+of the attackers choosing.
+
+--
+Affected Systems:
+	MediaWiki MediaWiki-stable 20031107
+	MediaWiki MediaWiki-stable 20030829
+
+--
+Attack Scenarios:
+An attacker can exploit weaknesses to gain access as the administrator 
+by supplying input of their choosing to the underlying PHP script.
+
+--
+Ease of Attack:
+Simple. No exploit code is required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

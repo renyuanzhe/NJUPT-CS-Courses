@@ -1,0 +1,55 @@
+Rule:  
+
+--
+Sid:
+2349
+
+--
+Summary:
+This event is generated when an attempt is made to enumerate the printer
+service on a system using DCE RPC.
+
+--
+Impact:
+Intelligence gathering.
+
+--
+Detailed Information:
+This rule checks for an attempt to enumerate a print spool service using DCE RPC. 
+This may be an attempt to check for printer and printer services available on a
+host.
+
+--
+Affected Systems:
+	All Microsoft DCE RPC enabled systems
+	
+--
+Attack Scenarios:
+An attacker may identify the print service being used and exploit that
+information in further attacks against the system.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

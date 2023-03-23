@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid:
+252
+
+--
+Summary:
+This event is generated when an attempt is made to send an inverse query
+to a DNS server. This could indicate a future attack.
+
+--
+Impact:
+Intelligence gathering. This is just an attempt to see if the DNS server
+responds to such a query.
+
+--
+Detailed Information:
+Certain versions of BIND fail to propery bound data recieved when 
+handling an inverse query. Upon being copied to memory, portions of the 
+program can be overwritten and arbitrary commands can be run on the 
+affected host.
+
+--
+Affected Systems:
+	BIND pre 8.1.2 / 4.9.8
+
+--
+Attack Scenarios:
+An attacker can send the reverse query and if the server responds the 
+attacker might then proceed to exploit the flaw in Bind.
+
+--
+Ease of Attack:
+Simple. Exploit code is available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade BIND.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+RFC:
+http://www.rfc-editor.org/rfc/rfc1035.txt
+
+Bugtraq:
+http://www.securityfocus.com/bid/134
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0009
+
+Arachnids:
+http://www.whitehats.com/info/IDS277 
+
+--

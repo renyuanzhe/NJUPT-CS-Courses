@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+1251
+
+--
+
+Summary:
+This event is generated when an unsuccessful telnet login attempt 
+was detected.
+
+--
+
+Impact:
+Serious. Possible unauthorized access.
+
+--
+
+Detailed Information:
+A user tried to log on to a system via telnet, but has been rejected, 
+either due to invalid username, password, or both. This could mean 
+someone is trying to log on without a proper password (if there are 
+multiple unsuccessful logins) or they may have just mistyped the 
+username or the password.
+
+A large number of these events may indicate an attempt to access the 
+system using a brute force method of guessing usernames and passwords.
+
+--
+
+Affected Systems:
+Machines running telnet servers.
+
+--
+
+Attack Scenarios:
+Attacker brute-forces passwords for a known username via a script or 
+application.
+
+--
+
+Ease of Attack:
+Simple.
+
+--
+
+False Positives:
+A user may have mistyped their password.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Check how many invalid attempts occurred, change the password of the 
+user that tried to log in.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Chaos <c@aufbix.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+
+Additional References:
+
+--

@@ -1,0 +1,67 @@
+Rule:
+
+--
+
+Sid:
+1921
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability associated with the GlFtpd ZIPCHK command that may permit
+the execution of arbitrary commands with the privileges of the process
+running GlFtpd.
+
+--
+Impact:
+Remote access.  A successful attack may permit the execution of
+arbitrary commands with the privileges of GlFtpd on the vulnerable
+server.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a
+vulnerability associated with the ZIPCHK command of the GlFtpd server. 
+GlFtpd provides FTP software for UNIX hosts.  The ZIPCHK command
+supplies integrity checking of a downloaded ZIP file.  The file name
+supplied with the ZIPCHK is not scrutinized to determine if it is a
+valid name.  An attacker can supply a UNIX command with the character
+";" in the argument to the ZIPCHK command, causing the execution of the
+command with the privileges of the process running GlFtpd.
+
+--
+Affected Systems:
+	GlFtpd 1.17.2. 
+
+--
+Attack Scenarios:
+An attacker can remotely execute arbitrary commands on the vulnerable
+server.
+
+--
+Ease of Attack:
+Simple. Exploits code exists.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

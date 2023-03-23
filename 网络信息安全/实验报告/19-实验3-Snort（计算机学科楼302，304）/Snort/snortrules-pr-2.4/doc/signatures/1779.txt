@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+1779
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a directory traversal vulnerability associated with the Shambala FTP server. 
+
+--
+Impact:
+Information disclosure.  A successful attack may permit the navigation of directories and the viewing of files. 
+
+--
+Detailed Information:
+The Shambala FTP server may be susceptible an a directory traversal attack that permits the navigation and viewing of files in directories other than the intended FTP server's root directory. This exploit is conducted by executing the FTP command "CWD ..." or "cd ...".  This may possibly permit the identification and the viewing of files containing sensitive information.
+
+--
+Affected Systems:
+Shambala 4.5 FTP server running on Windows 95, 98, NT, and Windows 2000.
+
+--
+Attack Scenarios:
+An attacker may attempt to exploit this vulnerability to identify and view files on the vulnerable FTP server. 
+
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version or restrict anonymous FTP user access by assigning appropriate file permissions.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Miscellaneous:
+http://www.securiteam.com/windowsntfocus/5SP011P4KC.html
+
+--

@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+361
+
+--
+Summary:
+This event is generated when a remote user executes the SITE EXEC command in a session with an internal FTP server. This may indicate an attempt to exploit a vulnerability in the SITE EXEC command in wu-ftpd version 2.4.1.
+
+--
+Impact:
+Arbitrary code execution, leading to remote root compromise. The attacker must have a valid, non-anonymous FTP account on the server to attempt this exploit. 
+
+--
+Detailed Information:
+A misconfiguration in the pathnames.h configuration file in wu-ftpd 2.4.1 allows users to execute commands from /bin instead of ~username/bin. An attacker with a valid FTP account on the server can exploit this vulnerability to execute arbitrary shell code using the SITE EXEC command.
+
+--
+Affected Systems:
+Servers running Washington University wu-ftpd version 2.4.1 or earlier.
+
+--
+Attack Scenarios:
+An attacker logs into the system using a valid FTP account, and then executes arbitrary shell code to obtain root access to the server.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+If a legitimate remote user uses the SITE EXEC command, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to a later version of the wu-ftp daemon.
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0080
+
+CERT
+http://www.cert.org/advisories/CA-1995-16.html
+
+--

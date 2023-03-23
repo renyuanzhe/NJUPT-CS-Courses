@@ -1,0 +1,70 @@
+Rule: 
+
+--
+Sid: 
+119-2
+
+-- 
+Summary: 
+This event is generated when the pre-processor http_inspect
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. This may be an attempt to evade an IDS.
+
+--
+Detailed Information:
+This event is generated when double encoded characters are detected in
+web traffic. This is abnormal behavior and may be an indicator of a
+possible attack against a vulnerable system.
+
+This may also be an attempt to evade IDS.
+
+--
+Affected Systems:
+	Microsoft IIS Servers.
+
+--
+Attack Scenarios: 
+An attacker might double encode the request to the web server, this may
+then evade an IDS monitoring traffic and could then launch a successful
+attack without being detected.
+
+-- 
+Ease of Attack: 
+Simple. Exploits exist.
+
+-- 
+
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software
+
+Use Apache.
+
+--
+Contributors:
+Daniel Roelker <droelker@sourcefire.com> 
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+HTTP IDS Evasions Revisited - Daniel Roelker
+http://docs.idsresearch.org/http_ids_evasions.pdf
+
+--

@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+2070
+
+--
+Summary:
+made.
+
+--
+Impact:
+Code execution and possible control of the target machine
+
+--
+Detailed Information:
+Alibaba is a web server that runs on Windows platforms. An error in the 
+cgi script post32.exe allows piped commands to be processed on the 
+server.
+
+--
+Affected Systems:
+Computer Software Manufaktur Alibaba 2.0
+	Microsoft Windows 2000 Workstation
+	Microsoft Windows 95
+	Microsoft Windows 98
+	Microsoft Windows NT 4.0
+   
+--
+Attack Scenarios:
+The attacker merely needs to make an http request to the script using a 
+pipe command at the end of the URI to execute any command he chooses.
+
+For example, http://www.foo.com/cgi-bin/post32.exe|dir%20c:\
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade Alibaba to the latest non vulnerable version if available.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1485
+
+--

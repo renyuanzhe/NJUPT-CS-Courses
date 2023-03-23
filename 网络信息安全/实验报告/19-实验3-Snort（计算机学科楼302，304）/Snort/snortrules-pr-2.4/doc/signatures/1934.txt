@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1936
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow condition in the Post Office Protocol (POP) command FOLD.
+
+--
+Impact:
+Possible remote execution of arbitrary code leading to a remote root 
+compromise.
+
+--
+Detailed Information:
+A vulnerability exists such that an attacker may overflow a buffer by 
+sending data where a line feed character should occur to a POP server 
+via the FOLD command.
+
+The FOLD command allows the user to specify a mail folder to select.  By
+specifying a very large argument, the user can exploit the buffer overflow
+condition.
+
+--
+Affected Systems
+	POP Servers
+
+--
+Attack Scenarios:
+Simple. An attacker can supply specially crafted packets to a POP server
+via the FOLD function. 
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Ricky Macatee <ricky.macatee@sourcefire.com>
+
+--
+Additional References:
+
+--

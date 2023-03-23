@@ -1,0 +1,78 @@
+Rule:  
+--
+Sid:
+649
+--
+Summary:
+Shellcode to set the group identity to 0 (root) was detected.
+
+--
+Impact:
+If this code is executed successfully, it is possible for the current
+process to inherity root group privledges.  
+
+
+--
+Detailed Information:
+Snort detected data resembling the x86 assembly code to change the
+group identity to 0.  
+
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+As part of an attack on a remote service, an attacker may attempt to
+take advantage of insecure coding practices and execute code of his or
+her choosing through techniques known as 'buffer-overflows',
+'format-strings' and others.  Such attacks may contain code to change
+the identity of the current group to that of the root group (setgid
+0).  
+
+--
+Ease of Attack:
+Non-trivial.  Shellcode (and just x86 assembly code in general)
+requires a fairly intimate knowledge of computer architecture, memory
+structures, and many concepts that are part of the more arcane areas
+of computing.  Furthermore, if this was in fact an attack, the
+attacker needs to have a good idea of the design of the both the
+program and the system that he or she is attacking. The x86 setgid
+call itself is not particularly difficult, and by itself is not
+harmful.  However, combined with other carefuly aimed shellcode, it
+can be quite lethal.
+
+--
+False Positives:
+Fairly high.  Large binary transfers, certain web traffic, and even
+mail traffic can trigger this rule, but are not necessarily indicative
+of actual setgid code.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Determine what stream of traffic generated this particular alert.  If
+you only have the alert but not the entire packet, examine system for
+pecularities.  If you are smart and have the entire packet (or better
+yet, all your traffic for the past n hours), attempt to determine if
+this particular sequence of characters was part of an innocent stream
+of data (large binary transfers, for example) or part of a malicious
+act against your machine.  In either case, check for other activity
+from the host in question -- both currently collected traffic and
+traffic in the future.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Jon Hart <warchild@spoofed.org>
+
+-- 
+Additional References:
+
+--

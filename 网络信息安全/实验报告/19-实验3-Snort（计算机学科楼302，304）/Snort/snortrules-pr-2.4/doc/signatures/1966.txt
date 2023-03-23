@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1966
+
+--
+Summary:
+This event is generated when an attempt is made to discover sensitive information associated with a Global Sun Technology wireless access point. 
+
+--
+Impact:
+Information disclosure.  A successful attack may return the administrative password along with other sensitive information about a wireless access point. 
+
+--
+Detailed Information:
+Global Sun Technology Inc. is a developer of Wireless Access Points for wireless vendors such as Wisecom, D-Link, as well as others.  There is a flaw in the code distributed by Global Sun Technology that allows an attacker to send a packet to UDP port 27155 with a string of "gstsearch" in the payload to the wireless access point, returning the Wired Equivalent Privacy (WEP) encryption keys, the MAC adress, and the administrative password. 
+
+--
+Affected Systems:
+
+  WISECOM GL2422AP-0T
+  D-Link DWL-900AP+ B1 version 2.1 and 2.2
+  ALLOY GL-2422AP-S
+  EUSSO GL2422-AP
+  LINKSYS WAP11-V2.2
+  DI-614+ Firmware version 2.03
+
+--
+Attack Scenarios:
+An attacker may use this exploit to obtain valuable information about the administration of the access point as a precursor for attempting to take control and administer the access point. 
+
+--
+Ease of Attack:
+Simple. Exploit code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the most current version of firmware for the access point.
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/6100
+
+
+--

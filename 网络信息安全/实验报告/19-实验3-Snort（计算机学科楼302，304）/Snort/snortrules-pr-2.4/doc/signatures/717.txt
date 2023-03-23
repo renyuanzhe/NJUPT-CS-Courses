@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+717
+
+--
+Summary:
+This event is generated when a failed remote telnet connection occurs using the root account.
+
+--
+Impact:
+Failed root access.  This event indicates that an attacker tried an failed to connect to a telnet server using the root account.
+
+
+--
+Detailed Information:
+Telnet servers can be configured to disallow connections using the root account.  If root privileges are required, the root user must log on to the telnet server's console directly.  A failed telnet connection using the root account will generate an error message. 
+
+--
+Affected Systems:
+Telnet servers.
+
+--
+Attack Scenarios:
+An attacker may attempt to log on to a telnet server using the root account.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+
+Disable root logins using telnet.
+
+Consider using Secure Shell instead of telnet.
+
+Block inbound telnet access if it is not required.
+
+--
+Contributors:
+Original rule written by Ron Gula<rgula@tenablesecurity.com>
+Documented by Steven Alexander<alexander.s@mccd.edu>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS365
+
+--

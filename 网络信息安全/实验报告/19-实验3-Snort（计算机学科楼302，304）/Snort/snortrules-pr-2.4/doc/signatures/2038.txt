@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+2038
+
+--
+Summary:
+Network Status Monitor (NSM) is used to indicate wether a host is up or 
+for its status.
+
+--
+Impact:
+Intelligence gathering about the current state of a host and wether rpc 
+services are available.
+
+--
+Detailed Information:
+NSM runs on client machines and informs other hosts of the status of 
+that machine should a crash or reboot occur. Each remote application 
+using an rpc service can therefore register with the host when services 
+are once again available.
+
+A request made to a machine will indicate to the attacker the status of 
+that host and will also be indicative of rpc services being available. 
+The attacker might then continue to ascertain which rpc services are 
+being offered and then launch an attack on vulnerable daemons.
+
+--
+Affected Systems:
+Any system running the service.
+
+--
+Attack Scenarios:
+An attacker merely needs to request the status of the host using rpc.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow all RPC requests from external sources and use a firewall to 
+block access to RPC ports from outside the LAN.
+
+Use the hosts.allow file to restrict the hosts able to request the 
+status of the server.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Network Status Monitor Protocol, The Open Group:
+http://www.opengroup.org/onlinepubs/009629799/chap11.htm
+
+--

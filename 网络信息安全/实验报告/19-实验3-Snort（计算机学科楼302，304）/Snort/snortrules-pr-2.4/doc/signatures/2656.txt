@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+2656
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with Netscape Network Security Services (NSS) message parsing.
+
+--
+Impact:
+A successful attack can cause a heap overflow and the subsequent execution
+of arbitrary code on a vulnerable server.
+
+--
+Detailed Information:
+A vulnerability exists in the way NSS parses a client connect SSLv2 message
+that can cause a heap overflow and the subsequent execution of arbitrary code
+on a vulnerable server.  This can occur when an overly long challenge length
+and accompanying data are supplied in a Client Hello message.
+
+--
+Affected Systems:
+Netscape Enterprise Webserver all versions
+Netscape Personalization Engine all versions
+Nescape Directory Server all versions
+Netscape Certificate Management Server all versions
+Sun One/iPlanet all versions
+
+--
+Attack Scenarios:
+An attacker can send a Client Hello message with an overly long challenge
+length and data, causing a heap overflow on a vulnerable server.
+
+--
+Ease of Attack:
+Difficult.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+
+--
+Additional References:
+
+--

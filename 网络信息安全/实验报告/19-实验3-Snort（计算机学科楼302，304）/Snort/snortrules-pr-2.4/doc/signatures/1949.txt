@@ -1,0 +1,54 @@
+Rule:
+
+--
+Sid:
+1949
+
+--
+Summary:
+This event is generated when an attempt is made to register a Remote Procedure Call (RPC) program to the portmapper.  RPC is a facility that enables a machine to request a service from another remote machine. This is done without the need for detailed network information. Some versions of RPC have a vulnerability that allows a remote host to register applications from a spoofed source. 
+
+ -- 
+Impact:
+Attempted remote access.  This may be an attempt to maliciously register a program with the portmapper.
+
+--
+Detailed Information:
+Certain versions of rpcbind portmapper contain a flaw that can allow an attacker capable of spoofing TCP packets to register arbitrary RPC programs. It is possible for the attacker to gain root access depending on the RPC service registered.  
+
+-- 
+Affected Systems: 
+All machines running vulnerable RPC services.
+
+--
+Attack Scenarios:
+The attacker could potentially spoof TCP packets using pmap_set to register an RPC service. 
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines.
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule writer Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+
+--

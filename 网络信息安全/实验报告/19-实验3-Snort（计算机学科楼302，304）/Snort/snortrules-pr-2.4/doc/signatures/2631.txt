@@ -1,0 +1,73 @@
+Rule:
+
+--
+Sid:
+2631
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in a Oracle database implementation.
+
+--
+Impact:
+Serious. Execution of arbitrary code may be possible. A Denial of
+Service (DoS) condition may also be caused.
+
+--
+Detailed Information:
+Oracle databases may use a built-in procedure to assist in database
+replication. The "refresh_mview_repgroup" procedure contains a
+programming error that may allow an attacker to execute a buffer
+overflow attack.
+
+This overflow is triggered by a long string in a parameter for the
+procedure.
+
+If you are running Oracle on a Windows server, make sure that the
+variable $ORACLE_PORTS is set to a value of "any".
+
+--
+Affected Systems:
+        Oracle 9i
+
+--
+Attack Scenarios:
+An attacker can supply a long string to the "gowner" variable to cause
+the overflow. The result could permit the attacker to gain escalated
+privileges and run code of their choosing. This attack requires an
+attacker to logon to the database with a valid username and password
+combination.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Other:
+http://www.appsecinc.com/Policy/PolicyCheck90.html
+
+--

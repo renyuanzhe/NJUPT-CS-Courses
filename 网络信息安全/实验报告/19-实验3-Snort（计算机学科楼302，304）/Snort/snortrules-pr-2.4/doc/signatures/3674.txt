@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+3674
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability in the application server DB4Web.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to exploit a weakness
+in the application server DB4Web. Specifically, a directory traversal
+attempt has been made in a connection to the server.
+
+The attacker may be trying to gain information on the DB4Web implementation
+on the host, this may be the prelude to an attack against that host
+using that information.
+
+--
+Affected Systems:
+	DB4Web
+
+--
+Attack Scenarios:
+An attacker can retrieve a sensitive file containing information on the
+the host. The attacker might then gain administrator access to the host
+or execute arbitrary code.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

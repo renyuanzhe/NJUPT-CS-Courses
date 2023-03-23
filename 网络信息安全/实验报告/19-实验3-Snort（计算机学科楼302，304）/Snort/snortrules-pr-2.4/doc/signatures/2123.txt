@@ -1,0 +1,53 @@
+Rule:
+
+--
+Sid: 2123
+
+
+--
+Summary:
+This event is generated when a Windows cmd.exe banner is detected in a TCP session. 
+
+--
+Impact:
+Remote access.
+
+--
+Detailed Information:
+This event indicates that a Windows cmd.exe banner has been detected in a TCP session. This indicates that someone has the ability to spawn a DOS command shell prompt over TCP.
+
+--
+Affected Systems:
+Windows operating systems.
+
+--
+Attack Scenarios:
+An attacker could be utilizing a backdoor to spawn a DOS command shell thus gaining access to the operating system and all data on the host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

@@ -1,0 +1,81 @@
+Rule:
+
+--
+Sid:
+1408
+
+--
+Summary:
+This event is generated when a TCP packet having a large payload was
+detected. This is a possible indication of an actual or impending denial
+of service attack against a host running the Microsoft Distributed
+Transaction Service Coordinator (MSDTC).
+
+--
+Impact:
+Denial of Service (DoS)
+
+--
+Detailed Information:
+MSDTC is used in a distributed or clustered environment for distributed
+transaction processing on Microsoft operating systems,
+
+A vulnerability exists in the handling of large amounts of data sent to
+the MSDTC process listening on port 3372. A packet in excess of 1023
+bytes will cause the service to become unresponsive, a packet in excess
+of 2000 bytes may cause the entire system to become unresponsive.
+
+--
+Affected Systems:
+	Microsoft IIS 5.0
+	Microsoft SQL Server 6.5 throught 2000
+	Microsoft Windows 2000 Advanced Server
+	Microsoft Windows 2000 Datacenter Server
+	Microsoft Windows 2000 Server
+	Microsoft Windows 2000 Professional
+ 
+--
+Attack Scenarios:
+An attacker needs to generate a packet with a payload in excess of 1023
+bytes and send it to port 3372 of an affected system.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+Linux FTP servers and clients frequently transfer TCP packets having a 
+payload size larger than 1023 bytes. To distinguish a false positive, 
+determine whether MSDTC is running on the indicated destination source and 
+port.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+To manage the vulnerability, configure the system not to autmatically start 
+the MSDTC (Source: Security Operations Guide for Windows 2000 Server). 
+Alternatively, configure firewall rules to limit access to the service. To 
+eliminate false positives, revise the Snort rule to specify IP addresses of 
+only those hosts actually running the service.
+
+--
+Contributors:
+Snort documentation contributed by bmccarty@apu.edu
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Security Tracker:
+http://www.securitytracker.com/alerts/2002/Feb/1003415.html
+
+Microsoft:
+http://www.microsoft.com/TechNet/security/tools/iis4cl.asp
+http://www.microsoft.com/TechNet/archive/transsrv/mtxpg03.asp
+http://www.microsoft.com/TechNet/prodtechnol/sql/maintain/featusability/c08ppcsq.asp

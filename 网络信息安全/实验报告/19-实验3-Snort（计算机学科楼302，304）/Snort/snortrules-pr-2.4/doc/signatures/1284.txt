@@ -1,0 +1,70 @@
+Rule:  
+
+Sid:
+1284
+
+--
+
+Summary:
+This event is generated when an attempt is made to download a
+Nimda-infected attachment from a web server.
+
+--
+Impact:
+Serious. A Nimda-infected web server may have spread the Nimda worm to the web
+client.
+
+--
+Detailed Information:
+One of the methods the Nimda worm uses to propagate is by passing malicious
+code from an infected web server to a web client.  The Nimda-infected
+code often uses the filename extension ".EML".
+
+The fully automated Nimda worm that has already infected an IIS web server
+searches through and infects the local web pages with malicious javascript.
+When a vulnerable web client attempts to load a web page from this server,
+the javascript will cause the web client to download and execute the
+Nimda-infected readme.eml file, causing the web client to become
+Nimda-infected.
+
+--
+Affected Systems:
+	Microsoft Windows based systems.
+
+--
+Attack Scenarios:
+The user must use a link on an infected server.
+
+--
+Ease of Attack:
+Simple. This is worm activity.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+The Nimda worm may spread via any file with the .EML or .NWS extension, not
+just readme.eml.  This rule will not catch other .EML or .NWS files.
+
+--
+Corrective Action:
+Examine the host for signs of infection.
+
+Use Anti-Virus tools to clean an infected host.
+
+Consider the use of alternative operating systems that are not
+vulnerable to this kind of attack.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+--

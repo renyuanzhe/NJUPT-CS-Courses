@@ -1,0 +1,85 @@
+Rule:
+
+--
+Sid:
+2034
+
+--
+Summary:
+A request has been made to rpc.ypserv from an external source that 
+should not have access to this service. This may be indicative of an 
+intelligence gathering activity as a prelude to a more serious 
+compromise of system resources.
+
+service against the target host.
+
+--
+Impact:
+Disclosure of sensitive system information to an unauthorized user. 
+Possible denial of service.
+
+--
+Detailed Information:
+The rpc.ypserv daemon queries information in the local NIS maps. A 
+response to this query may divulge important information to the user 
+performing the query. This could lead to futher exploitation of 
+resources on the network.
+
+In addition, a vulnerability exists in ypserv on some Linux platforms 
+that could lead to a buffer overflow and root compromise of the target 
+host. This is achieved by making a multitude of requests for a NIS map 
+that does not exist.
+
+--
+Affected Systems:
+Multiple systems running versions of ypserv prior to 2.5.
+
+--
+Attack Scenarios:
+The attacker can craft a malicious request to rpc.ypserv such that 
+valuable information can be returned to the attacker.
+
+In the case of a buffer overflow, the attacker might issue a large 
+therefore, be seen many times.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow all RPC requests from external sources and use a firewall to 
+block access to RPC ports from outside the LAN.
+
+Upgrade ypserv to the latest version.
+
+Use /var/yp/securenets to list the hosts allowed to access this resource
+where appropriate.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/6016
+http://www.securityfocus.com/bid/5914
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-1232
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-1043
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-1042
+
+--

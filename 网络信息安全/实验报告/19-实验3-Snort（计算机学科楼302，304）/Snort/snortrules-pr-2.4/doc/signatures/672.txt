@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+672
+
+--
+Summary:
+This event is generated when a remote user attempts to scan for a vulnerability in the VRFY command on internal SMTP servers.
+
+--
+Impact:
+Information gathering, possibly leading to a future attack and system compromise. 
+
+--
+Detailed Information:
+If the decode alias on the Sendmail server is enabled, an attacker may be able to send messages to the decode alias email address, creating or overwriting files on the server. Vulnerability scanners use the "vrfy decode" command to verify that a decode alias is enabled.
+
+--
+Affected Systems:
+Systems running Sendmail.
+
+--
+Attack Scenarios:
+An attacker scans the server to determine that the decode alias exists. The attacker then sends an email address to the decode alias on the server, with directives to overwrite or create files on the server. 
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable the decode alias by commenting out the "decode |/usr/bin/uudecode" line in your Sendmail aliases file.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0096
+
+--

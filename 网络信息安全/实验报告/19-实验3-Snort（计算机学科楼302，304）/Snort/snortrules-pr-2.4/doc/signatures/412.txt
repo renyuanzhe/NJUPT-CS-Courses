@@ -1,0 +1,60 @@
+Rule:
+
+--
+
+Sid:
+412
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP IPV6 I-Am-Here datagram with an undefined ICMP code.
+
+--
+
+Impact:
+ICMP Type 34 datagrams are not expected network traffic.  Hosts generating ICMP Type 34 datagrams should be investigated for hostile activity.
+
+--
+
+Detailed Information:
+ICMP Type 34 is an undocumented extension to RFC 1812 and RFC 792.  Its current use it not defined by an approved RFC.  
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Hosts generating ICMP Type 34 datagrams should be investigated for hostile activity.
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

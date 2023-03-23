@@ -1,0 +1,61 @@
+Nigel - added new references to the rule and bumped up revision number.
+Rule:
+
+--
+Sid:
+1867
+
+--
+Summary:
+This event is generated when a remote user attempts to query the X Display Manager Control Protocol (XDMCP).
+
+--
+Impact:
+Reconnaissance.  An attacker may obtain a list of usernames on the remote host.
+
+--
+Detailed Information:
+The KDE Display Manager (KDM) provides a network protocol XDMCP to supply a graphical login screen.  It is possible to use this protocol to list the users on the remote host running XDMCP.  This provides reconnaissance and may be a precursor of attempting a brute force password attack of the revealed usernames.
+
+--
+Affected Systems:
+Any host running XDMCP.
+
+--
+Attack Scenarios:
+An attacker may obtain a list of current usernames on the remote host as a precursor of attempting a brute force attack to guess passwords of those users.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Block inbound XDMCP traffic.
+
+Disable XDMCP as a listening service on the remote host unless it is required.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS476
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10891
+
+--

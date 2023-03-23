@@ -1,0 +1,79 @@
+Rule: 
+
+--
+Sid: 
+119-15
+
+-- 
+Summary: 
+This event is generated when the pre-processor http_inspect
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. This may indicate an attempt to evade an IDS.
+
+--
+Detailed Information:
+This event is generated when the http_inspect pre-processor detects a
+request for a URL that is longer than a specified length. This may
+indicate an attack or an attempt to evade an IDS.
+
+Lotus Domino Server Web servers are reported prone to a Denial of
+Service condition when a long request is made to the server using
+unicode characters. The http_inspect pre-processor will generate this
+event should a Domino server be attacked in this way.
+
+Specifically, when a request is made to /cgi-bin/ with approximately 330
+unicode characters appended to the URL, the webserver will crash and a
+DoS condition will be evident.
+
+The maximum expected length of the URL is user configured.
+
+--
+Affected Systems:
+	All web servers
+	Lotus Domino 6.5.1 and 6.0.3
+
+--
+Attack Scenarios: 
+An attacker may supply an over-long URI in an attempt to evade an IDS or
+in a possible attack against a web server.
+
+-- 
+Ease of Attack: 
+Simple.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Daniel Roelker <droelker@sourcefire.com> 
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+HTTP IDS Evasions Revisited - Daniel Roelker
+http://docs.idsresearch.org/http_ids_evasions.pdf
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=224&type=vulnerabilities
+
+--

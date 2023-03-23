@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid: 2133
+
+
+--
+Summary:
+This event is generated when an attempt is made to access a Microsoft Biztalk Server application from sources external to the protected network. 
+
+--
+Impact:
+Arbitrary code execution and possible administrator access to the target host.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to access a Biztalk Server application. A buffer overrun exists in Biztalk that may lead to an attacker gaining the ability to execute arbitrary code on the host with the privileges of the user running the IIS webserver.
+
+The flaw exists in the HTTP Receiver functionality of Biztalk and this is not enabled by default.
+
+--
+Affected Systems:
+Any host using Microsoft Biztalk.
+
+--
+Attack Scenarios:
+An attacker would need to supply an overly long HTTP POST request to biztalkhttpreceive.dll.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Disable the HTTP Receive functionality.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/7469
+http://www.securityfocus.com/bid/7470
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0117
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0118
+
+Microsoft:
+http://www.microsoft.com/technet/security/bulletin/ms03-016.asp
+
+--

@@ -1,0 +1,64 @@
+Rule:  
+
+--
+Sid:
+2379
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Checkpoint VPN-1.
+
+--
+Impact:
+Unauthorized administrative access to Checkpoint VPN-1 systems
+
+--
+Detailed Information:
+Checkpoint VPN-1, SecuRemote and SecureClient contain an error that
+affects the processing of large Certificate requests to the VPN service.
+By sending a large amount of data in the Certificate Request payload an
+attacker may cause a buffer overflow condition to occur, presenting an
+opportunity to execute code of their choosing with the privileges of the
+user running the service, usually root.
+
+--
+Affected Systems:
+	CheckPoint Software FW-1 1.4.1 Service packs prior to SP6
+	CheckPoint Software FW-1 Next Generation FP1, FP0
+	CheckPoint Software VPN-1 1.4.1 SP5a
+	CheckPoint Software VPN-1 Next Generation FP1, FP0
+
+--
+Attack Scenarios:
+An attacker could supply a large Certificate Request payload containing
+code to be executed on the system.
+
+--
+Ease of Attack:
+Proof of concept code exists.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software
+
+Apply the appropriate vendor supplied patches
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

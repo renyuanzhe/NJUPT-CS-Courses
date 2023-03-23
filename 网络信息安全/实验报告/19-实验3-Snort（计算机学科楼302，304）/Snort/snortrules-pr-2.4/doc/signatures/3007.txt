@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+3007
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow
+associated with the DELETE command of the IPSwitch IMail IMAP service.
+
+--
+Impact:
+A successful attack may cause a denial of service or a buffer overflow and the
+subsequent execution of arbitrary code on a vulnerable server.
+
+--
+Detailed Information:
+A vulnerability exists in the way that the IPSwitch IMail IMAP service
+handles a DELETE command.  An excessively long user-supplied mailbox name
+to be deleted can trigger a denial of service or a buffer overflow and the
+subsequent execution of arbitrary code on a vulnerable server.
+
+--
+Affected Systems:
+	IPSwitch IMail IMAP4 server 8.13
+
+--
+Attack Scenarios:
+An attacker can supply an overly long mailbox name for deletion, possibly causing
+denial of service or a buffer overflow.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

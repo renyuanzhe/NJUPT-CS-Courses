@@ -1,0 +1,61 @@
+Comment - move to deleted rules - applies to IIS 1.0 and decode/inspect should now find this.
+Rule:
+
+
+--
+Sid:
+974
+
+--
+Summary:
+This event is generated when an attempt is made to peform a denial of service against Internet Information Service (IIS) 1.0 hosts. 
+
+--
+Impact:
+Denial of service.  This attack may cause an IIS 1.0 server to crash.
+
+--
+Detailed Information:
+IIS 1.0 servers are vulnerable to a denial of service attack when a malformed request containing "..\.." is sent to the server.  The service must be restarted to restore functionality.
+
+--
+Affected Systems:
+IIS 1.0 Servers
+
+--
+Attack Scenarios:
+An attacker can send a malformed request to a vulnerable IIS server to cause a denial of service. 
+
+--
+Ease of Attack:
+Simple.  Send a request similar to this:  GET ..\.. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to a more current version of IIS.
+ 
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0229
+
+Bugtraq:
+http://www.securityfocus.com/bid/2218
+
+--

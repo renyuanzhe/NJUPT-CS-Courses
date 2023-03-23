@@ -1,0 +1,58 @@
+Rule:  
+
+--
+Sid:
+1526
+
+--
+Summary:
+This event is generated when an attempt is made to access the file sendmail.inc on a webserver running Basilix webmail.
+
+--
+Impact:
+Medium - Password disclosure: Depending if the attacker can use this login credentials to authenticate directly to a mysql database. Many Sun Cobalt Linux servers use Basilix webmail
+
+--
+Detailed Information:
+A webserver usually sends files in the webroot to an anonymous user without further processing. PHP scripts often include files (which contains configuration variables / functions etc.) that are not stored using a suffix that prevents the webserver sending them in clear text. ".inc" and ".class" suffix are not a handled by CGI properly and the file "sendmail.inc" is sent to the attacker. /inc/mysql.class can also be accessed and this would lead to a mysql user/password disclosure.
+
+Basilix is a webmail PHP script. Features are nice but it has some vulnerabilities (old versions).
+
+An attacker can access sendmail.inc file to obtain MySQL login and use it for further attacks.
+
+--
+Attack Scenarios:
+An attacker gets mysql.class containing database login credentials. If the webserver is shared by multiple users, the attacker which is also user for instance, can connect to the database server using the login provided by mysql.class file and modify the database. Often the password doesn't differ from FTP login, HTTP user authentication, etc. because the authentication is centralised by the OS.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+Sendmail.inc file doesn't exist or is handled by CGI which results probably in no output when an attacker tries to access the file.
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Update Basilix script (www.basilix.org)
+
+Check files which contain php code for a suffix that is handled by the webserver CGI, else the webserver sends this file plaintext to an attacker
+
+Workaround: register .inc and .class in the same way .php or .php3  .php4 are registered.
+Note: .class is used by java applets usually
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Additional Snort documentation contributed by unknown
+
+-- 
+Additional References:
+
+--

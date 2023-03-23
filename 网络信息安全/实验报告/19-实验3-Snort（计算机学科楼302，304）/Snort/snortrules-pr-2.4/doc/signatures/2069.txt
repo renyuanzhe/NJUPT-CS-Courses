@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+2069
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in devices using the IPC@CHIP from Beck IPC GmbH.
+
+--
+Impact:
+Information disclosure
+
+--
+Detailed Information:
+The IPC@CHIP from Beck IPC GmbH is used in network appliances for use in
+controlling those devices via a web interface.
+
+The embedded webserver uses the system root as its default webserver 
+root directory. This means an attacker can request any file on the 
+system by making an http request for the file.
+
+--
+Affected Systems:
+All devices using this chip.
+
+--
+Attack Scenarios:
+The attacker needs to craft a special URI including chip.ini with a 
+request for a file on the system.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Network devices using this chip should be closely monitored, access to 
+the embedded webserver should be carefully controlled using a firewall 
+or disabled where possible.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2775
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0749
+
+--

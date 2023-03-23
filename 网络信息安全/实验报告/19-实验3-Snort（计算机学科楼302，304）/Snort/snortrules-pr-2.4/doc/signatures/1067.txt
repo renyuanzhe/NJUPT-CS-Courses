@@ -1,0 +1,54 @@
+Rule:  
+
+--
+Sid:
+1067
+
+--
+Summary:
+This event is generated when the NET command is used for message sending, remote null session connections etc.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+An attacker tried to access the "net" command on a host.
+
+The Windows "net" command is usually not accessible through a webserver, check for possible directory traversal attacks.
+
+Net cannot be used to gain full control of a host, but can establish null sessions on weakly protected Windows hosts for example or to gain information on the network the host is connected to.
+
+--
+Attack Scenarios:
+A web request for the command "net".
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+A valid URL request containing the string "net.exe" can generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Protect "net.exe" from remote usage. Remove the file completly if it is 
+not needed.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+
+-- 
+Additional References:
+
+--

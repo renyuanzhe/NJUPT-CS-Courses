@@ -1,0 +1,59 @@
+Rule:
+--
+Sid:
+230
+
+--
+Summary:
+This event is generated when a DDoS Shaft client communicates with a Shaft handler.  It is also possible that this event may be generated when any host attempts to discover or detect a Shaft handler.
+
+--
+Impact:
+Attempted DDoS. If the listed source IP is in your network, it may be a Shaft client or a host attempting to discover Shaft handlers.  If the listed destination IP is in your network, it may be a Shaft handler.
+
+--
+Detailed Information:
+The Shaft DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack. At the highest level, clients communicate with handlers to direct them to launch attacks.  A client may communicate with a handler via TCP destination port 20432.
+
+--
+Affected Systems:
+Any Shaft compromised host.
+
+--
+Attack Scenarios:
+A Shaft client needs to communicate with handlers to direct attacks.
+
+--
+Ease of Attack:
+Simple. Shaft code is freely available.
+
+--
+False Positives:
+A legitimate server port of 20432 will cause this rule to fire.  It may also create a false positive if port 20432 is selected as an FTP data port.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS254
+
+--

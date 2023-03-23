@@ -1,0 +1,57 @@
+Rule:  
+
+--
+Sid:
+1601
+
+--
+Summary:
+This event is generated when an attempt is made to read a file on a host using a well known vulnerability in htdig.
+
+--
+Impact:
+Severe. Unauthorized file access
+
+--
+Detailed Information:
+Some versions of htdig allow inclusions to be made from configuration files as a parameter to the htsearch function. Any file can be included by enclosing it in single quotes ('foo').
+
+Using this vulnerability, any single quoted input string (`....`) is included as an index file by htsearch. This allows an attacker to read any file on the host.
+
+--
+Affected Systems:
+HTDig versions 3.1.1, 3.1.2, 3.1.3, 3.1.4 and 3.2.0b1
+
+--
+Attack Scenarios:
+A input form with a textbox named "Exclude" and http post action handled by htsearch or a url similar to http://www.foo.com/cgi-bin/htsearch?Exclude=%60/anyfile%60 can be used to access files on your host. %60 is the single quote caracter "`".
+
+--
+Ease of Attack:
+Simple. No exploit scripts required
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq:
+http://www.securityfocus.com/bid/1026
+
+--

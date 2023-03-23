@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+
+--
+Summary:
+This event is generated when an attempt is made to exploit an
+information disclosure vulnerability associated with a telnet
+client.
+
+--
+Impact:
+A successful information disclosure may give an attacker
+valuable information about the telnet client such as the
+current user or the operating system.
+
+--
+Detailed Information:
+A telnet client and server can negotiate various options such as
+the character set to be used in the communication exchange. One
+particular option allows a client or server to send new environment
+options. Certain telnet clients will respond to a telnet server
+that issues a new environment send command for a particular
+environment variable, such as the current user.  This information
+disclosure can be valuable to a potential attacker.
+
+--
+Affected Systems:
+	Multiple verndors, Microsoft, Sun Microsystems, refer to reference
+	information and vendor advisories for details.
+
+--
+Attack Scenarios:
+An attacker can entice a user to a malicious telnet server and attempt
+to get the telnet client to respond with a value for an environment
+variable.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=260&type=vulnerabilities
+
+Microsoft:
+http://www.microsoft.com/technet/security/bulletin/ms05-033.mspx
+
+--

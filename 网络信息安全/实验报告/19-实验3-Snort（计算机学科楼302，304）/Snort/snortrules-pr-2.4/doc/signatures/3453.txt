@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+3453
+
+--
+Summary:
+This event is generated when an attempt is made to probe for
+information on a host running Arkeia Client Backup server.
+
+--
+Impact:
+This may be reconnaissance to find version or operating
+system information about the Arkeia Client Backup server
+to later run an appropriate exploit.
+
+--
+Detailed Information:
+By default, Arkeia Client Backup servers do not require any
+authentication for informational requests.  An attacker who
+may be planning to exploit a vulnerable version of the software
+may attempt to request file or system information.
+
+--
+Affected Systems:
+	Arkeia version 5.3 and prior.
+
+--
+Attack Scenarios:
+An attacker can attempt to query an Arkeia Client Backup
+server for system or file information.
+
+--
+Ease of Attack:
+Simple.  Exploits are publicly available.
+
+--
+False Positives:
+None known. If you run Arkeia Client Backup on your network,
+make sure that your the variable $EXTERNAL_NET is configured
+to reflect IP addresses outside of your network.  Otherwise,
+this rule will alert on valid internal traffic.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Metasploit:
+http://metasploit.com/research/arkeia_agent
+
+--

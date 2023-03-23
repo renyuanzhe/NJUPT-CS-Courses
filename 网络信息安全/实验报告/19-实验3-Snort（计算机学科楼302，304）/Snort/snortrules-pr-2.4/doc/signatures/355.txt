@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+355
+
+--
+Summary:
+This event is generated when a password of "wh00t" is used to login to an File Transfer Protocol (FTP) server.
+
+--
+Impact:
+Remote root access.  The attack may indicate that the FTP server has been compromised. 
+
+--
+Detailed Information:
+The password "wh00t" is a common backdoor password associated with a compromised root account.  If this password is observed, it may indicate that the FTP server has been compromised and a backdoor root account with a password of "wh00t" has been created.  Alternately, this may indicate a failed attempt of an attacker attempting to locate FTP servers compromised by others. 
+
+--
+Affected Systems:
+FTP servers.
+
+--
+Attack Scenarios:
+An attacker may compromise a host and create a backdoor account.  An attacker may attempt to locate FTP servers with a backdoor account.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+It is very remotely possible that a legitimate password of "wh00t" exists.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Examine the suspected compromised host for unauthorized changes.
+
+Make sure that the suspected compromised host has all security patches applied.
+
+Log activity to and from the suspected compromised host.
+
+Examine other systems on the network for evidence of compromise.
+
+If a compromised is discovered, reinstall the operating system.
+
+--
+Contributors:
+Orignal rule written by Ron Gula <rgula@tenablesecurity.com>
+Documented by Steven Alexander<alexander.s@mccd.edu>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS324
+
+--

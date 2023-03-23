@@ -1,0 +1,61 @@
+Rule: 
+
+--
+Sid: 
+567
+
+--
+Summary: 
+This event is generated when a failed attempt is made to use a Simple Mail Transfer Protocol (SMTP) server to relay mail to a third party.
+
+--
+Impact: 
+Rejected of unauthorized use.  This event indicates that an SMTP server is properly configured to reject mail relay attempts.
+
+
+--
+Detailed Information: 
+An attacker may attempt to use an improperly configured SMTP server to relay mail, reflecting the origin of the mail to be the relay SMTP server instead of the actual sender.  A poorly configured SMTP server may be used to relay spam and other undesirable mail.  If an SMTP server rejects relay attempts, it will return an error message indicating the failure.  
+
+--
+Affected Systems: 
+SMTP servers
+
+--
+Attack Scenarios: 
+An attacker may attempt to relay mail through an improperly configured SMTP server.
+
+--
+Ease of Attack: 
+Simple
+
+--
+False Positives: 
+None Known
+
+--
+False Negatives: 
+An SMTP server may reject mail using other errors.
+
+--
+Corrective Action: 
+Configure an SMTP server to reject relayed mail.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids
+http://www.whitehats.com/info/IDS249
+
+Miscellaneous
+http://mail-abuse.org/tsi/ar-fix.html
+
+--

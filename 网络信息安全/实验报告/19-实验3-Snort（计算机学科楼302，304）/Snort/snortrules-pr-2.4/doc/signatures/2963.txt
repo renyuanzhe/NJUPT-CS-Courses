@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+2963
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft Network Dynamic Data Exchange (NetDDE)
+services.
+
+--
+Impact:
+Serious. Execution of arbitrary code with system level privileges
+
+--
+Detailed Information:
+A vulnerability exists in Microsoft NetDDE that may allow an attacker to
+run code of their choosing with system level privileges. A programming
+error in the handling of network messages may give an attacker the
+opportunity to overflow a fixed length buffer by using a specially
+crafted NetDDE message.
+
+This service is not started by default on Microsoft Windows systems, but
+this issue can also be exploited locally in an attempt to escalate
+privileges after a successful attack from an alternate vector.
+
+--
+Affected Systems:
+	Microsoft Windows NT, 2000, 2003, XP, 98 and ME systems.
+
+--
+Attack Scenarios:
+An attacker needs to craft a special NetDDE message in order to overflow
+the affected buffer.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Disable the NetDDE service.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft Security Bulletin MS04-031:
+http://www.microsoft.com/technet/security/bulletin/ms04-031.mspx
+
+--

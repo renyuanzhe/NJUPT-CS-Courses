@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+988
+--
+Summary:
+This event is generated when an attempt is made to access the Windows Security Accounts Manager (SAM) password file via a web request.
+
+--
+Impact:
+Information gathering - An attacker tried to get the Windows password file
+
+--
+Detailed Information:
+The SAM password file contains Windows logins which are NTLM or LANMAN hashes on Windows NT/2K/XP hosts.
+
+The hash algorithms are weak and can be cracked within few minutes/hours if passwords are weak.
+
+--
+Affected Systems:
+Windows NT 3.x and 4.0
+
+--
+Attack Scenarios:
+If an attacker can get the real SAM file and is able to gain clear text passwords, the host can be compromised using the Administrator's login.
+
+--
+Ease of Attack:
+Simple. Exploit scripts are available. The host may be already compromised depending on the password strength used on the server.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Change all Windows passwords.
+
+Apply appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+
+--

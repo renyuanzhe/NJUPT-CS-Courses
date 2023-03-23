@@ -1,0 +1,69 @@
+Rule: 
+
+--
+Sid: 
+119-4
+
+-- 
+Summary: 
+This event is generated when the pre-processor http_inspect
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. This may be an attempt to evade an IDS.
+
+--
+Detailed Information:
+Microsoft IIS servers are able to use non-ASCII characters as values
+when decoding UTF-8 values. This is non-standard behavior for a
+webserver and violates RFC recommendations. All non-ASCII values should
+be encoded with a %. This event may indicate an attack against a web
+server or at the least an attempt to evade an IDS.
+
+No web clients encode UTF-8 characters in this way. This is most likely
+a malicious request.
+
+--
+Affected Systems:
+	All Microsoft IIS servers
+
+--
+Attack Scenarios: 
+An attacker merely needs to encode a web request using this non-standard
+format.
+
+-- 
+
+Ease of Attack: 
+Simple. Many exploits exist.
+
+-- 
+
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+--
+Contributors:
+Daniel Roelker <droelker@sourcefire.com> 
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+HTTP IDS Evasions Revisited - Daniel Roelker
+http://docs.idsresearch.org/http_ids_evasions.pdf
+
+--

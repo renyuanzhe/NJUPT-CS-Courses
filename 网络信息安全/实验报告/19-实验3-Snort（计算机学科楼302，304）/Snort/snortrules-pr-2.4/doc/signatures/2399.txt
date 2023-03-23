@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+2399
+
+--
+Summary:
+This event is generated when an attempt is made to exploit the PHP web
+application WAnewsletter.
+
+--
+Impact:
+Information gathering and system integrity compromise. Possible unauthorized
+administrative access to the server or application. Possible execution
+of arbitrary code of the attackers choosing in some cases.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the WAnewsletter PHP web application running on a server.
+Multiple vulnerabilities exist in the application which can lead to the
+execution of arbitrary code of the atttackers choosing.
+
+--
+Affected Systems:
+	WAnewsletter
+
+--
+Attack Scenarios:
+An attacker can supply code of their choice by including a file in
+parameters supplied to the script newsletter.php or db_type.php.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

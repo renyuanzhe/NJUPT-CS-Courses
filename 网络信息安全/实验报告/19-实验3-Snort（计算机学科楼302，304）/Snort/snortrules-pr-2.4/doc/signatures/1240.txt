@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid: 1240
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability in Marty Bochane MDBMS relational database system.
+
+--
+Impact:
+Serious. Execution of arbitrary code on the target server is possible.
+
+--
+Detailed Information:
+MDBMS is a relational databse system for UNIX style platforms. Certain
+versions of the software contain a vulnerability that can allow
+execution of arbitrary code on the server with the privileges of the
+user running MDBMS.
+
+--
+Affected Systems:
+	MDBMS 0.99b9 and prior
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

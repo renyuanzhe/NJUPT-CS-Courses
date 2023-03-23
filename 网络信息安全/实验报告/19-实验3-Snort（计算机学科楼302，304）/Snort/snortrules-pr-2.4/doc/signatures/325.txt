@@ -1,0 +1,65 @@
+Rule:   
+
+--
+Sid: 325
+
+-- 
+
+Summary: 
+This is an intelligence gathering activity.
+
+-- 
+
+Impact: 
+The attacker may obtain a list of accounts existing on the target host.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to use a finger command against a host with a username of "0".  A finger query against a vulnerable finger daemon may allow the attacker to obtain a list of accounts on the target system with some details for each account where present (such as time and source of the last login). 
+
+Obtaining a list of accounts might precipitate further attacks such as password guessing, email attacks and other abuse.
+
+--
+
+Attack Scenarios: 
+An attacker learns that the "sys" account exists on the system. He then proceeds to guess the password and is then able to gain remote access to the system.
+
+-- 
+
+Ease of Attack: 
+Simple, no exploit software required
+
+-- 
+
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+
+Corrective Action: 
+Disable the finger daemon or limit the addresses that can access the service via firewall or TCP wrappers.
+
+--
+Contributors: 
+Original rule written by Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS378
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0197
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10069%20(Finger%20zero%20at%20host
+
+--

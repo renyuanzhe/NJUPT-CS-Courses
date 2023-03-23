@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+2437
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in RealOne Player.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible.
+
+--
+Detailed Information:
+It may be possible for an attacker to execute code of their choosing by
+using a vulnerability in RealOne Player from RealNetworks. If a
+malicious URI is embedded in a SMIL presentation that points to script
+of the attackers choosing, the code may be executed with privileges
+assigned to the "My Computer" zone.
+
+--
+Affected Systems:
+	RealOne Player for Windows	
+
+--
+Attack Scenarios:
+An attacker could embed a URI of their choosing in a presentation and
+entice a user to click the link from within RealOne Player. The code
+referenced by this URI would then be executed on the client machine.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

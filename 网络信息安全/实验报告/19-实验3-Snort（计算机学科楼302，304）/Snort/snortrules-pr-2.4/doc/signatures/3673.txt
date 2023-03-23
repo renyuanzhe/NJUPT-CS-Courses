@@ -1,0 +1,98 @@
+Rule:
+
+--
+Sid:
+3673
+
+--
+Summary:
+This rule generates an event when an attempt is made to exploit a known 
+vulnerability in Microsoft Systems Management Server (SMS).
+
+--
+Impact:
+Execution of arbitrary code leading to full administrator access of the 
+machine. Denial of Service (DoS).
+
+--
+Detailed Information:
+A vulnerability exists in Microsoft SMS such that execution of 
+arbitrary code or a Denial of Service condition can be issued against a 
+host by sending malformed data to port 2702 of an affected server via
+tcp.
+
+If this attack is executed against a vulnerable host, the SMS Remote
+Control agent will crash, leaving the machine unable to be administered
+remotely until the service is restarted. While this service typically
+runs on SMS servers as well as clients, crashing the service on an SMS
+server should leave the rest of its functionality unimpaired.
+
+While it has been postulated that this vulnerability may allow arbitrary
+command execution on the remote host, such a condition has not yet been
+verified.
+
+The Microsoft SMS Remote Control system runs on port 2702, after a brief
+authentication exchange on port 2701. Commands sent between the server
+and the client take the form of "XXXXyyzzXXXX", where "XXXX" is a fixed
+command string, "yy" is the length of the packet beyond the second
+"XXXX" represented in little-endian hexadecimal, and "zz" is an unknown
+flag. For example, a typical command sent to the client would be
+"RCH0|16 00 04 00|RCHE", where "RCH0" and "RCHE" are the command string,
+"16 00" represents 0x16 (decimal 22), and "04 00" is the unknown flag.
+Precisely 22 bytes of data would follow this command, as the length
+specifed was 22.
+
+If a packet is crafted with a length of 0 -- specifically, |00 00| --
+the remote agent will crash. This is presumably because the length field
+is being passed into a function such as malloc() that will behave oddly
+with a zero-length size argument.
+
+The impact of this attack is to take down the Remote Control service, so
+that the affected system cannot be remotely administered by a Microsoft
+SMS server. Arbitrary command execution may be possible, but at this
+point that possibility has not been confirmed.
+
+Although the Remote Control service does run on SMS servers, crashing
+this service does not impact the remainder of the services running on
+the SMS server, and should not lead to further compromise of that
+system.
+
+--
+Affected Systems:
+	Microsoft Systems Management Server 2.0 and prior
+
+--
+Attack Scenarios:
+An attacker merely needs to send the string "RCH0####RCHE" followed by
+more than 130 characters of arbitrary data to trigger the condition.
+
+--
+Ease of Attack:
+Simple. Expoit code is available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Block access to TCP port 2702 from sources external to the protected
+network protocols from external sources using a packet filtering
+firewall.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,54 @@
+Rule:  
+
+--
+Sid:
+2223
+
+--
+Summary:
+This event is generated when an attempt is made to access csNews.cgi on an internal web server. This may indicate an attempt to exploit a file disclosure vulnerability in csNews.cgi, a script distributed by CGIScript.NET.
+
+--
+Impact:
+Information disclosure. The attacker must have an authenticated account to successfully execute this exploit.
+
+--
+Detailed Information:
+csNews.cgi is a Perl script that manages web-based news items, and contains a vulnerability in its ability to decode and filter out double-decoded URL data on the Advanced Settings page. An authenticated attacker can insert double-decoded directory traversals and file names into the header or footer parameters in csNews.cgi, and the files will appear in the header or footer of the page. 
+
+--
+Affected Systems:
+Systems running CGISCRIPT.NET csNews 1.0 or CGISCRIPT.NET csNews Professional 1.0
+
+--
+Attack Scenarios:
+An attacker crafts a URL with /../../passwd double-encoded in the header or footer parameter. If the password file exists in that location, the file will appear in the header or footer of the web page.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses csNews.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is not known if this vulnerability has been patched or fixed in later versions. Contact the vendor for more information.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+
+--

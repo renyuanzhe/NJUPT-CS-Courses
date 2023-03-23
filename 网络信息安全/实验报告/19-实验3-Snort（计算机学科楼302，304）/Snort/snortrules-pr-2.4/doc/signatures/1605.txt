@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+
+1605
+
+--
+Summary:
+This event is generated when an attempt is made to issue a Denial of Service to a host running iParty.
+
+--
+Impact:
+Denial of Service.
+
+--
+Detailed Information:
+iParty is an audio/text chat program for Windows.  The iParty server listens on a specified port 6004 for client requests. An attacker can connect to the chat server and send a large amount of '^?' characters (ASCII 255 or Hex FF), the server will simply shutdown and disconnect all the current users.  
+
+--
+Affected Systems:
+	iParty prior to 1.2
+
+--
+Attack Scenarios:
+cat /dev/kmem | telnet target 6004
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+http://www.securityspace.com/smysecure/catid.html?id=10111
+
+--

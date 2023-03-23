@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+1817
+
+--
+Summary:
+This event is generated when an attempt is made to log on to Microsoft Site Server with a default account. 
+
+--
+Impact:
+Information gathering.  This attack may permit leaking of information associated with particular Site Server files.
+
+--
+Detailed Information:
+Microsoft Site Server is software for Windows NT servers that allows users to publish, find, and share information.  There is a vulnerability that allows leaking of information of some Site Server files when an attacker logs on with the username of 'LDAP_AnonymousUser' and a password of 'LdapPassword_1'.
+
+--
+Affected Systems:
+
+Microsoft Site Server 3.0 
+
+--
+Attack Scenarios:
+An attacker can log on to Site Server using a default username and password to view Site Server files.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply Service Pack 4.
+
+
+--
+Contributors:
+Original rute writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11018
+
+--

@@ -1,0 +1,107 @@
+Rule:
+
+--
+Sid:
+104
+
+--
+Summary:
+Dagger is a Trojan Horse.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a 
+compromise of all resources the machine is connected to. This Trojan 
+also has the ability to delete data, steal passwords and disable the 
+machine.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+	Windows NT
+	Windows 2000
+	Windows XP
+
+No other systems are affected. This is a windows exceutable that makes 
+changes to the system registry, Win.ini and System.ini. When first 
+executed the Trojan replicates itself and in most cases, gives the copy 
+a random name. This Trojan may use the file extensions ".exe" or ".dll".
+
+The Trojan changes system startup files and registry settings to add the
+server to programs normally started on boot.
+
+	SID	Message
+	---	-------
+	104	Dagger_1.4.0_client_connect (incoming TCP connection)
+	105	Dagger_1.4.0 (outgoing TCP connection)
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This 
+event is indicative of an existing infection being activated. Initial 
+compromise can be in the form of a Win32 installation program that may 
+use the extension ".jpg" or ".bmp" when delivered via e-mail for 
+example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised. 
+Updated virus definition files are essential in detecting this Trojan.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+This is a particularly difficult Trojan to remove and should only be 
+attempted by an experienced Windows Administrator.
+
+Edit the system registry to remove the extra keys or restore a 
+previously known good copy of the registry.
+
+Affected registry keys are:
+
+	[HKEY_CLASSES_USER\Software\Microsoft\Windows\CurrentVersion\RunServices]
+	[HKEY_CLASSES_USER\Software\Microsoft\Windows\CurrentVersion\Run] 
+	[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+
+Registry keys added are:
+
+	"SysManager"="C:\\WINDOWS\\System\\Manager.exe"
+
+Removal of the file Manager.exe is required. Also end the process 
+Manager.exe.
+
+A machine reboot may be required to clear the existing process from 
+running in memory.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS484
+
+TLSecurity
+http://www.tlsecurity.net/backdoor/Dagger.1.4.html (link appears to be 
+inactive)
+
+Dark-e
+http://www.dark-e.com/archive/trojans/dagger/140/index.shtml
+
+--

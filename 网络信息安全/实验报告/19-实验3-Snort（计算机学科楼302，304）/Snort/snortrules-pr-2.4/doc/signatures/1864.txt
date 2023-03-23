@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+1864
+
+--
+Summary:
+This event is generated when an attempt is made to enter the "SITE 
+NEWER" command on an FTP server.
+
+--
+Impact:
+Denial of Service. Possible execution of arbitrary code is possible.
+
+--
+Detailed Information:
+When issued the "SITE NEWER" command, some versions of wu-ftpd can 
+consume excessive ammounts of memory whichthen can effectively act as a 
+denial of service to the entire system. If a user can create files on 
+the system, it may be possible to execute code as the user running the 
+ftpd daemon, typically root.
+
+--
+Affected Systems:
+	wu-ftpd versions prior to and including 2.4.2.
+
+--
+Attack Scenarios:
+An attacker might be trying to DoS the system, and it could lead to 
+arbitrary code execution with root privileges.
+
+--
+Ease of Attack:
+Medium
+
+--
+False Positives:
+This can lead to false positives if the ftp service is not wu-ftpd or if
+wu-ftpd is greater than version 2.4.2
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade the wu-ftpd service
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+
+--

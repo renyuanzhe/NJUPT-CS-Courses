@@ -1,0 +1,79 @@
+Rule:
+
+--
+Sid:
+
+706
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a 
+vulnerability in Microsoft SQL Server and Data Engine.
+
+--
+Impact:
+Serious. Full system compromise is possible.
+
+--
+Detailed Information:
+A buffer overflow condition in the xp_peekqueue variable exists which 
+may allow the execution of an arbitary command with administrative 
+priviledge.
+
+The vulnerability occurs in API Srv_paraminfo(), which is implemented by
+Extended Stored Procedures (XPs) in Microsoft SQL Server and Data 
+Engine. It may also be possible for attackers to execute arbitrary code 
+on the host running SQL Server. 
+
+
+--
+Affected Systems:
+
+ Microsoft SQL Server 7.0
+ Microsoft SQL Server 2000 
+ Microsoft Data Engine 1.0
+ Microsoft Data Engine 2000 
+  
+
+--
+Attack Scenarios:
+
+An attacker can pass an overly long string to the XP xp_peekqueue,
+a buffer overflow can occur due to an unsafe memory copy. This can cause
+SQL Server to crash.
+
+
+--
+Ease of Attack:
+
+Simple. Exploit scripts are available.
+
+--
+False Positives:
+
+None known
+
+--
+False Negatives:
+
+None known
+
+--
+Corrective Action:
+ 
+Apply the appropriate vendor supplied patch
+(Microsoft Patch Q280380 , Microsoft Patch Q280380)
+
+--
+Contributors:
+Original Rule Writer Unknown
+Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2040/
+--

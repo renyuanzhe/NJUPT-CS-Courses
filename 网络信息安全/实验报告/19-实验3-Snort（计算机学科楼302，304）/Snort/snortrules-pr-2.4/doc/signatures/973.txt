@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+973
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow associated with a file with a .idc extension. 
+
+--
+Impact:
+Remote access.  This attack may permit the execution of arbitrary commands on the victim server.
+
+--
+Detailed Information:
+Microsoft Internet Information Service (IIS) supports files extensions including .idc that call the ISM.DLL.  A buffer overflow vulnerability exists in ISM.DLL code when it receives a malformed request, permitting the execution of arbitrary code.  
+
+--
+Affected Systems:
+IIS 4.0 hosts
+
+--
+Attack Scenarios:
+An attacker can send a malformed request of a .idc file that causes a buffer overflow.
+
+--
+Ease of Attack:
+Simple.  Exploit code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to a more current version of IIS.
+ 
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0874
+
+Bugtraq:
+http://www.securityfocus.com/bid/307
+
+--

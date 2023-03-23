@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+3675
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a format
+string vulnerability associated with IBM DB2.
+
+--
+Impact:
+Denial of Service (DoS).
+
+--
+Detailed Information:
+IBM DB2 is vulnerable to a DoS when processing DTS data. The error
+occurs when DTS data is converted to a string. A blank format string as
+a second argument in data causes the DoS condition.
+
+--
+Affected Systems:
+	IBM DB2 8.1 and prior
+
+--
+Attack Scenarios:
+An attacker can attempt to exploit the format string error causing the
+DoS condition to occur.
+
+--
+Ease of Attack:
+Simple. Exploit code is not required.s
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Disallow access to the database from untrusted sources.
+
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

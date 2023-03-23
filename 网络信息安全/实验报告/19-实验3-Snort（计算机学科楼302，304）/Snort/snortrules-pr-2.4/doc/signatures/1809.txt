@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1809
+
+--
+Summary:
+This event is generated when an attempt is made to infect a web server by the "Scalper" worm.
+
+--
+Impact:
+An infected server will open ports and listen for commands as well as 
+attempt to infect more systems.
+
+--
+Detailed Information:
+This worm takes advantage of the chunked encoding vulnerability in 
+Apache to infect new systems. Once infected, the worm opens UDP port 
+2001 and will listen for additional commands. It will also begin 
+scanning for new hosts to infect.
+
+--
+Affected Systems:
+Version of Apache 1.3 up to and including 1.3.24 and versions of Apache 
+2.0 up to 2.0.36. All versions of Apache 1.2 are vulnerable. This worm 
+will only infect systems running FreeBSD.
+
+--
+Attack Scenarios:
+Typical self-replicating worm.
+
+--
+Ease of Attack:
+Simple. This is worm activity and is fully automated.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade your installation of Apache if you are running a vulnerable 
+version.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Kevin Peuhkurinen
+
+-- 
+Additional References:
+
+Symantec
+http://securityresponse.symantec.com/avcenter/venc/data/freebsd.scalper.worm.html
+
+--

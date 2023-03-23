@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+273
+
+--
+Summary:
+This event is generated when a remote attacker transmits fragmented IGMP packets with malformed headers to the internal network, indicating an IGMP Denial of Service (DoS) attack.
+
+--
+Impact:
+Denial of service.
+
+--
+Detailed Information:
+If an IGMP packet with a malformed header is transmitted to an unpatched Microsoft Windows computer, the computer may crash when it attempts to process the packet.  
+
+--
+Affected Systems:
+Microsoft Windows 95
+Microsoft Windows 98
+Microsoft Windows 98 SE
+Microsoft Windows NT 4
+
+--
+Attack Scenarios:
+An attacker sends fragmented IGMP packets with malformed headers to a target computer. If the computer is running an unpatched version of Windows, it may crash.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Install the latest patches available for your operating system. See http://www.microsoft.com/technet/security/bulletin/ms99-034.asp for more information.
+
+Implement a packet-filtering firewall to block inappropriate traffic to the network.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/514
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/ms99-034.asp
+
+--

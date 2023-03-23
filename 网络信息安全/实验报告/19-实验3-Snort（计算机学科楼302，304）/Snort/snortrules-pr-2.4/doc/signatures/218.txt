@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+218
+
+--
+Summary:
+This event is generated when  an attacker attempts to connect to a 
+Telnet server using the phrase "friday".
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a
+compromise of all resources the machine is connected to.
+
+--
+Detailed Information:
+This Trojan affects Solaris 2.5 operating systems:
+
+Due to the nature of this Trojan it is unlikely that the attacker's 
+client IP address has been spoofed.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise may be due to the exploitation of another vulnerability and 
+the attacker is leaving another way into the machine for further use.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow Telnet access from external sources.
+
+Use SSH as opposed to Telnet for access from external locations
+
+Delete the Trojan and kill any associated processes.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

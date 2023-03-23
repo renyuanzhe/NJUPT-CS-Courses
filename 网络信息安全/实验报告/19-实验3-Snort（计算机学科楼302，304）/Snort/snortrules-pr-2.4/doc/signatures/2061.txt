@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+2061
+
+--
+Summary:
+Jakarta Tomcat webserver.
+
+--
+Impact:
+Information disclosure
+
+--
+Detailed Information:
+A vulnerability exists in Jakarta Tomcat webservers prior to version 
+3.3.1a such that a request containing a null byte will result in a 
+directory listing or present the opportunity to view the source of a 
+java servlet on the server.
+
+This occurs wether or not an index file is present in the directory.
+
+--
+Affected Systems:
+Jakarta Tomcat web application server prior to version 3.3.1a
+
+--
+Attack Scenarios:
+The attacker needs to supply a null byte in a URI request to the server.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade the server to the latest non-affected version.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0042
+
+Apache Jakarta Tomcat:
+http://jakarta.apache.org/builds/jakarta-tomcat/release/v3.3.1a/
+
+--

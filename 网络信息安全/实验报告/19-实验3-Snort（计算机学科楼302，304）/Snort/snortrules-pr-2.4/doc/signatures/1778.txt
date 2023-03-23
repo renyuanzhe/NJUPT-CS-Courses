@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+1778
+
+--
+Summary:
+This event is generated when an attempt is made to cause a Denial of Service (DoS) to an FTP server.
+
+--
+Impact:
+Serious. Denial of Service.
+
+--
+Detailed Information:
+Certain versions of Microsoft's IIS FTP service are vulnerable to a DoS attack. The condition exists when a user attempts to view the transfer status using the STAT command. If the user enters a large number of file globbing characters as an argument, the service will crash.
+
+--
+Affected Systems:
+	Microsoft IIS versions 4.0, 5.0, and 5.1
+	Cisco Building Broadband Service Manager 4.0.1 - 5.1
+	Cisco Call Manager 3.0 - 3.2
+	Cisco Unity Server 2.0 - 2.4
+
+--
+Attack Scenarios:
+An attacker can cause the service to restart or hang, leaving the service unavailable to users.
+
+--
+Ease of Attack:
+Medium
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/4482
+
+--

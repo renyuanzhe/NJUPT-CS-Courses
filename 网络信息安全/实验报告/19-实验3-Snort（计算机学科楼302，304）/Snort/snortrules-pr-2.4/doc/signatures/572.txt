@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+572
+
+--
+Summary:
+This event is generated when an attempt is made to disable the rpc.ttdbservd service.
+
+--
+Impact:
+Denial of service.  A successful attack may kill the ToolTalk database server.
+
+--
+Detailed Information:
+The ttdbserverd RPC service, more commonly known as the ToolTalk database server, allows applications to communicate in the Common Desktop Environment (CDE).  The ToolTalk service receives ToolTalk messages created and sent by applications and delivers them to the appropriate recipient applications.  The ToolTalk database server is enabled by default on hosts with CDE.  Due to an implementation fault in rpc.ttdbserverd, it is possible for a malicious remote client to formulate an RPC message that will cause the server to crash.   
+
+--
+Affected Systems:
+HP HP-UX 10.10, 10.20, 10.30, 11.0
+IBM AIX 4.1, 4.1.1, 4.1.2, 4.1.3, 4.1.4, 4.1.5, 4.2, 4.2.1, 4.3
+SGI IRIX 5.2, 5.3, 6.0, 6.0.1, 6.2, 6.3, 6.4
+Sun Solaris 1.1, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.2, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.5.1, 2.6
+
+--
+Attack Scenarios:
+An attacker can attempt a denial of service attack by causing a vulnerable ToolTalk database server to crash.   
+
+--
+Ease of Attack:
+Easy.  Exploit scripts are freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0003
+
+Bugtraq
+http://www.securityfocus.com/bid/122
+
+Arachnids:
+http://www.whitehats.com/info/IDS241
+
+--

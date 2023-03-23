@@ -1,0 +1,61 @@
+Rule: 
+
+--
+Sid: 
+111-16
+
+-- 
+Summary: 
+This event is generated when the pre-processor stream4
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. This may be an IDS evasion attempt.
+
+--
+Detailed Information:
+The pre-processor stream4 has detected a TCP session that contains
+retransimitted data without the necessary retransmission request. This
+may be an attempt to evade any monitoring IDS.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios: 
+An attacker could supply two packets containing different data, one with
+a malicious payload destined for a vulnerable host and the other with a
+benign payload meant for the IDS. The second packet may disguise itself
+in the session as retransmitted data.
+
+-- 
+Ease of Attack: 
+Difficult.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+
+Corrective Action:
+Check the target host for signs of compromise.
+
+Ensure the system is up to date with any appropriate vendor supplied patches.
+
+--
+Contributors:
+Martin Roesch <roesch@sourcefire.com>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

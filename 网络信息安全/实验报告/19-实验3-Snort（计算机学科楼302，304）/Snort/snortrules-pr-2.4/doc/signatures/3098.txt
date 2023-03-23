@@ -1,0 +1,69 @@
+Rule: 
+
+--
+Sid: 
+3098
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft License Logging Service.
+
+-- 
+Impact: 
+Serious. Execution of arbitrary code leading to unauthorized
+administrative access to the target host. Denial of Service (DoS) is
+also possible.
+
+--
+Detailed Information:
+Microsoft License Logging Service is used to manage licenses for
+Microsoft server products.
+
+A vulnerability in the service exists due to a programming error such
+that an unchecked buffer may present an attacker with the opportunity to
+exploit the service and run code of their choosing on an affected
+system. The attacker may then cause a DoS condition in the service or
+possibly gain administrative access to the target host.
+
+The unchecked buffer exists when processing the length of messages sent
+to the logging service.
+
+--
+Affected Systems:
+	Microsoft Windows Server 2003
+	Microsoft Windows Server 2000
+	Microsoft Windows NT Server
+
+--
+Attack Scenarios: 
+An attacker can supply extra data in the message to the service
+containing code of their choosing to be run on the server.
+
+-- 
+Ease of Attack: 
+Simple.
+
+-- 
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+-- 
+
+Corrective Action: 
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

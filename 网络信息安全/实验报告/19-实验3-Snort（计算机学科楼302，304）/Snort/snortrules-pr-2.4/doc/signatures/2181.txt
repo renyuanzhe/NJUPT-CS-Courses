@@ -1,0 +1,76 @@
+Rule:  
+
+--
+Sid:
+
+2181
+
+--
+Summary:
+This event is generated when a BitTorrent client transfers data with 
+another BitTorrent peer.
+
+--
+Impact:
+
+Possible violation of policy and abuse of network resources.
+
+--
+Detailed Information:
+BitTorrent is a peer-to-peer application used for simultaneous downloads
+of large files.  BitTorrent is designed to allow multiple peers to 
+download large files simultaneously without using extraneous bandwidth 
+from a centralized server.
+
+BitTorrent peers connect to other peers for file transfer.  This rule 
+looks for the BitTorrent protocol header on the default BitTorrent 
+ports.
+
+--
+Attack Scenarios:
+A user downloaded a BitTorrent client and attempts to download files 
+from a BitTorrent network.
+
+--
+Ease of Attack:
+
+Unix, Windows, and MacOS clients are publicly available for BitTorrent.
+
+--
+False Positives:
+
+None Known.
+
+--
+False Negatives:
+
+The protocol name is hard coded in BitTorrent to "BitTorrent Protocol".
+If the protocol name was changed in the clients and tracker, then this
+rule would not generate an event.
+
+The minimum and maximum ports for BitTorrent clients to listen on are 
+hard coded in the clients.  If the minimum and maximum ports were 
+changed in the clients, then this rule would not generate an event.
+
+--
+Corrective Action:
+
+If this is a violation of network policy, take appropriate steps to 
+prevent further violations.
+
+--
+Contributors:
+
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+
+-- 
+Additional References:
+
+Bittorrent Protocol Specification
+http://bitconjurer.org/BitTorrent/protocol.html
+
+Wikipedia
+http://en.wikipedia.org/wiki/BitTorrent
+
+--

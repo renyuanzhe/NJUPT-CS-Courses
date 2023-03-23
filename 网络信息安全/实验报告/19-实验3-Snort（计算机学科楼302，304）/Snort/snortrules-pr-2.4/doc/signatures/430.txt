@@ -1,0 +1,61 @@
+Rule:
+
+--
+
+Sid:
+430
+
+--
+
+Summary:
+This event is generated when a host generates and ICMP Type 40 Code 1 Authentication Failed datagram.
+
+--
+
+Impact:
+ICMP Type 40 Code 1 datagrams are an indication that a received datagram failed the authenticity or integrity check for a given SPI.  Normally this is an indication that hosts using IP Security Protocols such as AH or ESP have been configured incorrectly or are failing to establish a session with another host.
+
+--
+
+Detailed Information:
+Hosts using IP Security Protocols such as AH or ESP generate ICMP Type 40 datagrams when a failure condition occurs.  ICMP Type 40 Code 1 datagrams are generated when a received datagram failed the authenticity or integrity check for a given SPI (Security Parameters Index).  In some situations this may be an indication that an outer Encapsulation Security Protocol is in use, and the Authentication Header SPI is hidden inside the encapsulation.
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+
+--
+
+Corrective Action:
+ICMP Type 40 datagrams not normally seen on the network.  Currently Sourcefire is unaware of any hardware that has implemented these types of ICMP datagrams.  Hosts generating these types of ICMP datagrams should be investigated for nefarious activity or configuration errors. 
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+RFC2521
+
+
+--

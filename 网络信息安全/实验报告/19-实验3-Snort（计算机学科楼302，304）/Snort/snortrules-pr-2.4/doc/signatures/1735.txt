@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid:
+1735
+
+--
+Summary:
+This event is generated when a client on the protected network has 
+possibly visited a website containing a malicious link leading to
+disclosure of information on the client.
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+Certain versions of Mozilla, Netscape and other browsers based on these
+may allow a malicious link to reveal information about the files and
+filesystem on a host.
+
+HTTP redirects are mishandled by the XMLHttpRequest object in some
+browsers, this may allow a malicious web server to retrieve information
+from the client host if the redirect points to a local file.
+
+--
+Affected Systems:
+	Eazel Nautilus 1.0.4
+	Galeon 1.2 and 1.2.1
+	Mozilla versions 0.9.7 to 1.0 RC1
+	Netscape versions 6.1 to 6.2.2
+
+--
+Attack Scenarios:
+A devious website admin creates a webpage with malicious code and 
+obtains sensitive information from a visiting user's web browser about 
+any file or filesystem on the host he wishes.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives: 
+None known
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com> 
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/4628
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0354
+
+--

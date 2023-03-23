@@ -1,0 +1,68 @@
+Rule:  
+
+--
+Sid:
+506
+
+--
+Summary:
+This event is generated when the Ramen worm attempts to retrieve a copy of the worm from a host.
+
+--
+Impact:
+Severe. The Ramen worm is already on the host and is currently propagating from the source ip address.
+
+--
+Detailed Information:
+The Ramen worm is a set of exploits that uses synscan to grab banners before exploiting new hosts.
+
+It scans automatically for random class B IP addresses and attacks them if possible. Another feature is the automatic defacement of index(.htm/html) files. The exploits are used to attack vulnerable WuFTPd servers, vulnerable RPC services (statd format string exploit) or vulnerable LPRng services. The RPC statd exploit binds suid shell on port 39168 which is used for further host compromise.
+
+--
+Affected Systems:
+Various Linux systems
+
+--
+Attack Scenarios:
+The RPC, WuFTP or LPRng printer spooler service was vulnerable and attacked by Ramen worm. The host is then back-doored on port 39168 and propagates to other vulnerable hosts in a class B/C network.
+
+--
+Ease of Attack:
+Simple. This is Worm activity
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+- rm -rf /usr/src/.poop (it contains the worm files)
+- rm -rf /tmp/ramen.tar.gz (Ramen worm files with exploits and shellscripts)
+- Delete line "/user/src/.poop/start*.sh" in /etc/rc.d/rc.sysinit
+- ps -Af | grep "asp" (Search PID of asp service port webserver)
+- kill -9 %PID_you_just_saw%
+- rm /sbin/asp (backdoor webserver, which binds to 27374)
+- Service startup:
+ - Using Inetd (Redhat 6): remove line "asp stream tcp nowait root" form /etc/inetd.conf and restart inetd service
+ - Using XInet.d (Redhat 7): rm -rf /etc/xinet.d/asp
+- Update /etc/hosts.deny because Ramen worm deletes the file or modifies it
+- Check index(.htm/html) files since they may be modified by the worm
+- Update WuFTPd server, NFS service, LPRng service
+- Reboot the host
+
+--
+Contributors:
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

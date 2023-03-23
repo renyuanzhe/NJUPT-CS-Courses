@@ -1,0 +1,64 @@
+Rule:  
+ 
+--
+Sid:
+627
+
+--
+Summary:
+This event is generated when the Cybercop vulnerability scanner is used 
+against a host.
+
+--
+Impact:
+Cybercop can be used to identify vulnerabilities on host systems.
+
+--
+Detailed Information:
+This particular packet is a part of Cybercop's OS identification.  
+Specially crafted packets are able to elicit different responses from 
+different operating systems.  This packet is likely to be part of a full
+Cybercop scan rather than an isolated event. Having SYN, FIN, URG and 
+reserve bits 1 and 2 set at the same time is abnormal.
+
+--
+Affected Systems:
+All
+
+--
+Attack Scenarios:
+Cybercop can be used by attackers to determine vulnerabilities present 
+on a host or network of hosts that could be used as attack vectors.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+This tool can be used legitimately by system and network administrators.
+Other vulnerability scanners may display the same behavior.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+TCP packets with SYN, FIN, URG and reserved bits 1 and 2 set at the same
+time are abnormal, use a packet filtering firewall to block them.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS150
+
+--

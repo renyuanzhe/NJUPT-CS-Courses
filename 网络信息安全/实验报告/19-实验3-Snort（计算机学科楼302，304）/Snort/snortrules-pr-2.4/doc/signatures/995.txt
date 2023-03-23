@@ -1,0 +1,63 @@
+Rule
+
+--
+Sid:
+995
+
+
+--
+Summary:
+This event is generated when an attempt is made to request an HTTP-based password change.
+
+--
+Impact:
+Information gathering/remote access.  Error messages from failed password changes can indicate whether a given account exists on the server.  Successful password changes can allow remote access to the server. 
+
+--
+Detailed Information:
+Microsoft Internet Information Services (IIS) Version 4 servers that were upgraded from IIS 2 or 3 have a legacy ism.dll file that allows web-based administration.  Upon sending a request to ism.dll, the user will be prompted for a userid and password.  An attacker can attempt to brute force guess a password, allowing remote access to the server.
+
+--
+Affected Systems:
+
+Microsoft IIS 4.0 servers upgraded from IIS 2.0 or 3.0
+
+--
+Attack Scenarios:
+An attacker can request password changes to discover existing accounts or brute force password changes.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to a more current version of ISS.
+
+Consider running the IIS Lockdown Tool to disable unnecessary functionality.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-1538
+
+Bugtraq
+http://www.securityfocus.com/bid/189
+
+--

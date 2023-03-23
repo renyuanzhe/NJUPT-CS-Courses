@@ -1,0 +1,54 @@
+Rule:  
+
+--
+Sid:
+2222
+
+--
+Summary:
+This event is generated when an attempt is made to access nph-exploitscanget.cgi on an internal web server. This may indicate an attempt to exploit a cross-site scripting or policy bypass vulnerability in Exploit Labs Wood's Infinity Scan EZ 3.69 or The Infinity Project Infinity CGI Exploit Scanner 3.11 Beta.
+
+--
+Impact:
+At the minimum, a bypass of scanning policies which may lead to a future compromise of the server. At the maximum, remote execution of arbitrary code on a client machine.
+
+--
+Detailed Information:
+The Exploit Labs Wood's Infinity Scan EZ 3.69 and The Infinity Project Infinity CGI Exploit Scanner 3.11 Beta Internet vulnerability scanners contain multiple vulnerabilities. One vulnerability is the bypassing of scanning policies configured by the software, which may enable an attacker to scan systems that have been configured to disallow scans. In addition, these scanners contain cross-site scripting vulnerabilities that allow an attacker to craft a URL that, when activated by a legitimate user, executes malicious code on the user's computer with the security context of the server that is hosting the scanner software.
+
+--
+Affected Systems:
+Any system running Exploit Labs Wood's Infinity Scan EZ 3.69 or The Infinity Project Infinity CGI Exploit Scanner 3.11 Beta, or any user who activates a specially-crafted hyperlink to the system.
+
+--
+Attack Scenarios:
+An attacker crafts a hyperlink to a server running vulnerable scanner software that contains malicious code. When an unsuspecting user activates the hyperlink, arbitrary code may be run on the user's computer with the security context of the scanner server.
+
+--
+Ease of Attack:
+Simple. An exploit exists for the cross-site scripting vulnerability; no exploit is required for the policy bypass vulnerability.
+
+--
+False Positives:
+If a legitimate remote user accesses nph-exploitscanget.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is not known if these vulnerabilities have been patched or fixed in later versions. Contact the vendor for more information.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+
+--

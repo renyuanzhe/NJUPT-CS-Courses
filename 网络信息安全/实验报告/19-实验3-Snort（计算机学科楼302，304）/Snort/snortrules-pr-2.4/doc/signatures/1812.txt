@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid: 1812
+
+--
+Summary:
+Secure Shell (SSH) is used to remotely manage systems over encrypted TCP
+sessions. This event is generated when an attempt is made to exploit 
+vulnerable versions of the SSH daemon.
+
+--
+Impact:
+System compromize presenting the attacker with either the opportunity to
+execute arbitrary code with the privileges of the user running the SSH daemon (usually root) or a possible Denial of Service (DoS).
+
+--
+Detailed Information:
+OpenSSH versions prior to 3.3 contain a flaw that could allow a remote attacker to compromise a vulnerable SSH daemon via an integer overflow on systems with BSD_AUTH or SKEY options compiled and PAM authentication or Challenge Response Authentication enabled.
+
+Affected Systems:
+	OpenSSH versions 2.9 to 3.2
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+Enable the privilege separation option in OpenSSH 3.3 if possible.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <brian.caswell@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Securityfocus:
+http://www.securityfocus.com/bid/5093
+
+--

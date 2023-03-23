@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1805
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a flaw on a 
+server running Oracle reports.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible.
+
+--
+Detailed Information:
+A stack overflow exists in the Oracle Reports "rwcgi60" program. If a 
+user supplies a long string as a value for the method "setauth", it can 
+overflow the stack and may allow the user to run code on the server. 
+This code would be executed with the permissions of the web server.
+
+--
+Affected Systems:
+	Oracle's Oracle Reports6i 6.0.8
+	Oracle9i Application Server Reports 9.0.2
+
+--
+Attack Scenarios:
+An attacker can overflow the stack using a URL and cause the machine to 
+execute shell code.
+
+--
+Ease of Attack:
+Medium
+
+--
+False Positives: 
+None known.
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com> 
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/4848
+
+--

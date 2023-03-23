@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1244
+
+--
+Summary:
+This event is generated when an attempt is made to access the .idq Indexing Service ISAPI filter. 
+
+--
+Impact:
+Intelligence gathering activity. If an .idq file is erroneously shared from a network share, an error message is returned from a request that contains the share path will be disclosed.
+
+--
+Detailed Information:
+Microsoft Internet Information Service (IIS) installs several Internet Service Application Programming Interface (ISAPI) extensions.  The .idq ISAPI filter provides support for Internet Data Queries.  Files with the .idq suffix should not be located on network shares.  If an attempt is made to access them from a network share, an error message is returned disclosing the share path.  
+
+--
+Affected Systems:
+Hosts running IIS 4.0
+Hosts running IIS 5.0
+
+--
+Attack Scenarios:
+An attacker can attempt to access a file with the .idq suffix in an attempt to receive an error message with disclosure about the share path.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Do not place files with the .idq suffix on a network share.
+ 
+
+--
+Contributors:
+Original rule written by Dr SuSE and C. Mayor 
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids
+http://www.whitehats.com/info/IDS552
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0071
+
+
+--

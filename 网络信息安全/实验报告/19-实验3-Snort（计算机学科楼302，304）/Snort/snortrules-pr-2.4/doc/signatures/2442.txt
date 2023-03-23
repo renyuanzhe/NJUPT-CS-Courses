@@ -1,0 +1,62 @@
+Rule:  
+
+--
+Sid:
+2442
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Apple Quicktime/Darwin Streaming Server.
+
+--
+Impact:
+Denial of Service (DoS).
+
+--
+Detailed Information:
+The Apple Quicktime Streaming Server is used to serve client machines
+with streaming media content using TCP/IP. A vulnerability exists in the
+processing of client requests that can cause a DoS.
+
+An overly long User-Agent field in DESCRIBE requests to the server can
+cause this condition to occur.
+
+--
+Affected Systems:
+	Apple Darwin Streaming Server 4.1.3
+	Apple Quicktime Streaming Server 4.1.3
+
+--
+Attack Scenarios:
+An attacker can supply a user agent field in excess of 255 characters in
+a DESCRIBE request to trigger the DoS condition.
+
+--
+Ease of Attack:
+Moderate.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,67 @@
+Rule:
+--
+Sid:
+623
+--
+Summary:
+A tcp packet with none of it's control bits set was detected.
+
+--
+Impact:
+Information regarding firewall rulesets, open/closed ports, ACLs, and
+possibly even OS type is possible.  This technique can also be used to
+bypass certain firewalls or traffic filtering/shaping devices.
+
+--
+Detailed Information:
+A tcp packet with none of it's control bits (URG, ACK, PSH, RST, SYN,
+FIN) was detected.  Additionally, both the sequence number and
+acknowledgement number were set to 0.  An open port will generally not
+respond at all, whereas a closed port will generally respond with an
+ACK RST.  The particular response varies between operating systems,
+and is also governed by any filtering that may be done between the two
+hosts.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+As part of information gathering leading up to another (more directed)
+attack, an attacker may attempt to figure out what ports are
+open/closed on a remote machine.
+
+--
+Ease of Attack:
+Intermediate.  To initiate an attack of this type, an attacker either
+needs a tool that can send tcp packets with no control bits  set or
+the ability to craft their own packets.  The former is easy, the later
+requires a more advanced skillset.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Determine if this particular port would have responded as being open
+or closed.  If open, watch for more attacks on this particular service
+or from the remote machine that sent the packet.  If closed, simply
+watch for more traffic from this host.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Jon Hart <warchild@spoofed.org>
+
+-- 
+Additional References:
+
+--

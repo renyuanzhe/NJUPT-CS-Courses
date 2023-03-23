@@ -1,0 +1,103 @@
+Rule:
+
+--
+Sid:
+110
+
+--
+Summary:
+Netbus is a Trojan Horse.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine. This Trojan also has the ability to scan machines and networks for open ports, it can also redirect legitimate traffic to other destinations. It can turn the infected host into an open proxy server.
+
+--
+Detailed Information:
+This Trojan affects the following operating systems:
+
+	Windows 95
+	Windows 98
+	Windows ME
+	Windows NT
+	Windows 2000
+	Windows XP
+
+The Trojan changes system registry settings to add the Netbus sever to programs normally started on boot. Due to the nature of this Trojan it is unlikely that the attacker's client IP address has been spoofed.
+
+	SID	Message
+	---	-------
+	109	netbus active (outgoing TCP connection)
+	110	netbus getinfo (incoming TCP connection)
+	115	netbus active (outgoing TCP connection)
+
+Server ports usually opened may be one of the following depending on the version of netbus: 12345, 12346, 20034
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This event is indicative of an existing infection being activated. Initial compromise can be in the form of a Win32 installation program that may use the extension ".jpg" or ".bmp" when delivered via e-mail for example.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised. Updated virus definition files are essential in detecting this Trojan.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+The manual removal of this Trojan should only be attempted by an experienced Windows system administrator.
+
+Edit the system registry to remove the extra keys or restore a previously known good copy of the registry.
+
+Affected registry keys are:
+
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices\
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+Registry keys added include:
+
+	Netbus Server Pro
+	PATCH "C:\windows\patch.exe /nomsg" - note: the entry may not necessarily be called PATCH
+	NetBuster = ""
+	SysCopy = "command /c copy %windir%\\keyhook.dl_ %windir%\\*.dll /Y"
+	Rundll32 = "rundll.dl_ /noadd"
+	Rundll = "regedit /s nbsetup2.reg"
+
+Later versions may also add one of these registry entries:
+
+	HKEY_LOCAL_MACHINE/SOFTWARE/UltraAccess Networks/NetBus Server/
+	HKEY_CURRENT_USER/NetBus Server/
+
+These entries should be deleted.
+
+The files rundll.dl_ (note the underscore, this is important) and nbsetup2.reg should be deleted if they exist.
+
+Ending the process is necessary. A reboot of the infected machine is recommended.
+
+--
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats arachNIDS
+http://www.whitehats.com/info/IDS401
+http://www.whitehats.com/info/IDS403
+
+Hackfix.org
+http://www.hackfix.org/netbusfix/index.shtml
+
+Dark-e Trojan Archive
+http://www.dark-e.com/archive/trojans/netbus/index.html
+
+--

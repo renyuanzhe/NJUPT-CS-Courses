@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+2394
+
+--
+Summary:
+This event is generated when a malformed request is sent to the Compaq Web-Based Management Agent.
+
+--
+Impact:
+Denial of service.
+
+--
+Detailed Information:
+Compaq Web-Based Management Agent is used to perform remote system administration for Windows hosts.  A vulnerability exists in the software when traffic is sent t
+o access to Compaq Web-Based Management Agent that contains a malformed request, possibly causing the service to crash.  URL requests that contain the characters "
+<!>" or "<!" followed by arguments followed by ">" cause the denial of service to occur.  Note that the rule uses an initial keyword of "content" instead of "urico
+ntent" since uricontent only examines web server ports identified in the pre-processor http_inspect in the configuration setup.  Default configurations do not incl
+ude port 2301 as a web server port, preventing the event from being generated.
+
+--
+Affected Systems:
+Host running Compaq Web-Based Management Agent.
+
+--
+Attack Scenarios:
+An attacker can send a malformed request to the listening service, causing the system to crash.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Block inbound port 2301 traffic or restrict access to known authorized IP addresses.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+Additional References:
+
+bugtraq
+http://www.securityfocus.com/bid/8014
+
+--

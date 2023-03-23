@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid:
+1819
+
+--
+Summary:
+This event is generated when an attempted connection is observed originating from outside the network to the management port to the Alcatel PBX Phone Switch.
+
+--
+Impact:
+Remote access, denial of service, privilege escalation.  A successful attack may allow remote root access, shutdown of the device, or privlege escalation.
+
+--
+Detailed Information:
+The Alcatel 4000 PBX Phone Switch allows remote management via port 2533. It has been reported that sending a payload of hexidecimal 000143 in the first packet after the three-way handshake to the management port allows access to the device.  There are known default usernames and passwords that, if not changed, will allow control of the device.  Additionally, if a remote user logs in with an account that belongs to the group "other", a shutdown may be performed.  And, improper assignment of permissions on sensitive directories may permit a user to overwrite files and possibly escalate privileges.
+
+--
+Affected Systems:
+Alcatel 4400 PBX running real-time Chorus OS.
+
+--
+Attack Scenarios:
+An attacker may attempt to use this exploit to gain root access, shutdown the system, or escalate privilege from user to root.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Block external access to the management port of the switch. 
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11019
+
+--

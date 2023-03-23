@@ -1,0 +1,54 @@
+Rule:  
+
+--
+Sid:
+2224
+
+--
+Summary:
+This event is generated when an attempt is made to access psunami.cgi on an internal web server. This may indicate an attempt to exploit a remote command execution vulnerability in Psunami bulletin board software.
+
+--
+Impact:
+Remote execution of arbitrary code, possibly leading to remote root compromise.
+
+--
+Detailed Information:
+Psunami is a CGI script that provides online bulletin board for web sites. It contains a metacharacter parsing vulnerability that allows an attacker to submit a URL that contains shell code between pipe characters (|) in the topic parameter. When the web server receives the HTTP request, it executes the code placed between the pipe characters.
+
+--
+Affected Systems:
+Any web server running Psunami 0.5.2 or earlier.
+
+--
+Attack Scenarios:
+An attacker places shellcode, surrounded by pipe characters, in the topic parameter of an HTTP request to psunami.cgi. Any commands included in the value are executed with the security context of the web server.
+ 
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses psunami.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to Psunami 0.5.3 (http://sourceforge.net/projects/psunami/).
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+
+--

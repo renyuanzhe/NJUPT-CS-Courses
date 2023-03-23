@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid: 526
+
+--
+Summary:
+This event is generated when SYN packets contain data greater than what 
+is normally expected.
+
+--
+Impact:
+Possible Denial of Service attack (DoS) or IDS evasion.
+
+--
+Detailed Information:
+Under normal circumstances TCP SYN packets are exchanged between hosts 
+to synchronize the TCP sequence numbers in a transaction. A SYN packet 
+with a datagram size larger than 6 bytes may be an indication of a 
+Denial of Service attack or an attempt to evade IDS.
+
+an indicator of unauthorized network use, reconnaisance activity or 
+system compromise. These rules may also generate an event due to 
+improperly configured network devices.
+
+--
+Affected Systems:
+	Any
+
+--
+Attack Scenarios:
+The attacker would need to send specially crafted packets with the SYN 
+flag set with a datagram size larger than 6 bytes. This may be achieved 
+using a script or tool.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/incident_notes/IN-99-07.html
+
+--

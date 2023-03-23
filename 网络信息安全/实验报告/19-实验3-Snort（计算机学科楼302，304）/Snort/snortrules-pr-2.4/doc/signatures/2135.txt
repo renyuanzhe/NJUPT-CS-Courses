@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+2135
+
+--
+Summary:
+This event is generated when a remote user attempts to access philboard.mdb on a web server port on an internal server. This may indicate an attempt to exploit a vulnerability in the default installation of Philboard bulletin board software, where the Philboard Access database is accessible to the Internet.
+
+--
+Impact:
+Information gathering, possible administrative access to the bulletin board.
+
+--
+Detailed Information:
+By default, Philboard installs the Access database file to database/philboard.mdb on the web server. Without authentication, an attacker can download this file to access Philboard bulletin board user names, passwords, and message archives.
+
+--
+Affected Systems:
+Any server running Philboard 1.x.
+
+--
+Attack Scenarios:
+An attacker can download the Philboard database, which will allow them to access Philboard user names, passwords, and message archives.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Move philboard.mdb to an inaccessible location and/or add security permissions to the directory in which it resides.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Secunia
+http://www.secunia.com/advisories/8898/
+
+
+--

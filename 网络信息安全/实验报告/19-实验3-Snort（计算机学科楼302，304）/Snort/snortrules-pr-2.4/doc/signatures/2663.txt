@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+2663
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with the web server of WhatsUp Gold.
+
+--
+Impact:
+A successful attack can cause a denial of service or a buffer overflow and
+the subsequent execution of arbitrary code on a vulnerable server.
+
+--
+Detailed Information:
+WhatsUp Gold is a Windows application that can be used to monitor the status
+of a network and the availability and performance of servers.  A vulnerability
+exists in the web server component of WhatsUp Gold that can cause a denial of
+service or buffer overflow and the subsequent execution of arbitrary code on a
+vulnerable server.  This can occur when an overly long value is passed to the
+parameter "instancename" when invoking the _maincfgret CGI. It should be noted
+that the web server is not enabled by default in WhatsUp Gold.
+
+--
+Affected Systems:
+WhatsUp Gold 8.x.
+
+--
+Attack Scenarios:
+An attacker can connect to a web-enabled WhatsUp Gold server and send
+an overly long value to the "instancename" when calling _maincfgret,
+possibly causing a denial of service or buffer overflow.
+
+--
+Ease of Attack:
+Denial of service - simple, buffer overflow - harder.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+
+--
+Additional References
+
+Other:
+http://www.idefense.com/application/poi/display?id=133&type=vulnerabilities
+
+--

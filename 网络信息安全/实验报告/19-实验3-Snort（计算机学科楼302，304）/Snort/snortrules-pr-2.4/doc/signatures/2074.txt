@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+2074
+
+--
+Summary:
+using the upload.php script.
+
+--
+Impact:
+Unauthorized upload of files to a server.
+
+--
+Detailed Information:
+Arbitrary files can be uploaded to a server running vulnerable versions 
+of Mambo Site Server due to laxe checking in the scripts controlling 
+uploading of files.
+
+The scripts perform checks for certain file extensions but do not 
+prevent the upload of files with image extensions.
+
+--
+Affected Systems:
+	Mambo Mambo Site Server 4.0.10, 4.0.11 and 4.0.12 BETA
+
+--
+Attack Scenarios:
+The attacker can upload malicious scripts and executable files by 
+appending a valid extension used for an image file.
+
+The attacker can also use the server to store files of his choosing.
+
+--
+Ease of Attack:
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest version of Mambo Site Server.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/6572
+
+--

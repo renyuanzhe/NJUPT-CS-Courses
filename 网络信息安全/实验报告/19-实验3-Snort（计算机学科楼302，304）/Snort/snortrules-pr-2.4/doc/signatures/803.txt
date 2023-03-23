@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+803
+
+--
+Summary:
+This event is generated when an attempt is made to access hsx.cgi and 
+then utilize a directory traversal technique to read files outside the 
+root directory of the web server. This indicates an attempt to exploit a
+vulnerability in the Hyperseek 2000 search engine that allows 
+read-access to directory listings and files.
+
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to exploit a directory traversal vulnerability in HyperSeek 2000. When directory traversal techniques such as ../../ are used as arguments to hsx.cgi, an unauthorized user can navigate to directories and access files that are normally hidden. 
+
+--
+Affected Systems:
+Web servers running iWeb Systems HyperSeek 2000 are vulnerable. 
+
+--
+Attack Scenarios:
+An attacker can use a directory traversal technique when executing hsx.cgi to view hidden directories and files on the web server.
+
+--
+Ease of Attack:
+Simple. Exploits exist. 
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Uprade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original rule writer unknown
+Rule modified by Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/2314
+
+CERT/CC
+http://www.kb.cert.org/vuls/id/146704
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0253
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10602
+
+--

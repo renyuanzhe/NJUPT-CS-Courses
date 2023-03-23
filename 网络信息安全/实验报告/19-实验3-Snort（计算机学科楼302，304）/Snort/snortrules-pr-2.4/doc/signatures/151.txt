@@ -1,0 +1,86 @@
+Rule:  
+
+--
+Sid:
+151
+
+--
+Summary:
+This rule has been placed in deleted.rules
+
+--
+Impact:
+A remote attacker with DeepThroat access has almost full control of the
+trojaned machine, including file manipulation and download, keystroke
+logging, password scavenging, and reboot. Additionally, the trojan includes 
+a port redirector, and IRC bot, and a tool to scan for other DeepThroat
+infected machines. There are also prank-type annoyances.
+
+--
+Detailed Information:
+DeepThroat is a full-featured remote access trojan.It contains many kiddie
+tools, including window enumeration and manipulation; file searching
+launching and deletion; remote graphics display sound playing and wallpaper
+alteration; remote website launching and file download; shell alteration 
+(e.g. hiding systray or Start button), CD-ROM open/closing, mouse button 
+swapping; screen resolution change, display on/off; password scavenging and
+screen capturing. It also includes a remotely activated FTP server, a keystroke
+logger, an IRC bot, a port redirector, and a tool to scan for other DeepThroat 
+servers. Using these tools, an attacker can not only take control of the 
+infected machine, but can use it as a relay to attack others or scan
+for more infected machines from within your network.  By default, DeepThroat sends its 
+control commands to port 2140 on the trojaned machine.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+Users must be actively enticed into installing the trojan, using any of the
+normal social-engineering means. Alternatively, an attacker with physical
+access to the machine could simply install it himself.
+
+--
+Ease of Attack:
+Very simple. This is a point-and-click tool. The toughest part is convincing 
+a user to install it, and it could certainly be bound to another binary for 
+easier social-engineering.
+
+--
+False Positives:
+None Known
+
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Mitigation:
+Block UDP port 2140 (standard DeepThroat control port), if possible TCP port 21
+(standard DeepThroat FTP server), and TCP port 999 (DeepThroat keyboard logger). 
+DeepThroat may be set up to run on other ports than those listed above. Removal 
+is the only sure mitigation.
+
+Removal:
+Scan with an anti-virus tool and follow the removal instructions.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+pbsarnac@ThoughtWorks.com	Initial Research
+Josh Gray			Edits
+-- 
+Additional References:
+Packet dump:
+0000  00 50 56 ff ae cb 00 50  56 fe 18 10 08 00 45 00
+0010  00 1e 30 02 00 00 80 11  b4 71 c0 a8 ea 84 c0 a8
+0020  ea 85 ea 60 08 5c 00 0a  85 8e 31 33 02 b0 c0 a8
+0030  ea 84 00 8a 00 bb 00 00  20 46 48 45            
+
+
+--

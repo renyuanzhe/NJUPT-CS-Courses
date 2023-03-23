@@ -1,0 +1,79 @@
+Rule:
+
+--
+Sid:
+3686
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+buffer overflow associated with an Internet Explorer client
+reading a malicious rating descriptions file (.rat extension).
+
+--
+Impact:
+A successful attack can cause a buffer overflow on a
+client and permit the execution of arbitrary code at the
+privilege level of the current user.
+
+--
+Detailed Information:
+Internet Explorer has an optional feature known as Content Advisor
+that allows unsuitable content to be blocked.  The Content Advisor
+uses a ratings description file to determine what is considered
+to be unsuitable content.
+
+The ratings description file contains several statements including
+a name statement.  An overly long value supplied to a specific
+name statement can cause a buffer overflow and the subsequent
+execution of arbitrary code.
+
+It should be noted that user participation is required to set
+or modify the Content Advisor ratings.  The user is prompted to
+either set or enter a password for the Content Advisor and is
+also prompted to accept the ratings file.
+
+In order to avoid potential evasion techniques, http_inspect
+should be configured with "flow_depth 0" so that all HTTP server
+response traffic is inspected.
+
+WARNING
+Setting flow_depth 0 will cause performance problems in some situations.
+WARNING
+
+--
+Affected Systems:
+	IE 5.01, 5.5 and 6
+
+--
+Attack Scenarios:
+An attacker can entice a user to visit a malicious site
+that returns a malformed ratings description file.  If
+the file is accepted, a buffer overflow can occur, enabling
+execution of arbitrary code on a vulnerable client.
+
+--
+Ease of Attack:
+Simple. Exploit code is available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+--

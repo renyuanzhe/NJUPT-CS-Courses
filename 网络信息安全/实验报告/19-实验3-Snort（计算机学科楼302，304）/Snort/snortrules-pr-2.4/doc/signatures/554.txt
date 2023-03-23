@@ -1,0 +1,58 @@
+Rule: 
+
+--
+Sid: 
+554
+
+--
+Summary: 
+This event is generated when an attempt is made to create a directory name that begins with a "/ " on an FTP server.
+
+
+--
+Impact: 
+Unauthorized file storage.  An attacker may attempt to create a directory name that begins with "/ " on an FTP server, possibly in preparation to store unauthorized files.
+
+--
+Detailed Information: 
+An attacker may attempt to create a hidden directory name that begins with "/ " on an FTP server .  This hidden directory is hard to discover, permitting attackers to store unauthorized "warez" files, such as unlicensed or pirated software.
+
+--
+Affected Systems: 
+FTP servers
+
+--
+Attack Scenarios: 
+An attacker may attempt to create a hidden directory name that begins with "/ " to store unauthorized files.
+
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives: 
+None Known.
+
+--
+False Negatives: 
+Hidden directories other than those with a name that begins with a "/ " may be created to store "warez" files.
+
+--
+Corrective Action: 
+Assign restrictive permissions to all directories so unauthorized users cannot navigate or write to them.
+
+Regularly monitor directories for sudden or drastic increased use of space.
+
+--
+Contributors: 
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+-- 
+Additional References:
+
+--

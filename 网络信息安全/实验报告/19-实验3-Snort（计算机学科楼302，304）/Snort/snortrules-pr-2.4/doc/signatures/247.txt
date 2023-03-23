@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+247
+
+--
+Summary:
+This event is generated when an mstream DDoS client communicates with a handler.
+
+--
+Impact:
+Severe.  If the listed source IP is in your network, it may be an mstream client.  If the listed destination IP is in your network, it may be an mstream handler.
+
+--
+Detailed Information:
+The mstream DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack. At the highest level, clients communicate with handlers to inform them to launch attacks.  A client may communicate with a handler using a TCP packet to destination port 12754 with a string of ">" in the payload.
+
+--
+Affected Systems:
+Any mstream compromised host.
+
+--
+Attack Scenarios:
+After a host becomes an mstream client, it will attempt to communicate with handlers. 
+
+--
+Ease of Attack:
+Simple. mstream code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+There are other known client-to-handler ports in addition to 12754.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0138
+
+--

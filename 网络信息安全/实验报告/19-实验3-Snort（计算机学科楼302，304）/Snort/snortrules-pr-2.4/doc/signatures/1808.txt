@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+1808
+
+--
+Summary:
+An attacker is using exploit code for the Apache chunked encoding 
+vulnerability against your web server.
+
+--
+Impact:
+If successful, this exploit can allow attackers to cause code of their 
+choice to run on your server or cause
+a denial of service.
+
+--
+Detailed Information:
+Older versions of the Apache HTTP server suffered from a bug in the 
+routines that handled chunked encoding.
+This exploit takes advantage of this vulnerability.
+
+--
+Affected Systems:
+Version of Apache 1.3 up to and including 1.3.24 and versions of Apache 
+2.0 up to 2.0.36. All versions of Apache 1.2 are vulnerable.   Although 
+this vulnerability is present in all ports of Apache, the exploit code 
+detected by this signature appears to only work against systems running 
+BSD.
+
+--
+Attack Scenarios:
+An attacker can take advantage of a widely available exploit script to compromise the server.
+
+--
+Ease of Attack:
+Simple. Exploit scripts are available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+This signature detects specific exploit code that targets systems 
+running BSD. It is certainly possible for this vulnerability to be 
+exploited in ways other than those detected by this signature.
+
+--
+Corrective Action:
+Ensure that you are running a version of Apache newer than those listed 
+in the "affected systems" section.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Kevin Peuhkurinen
+
+-- 
+Additional References:
+
+Apache http server project
+http://httpd.apache.org/info/security_bulletin_20020620.txt
+
+--

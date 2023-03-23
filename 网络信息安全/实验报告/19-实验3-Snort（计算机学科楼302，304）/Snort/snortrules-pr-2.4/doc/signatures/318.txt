@@ -1,0 +1,64 @@
+SID:
+318
+--
+
+Rule:
+--
+
+Summary:
+This event is generated when an attempt is made to exploit a vulnerable 
+version of bootpd
+--
+
+Impact:
+If attack is successful, total system compromise from a remote attacker
+--
+
+Detailed Information:
+Due to improper handling of bounds checking in bootp request packets 
+Bootpd version 2.4.3(and earlier) is susceptible to several types of 
+buffer overflows. A successful exploit will result in complete 
+compromise of the attacked system. Any system running Bootpd version 
+Stanford University bootpd 2.4.3 should consider themselves vulnerable
+--
+
+Affected Systems:
+	Debian Linux 1.1
+	Debian Linux 1.2
+	Debian Linux 1.3
+	Debian Linux 1.3.1
+	Debian Linux 2.0
+	Stanford University bootpd 2.4.3
+--
+
+Attack Scenarios:
+An attacker can exploit vulnerable bootpd servers and modify system 
+files as the root user or create a shell with root privileges
+--
+
+Ease of Attack:
+Simple, Sample code exists
+--
+
+False Positives:
+none
+--
+
+False Negatives:
+none
+--
+
+Corrective Action:
+Vendors have supplied patched versions of bootpd, upgrade
+--
+
+Contributors:
+Snort documentation contributed by matthew harvey <indexone@yahoo.com>
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+--

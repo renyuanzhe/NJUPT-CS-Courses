@@ -1,0 +1,64 @@
+Rule:
+--
+Sid:
+1103
+--
+Summary:
+This event is generated when a client is requesting a file that may 
+contain an administrator name and password.
+
+--
+Impact:
+An attacker may be able to gain administrator access to your web server.
+
+--
+Detailed Information:
+Some versions of Netscape Enterprise Server  put a world readable text 
+file containing the administrator user name and encrypted password in a 
+standard location within the URI space. By acessing this, an attacker 
+may be able to brute force guess or even decrypt the password.
+
+--
+Affected Systems:
+	Netscape Enterprise/3.6 SP3
+	Netscape Fasttrack/3.0.2
+	Netscape Messaging Server/3.6
+	Netscape Messaging Server/4.15p2
+	Netscape Collabra Server/3.54
+
+--
+Attack Scenarios:
+This is an information gathering operation that could allow an attacker 
+to execute a brute force password guessing attack.
+
+--
+Ease of Attack:
+Moderate.   The file is easy enough to get access to, but the password 
+is still encrypted.
+
+--
+False Positives:
+None.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Set appropriate permissions on this file or upgrade your web server 
+software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Kevin Peuhkurinen
+
+-- 
+Additional References:
+
+Secureiteam
+http://www.securiteam.com/securitynews/5OR040A1UG.html
+
+--

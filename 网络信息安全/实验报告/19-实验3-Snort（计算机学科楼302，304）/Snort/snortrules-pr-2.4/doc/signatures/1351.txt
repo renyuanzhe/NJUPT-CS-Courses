@@ -1,0 +1,47 @@
+Rule:
+
+--
+Sid:
+1351
+
+--
+Summary:
+Attempted tclsh command access via web
+
+--
+Impact:
+Attempt to excute a tclsh command on a webserver
+
+--
+Detailed Information:
+This is an attempt to execute a tclsh command or script on a webserver. tclsh is a shell application that reads tcl commands and evaluates them. The attacker could possibly execute a command or script on the host.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains '/bin/tclsh'in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. This command may also be requested on a command line should the attacker gain access to the machine.
+--
+Contributors:
+Sourcefire Research Team
+
+-- 
+Additional References:
+sid: 1352
+
+--

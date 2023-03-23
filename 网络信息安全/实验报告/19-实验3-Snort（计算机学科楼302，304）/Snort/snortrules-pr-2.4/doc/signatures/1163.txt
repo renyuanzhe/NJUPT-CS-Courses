@@ -1,0 +1,60 @@
+Rule:  
+
+Sid:
+1163
+
+--
+
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in a Web server running on an IRIX platform.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible.
+
+--
+Detailed Information:
+IRIX versions 5.0 through 6.3 contain a CGI script (/var/www/cgi-bin/webdist.cgi) 
+for remote administration purposes. This script, as originally released by 
+SGI, contains a vulnerability that can allow an attacker to run any 
+arbitrary command that the web server user has access to.
+
+--
+Affected Systems:
+	IRIX systems 5.0 to 6.3
+
+--
+Attack Scenarios:
+An attacker makes a request for the script followed by a semi-colon
+character ";" and then the command to be executed.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow the use of this script on the server.
+
+Check for further signs of compromise.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

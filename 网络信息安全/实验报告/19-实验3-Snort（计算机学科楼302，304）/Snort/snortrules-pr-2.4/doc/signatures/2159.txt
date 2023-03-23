@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+2158
+
+--
+Summary:
+This event is generated when an invalid BGP type is detected. 
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+This event indicates that a Border Gateway Protocol (BGP) packet with an invalid type has been detected.
+
+BGP packets must have a type of 1 or more. This event indicates that a BGP packet was detected with a type of 0. This may be related to another issue regarding invalid BGP datasizes. See sid 2158 for further information.
+
+Note: if sid 2158 has been disabled, this event will be generated if the type of problem described in the documentation for sid 2158 is detected.
+
+--
+Affected Systems:
+This BGP packet may cause problems with TCPDump.
+
+--
+Attack Scenarios:
+An attacker would need to craft a special BGP packet with a type of 0 or a datasize of less than 20 bytes.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

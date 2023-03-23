@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+480
+
+--
+Summary:
+This event is generated when a benevolent ping used by SpeedEra.net to
+find the closest cache to a host is detected.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+After visiting certain speedera.net sites, several pings will be
+received by the host. These pings are sent so that speedera can find the
+closest cache to the host. This rule is intended to distinguish the
+usually benevolent speedera pings from normal, possibly malevolent pings.
+
+--
+Affected Systems:
+	All systems
+ 
+--
+Attack Scenarios:
+This is not really an attack.  However an attacker could disguise their
+pings as speedera pings, but this is unlikely.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+None required.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Drew Hintz ( http://guh.nu )
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Linux Security:
+http://www.linuxsecurity.com/articles/firewalls_article-2064.html
+
+--

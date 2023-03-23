@@ -1,0 +1,65 @@
+
+Rule:
+
+--
+Sid:
+3671
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability associated with the processing of MySQL authentication. 
+
+--
+Impact:
+A successful attack may allow an unauthorized user access, cause a 
+denial of service or buffer overflow with the subsequent execution of
+arbitrary code.
+
+--
+Detailed Information:
+There are two vulnerabilities associated with MySQL password 
+authentication.  The first vulnerability may permit an unauthorized
+user access to the server if an attacker knows an authorized user name
+and crafts a malicious client password hash. The second vulnerability
+may cause a denial of service or buffer overflow if an attacker knows
+an authorized user name and crafts an overly long password hash.
+
+--
+Affected Systems:
+  MySQL 4.1.x prior to 4.1.3 and early builds of MySQL 5.0.0.
+
+--
+Attack Scenarios:
+An attacker who knows an authorized user name to a vulnerable server
+can craft a password hash that permits unauthorized access or causes a
+DoS or buffer overflow.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Other:
+http://www.nextgenss.com/advisories/mysql-authbypass.txt
+
+--

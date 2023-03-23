@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+2453
+
+--
+Summary:
+This event is generated when a host in your network that has Yahoo Instant Messenger running is invited to participate in a Yahoo conference.
+
+--
+Impact:
+Possible policy violation.  Instant Messenger programs may not be appropriate in certain network environments.
+
+--
+Detailed Information:
+A Yahoo IM conference allows multiple users to participate in the exchange of text and voice messages, as well as share files and webcams.  It is possible that a file that is exchanged may contain malicious code such as as virus, worm, Trojan, or backdoor.  Also, since all exchanges are done via Yahoo IM servers and in clear text, there should be no expectation of privacy.
+
+--
+Affected Systems:
+Any host running Yahoo Instant Messenger.
+
+--
+Attack Scenarios:
+A Yahoo IM user may unwittingly accept a malicious file.
+
+--
+Ease of Attack:
+Easy to transfer a malicious file.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+It may be possible for Yahoo IM traffic to use other ports than the default expected ones.  
+
+--
+Corrective Action:
+Disallow the use of IM clients on the protected network and enforce or implement an organization wide policy on the use of IM clients.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+--
+Additional References:
+Yahoo Protocol
+http://www.cse.iitb.ac.in/~varunk/YahooProtocol.htm
+
+--

@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid: 313
+
+--
+Summary:
+This event is generated when an attempt to exploit a buffer overflow condition in ntalkd is made.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to gain remote access to the victim host or execute arbitrary code with the privileges of the superuser account.
+
+--
+Detailed Information:
+Some versions of the Network Talk Daemon (ntalkd) are vulnerable to a buffer overflow condition which can present the attacker with a root shell.
+
+Talk is used to communicate between users of UNIX based operating systems. A vulnerability exists such that a buffer overflow condition in talk can be exploited by a malicious user. This may then present the attacker with the opportunity to gain root access to the target system.
+
+Affected Versions:
+	Multiple vendors
+
+--
+Attack Scenarios:
+Once the overflow has been created, the attacker is able to supply incorrect hostname information to the target system and gain root access.
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply vendor supplied patches.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/210
+
+--

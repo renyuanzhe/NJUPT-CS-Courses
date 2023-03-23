@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with Veritas Backup Agent authentication.
+
+--
+Impact:
+Serious. Execution of arbitrary commands may be possible.
+
+--
+Detailed Information:
+A vulnerability exists in Veritas Backup Agent authentication software.
+This software uses Network Data Management Protocol (NDMP) to
+communicate between clients and servers. Authentication is required to
+successfully connect. If an overly long password value is supplied during
+authentication, a buffer overflow may occur than can present an attacker
+with the opportunity to execute code of their choosing.
+
+--
+Affected Systems:
+	Backup Exec 10.0 for Windows Servers rev. 5484
+	Backup Exec 9.1 for Windows Servers rev. 4691
+	Backup Exec 9.0 for Windows Servers rev. 4454
+	Backup Exec 9.0 for Windows Servers rev. 4367
+	Backup Exec 9.1.307 for NetWare Servers
+	Backup Exec 9.1.306 for NetWare Servers
+	Backup Exec 9.1.1154 for NetWare Servers
+	Backup Exec 9.1.1152.4 for NetWare Servers
+	Backup Exec 9.1.1152 for NetWare Servers
+	Backup Exec 9.1.1151.1 for NetWare Servers
+	Backup Exec 9.1.1127.1 for NetWare Servers
+	Backup Exec 9.1.1067.3 for NetWare Servers
+	Backup Exec 9.1.1067.2 for NetWare Servers
+	Backup Exec 9.0.4202 for NetWare Servers
+	Backup Exec 9.0.4174 for NetWare Servers
+	Backup Exec 9.0.4172 for NetWare Servers
+	Backup Exec 9.0.4170 for NetWare Servers
+	Backup Exec 9.0.4019 for NetWare Servers
+
+--
+Attack Scenarios:
+An attacker can send an overly long password, causing a buffer
+overflow and the subsequent execution of arbitrary code on
+a vulnerable host.
+
+--
+Ease of Attack:
+Simple. Exploit scripts are freely available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current nonaffected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=272&type=vulnerabilities
+
+--

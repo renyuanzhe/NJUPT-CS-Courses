@@ -1,0 +1,75 @@
+Rule:
+
+--
+Sid:
+2017
+
+--
+Summary:
+Embedded Support Partner (ESP) is an integral part of the SGI IRIX 
+operating system to enable remote support for the operating system
+
+A vulnerability exists in the Embedded Support Partner Daemon (ESP) that
+could lead to arbitrary commands being executed on a target host.
+
+--
+Impact:
+Remote super user access leading to a compromise of the target machine 
+along with any network resources that machine is connected to.
+
+--
+Detailed Information:
+The ESP daemon is an RPC (Remote Procedure Call) resource used on SGI 
+IRIX systems. The ESP daemon runs with the privileges of the root user. 
+IRIX version 6.5.8 and prior are susceptible to a buffer overflow of the
+ESP daemon leading to a remote root compromise of the affected host.
+
+--
+Affected Systems:
+SGI IRIX 6.5.8 and earlier.
+
+--
+Attack Scenarios:
+The attacker would need to craft a packet that would lead to the buffer
+overflow. No current exploits are available.
+
+--
+Ease of Attack:
+Difficult
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+All systems running vulnerable versions of rpc.espd should have the appropriate patch applied. 
+
+Additionally, the ESP daemon should be disabled where not needed by 
+commenting out the appropriate line in inetd.conf. The daemon itself can
+be made non-executable by removal of the x bit (chmod -x rpc.espd).
+
+RPC services should not be available outside the local area network, 
+filter RPC ports at the firewall to ensure access is denied to RPC 
+enabled machines.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0331
+
+Bugtraq:
+http://www.securityfocus.com/bid/2714
+
+--

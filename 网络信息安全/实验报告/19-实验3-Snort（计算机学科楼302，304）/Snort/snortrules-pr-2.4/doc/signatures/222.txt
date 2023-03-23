@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+222
+
+--
+Summary:
+This event is generated when ICMP traffic is sent between Tribe Flood Network 2000 (TFN2K) hosts.
+
+--
+Impact:
+Attempted DDoS. It is possible there is a TFN2K host in your network. 
+
+--
+Detailed Information:
+When TFN2K hosts communicate using ICMP, they may use an ICMP echo reply with an ICMP identification number of 0 and with a sequence of A's in the payload.  The tell-tale sequence of A's is a problem with the Base 64 encoding that was employed.   
+
+--
+Affected Systems:
+Any TFN2K infected host. 
+
+--
+Attack Scenarios:
+TFN2K hosts communicate with each other for various reasons for the ultimate purpose of attacking a target.
+
+--
+Ease of Attack:
+Simple. TFN2K is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS425
+
+--

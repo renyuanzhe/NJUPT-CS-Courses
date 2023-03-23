@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+2116
+
+
+--
+Summary:
+This event is generated when an attempt is made to access the cgi script chipcfg.cgi.
+
+--
+Impact:
+Information gathering. This is an attempt to gain information about the network device and possibly other network information.
+
+--
+Detailed Information:
+The IPC@CHIP is used in network devices for remote access and configuration of the device. It includes an embedded web server, ftp server and telnet daemon.
+
+This could be an attempt to gain intelligence about the device confguration or information on the rest of the network the device is connected to.
+
+--
+Attack Scenarios:
+The attacker merely needs to make an HTTP GET request for the chipcfg.cgi script.
+
+--
+Ease of Attack:
+Simple HTTP GET.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+The script can be rmoved from the device by using the function CGI_REMOVE. Check vendor documentation for details.
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2767
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-1341
+
+CERT:
+http://www.kb.cert.org/vuls/id/574739
+
+CGI Security:
+http://www.cgisecurity.com/archive/webservers/chip_multi_holes_and_webserver.txt
+
+--

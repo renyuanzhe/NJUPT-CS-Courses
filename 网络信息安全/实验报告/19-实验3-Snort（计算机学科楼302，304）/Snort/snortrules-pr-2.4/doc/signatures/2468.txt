@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+2468
+
+--
+Summary:
+This event is generated when an attempt is made to gain access to
+private resources using Samba.
+
+--
+Impact:
+Information gathering and system integrity compromise. Possible unauthorized
+administrative access to the server.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to use Samba to gain
+access to private or administrative shares on a host.
+
+--
+Affected Systems:
+	All systems using Samba for file sharing.
+	All systems using file and print sharing for Windows.
+
+--
+Attack Scenarios:
+Many attack vectors are possible from simple directory traversal to
+direct access to Windows adminsitrative shares.
+
+--
+Ease of Attack:
+Simple. Exploit software is not required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+Check the host logfiles and application logs for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

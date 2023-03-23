@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid: 1321
+
+--
+Summary:
+This event is generated when packets on the network have the Time To 
+Live (TTL) set to 0.
+
+--
+Impact:
+Improper use of IP multicasting by an application causing anomalous 
+behaviour on the network. This may have a detrimental effect on network 
+devices.
+
+--
+Detailed Information:
+Under normal circumstances the TTL should not be 0.
+
+This may be the result of a poorly designed application sending a TTL of 0 using Winsock.
+
+an indicator of unauthorized network use, reconnaisance activity or 
+system compromise. These rules may also generate an event due to 
+improperly configured network devices.
+
+--
+Affected Systems:
+	Windows 95
+	Windows NT 3.5 and 3.51
+
+--
+Attack Scenarios:
+The application may be using a flaw in some versions of Winsock that 
+allow multicast packets to have a TTL of 0.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor fixes.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft:
+http://support.microsoft.com/default.aspx?scid=kb\;EN-US\;q138268
+http://support.microsoft.com/default.aspx?scid=kb;EN-US;131978
+
+--

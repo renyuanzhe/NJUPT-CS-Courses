@@ -1,0 +1,71 @@
+Rule:  
+
+--
+Sid:
+502
+
+--
+Summary:
+This event is generated when an IPv4 packet set the strict source record
+route IP option.
+
+--
+Impact:
+Information could be gathered about network topology, and machines
+routing packets onto trusted links could be abused.
+
+--
+Detailed Information:
+Strict source record routing specifies a series of machines which must 
+be exclusively used in the routing of a datagram.  This can be useful to
+map out routes ala the traceroute program by adding discovered 
+intermediary routers one at a time.  Furthermore, while a machine may 
+normally be unreachable due to default gateways, a compliant router can 
+be forced to hand off source routed packets to an intermediary capable 
+of speaking both to the outside world and target machines; the packet 
+may then be forwarded on to its destination.
+
+--
+Affected Systems:
+Any machine fully implementing RFC 791 set up as a router.
+
+--
+Attack Scenarios:
+By incrementing the TTL of successive packets, the topology of routes to
+a host can be determined.  Each compliant node along the way will reply
+with an ICMP Time Exceeded bearing their address and the recorded route.
+
+--
+Ease of Attack:
+Tools are readily available to employ source routing for the purpose of
+network discovery; the bounce attack described is unlikely to surface in
+a properly configured network.
+
+--
+False Positives:
+None
+
+--
+False Negatives:
+Network discovery can be done using other means than source routing.
+
+--
+Corrective Action:
+Redesign network topologies so that routers are kept to a minimum;
+disable routing by other machines.  To prevent network mapping, don't
+allow source-routed packets at all. 
+
+--
+Contributors:
+Snort documentation contributed by by Nick Black, Reflex Security <dank@reflexsecurity.com>
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+IP RFC:
+www.faqs.org/rfcs/rfc791.html
+
+--

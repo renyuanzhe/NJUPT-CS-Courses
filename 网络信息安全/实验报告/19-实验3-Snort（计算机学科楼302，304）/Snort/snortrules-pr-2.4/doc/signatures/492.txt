@@ -1,0 +1,102 @@
+Rule:
+  
+--
+
+Rule:
+--
+Sid:
+492
+
+--
+
+Summary:
+This event is generated when an unsuccessful login attempt was made via telnet.
+
+--
+
+Impact:
+Possible unauthorized access via password brute-forcing
+
+An attacker may have attempted to gain access to a valid user's account 
+via the telnet service, but did not succeed.  The telnet service is 
+running, which uses insecure authentication mechanisms.
+
+--
+
+Detailed Information:
+A user tried to log on to a system via telnet, but has been rejected,
+either due to invalid username, password, or both. This could mean 
+someone is trying to log on without proper password (if there are 
+multiple unsuccessful logins) or they may have just mistyped the 
+username or the password.
+
+The telnet server typically runs on TCP port 23.  Upon access to the
+server, account access is granted based on an unencrypted user name and
+password.  Upon a failed login (resulting from either an invalid account
+or an incorrect password), a login failure message will be returned.
+This rule matches the common text "Login failed".
+
+--
+
+Affected Systems:
+Any system running a telnet server.
+
+--
+
+Attack Scenarios:
+Attackers can, particularly when armed with a valid account name,
+attempt to use guessing attacks or brute-force means to gain access via
+the telnet service.  Many successive events of this type would likely be
+indicative of such an attack.
+
+The use of a telnet server allows the passive attack of traffic
+sniffing, which can extract a username and password from any valid
+login.
+
+--
+
+Ease of Attack:
+Simple.
+
+This event indicates it is possible to perform a brute-force attack; the
+ease of such an attack is dependent upon the strength of passwords, and
+rate-limiting techniques employed by the telnet server in question.
+
+--
+
+False Positives:
+This event will match any badly-typed or -remembered password, and will
+therefore generate a false positive.  Look for rapid successive events.
+
+--
+
+False Negatives:
+If a password is correctly guessed, no failure will be noted.
+
+--
+
+Corrective Action:
+Check how many invalid attempts occurred, change the password of the 
+user that tried to log in.
+
+It is best to avoid using telnet whenever possible; its authentication
+system is lacking, and encryption is generally unavailable.  If your
+telnet server can be configured to temporarily disable access after
+rapid successive failures, it as advised that you do so.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Chaos <c@aufbix.org> and Nick Black, Reflex Security <dank@reflexsecurity.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+
+Additional References:
+
+Telnet RFC:
+http://www.faqs.org/rfcs/rfc854.html
+
+--

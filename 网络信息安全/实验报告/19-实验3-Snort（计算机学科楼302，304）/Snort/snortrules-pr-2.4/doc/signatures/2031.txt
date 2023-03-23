@@ -1,0 +1,73 @@
+Rule:
+
+--
+Sid:
+2031
+
+--
+Summary:
+The rpc.ypasswd service is used to update user information remotely. 
+This service should not be available outside the local area network, 
+external source.
+
+--
+Impact:
+This may be an intelligence gathering activity on available rpc services
+on a machine connected to external resources. The possibility also 
+exists that an attacker may already have gained access to a NIS server 
+and thus all resources connected to that host.
+
+--
+Detailed Information:
+A vulnerability exists in some versions of the rpc.ypasswd service that
+can lead to a remote root compromise of a vulnerable host. This activity
+may be an intelligence gathering exercise to ascertain wether or not the
+host is vulnerable to this attack.
+
+This activity may also indicate a possible compromise of a NIS server 
+via a legitimate user account the attacker has previously garnered. 
+Compromise of a master NIS server may present the attacker with easy 
+access to all NIS resources the machine is connected to.
+
+--
+Affected Systems:
+All systems running the rpc.ypasswd service.
+
+--
+Attack Scenarios:
+The attacker can make a request to update user information via 
+rpc.ypasswd.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable the rpc.ypasswd daemon.
+
+Disallow all RPC requests from external sources and use a firewall to 
+block access to RPC ports from outside the LAN.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+SANS:
+http://www.sans.org/rr/unix/NIS.php
+http://www.sans.org/rr/unix/sec_solaris.php
+
+--

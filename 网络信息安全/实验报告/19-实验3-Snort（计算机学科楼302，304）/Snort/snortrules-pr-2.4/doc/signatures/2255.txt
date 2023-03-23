@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+2255
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability associated with the Remote Procedure Call (RPC) sadmind.
+
+--
+Impact:
+Remote root access.  This attack may permit execution of arbitrary commands with the privileges of root.
+
+--
+Detailed Information:
+The sadmind RPC service is used by Solaris Solstice AdminSuite 
+applications to perform remote distributed system administration tasks 
+such as adding new users.  
+
+This event indicates that an RPC query for the sadmind service has been
+made with the credentials of the root user supplied.
+
+This may permit execution of arbitrary commands with the privileges of root.
+
+--
+Affected Systems:
+All systems using sadmind
+
+--
+Attack Scenarios:
+Exploit code can be used to attack a vulnerable sadmind to obtain root access to the remote host.
+
+--
+Ease of Attack:
+Simple.  Exploit scripts are freely available. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

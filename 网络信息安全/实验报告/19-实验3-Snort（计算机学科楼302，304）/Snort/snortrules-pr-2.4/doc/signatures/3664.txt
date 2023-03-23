@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+3664
+
+--
+Summary:
+The Point to Point Tunneling Protocol (PPTP) is used to connect client 
+machines to internal corporate resources using a Virtual Private Network
+(VPN) across a public network such as the Internet via an encrypted 
+session. Specifically an attempt to overflow a fixed length buffer in
+the PoPToP daemon.
+
+--
+Impact:
+Serious. Execution of code with root privileges may be possible.
+
+--
+Detailed Information:
+A vulnerability in the PoPToP daemon may allow an attacker to overflow a
+fixed length buffer when processing user supplied data.
+
+Specifically, the user supplied "length" variable is not properly
+checked before being used in a calculation to determine the amount of
+data to be received. It is possible to manipulate the variable so that
+it returns a negative value. This value can then be used to overwrite
+portions of system memory with code of the attackers choosing.
+
+--
+Affected Systems:
+	PoPToP Server 1.1.3 and prior
+	PoPToP Server 1.1.4-b2 and prior
+
+--
+Attack Scenarios:
+Exploits are publicly available.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

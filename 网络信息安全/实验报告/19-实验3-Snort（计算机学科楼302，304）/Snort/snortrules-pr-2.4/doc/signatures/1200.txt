@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+1200
+
+--
+Summary:
+This event is generated when an invalid URL response is sent from a
+webserver to a client.
+
+--
+Impact:
+Information gathering and possible Denial of Service (DoS).
+
+--
+Detailed Information:
+This event is generated when an invalid URL response is sent from a
+webserver to a client. It is possible under some circumstances, to cause
+a DoS condition by supplying an invalid URL to a web server running an
+affected version of Microsoft IIS 4.0. Certain invalid URLs can cause
+the system to make an invalid memory request that will in turn stop the
+IIS service from running.
+
+--
+Affected Systems:
+	Microsoft IIS 4.0 on NT systems
+	
+--
+Attack Scenarios:
+The attacker would merely need to make a web request using an invalid
+URL.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade the system to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

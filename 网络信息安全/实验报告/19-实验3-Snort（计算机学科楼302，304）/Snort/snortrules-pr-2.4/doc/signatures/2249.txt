@@ -1,0 +1,60 @@
+Rule:  
+
+--
+Sid:
+2249
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the ASP application ProductCart.
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+It is possible to inject SQL commands into the ASP application 
+ProductCart which could lead to the disclosure of information relating 
+to the underlying database and records contained in that database.
+
+--
+Affected Systems:
+	EarlyImpact ProductCart 2br000, 2, 1.6br003, 1.6br001, 1.6br, 1.6b003, 1.6b002, 1.6b001, 1.6b, 1.6003, 1.6002, 1.5004, 1.5003r, 1.5, 1.5002, 1.5003
+
+--
+Attack Scenarios:
+The attacker can supply SQL commands via a URI to access sensitive information.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Harded the system in the manner recommended by the vendor.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Vendor information:
+http://www.earlyimpact.com/productcart/support/security-alert-070603.asp
+
+--

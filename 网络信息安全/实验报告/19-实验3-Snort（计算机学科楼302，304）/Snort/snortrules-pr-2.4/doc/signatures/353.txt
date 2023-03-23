@@ -1,0 +1,53 @@
+Rule:
+
+--
+Sid:
+353
+
+--
+Summary:
+This event is generated when a remote user attempts to anonymously log into an internal FTP server with a suspicious password, indicating that an attacker may be scanning the FTP server for vulnerabilities using the ADMhack scanning tool.
+
+--
+Impact:
+Information gathering, possible unauthorized access. 
+
+--
+Detailed Information:
+ADMhack is a security scanner that scans for exploitable network vulnerabilities. When the scanner encounters an FTP server, it attempts to log in using "ddd@ " as a password.
+ 
+--
+Affected Systems:
+Computers running anonymous FTP servers.
+
+--
+Attack Scenarios:
+An attacker scans the network for vulnerable FTP servers using ADMhack scanner. When an FTP server is found, the tool attempts to log into the server. If vulnerabilities exist on the server, this may allow the attacker access to the FTP server in order to exploit them. 
+
+--
+Ease of Attack:
+Simple. ADMhack is freely available on the Internet.
+
+--
+False Positives:
+If a legitimate remote anonymous user uses the same password, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable anonymous FTP access.
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+--

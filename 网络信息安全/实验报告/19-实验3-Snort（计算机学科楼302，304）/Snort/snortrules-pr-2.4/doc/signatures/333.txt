@@ -1,0 +1,53 @@
+Rule:
+
+--
+Sid:
+333
+
+--
+Summary:
+This event is generated when a remote user sends a finger request to .@hostname. This may indicate an attempt to discover information about users on the system.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+Finger is a directory service on UNIX and Linux operating systems that allows users to obtain basic information about other users, including account name, home directory, and login status. A malicious user could use the string "finger .@hostname" to obtain a list of each user on the system. This may enable the attacker to view unused or inactive accounts, which are more likely to have default passwords that are relatively easy to guess or susceptible to brute force password attempts. 
+
+--
+Affected Systems:
+Any UNIX/Linux distribution with older versions of finger enabled.
+
+--
+Attack Scenarios:
+An attacker issues a finger .@host to the vulnerable server and views a list of users. The attacker then attempts to guess passwords for users with the "Never logged in" status.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+A non-malicious user using finger to obtain a user list will cause this rule to trigger.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable finger support on your servers or upgrade to a more recent version of the finger daemon.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+--

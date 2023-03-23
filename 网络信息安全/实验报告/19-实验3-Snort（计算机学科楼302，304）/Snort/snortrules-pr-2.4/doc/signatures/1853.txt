@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+1853
+
+--
+Summary:
+This event is generated when  an attacker attempts to connect to a 
+Trinoo DDoS Trojan server.
+
+--
+Impact:
+Possible Distributed Denial of Service.
+
+--
+Detailed Information:
+This Trojan affects Windows and Linux operating systems:
+
+Trinoo is used as a Distributed Denial of Service (DDoS) agent and can 
+launch DDoS attacks from a large number of hosts against a target.
+
+Due to the nature of this Trojan it is unlikely that the attacker's 
+client IP address has been spoofed.
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise may be due to the exploitation of another vulnerability.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow Telnet access from external sources.
+
+Use SSH as opposed to Telnet for access from external locations
+
+Delete the Trojan and kill any associated processes.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

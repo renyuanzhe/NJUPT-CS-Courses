@@ -1,0 +1,69 @@
+Rule: 
+
+--
+Sid:
+3152
+
+-- 
+Summary: 
+This event is generated when an attempt is made to access a host running
+Microsoft SQL Server or utilizing MSDE via the default "sa" account.
+
+-- 
+Impact: 
+Information disclosure. Unauthorized access to the host.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to access a host via the
+"sa" account using brute force techniques to guess a password.
+
+Microsoft SQL server and MSDE components use a default "sa" account with
+a default password as the administrative user for the database
+installation. This event indicates that numerous failed attempts have
+been made to access the target host using this account.
+
+--
+Affected Systems:
+	Microsoft SQL Server 2000
+	Microsoft SQL Server 7.0
+	Systems using Microsoft MSDE components
+
+--
+Attack Scenarios:  
+An attacker can use an automated script to gain access to a host and the
+database contents as an administrator by repeatly attempting to login
+using the "sa" account and different passwords.
+
+Some worms also try to brute force entry using this methodology.
+
+-- 
+Ease of Attack: 
+Simple,
+
+-- 
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patches
+
+Change the default "sa" password
+
+Disable the "sa" account.
+
+--
+Contributors: 
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

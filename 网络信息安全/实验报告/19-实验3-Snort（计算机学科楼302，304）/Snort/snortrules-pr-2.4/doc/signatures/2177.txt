@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+2176
+
+
+--
+Summary:
+This event is generated when an attempt is made to access a system
+folder via SMB. 
+
+--
+Impact:
+Serious. This folder contains important operating system information.
+
+--
+Detailed Information:
+This event indicates that an attempt was made to access a folder
+containing important operating system files using SMB across the
+network.
+
+--
+Affected Systems:
+Microsoft Windows systems.
+
+--
+Attack Scenarios:
+If this folder is accessible via SMB the attacker can replace or view
+important operating system files.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the host for signs of system compromise.
+
+Turn off file and print sharing on the target host.
+
+Use a packet filtering firewall to disallow SMB access to the host from
+sources external to the protected network.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid: 1751
+
+--
+Summary:
+This event is generated when a buffer overflow attempt is made against a host using cachefsd.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to execute arbitrary code or gain remote access to the victim host.
+
+--
+Detailed Information:
+A buffer overflow condition exists in the Cache File System daemon 
+(cachefsd) on certain versions of Solaris for SPARC and x86 
+architectures.
+
+cachefsd is used to improve the performance of NFS servers.
+
+Affected Systems:
+	Solaris 5.5.1, 5.6, 5.7 and 5.8
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Disable cachefsd.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+AusCERT:
+http://www.auscert.org.au/render.html?it=1918
+
+CERT:
+http://www.kb.cert.org/vuls/id/161931
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0084
+
+
+Bugtraq:
+http://www.securityfocus.com/bid/4631
+
+--

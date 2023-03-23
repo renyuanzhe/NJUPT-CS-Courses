@@ -1,0 +1,61 @@
+Rule:  
+
+--
+Sid:
+2353
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the PHP web application IdeaBox.
+
+--
+Impact:
+Execution of arbitrary code on the affected system
+
+--
+Detailed Information:
+IdeaBox contains a flaw such that it may be possible for an attacker
+to include code of their choosing by manipulating the variable ideaDir when 
+making a GET or POST  request  to a vulnerable system.
+
+It may be possible for an attacker to execute that code with the
+privileges of the user running the webserver, usually root by supplying
+their code in the file cord.php.
+
+--
+Affected Systems:
+	PHPOutsourcing IdeaBox 1.0
+
+--
+Attack Scenarios:
+An attacker can make a request to an affected script and define their
+own path for the ideaDir variable.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

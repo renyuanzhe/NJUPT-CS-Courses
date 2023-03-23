@@ -1,0 +1,70 @@
+Rule:  
+
+--
+Sid:
+1791
+
+--
+Summary:
+This event indicates that a backdoor may be installed on a machine.
+
+--
+Impact:
+One of the systems may have been compromised.
+
+--
+Detailed Information:
+www.monkey.org, the system that hosts fragroute was compromised and the fragroute
+source code was modified to contain a back door.  The code was corrupted on 
+May 17, 2002.  Versions after May 31, 2002  and before May 17, 2002 do not contain the backdoor.
+
+--
+Affected Systems:
+
+Systems running
+	dsniff 2.3
+	fragroute 1.2
+	fragrouter 1.6
+
+--
+Attack Scenarios:
+The backdoor contacts the IP address 216.80.99.202.  A person connecting from that
+address can use the backdoor to acquire full control over the compromised machine.  
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+While the IP address flagged in this rule was associated with the backdoor at the time
+fragroute was trojaned, it may now or in the future be used by unrelated parties.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to a new version of fragroute and sanitize the trojaned machine.   
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/4898
+http://www.securityfocus.com/archive/1/274927
+
+
+
+
+
+
+--

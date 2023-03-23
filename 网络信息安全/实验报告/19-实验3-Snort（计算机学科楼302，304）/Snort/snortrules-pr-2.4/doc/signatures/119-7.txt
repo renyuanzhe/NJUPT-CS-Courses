@@ -1,0 +1,64 @@
+Rule: 
+
+--
+Sid: 
+119-7
+
+-- 
+Summary: 
+This event is generated when the pre-processor http_inspect
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. This may be an attempt to evade an IDS.
+
+--
+Detailed Information:
+This event is generated when the pre-processor http_inspect detects
+Unicode encoded web requests. This may be an indicator of an obfuscated
+attack against a server as well as an attempt to evade an IDS.
+
+The Unicode map for the target servers can be generated for specific
+servers. Refer to the documentation for http_inspect for instructions.
+
+--
+Affected Systems:
+	Microsoft IIS web servers.
+
+--
+Attack Scenarios: 
+The attacker merely needs to encode a request using Unicode characters.
+
+--
+Ease of Attack: 
+Simple.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+--
+Contributors:
+Daniel Roelker <droelker@sourcefire.com> 
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+HTTP IDS Evasions Revisited - Daniel Roelker
+http://docs.idsresearch.org/http_ids_evasions.pdf
+
+--

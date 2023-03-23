@@ -1,0 +1,61 @@
+Rule:
+--
+Sid:
+255
+
+--
+
+Summary:
+This event is generated when an attempt is made to request a zone 
+transfer from a DNS Server
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+DNS Zone transfers are normally used between DNS Servers to replicate 
+zone information. Zone transfers can also be used to gain information 
+about a network.
+
+--
+Affected Systems:
+	All DNS Servers
+
+--
+Attack Scenarios:
+A malicious user may request a Zone Transfer to gather information 
+before commencing an attack.  This can give the user a list of hosts to 
+target.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+DNS Zone transfers may be part of normal traffic for DNS servers.
+
+--
+False Negatives:  
+None known
+
+--
+Corrective Action:
+Configure the DNS servers to only allow zone transfers from authorised 
+hosts, limit the information available from publicly acessible DNS 
+server by using Split Horizon DNS or separate DNS Servers for internal 
+networks.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

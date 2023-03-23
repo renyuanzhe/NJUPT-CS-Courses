@@ -1,0 +1,77 @@
+Rule:
+
+--
+Sid:
+1274
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap
+GETPORT request to discover the port where the Remote Procedure Call
+(RPC) ttdbserverd is listening.
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port
+ttdbserverd is using. Attackers can also learn what versions of the
+ttdbserverd protocol are accepted by ttdbserverd. 
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can
+be queried to determine the port where RPC services such as ttdbserverd
+run. The ttdbserverd RPC service, more commonly known as the ToolTalk
+database server, allows applications used in Common Desktop Environment
+(CDE) to communicate. The ToolTalk service receives ToolTalk messages
+created and sent by applications and delivers them to the appropriate
+recipient applications. The ToolTalk database server comes enabled on
+hosts with CDE. Multiple vulernabilities have been associated with the
+ToolTalk database server. 
+
+--
+Affected Systems:
+	All hosts running the UNIX portmapper.
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where
+ttdbserverd runs. This may be a precursor to accessing ttdbserverd.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If a legitimate remote user is allowed to access ttdbserverd, this rule
+may generate an event.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for ttdbserverd, not
+probes of the ttdbserverd service itself. Because RPC services often
+listen on fairly arbitrary ports, it may not be possible to detect
+misuses of the ttdbserverd service itself. An attacker may attempt to go
+directly to the ttdbserverd port without querying the portmapper
+service, which would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to
+RPC-enabled machines.
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

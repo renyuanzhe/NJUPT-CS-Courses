@@ -1,0 +1,71 @@
+
+
+Rule:
+
+--
+Sid:
+115-5
+
+--
+Summary:
+This event is generated when the pre-processor asn1 detects network
+traffic that may constitute an attack. Specifically an asn.1 datum
+length greater than the packet length was detected.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+This event is generated when the asn1 pre-processor detects network
+traffic that may consititute an attack.
+
+This indicates that the data length is greater than the packet length
+and may indicate an attempt to cause a buffer overflow or it may be an
+attempt to evade detection by an IDS that may not correctly process
+asn1 data.
+
+More information on this event can be found in the individual
+pre-processor documentation README.asn1 in the docs directory of the
+snort source. Detailed instructions and examples on how to tune and use
+the pre-processor can also be found in the same document.
+
+--
+Affected Systems:
+	All.
+
+--
+Attack Scenarios:
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Daniel Roelker <droelker@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+ASN1 Information Site:
+http://asn1.elibel.tm.fr/
+
+--

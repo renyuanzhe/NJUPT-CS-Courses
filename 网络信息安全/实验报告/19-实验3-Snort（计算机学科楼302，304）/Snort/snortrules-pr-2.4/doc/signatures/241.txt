@@ -1,0 +1,63 @@
+Rule:
+--
+Sid:
+241
+
+--
+Summary:
+This event is generated when a DDoS Shaft handler agent launchs a SYN flood against a target. 
+
+--
+Impact:
+Attempted DDoS. If the listed source IP is in your network, it may be a Shaft agent.  If the listed destination IP is in your network, your host may be a target of a DDoS SYN flood. 
+
+--
+Detailed Information:
+The Shaft DDoS uses a tiered structure of compromised hosts to coordinate and participate in a distributed denial of service attack. Agents are hosts that are directed to launch attacks.  One type of attack that may be launched is a SYN flood of a target.  The SYN packets have a telltale initial sequence number of 674711609. 
+
+--
+Affected Systems:
+Any Shaft compromised host.
+
+--
+Attack Scenarios:
+A Shaft agent may attack a target using a SYN flood. 
+
+--
+Ease of Attack:
+Simple. Shaft code is freely available.
+
+--
+False Positives:
+It is possible that an innocuous SYN packet will have a sequence number of 674711609.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS253
+
+Miscellaneous:
+http://biocserver.cwru.edu/~jose/shaft_analysis/
+
+
+--

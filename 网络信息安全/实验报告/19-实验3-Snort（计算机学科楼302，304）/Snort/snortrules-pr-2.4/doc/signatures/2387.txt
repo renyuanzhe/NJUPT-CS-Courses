@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+2387
+
+--
+Summary:
+This event is generated when an attempt is made to view a URL with the string "view_broadcast.cgi" in the name.
+
+--
+Impact:
+Denial of service.
+
+--
+Detailed Information:
+A vulnerabilities exists in Apple Quick Time Streaming Server and
+Apple Darwin Streaming Server running on Windows hosts, that may allow
+a denial of service to occur.  This happens when expected parameters are not 
+supplied to this script, causing the server to fail to accept new connections.
+
+--
+Affected Systems:
+QuickTime/Darwin Streaming Server 4.1.3e and earlier on Windows
+
+--
+Attack Scenarios:
+An attacker can craft a packet that contains a URL with the location of the view_broadcast.cgi script and not pass it required parameters.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate patches for the systems affected.
+
+Upgrade to the latest non affected versions of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak<judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/8257
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0422
+
+--

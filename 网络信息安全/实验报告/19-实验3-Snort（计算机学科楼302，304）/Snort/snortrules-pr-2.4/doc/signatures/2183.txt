@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid:
+2183
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in certain versions of Sendmail.
+
+--
+Impact:
+Denial of Service (DoS), possible arbitrary code execution and the 
+remote attacker can gain access to a machine with the credentials of
+the user running the Sendmail daemon, usually 'root'.
+
+--
+Detailed Information:
+A vulnerability exists in the Sendmail MTA Daemon that could allow an
+attacker the opportunity to gain root access.
+
+A programming error exists such that a buffer overflow can be caused
+using the header fields in an SMTP session. The prescan() function does 
+not properly handle certain conversions from character and integer 
+types. This can cause Sendmail to interpret the value as a special 
+control value (NOCHAR).
+
+This rule detects specific exploit code attacks against a server using 
+Sendmail.
+
+--
+Affected Systems:
+	Sendmail Pro (all versions)
+	Sendmail Switch 2.1 prior to 2.1.6
+	Sendmail Switch 2.2 prior to 2.2.6
+	Sendmail Switch 3.0 prior to 3.0.4
+	Sendmail for NT 2.X prior to 2.6.3
+	Sendmail for NT 3.0 prior to 3.0.4
+	Systems running open-source sendmail versions prior to 8.12.9, including UNIX and Linux systems
+
+--
+Attack Scenarios:
+The attacker merely needs to execute one of the available exploit 
+scripts.
+
+--
+Ease of Attack:
+Simple. Exploits for this vulnerability exist.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+
+--
+Additional References:
+
+--

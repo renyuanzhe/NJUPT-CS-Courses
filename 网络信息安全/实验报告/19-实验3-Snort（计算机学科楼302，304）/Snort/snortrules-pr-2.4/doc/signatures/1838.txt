@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid: 1838
+
+--
+Summary:
+Secure Shell (SSH) is used to remotely manage systems over encrypted TCP
+sessions. This event is generated when an attempt is made to exploit 
+vulnerable versions of the SecureCRT SSH client.
+
+--
+Impact:
+System compromize presenting the attacker with either the opportunity to
+execute arbitrary code or crash the client.
+
+--
+Detailed Information:
+Van Dyke Technologies SecureCRT is a client program that allows users to
+connect to servers running the Secure Shell (SSH) daemon for remote 
+access via an encrypted TCP session.
+
+A flaw in the SecureCRT client may result in arbitrary code execution 
+with the privileges of the user running the client.
+
+A buffer overflow can be caused by a server sending an overly long 
+identifier string when using the SSH-1 protocol.
+
+--
+Affected Systems:
+	Van Dyke Technologies SecureCRT prior to version 4.0 beta 1
+
+Not affected:
+	Van Dyke Technologies SecureCRT versions 3.2.2, 3.3.4, 3.4.6 and 4.0 beta 3.
+
+--
+Attack Scenarios:
+The attacker would need to send overly large SSH version 1 identifier 
+string to cause the overflow.
+
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <brian.caswell@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Securityfocus:
+http://www.securityfocus.com/bid/5287
+
+--

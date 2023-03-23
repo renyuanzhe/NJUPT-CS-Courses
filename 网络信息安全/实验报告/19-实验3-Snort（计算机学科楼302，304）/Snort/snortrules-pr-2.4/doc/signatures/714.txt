@@ -1,0 +1,90 @@
+Rule:  
+resolv_host_conf"; flow:to_server,established;
+content:"resolv_host_conf"; reference:arachnids,369;
+reference:url,www.securityfocus.com/bid/2181; classtype:attempted-admin;
+sid:714; rev:4;) 
+
+--
+
+Sid:
+
+714
+
+--
+
+Summary:
+
+The RESOLV_HOST_CONF variable is being manipulated on your Telnet host.
+
+--
+
+Impact:
+
+Elevated priviledges (file reads).
+
+--
+
+Detailed Information:
+
+The RESOLV_HOST_CONF variable, used by suid and sgid applications, isn't
+properly validated in some versions of glibc.  As a result, an attacker
+can use an suid or sgid root program to gain access to files they're not
+supposed to have.
+
+--
+
+Affected Systems:
+
+UNIX systems with unpatched glibc 2.1.x or 2.2.x implementations.
+
+--
+
+Attack Scenarios:
+
+Attacker sets the RESOLVE_HOST_CONF variable to the filename of any
+protected file (for example, /etc/shadow), and then runs an suid or sgid
+root program.  The contents of the protected file are then echoed to the
+console in a series of error messages.
+
+--
+
+Ease of Attack:
+
+Simple.
+
+--
+
+False Positives:
+
+None known.
+
+--
+
+False Negatives:
+
+None known.
+
+--
+
+Corrective Action:
+
+Install the latest vendor-supplied glibc implementation.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Gene R Gomez (gene!AT!gomezbrothers!DOT!com)
+
+-- 
+
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS369
+
+Bugtraq:
+http://www.securityfocus.com/bid/2181
+
+
+--

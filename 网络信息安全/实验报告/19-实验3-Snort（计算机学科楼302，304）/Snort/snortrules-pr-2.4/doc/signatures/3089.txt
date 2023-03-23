@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+3089
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a denial of
+service associated with Squid Web Cache Communication Protocol (WCCP).
+
+--
+Impact:
+A successful attack can cause the Squid web cache server process to
+terminate.
+
+--
+Detailed Information:
+A vulnerability exists in the way that a Squid server handles a WCCP
+message.  A WCCP I_SEE_YOU message that contains an invalid number of
+web cache entries can create an out-of-bounds array reference.  This may
+result in a read access violation of memory, causing a denial of service.
+
+--
+Affected Systems:
+	Squid Web Proxy Cache 2.5 STABLE7 and prior versions
+
+--
+Attack Scenarios:
+An attacker can craft a WCCP I_SEE_YOU message with an invalid number of
+web cache entries, causing the web cache server process to terminate.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+--

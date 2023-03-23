@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+1627
+
+--
+Summary:
+This event is generated when packets on the network are using an 
+unassigned or reserved IP protocol.
+
+--
+Impact:
+Possible prelude to system compromise.
+
+--
+Detailed Information:
+Under normal circumstances IP packets do not use unassigned or reserved 
+protocols.
+
+an indicator of unauthorized network use, reconnaisance activity or 
+system compromise. These rules may also generate an event due to 
+improperly configured network devices.
+
+--
+Affected Systems:
+	All
+
+--
+Attack Scenarios:
+The attacker may send specially crafted packets using an unassigned or 
+reserved protocol.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+Research or testing of new protocols may trigger this event.
+
+Novell use protocol 224 for the Cluster heart beat
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Use a packet filtering device to reject packets using an unknown 
+protocol.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+IANA
+http://www.iana.org/assignments/protocol-numbers
+
+--

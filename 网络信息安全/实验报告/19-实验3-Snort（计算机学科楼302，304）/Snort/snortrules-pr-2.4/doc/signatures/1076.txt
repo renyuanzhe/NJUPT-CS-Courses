@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+1076
+
+--
+Summary:
+This event is generated when an attempt is made to access the repost.asp file.
+
+--
+Impact:
+File upload.  This attack may permit an attacker to upload files to the /users directory on the vulnerable server. 
+
+--
+Detailed Information:
+Microsoft Site Server is software for Windows NT servers that allows users to publish, find, and share information.  A vulnerability exists when accessing the repost.asp file, allowing an attacker to upload files to the /users directory of the vulnerable server if access permissions have not been restricted.
+
+--
+Affected Systems:
+Microsoft Site Server 2.0.
+
+--
+Attack Scenarios:
+An attacker can access the respost.asp file, permitting the unauthorized upload of files to the /users directory.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Restrict access permissions on the /users directory.
+
+--
+Contributors:
+Original rute writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10372
+
+
+--

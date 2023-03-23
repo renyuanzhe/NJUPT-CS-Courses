@@ -1,0 +1,73 @@
+Rule:
+
+--
+Sid:
+1324
+
+--
+Summary:
+Secure Shell (SSH) is used to remotely manage systems over encrypted TCP
+sessions. This event is generated when an attempt is made to exploit 
+vulnerable versions of the SSH daemon.
+
+--
+Impact:
+System compromize presenting the attacker with root privileges. Denial 
+of Service (DoS) on certain network devices.
+
+--
+Detailed Information:
+A flaw in the CRC32 compensation attack detection code may result in 
+arbitrary code execution with the privileges of the user running the SSH
+daemon (usually root).
+
+Some Netscreen devices may suffer a Denial of Service.
+
+Affected Systems:
+	OpenSSH versions prior to 2.2
+	Multiple Cisco network devices
+	Multiple Netscreen network devices
+	SSH Secure Communications prior to 1.2.31
+
+--
+Attack Scenarios:
+The attacker would need to send specially crafted large SSH packets to 
+cause the overflow and present the opportunity to write values to memory
+locations.
+
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.kb.cert.org/vuls/id/945216
+
+Analysis by David Dittrich:
+http://staff.washington.edu/dittrich/misc/ssh-analysis.txt
+
+--

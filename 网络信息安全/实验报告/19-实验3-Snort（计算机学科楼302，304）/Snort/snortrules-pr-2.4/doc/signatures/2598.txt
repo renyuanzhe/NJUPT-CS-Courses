@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+2598
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overrun condition in the Samba Web Administration Tool (SWAT).
+
+--
+Impact:
+Remote execution of arbitrary code.
+
+--
+Detailed Information:
+A vulnerability exists in SWAT that may present an attacker with the
+opportunity to execute code of their choosing on an affected host.
+
+The problem lies in an the functions that handle base64 decoding
+during HTTP basic authentication. Exploitation of this vulnerability
+may present the attacker with the opportunity to gain control of the
+affected system.
+
+--
+Affected Systems:
+	 Versions of Samba greater than or equal to 3.0.2 and
+     less than 3.0.5
+
+--
+Attack Scenarios:
+An attcker needs to make a specially crafted request to the SWAT
+service that could contain harmful code to gain further access to the
+system.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+--
+Contributors:
+Sourcefire Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0600
+
+Bugtraq:
+http://www.securityfocus.com/bid/10780
+
+--

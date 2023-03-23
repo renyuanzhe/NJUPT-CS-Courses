@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+2187
+
+--
+Summary:
+This event is generated when a suspicious packet using an unusual 
+protocol is sent to a router.
+
+--
+Impact:
+Denial of Service (DoS).
+
+--
+Detailed Information:
+A vulnerability exists in multiple Cisco IOS versions such that a Denial
+of Service condition can be issued against a device by sending multiple 
+packets using IP protocols 53, 55, 77 and 103 directly to that device.
+
+Cisco IOS processes these packets and under certain circumstances, can 
+be made to incorrectly flag an input interface as being full.
+
+--
+Affected Systems:
+Multiple versions of Cisco IOS.
+
+--
+Attack Scenarios:
+An attacker may send a large number of IP packets using one of the 
+protocols 53, 55, 77 or 103 directly to a router. Exploit code exists.
+
+--
+Ease of Attack:
+Simple. Expoit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

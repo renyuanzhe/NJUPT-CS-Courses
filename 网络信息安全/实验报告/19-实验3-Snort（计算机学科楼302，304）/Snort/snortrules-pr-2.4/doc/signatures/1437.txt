@@ -1,0 +1,79 @@
+Rule:
+
+--
+Sid:
+1437
+
+--
+Summary:
+This event is generated when network traffic indicating the use of a
+multimedia application is detected.
+
+--
+Impact:
+This may be a violation of corporate policy since these applications can
+be used to bypass security measures designed to restrict the flow of
+corporate information to destinations external to the corporation.
+
+--
+Detailed Information:
+Multimedia client applications can be used to view movies and listen to
+music files. Some also include file sharing facilities. Use of these
+programs may constitute a violation of company policy.
+
+Clients may also contain vulnerabilities that can give an attacker an
+attack vector for delivering Trojan horse programs and viruses.
+
+This rule detects the following Windows Media file types:
+
+  File extension   MIME type
+     .wmz        application/x-ms-wmz
+     .wmd        application/x-ms-wmd
+     .wma        audio/x-ms-wma
+     .wax        audio/x-ms-wax
+     .wmv        audio/x-ms-wmv
+     .asf        video/x-ms-asf
+     .asx        video/x-ms-asf
+     .wvx        video/x-ms-wvx
+     .wm         video/x-ms-wm
+     .wmx        video/x-ms-wmx
+
+--
+Affected Systems:
+	All Windows systems running Windows Media player applications
+
+--
+Attack Scenarios:
+A user can download files from a source external to the protected
+network that may contain malicious code hidden in the file giving an
+attacker the opportunity to gain access to a host inside the protected
+network.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft Windows Media file types:
+http://support.microsoft.com/default.aspx?scid=kb;en-us;288102
+
+--

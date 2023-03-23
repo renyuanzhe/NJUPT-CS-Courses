@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid: 493
+
+--
+Summary: 
+This event is generated when an attempt is made to access the psyBNC IRC
+"bouncer".
+
+--
+Impact: 
+
+
+--
+Detailed Information:
+The psyBNC IRC bouncer was designed to hold a connection to an IRC server.  As part
+of the connection process, a psyBNC server will respond with
+"Welcome!psyBNC@lam3rz.de".
+
+--
+Affected Systems:
+ All systems using psyBNC.
+
+--
+Attack Scenarios:
+The psyBNC server itself is not necessarily a risk in itself, but this may be a
+violation of corporate policy. Furthermore, psyBNC has found it's way into a large number
+of rootkits, both as an IRC bouncer and as remote control agent for dDOS networks.
+
+--
+Ease of Attack:
+Simple. Any user can install psyBNC.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+A modified psyBNC server will not respond with "Welcome!psyBNC@lam3rz.de" and could
+easily evade this rule.
+
+SSL encryption between client and server is possible.
+
+--
+Corrective Action:
+Check the originating host IP and source port and investigate the possibility of a
+listening psyBNC server and possible system comprimise.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Jon Hart <warchild@spoofed.org>
+
+-- 
+Additional References:
+
+psyBNC:
+http://www.psychoid.lam3rz.de/
+http://www.psychoid.net/
+
+--

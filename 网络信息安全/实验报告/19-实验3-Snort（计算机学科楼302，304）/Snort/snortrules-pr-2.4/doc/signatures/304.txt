@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid: 304
+
+--
+Summary:
+This event is genereated when an attempt to overflow the buffer of a SCO server is attempted.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to gain remote access to the victim host or execute arbitrary code with the privileges of the superuser account.
+
+--
+Detailed Information:
+Some versions of SCO UNIX Calserver are vulnerable to a buffer overflow condition which can present the attacker with a root shell.
+
+Affected Systems:
+	SCO Internet faststart 1.0, 1.1
+	SCO Open Server 5.0, 5.0.2, 5.0.3 and 5.0.4
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply vendor supplied patches.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0306
+
+Bugtraq:
+http://www.securityfocus.com/bid/2353
+
+--

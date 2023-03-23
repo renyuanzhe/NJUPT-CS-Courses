@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+1239
+
+--
+Summary:
+This event is generated when an attempt is made to execute the RFParalyze DoS
+exploit.
+
+--
+Impact:
+If the destination machine is vulnerable, it may start behaving
+unpredictably.  Succesful exploitation may lead to a full system crash 
+or may cause certain services to become unavailable.
+
+--
+Detailed Information:
+This signature triggers on execution of RFParalyze, an exploit written 
+in 2000 by Rain Forest Puppy.  It was based on a binary exploit called 
+"whisper", which was used in the wild at that time.  This exploit 
+performs a NetBIOS session request with a source host of NULL, which is 
+incorrectly handled by Windows 95/98 hosts.
+
+--
+Affected Systems:
+	Windows 95
+	Windows 98
+
+--
+Attack Scenarios:
+An attacker can crash critical machines, thereby
+preventing them from being accessed by legitimate clients.
+
+--
+Ease of Attack:
+Simple.  Exploit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+Potential future versions of this exploit, which may use
+different message strings, will not be detected by this rule.
+
+--
+Corrective Action: 
+Patches are not available from the vendor.
+
+Use a packet filtering firewall to block inbound traffic to port 139/TCP from
+all untrusted networks & hosts
+
+Upgrade critical machines to a more recent and supported version of the
+operating system.
+
+--
+Contributors:
+Snort documentation contributed by Maarten Van Horenbeeck (maarten@daemon.be)
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

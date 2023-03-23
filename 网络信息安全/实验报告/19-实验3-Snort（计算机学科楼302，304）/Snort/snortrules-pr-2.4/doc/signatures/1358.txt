@@ -1,0 +1,53 @@
+Rule: 
+
+--
+Sid: 1358
+
+-- 
+Summary: 
+A web command execution attack involving the use of a "traceroute" command
+
+-- 
+Impact: 
+Possible intelligence gathering activity. 
+
+-- 
+Detailed Information: 
+The attacker may have gained the ability to execute system commands remotely or the web server may be incorrectly configured to allow such access.
+
+This rule generates an event when a "traceroute" command is used over a plain-text (unencrypted) connection on one of the specified web ports to the target web server. The "traceroute" command may be used to perform information gathering activities. The rule looks for the "traceroute" command in the client to web server network traffic but does not indicate whether the command was actually successful. The presence of the "traceroute" command in the URI indicates that an attacker attempted to trick the web server into executing system commands in non-interactive mode i.e. without a valid shell session. 
+
+Alternatively this rule may trigger in an unencrypted HTTP tunneling connection to the server or a shell connection via another exploit against the web server.
+
+-- 
+Attack Scenarios: 
+An attacker uses a "traceroute" command to perform anonymous reconnaissance
+
+--
+Ease of Attack: 
+Simple. No exploit software required
+
+-- 
+False Positives: 
+none known
+
+--
+False Negatives: 
+none known
+
+-- 
+Corrective Action: 
+Check the web server software for vulnerabilities and possible upgrades or patches for the system to the latest version of the web software, also investigate the server logs for signs of compromise
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. Disallowing execution of this binary via a URI is suggested.
+
+--
+Contributors: 
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,77 @@
+Rule:
+
+--
+Sid:
+2043
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the Internet Security Association and Key Management 
+Protocol (ISAKMP).
+
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+ISAKMP is a framework for authentication using cryptographic keys. It 
+specifically defines the process of key exchange as opposed to the 
+generation of a cryptographic key.
+
+ISAKMP also details the procedures for the required security 
+associations in network security services.
+
+This event indicates that a key exchange using ISAKMP failed.
+
+--
+Affected Systems:
+All systems using cryptographic key exchange as an authentication 
+method.
+
+--
+Attack Scenarios:
+The attacker may have a store of keys associated with valid users and 
+may attempt to authenticate using a combination of username and key.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+A user may mistype a username or may be trying to authenticate using an 
+expired key.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Ensure that key exchanges are only allowed between trusted hosts.
+
+Check log files for disallowed login attempts.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+ISAKMP:
+http://www.networksorcery.com/enp/protocol/isakmp.htm
+
+RFC:
+http://www.ietf.org/rfc/rfc2407.txt
+http://www.ietf.org/rfc/rfc2408.txt
+
+IANA:
+http://www.iana.org/assignments/isakmp-registry
+
+--

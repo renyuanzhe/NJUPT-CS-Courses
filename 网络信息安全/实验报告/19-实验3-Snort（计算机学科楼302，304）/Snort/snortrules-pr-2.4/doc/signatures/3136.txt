@@ -1,0 +1,77 @@
+Rule: 
+
+--
+Sid: 
+3136
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft systems using Server Message Block (SMB).
+
+-- 
+Impact: 
+Serious. Execution of arbitrary code leading to unauthorized
+administrative access to the target host. Denial of Service (DoS) is
+also possible.
+
+--
+Detailed Information:
+SMB is a client - server protocol used in sharing resources such as
+files, printers, ports, named pipes and other things, between machines
+on a network.
+
+A vulnerability in the Microsoft implementation of SMB exists due to a
+programming error which may present an attacker with the opportunity to
+exploit the service and run code of their choosing on an affected
+system. The attacker may then cause a DoS condition in the service or
+possibly gain unauthorized access to the target host.
+
+A malicious attacker can exploit the vulnerability by sending a
+malicious response from a server in response to a client request using
+SMB.
+
+--
+Affected Systems:
+	Microsoft Windows 2003
+	Microsoft Windows 2000
+	Microsoft Windows XP
+
+--
+Attack Scenarios: 
+An attacker can supply extra data in the message from the server
+containing code of their choosing to be run on the client.
+
+-- 
+Ease of Attack: 
+Simple.
+
+-- 
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patches.
+
+Turn off windows file and print services.
+
+Use Samba as an alternative.
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+eEye:
+http://www.eeye.com/html/research/advisories/AD20050208.html
+
+--

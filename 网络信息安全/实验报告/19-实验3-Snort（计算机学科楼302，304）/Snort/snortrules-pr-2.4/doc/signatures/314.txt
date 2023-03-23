@@ -1,0 +1,61 @@
+Rule:
+--
+Sid:
+303
+
+--
+Summary:
+This event is generated when a specific inverse query is performed against your DNS server as a precursor to a possible TSIG (transaction signature) buffer overflow attack. 
+
+--
+Impact:
+Intelligence gathering.  This event generates as a result of an inverse query of the DNS server in an attempt to gain access to information required for the TSIG exploit.  An attacker will usually attempt a buffer overflow exploit if there is a response to the inverse query.
+
+--
+Detailed Information:
+This is an attempt to perform a specific DNS inverse query against your DNS server.  While this specific action is not harmful itself, it signals a precusor to a possible buffer overflow attack for a TSIG vulernability.  The inverse query is performed as a reconnaissance for the TSIG attack. 
+
+--
+Affected Systems:
+BIND Versions 4 and Versions 8 through 8.2 are susceptible to the inverse query information leak.
+
+--
+Attack Scenarios:
+If a DNS server responds to the inverse query and leaks information required for the actual attack, the attacker exploitsthe TSIG buffer overflow vulnerability.  If this is successful, the attacker gains access to the DNS server at the privilege of the "named" daemon.
+
+--
+Ease of Attack:
+Easy. Code is available to exploit the vulnerability.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+An attacker could change the exploit code.  For instance, an attacker could change the DNS identification number in the code to be something other than 0xABCD and the rule would not fire.
+
+--
+Corrective Action:
+Update to BIND versions greater than 8.2 to prevent the information leak.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2302
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0010
+
+Arachnids:
+http://www.whitehats.com/info/IDS482
+
+
+--

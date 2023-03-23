@@ -1,0 +1,64 @@
+Rule: 
+
+--
+Sid: 
+3042
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in Ethereal.
+
+-- 
+Impact: 
+Serious. Denial of Service (DoS).
+
+--
+Detailed Information:
+Ethereal is a multi-platform network protocol analyser capable of
+displaying network data to the user in a graphical user interface.
+
+An error in the processing of access control lists (ACLs) concerning the
+size of the access control entries (ACEs) may lead to a Denial of Service
+(DoS) condition in Ethereal. The ACL parsing routine trusts the size of
+the ACE given in the packet during processing. If a sufficiently large ACL
+structure is supplied combined with a specified ACE size of 0, it is
+possible to cause the DoS condition to occur.
+
+--
+Affected Systems:
+	Ethereal 0.10.7 and prior
+
+--
+Attack Scenarios: 
+An attacker needs to craft packet data containing large NT ACLs, the
+attacker then needs to specify one of the ACEs as having a size of 0.
+
+-- 
+Ease of Attack: 
+Moderate.
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patch
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors: 
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

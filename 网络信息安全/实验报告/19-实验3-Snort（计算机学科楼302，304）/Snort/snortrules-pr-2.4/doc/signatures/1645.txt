@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+1645
+
+--
+Summary:
+This event is generated when an attempt is made to access /testcgi on a 
+web server. This may indicate an attempt to exploit a cross-site 
+scripting vulnerability that affects Ceilidh.
+
+--
+Impact:
+Arbitrary code execution, possible session hijack.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to exploit a 
+cross-site scripting vulnerability in Ceilidh, web-based discussion 
+software released by Lilikoi Software, Inc. An attacker can craft a URL 
+that passes malicious code to testcgi.exe. If a legitimate user 
+activates the URL, malicious code may be executed on the client 
+computer.
+
+--
+Affected Systems:
+All web servers that Ceilidh 2.6 or 2.7 are vulnerable.
+All clients that access Ceilidh 2.6 or 2.7 are vulnerable.
+
+--
+Attack Scenarios:
+An attacker may craft a script that obtains the user's session cookie, 
+thereby allowing the attacker to pose as the user for the duration of 
+the session.
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+If a legitimate remote user accesses testcgi.exe, this rule may generate
+an event. 
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/7214
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11610
+
+--

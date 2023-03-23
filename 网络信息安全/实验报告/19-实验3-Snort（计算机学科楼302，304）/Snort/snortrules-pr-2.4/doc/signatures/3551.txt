@@ -1,0 +1,54 @@
+Rule: 
+
+--
+Sid: 
+3551
+
+-- 
+Summary: 
+THIS RULE SHOULD NOT GENERATE AN EVENT.
+
+-- 
+Impact: 
+
+--
+Detailed Information:
+This rule should not generate an event, It merely indicates when a
+filename with the .hta extension is accessed.
+
+--
+Affected Systems:
+
+
+--
+Attack Scenarios: 
+
+-- 
+Ease of Attack: 
+NA
+
+-- 
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+-- 
+Corrective Action: 
+
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=231&type=vulnerabilities
+
+--

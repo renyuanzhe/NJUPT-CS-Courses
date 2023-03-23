@@ -1,0 +1,77 @@
+Rule: 
+
+--
+Sid: 
+3549
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in the Microsoft Internet Explorer DHTML Engine.
+
+-- 
+Impact: 
+Serious. Code execution may be possible.
+
+--
+Detailed Information:
+Dynamic HTML extends static HTML pages to allow interactive web pages to
+be easily created. A flaw in the Microsoft Internet Explorer DHTML
+Engine may allow an attacker to exploit a race condition and possibly
+execute code of their choosing on the victim host with the privileges of
+the user running Internet Explorer.
+
+Internet Explorer allows various DHTML objects to be used via
+Javascript. Poor memory management in the object handling code of
+Internet Explorer may allow an attacker to overwrite portions of memory
+and execute code of their choosing on a vulnerable host.
+
+--
+Affected Systems:
+	Internet Explorer 6
+
+--
+Attack Scenarios: 
+An attacker need only supply the victim host with malicious Javascript
+that calls on a vulnerable routine to cause the error to occur.
+
+-- 
+Ease of Attack: 
+Difficult.
+
+-- 
+False Positives:
+Some activity relating to the use of web applications may cause this
+rule to generate events. Most public exploits will however, use this
+particular selection of Unicode NOPs.
+
+--
+False Negatives:
+None known.
+
+-- 
+Corrective Action: 
+Apply the appropriate vendor supplied patch
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+US-CERT:
+http://www.kb.cert.org/vuls/id/774338
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=228&type=vulnerabilities
+
+Microsoft:
+http://www.microsoft.com/technet/security/Bulletin/MS05-020.mspx
+
+--

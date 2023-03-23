@@ -1,0 +1,60 @@
+Rule:
+
+--
+
+Sid:
+417
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP Information Request datagram.
+
+--
+
+Impact:
+ICMP Information Request datagrams attempt to locate the network number of the network segment the datagram was generated on.  This could be an indication of an improperly configured host attempting to locate the network number of the subnet it is located in.
+
+--
+
+Detailed Information:
+This message is generated when a host attempts to locate the network number of the network segment it is located on..  Hosts that generated ICMP Information Request Messages are attempting to obtain the network number of subnet it is on.  In normal situations the ICMP Code should be set to 0, values other than 0 are undefined and should never be used.
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+ICMP Type 15 datagrams are not normal network activity.  Hosts generating ICMP Information Request messages or Information Reply Messages should be checked for configuration errors.
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

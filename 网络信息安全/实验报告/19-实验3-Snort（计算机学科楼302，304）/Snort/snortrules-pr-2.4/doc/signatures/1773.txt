@@ -1,0 +1,59 @@
+Rule:  
+
+--
+Sid:
+1773
+
+--
+Summary:
+This event is generated when an attempt is made to access the executable file php.exe.
+
+--
+Impact:
+Severe - File execution and File access, due to a configuration error
+
+--
+Detailed Information:
+Apache servers can use the keyword "ScriptAlias" to create virtual folders. This is used to install PHP CGI (ScriptAlias /php/ "c:/php/"). 
+PHP version prior to an including 4.3.0 do not correctly check user input to this file. The executable php.exe can now be used to execute any file (even on different partitions) on the target host.
+
+
+--
+Affected Systems:
+PHP versions 4.3.0 and prior used on Apache web servers for windows.
+
+--
+Attack Scenarios:
+Read file: http://[targethost]/php/php.exe?c:\filetoread
+Execute file: http://[targethost]/php/php.exe?c:\filetoexecute
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+If the PHP version is newer than 4.3.0 this vulnerability can not be exploited.
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Update PHP to the latest non affected version from www.php.net
+
+If the php.ini configuration file contains the keyword cgi.force_redirect this vulnerability can not be exploited.
+
+--
+Contributors:
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

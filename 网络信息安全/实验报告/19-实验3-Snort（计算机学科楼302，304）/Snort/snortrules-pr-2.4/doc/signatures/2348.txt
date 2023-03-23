@@ -1,0 +1,53 @@
+Rule:  
+
+--
+Sid:
+2348
+
+--
+Summary:
+This rule does not generate an event. I does activate sid 2349 however.s
+
+--
+Impact:
+Intelligence gathering.
+
+--
+Detailed Information:
+This rule checks for a bind to a print spool using DCE RPC. This may be
+an attempt to check for printer and printer services available on a
+host. Sid 2349 will generate an event when an attempt is made to
+enumerate the printer service on a host.
+
+--
+Affected Systems:
+	All Microsoft DCE RPC enabled systems
+	
+--
+Attack Scenarios:
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

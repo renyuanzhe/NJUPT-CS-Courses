@@ -1,0 +1,84 @@
+Rule:
+
+--
+Sid:
+2024
+
+--
+Summary:
+A vulnerability exists in Solaris snoop such that a remote attacker 
+could gain superuser access when used with the RPC service rquotad
+
+--
+Impact:
+Remote super user access leading to a compromise of the target machine 
+along with any network resources that machine is connected to.
+
+--
+Detailed Information:
+Certain versions of the Solaris operating system use a program to
+monitor network traffic called Snoop. This program contains a flaw such
+that under certain conditions a buffer overflow can be caused by a 
+remote attacker.
+
+One such condition occurs when snoop tries to decode GETQUOTA requests
+to the RPC service rquotad. This daemon sends information regarding disk
+quotas on multi-user systems using remotely mounted shares via NFS. A
+specially crafted long request will trigger this overflow resulting in
+root access on the victim host.
+
+--
+Affected Systems:
+	Sun Solaris 2.4 _x86
+	Sun Solaris 2.4
+	Sun Solaris 2.5 _x86
+	Sun Solaris 2.5
+	Sun Solaris 2.5.1 _x86
+	Sun Solaris 2.5.1 _ppc
+	Sun Solaris 2.5.1
+	Sun Solaris 2.6 _x86
+	Sun Solaris 2.6
+	Sun Solaris 7.0 _x86
+	Sun Solaris 7.0
+
+--
+Attack Scenarios:
+An attacker can send a specially crafted long request to snoop via the 
+rpc.rquotad service such that it will generate a buffer overflow.
+
+--
+Ease of Attack:
+Simple although a requirement is that snoop should be running at the 
+time of attack.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Patches are available for all operating systems and platforms listed as
+affected from Sun. These patches should be applied as soon as possible.
+
+See the Vendor site http://sunsolve.sun.com for details.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/864
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0974
+
+--

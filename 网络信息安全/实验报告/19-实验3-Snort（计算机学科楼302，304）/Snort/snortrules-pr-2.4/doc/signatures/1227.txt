@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid:
+1227
+
+--
+Summary:
+This event is generated when an attempt is made to communicate to an internal host from a remote X server session.
+
+--
+Impact:
+Remote access.  This attack may indicate that an internal host has been compromised and has been configured to offer remote access through an xterm session.
+
+--
+Detailed Information:
+Traffic from source ports 6000 through 6005 inclusive may indicate that an internal host is communicating with an external host using an xterm session.  An attacker may compromise an internal host and establish communications between the remote host and the compromised host using an xterm session.  This is particularly effective means of establishing communications because the xterm session is established by the internal host.  Typically, firewalls do not scrutinize or block outbound traffic, such as establishing an xterm session. 
+
+--
+Affected Systems:
+Host offering xterm client software. 
+
+--
+Attack Scenarios:
+An attacker may establish communications using an xterm session between a compromised host and remote host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+A remote host may connect to an internal host with a source port of 6000 through 6005 inclusive.
+
+--
+False Negatives:
+If multiple concurrent xterm sessions exists, a port greater than 6005 may be selected.
+
+--
+Corrective Action:
+Block outbound xterm sessions.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Documented by  Steven Alexander<alexander.s@mccd.edu>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+
+Additional References:
+http://www.whitehats.com/info/IDS126
+
+--

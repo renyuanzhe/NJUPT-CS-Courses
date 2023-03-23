@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+512
+
+--
+Summary:
+This event is generated when an attempt is made to gain access to a PC
+running pcAnywhere
+
+--
+Impact:
+Serious. By the very nature of pcAnywhere, without a strong administrative
+password, a successful attack will allow the attacker to gain total 
+control of the machine.
+
+--
+Detailed Information:
+pcAnywhere is a remote control administrative software package produced 
+by Symantec (http://www.symantec.com/pcanywhere/Consumer/features.html) 
+it allows control of a system via network or RAS connection.
+
+--
+Affected Systems:
+	Windows XP Home and Professional
+	Windows 2000 Professional/Server
+	Windows NT Workstation and Server 4.0
+	Windows 98/Me
+
+--
+Attack Scenarios:
+With a copy of pcAnywhere, and attacker can scan a network (port 22) or
+war-dial a series of modems, looking for pcAnywhere signatures.
+
+--
+Ease of Attack:
+Simple. All that is required is an install of pcAnywhere and a host
+to connect to.
+
+--
+False Positives:
+Since pcAnywhere uses the same port as SSH (22) a simple open port scan 
+can show hosts that my not have pcAnywhere installed
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Make sure only servers and workstations that require remote control have
+pcAnywhere installed.
+Make sure that a strong password is required for any level of access, 
+this ideally should be coupled with some for of alternate 
+authentication, such as SecurID, modem callback or be blocked at the 
+external firewall so that the remote control functionality is only 
+available on the protected network.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by  Mike Rivett ebiz@rivett.org
+
+-- 
+Additional References:
+Symantec PC Anywhere Home Page
+http://www.symantec.com/pcanywhere/Consumer/
+
+RSA:
+RSA SecurID (www.rsasecurity.com/products/securid/)
+
+Arachnids:
+http://www.whitehats.com/info/IDS240
+
+--

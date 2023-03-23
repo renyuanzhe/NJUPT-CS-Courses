@@ -1,0 +1,59 @@
+Rule:
+--
+Sid:
+1250
+
+--
+Summary:
+Attack on Cisco router/switch web interface
+
+--
+Impact:
+Unauthorized administrative access to Cisco devices running vulnerable versions of IOS (router/switch operating system)
+
+--
+Detailed Information:
+Cisco routers and switches running vulnerable IOS versions can be attacked simply by typing in a URL, giving the attacker administrative access to the device.  The device must be running the web configuration interface, a web server that enables a user to configure the device via a web browser.
+
+--
+Affected Systems:
+Cisco routers and switches running affected versions of IOS and whose web management interface is enabled. See http://www.securityfocus.com/bid/2936 
+
+--
+Attack Scenarios:
+Attacker identifies http server running on Cisco switch or router.  Attacker then makes an http connection with the particular URL required to gain administrative control.
+
+--
+Ease of Attack:
+Simple. Web request, no exploit software needed.
+
+--
+False Positives:
+Legitimate access to the configuration manager will generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade IOS to the latest non-affected version.
+
+Apply the appropriate vendor supplied Patches
+
+Disable the web configuration interface.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by James Affeld <jamesaffeld@yahoo.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2936
+
+--

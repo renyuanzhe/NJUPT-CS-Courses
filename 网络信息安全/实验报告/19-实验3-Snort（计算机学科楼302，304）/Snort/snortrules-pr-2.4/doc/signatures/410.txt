@@ -1,0 +1,60 @@
+Rule:
+
+--
+
+Sid:
+410
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP Fragment Reassembly Time Exceeded message.
+
+--
+
+Impact:
+This could be an indication of an improperly configured routing device or networked host.  
+
+--
+
+Detailed Information:
+ICMP Type 11 Code 1 is the RFC defined messaging type for ICMP Fragment Reassembly Time exceeded datagrams.  If a host fails to reassemble a fragmented datagram before the TTL of the datagram is expires an ICMP Fragment Reassembly Time Exceeded datagram is generated.
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Fragment reassembly Time Exceeded messages are normally and indication of improperly configured hosts or routing equipment.  The configurations of the devices causing these ICMP datagrams to be created should be checked for errors.
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

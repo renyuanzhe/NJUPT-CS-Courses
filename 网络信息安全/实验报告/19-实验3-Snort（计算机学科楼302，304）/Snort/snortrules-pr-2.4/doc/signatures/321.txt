@@ -1,0 +1,65 @@
+Rule: 
+
+--
+Sid: 321
+
+-- 
+Summary: 
+An information leak exploit against the old Solaris finger daemon
+
+-- 
+Impact: 
+Intelligence gathering activity. The attacker may be trying to obtain a list of accounts on the victim host.
+
+--
+Detailed Information:
+The rule generates an event when an attempt is made to exploit a bug in the Solaris "fingerd" daemon. The bug allows the attacker to obtain the lists of accounts existing on the Sun system by issuing a specially crafted finger request. 
+
+Obtaining a list of accounts may precipitate a password guessing attack, an email attack or other abuses against those accounts.
+
+--
+Attack Scenarios: 
+An attacker may learn that a "guest" account exists on the system and has never been used. He might then guesse the password for this account and is now able to log in to the system remotely using telnet or ssh for example. This might then lead to further system compromise and escalated privileges for the attacker.
+
+-- 
+Ease of Attack: 
+Simple
+No exploit software required
+
+-- 
+
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+
+Corrective Action: 
+Look for other IDS events involving the same IP addresses
+
+Check system logs for suspicious logins to the affected system, 
+
+Disable the fingerd daemon 
+
+Apply a vendor patch that removes the vulnerability
+
+--
+Contributors: 
+Original rule writer unknown
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10788
+
+Securiteam
+http://www.securiteam.com/unixfocus/6B00M0U2UW.html
+
+--

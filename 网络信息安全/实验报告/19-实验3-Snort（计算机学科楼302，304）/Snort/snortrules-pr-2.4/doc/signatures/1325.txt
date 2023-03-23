@@ -1,0 +1,108 @@
+Rule:
+
+--
+Sid:
+1325
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in implementations of Secure Shell (ssh) version 1.
+
+NOTE: This rule is NOT enabled by default. The rule looks for the
+overflow pattern and as such can generate false positive events.
+
+--
+Impact:
+A buffer overflow will allow an attack to execute any arbitrary commands
+with the privileges of the root user, leading to full compromise of the 
+system and perhaps other systems as well.
+
+--
+Detailed Information:
+SSH is a secure replacement for telnet/ftp/r* commands. Both commercial 
+and non-commercial implementations are available.
+
+The vulnerability exists in the integer calculation in SSH version 1 or 
+SSH version 2 with a backward compatibility enabled.
+
+By sending a crafted packet to SSH daemon, an attacker could manipulate 
+the return address of the affected function call, allowing arbitrary 
+code execution on the target system.
+
+A protocol weakness in SSH1 opened all compliant servers to an
+information integrity vulnerability allowing block cipher-encrypted
+packets to be modified silently by an intermediary attacker.  Patches
+were developed to defend against this weakness, but several servers
+contained an exploitable integer overflow within detection code.
+
+A successful attack will allow corruption of the ssh daemon, allowing
+code to be run with its privileges.
+
+--
+Affected Systems:
+	Cisco IOS 12.0S
+	Cisco IOS 12.1xx-12.2xx
+	SSH Communications Security SSH 2.x and 3.x 
+	SSH Communications Security SSH 1.2.23-1.2.31
+	F-Secure SSH versions prior to 1.3.11-2
+	OpenSSH versions prior to 2.3.0
+	Systems running the Matrix as seen in Reloaded.
+
+--
+Attack Scenarios:
+A vulnerable machine may be probed using any banner grabber. 
+An attacker then attempts to overflow the integer calculations buffer 
+and execute /bin/sh.
+
+Once a session is initiated with the remote SSH server and block
+ciphering is agreed upon, successfully forcing a CRC32 check opens up
+room for the exploit (which is publically available).  The integer
+overflow is generally a brute-force method, which may generate several
+log lines of the form:
+
+hostname sshd[xxx]: Disconnecting: crc32 compensation attack: network
+attack detected
+
+--
+Ease of Attack:
+Simple. Scanners and exploits are available.
+
+--
+False Positives:
+Possible (especially in the face of null encryption), but unlikely.
+Look for several log lines of the type described above.
+
+--
+False Negatives:
+This rule works by looking for "filler space" in the exploit, used
+to properly size a heap overflow.  Clever exploits can quite easily
+change the information placed here.
+
+--
+Corrective Action:
+Use access control restrictions ("AllowHosts" or "DenyHosts)
+
+Disable SSH version 1 support
+
+Apply the appropriate vendor supplied patch
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com) and Nick Black, Reflex Security <dank@reflexsecurity.com>
+
+--
+Additional References:
+
+CERT:
+http://www.kb.cert.org/vuls/id/945216
+
+CERT Advisory:
+http://www.cert.org/advisories/CA-2001-35.html
+
+--

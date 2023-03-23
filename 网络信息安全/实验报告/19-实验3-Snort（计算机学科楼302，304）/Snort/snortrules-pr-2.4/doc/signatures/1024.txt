@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+1024
+
+--
+Summary:
+This event is generated when an attempt is made to access the newdsn.exe file, which is a sample program installed with Internet Information Server (IIS) 3.0. 
+
+--
+Impact:
+File creation.  This attack can allow the creation of a new Microsoft Access Database (.mdb) file on the vulnerable server.
+
+--
+Detailed Information:
+IIS 3.0 comes with a sample program newdsn.exe.  An attacker can craft a URL to reference this executable and, as a parameter, pass the name of a new file to be created.  The file may have any extension, but will be considered a Microsoft Access Database file. 
+
+--
+Affected Systems:
+IIS 3.0 servers
+
+--
+Attack Scenarios:
+An attacker can craft a URL to execute the vulnerable newdsn.exe and create a Microsoft Access Database file on the vulnerable server. 
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Delete the newdsn.exe file.
+
+Upgrade to a more current version of IIS.
+ 
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0191
+
+
+--

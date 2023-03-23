@@ -1,0 +1,75 @@
+Rule:
+
+--
+Sid:
+2564
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with the Symantec Firewall.
+
+--
+Impact:
+A successful attack may cause a buffer overflow, permitting the execution
+of arbitrary code on the vulnerable host.
+
+--
+Detailed Information:
+There is a vulnerability in the way the Symantec Firewall handles NetBIOS
+Name Service response packets.  If an attacker crafts a malicious UDP NetBIOS
+Name Service unsolicited response to a vulnerable Symantec Firewall that does
+not block port 137, it is possible to cause a buffer overflow and execute
+abitrary code with kernel privileges.  The vulnerability exists because of
+improper validation of the length field value for the NetBIOS name returned.
+The default configuration does not allow UDP port 137 traffic and should
+not be exploitable if UDP port 137 is blocked.
+
+--
+Affected Systems:
+Symantec Norton Internet Security and Professional 2002,2003,2004
+Symantec Norton Personal Firewall 2002,2003,2004
+Symantec Norton AntiSpam 2004
+Symantec Client Firewall 5.01, 5.1.1
+Symantec Client Security 1.0, 1.1, 2.0(SCF 7.1)
+
+--
+Attack Scenarios:
+An attacker can craft a malicious UDP NetBIOS Name Service response,
+possibly causing a buffer overflow and the subsequent execution of
+arbitrary code with kernel privileges on an exploitable host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+CVE:
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0444
+
+Bugtraq:
+http://www.securityfocus.com/bid/10333
+
+Misc:
+http://www.eeye.com/html/Research/Advisories/AD20040512A.html
+
+--

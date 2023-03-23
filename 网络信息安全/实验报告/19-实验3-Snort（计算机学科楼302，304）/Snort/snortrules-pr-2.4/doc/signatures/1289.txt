@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+1289
+
+--
+Summary:
+This event is generated when an exploited Internet Information Server (IIS) host attempts to perform a tftp download of the file admin.dll to infect the host with the nimda worm. 
+
+--
+Impact:
+Administrator access.  A successful attack can allow remote execution of commands with administrator privleges.
+
+--
+Detailed Information:
+The nimda worm uses multiple propagation methods.  One method exploits a victim Internet Information Server (IIS) using a unicode directory traversal attack to execute commands on the target server.  An attempt is made to execute a tftp download of the file admin.dll from the infected attacking host to the victim server.  The admin.dll file is a copy of the nimda worm that is activated on the newly infected victim server.  This event is triggered if the IIS server is exploitable and the tftp transfer is attempted.
+
+--
+Affected Systems:
+Hosts running Microsoft IIS 4.0 and 5.0.
+
+--
+Attack Scenarios:
+The worm will attempt to remotely exploit a unicode directory vulnerability to infect an IIS server by executing a tftp download of the nimda worm.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate patch referenced in Microsoft Security Bulletin MS00-078.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2001-26.html
+
+Microsoft:
+http://www.microsoft.com/technet/Security/Bulletin/ms00-078.asp
+
+--

@@ -1,0 +1,61 @@
+Rule:
+
+--
+
+Sid:
+431
+
+--
+
+Summary:
+This event is generated when a host generates and ICMP Type 40 Code 2 Decompression Failed datagram.
+
+--
+
+Impact:
+ICMP Type 40 Code 2 datagrams are an indication that a received datagram failed a decompression check for a given SPI.  Normally this is an indication that hosts using IP Security Protocols such as AH or ESP have been configured incorrectly or are failing to establish a session with another host.
+
+--
+
+Detailed Information:
+Hosts using IP Security Protocols such as AH or ESP generate ICMP Type 40 datagrams when a failure condition occurs.  ICMP Type 40 Code 2 datagrams are generated when a received datagram fails the decompression check for a given SPI (Security Parameters Index). 
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+
+--
+
+Corrective Action:
+ICMP Type 40 datagrams not normally seen on the network.  Currently Sourcefire is unaware of any hardware that has implemented these types of ICMP datagrams.  Hosts generating these types of ICMP datagrams should be investigated for nefarious activity or configuration errors. 
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+RFC2521
+
+
+--

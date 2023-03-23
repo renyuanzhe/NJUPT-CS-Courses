@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2202
+
+--
+Summary:
+This event is generated when an attempt is made to access edit_action.cgi on an internal web server. This may indicate an attempt to exploit a directory traversal vulnerability in Webmin 0.91.
+
+--
+Impact:
+Information gathering, possible execution of system utilities to which Webmin has rights.
+
+--
+Detailed Information:
+Webmin is a web-based system administration tool for Linux and UNIX-based operating systems. A malicious user could use directory traversal techniques within an argument sent to the edit_action.cgi script in order to view hidden files on the server or execute programs to which Webmin has security privileges. 
+
+--
+Affected Systems:
+Systems running Webmin 0.91.
+
+--
+Attack Scenarios:
+An attacker creates a specially crafted an edit_action.cgi URL and transmits it to a vulnerable server. The attacker can then view or execute any arbitrary file included in the parameter, provided that Webmin has rights to access it. 
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+If a legitimate remote user accesses edit_action.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to Webmin 0.92 or higher.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/3698
+
+--

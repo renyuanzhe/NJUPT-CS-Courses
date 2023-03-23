@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+1666
+
+--
+Summary:
+This event is generated when a webserver returns a directory listing of
+it's cgi-bin.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event is generated when a webserver returns a directory listing of
+it's cgi-bin. The scripts listed may be valuable to an attacker when
+planning further attacks against the webserver. It may also be possible
+for the attacker to download the contents of the cgi-bin and view the
+contents of the script sources.
+
+--
+Affected Systems:
+	All web server platforms.
+
+--
+Attack Scenarios:
+An attacker can list the contents of the cgi-bin, discover the filename
+of a vulnerable script and use the information to execute an exploit
+against the server.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disallow directory content listing of the cgi-bin.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

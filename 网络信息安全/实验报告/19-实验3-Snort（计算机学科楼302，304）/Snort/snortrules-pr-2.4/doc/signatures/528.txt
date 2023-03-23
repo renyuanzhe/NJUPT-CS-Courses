@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid: 528
+
+--
+Summary:
+This event is generated when loopback traffic is seen on the network.
+
+--
+Impact:
+Possible reconnaisance.
+
+--
+Detailed Information:
+Under normal circumstances traffic to the localhost (127.0.0.0/8) should
+only be seen on the loopback interface (lo0).
+
+an indicator of unauthorized network use, reconnaisance activity or 
+system compromise. These rules may also generate an event due to 
+improperly configured network devices.
+
+--
+Affected Systems:
+	Any
+
+--
+Attack Scenarios:
+The attacker may send traffic from a spoofed source address, in this 
+case the localhost.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Employ egress filtering at the firewall.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+SANS:
+http://www.sans.org/rr/firewall/egress.php
+
+--

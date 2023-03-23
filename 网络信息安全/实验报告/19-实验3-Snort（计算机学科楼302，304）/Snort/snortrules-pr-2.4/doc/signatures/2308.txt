@@ -1,0 +1,73 @@
+Rule:
+
+--
+Sid:
+2308
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the Microsoft Windows Workstation service.
+
+--
+Impact:
+Serious. Denial of Service (DoS), execution of arbitrary code is
+possible.
+
+--
+Detailed Information:
+Due to insufficient bounds checking in the Microsoft Windows Workstation
+service, it may be possible for an attacker to overwrite portions of
+memory. This can result in the attacker being presented with the
+opportunity to execute code of their choosing. Under some circumstances
+a Denial of Service condition may be possible against the target host.
+
+Specifically, the DCE/RPC service allows for overly long strings to be
+sent to the Workstation logging function. This logging function does not
+check parameters sufficiently which results in the buffer overflow
+condition.
+
+--
+Affected Systems:
+	Microsoft Windows 2000 Service Pack 2, Service Pack 3, Service Pack 4
+	Microsoft Windows XP, Microsoft Windows XP Service Pack 1
+	Microsoft Windows XP 64-Bit Edition
+
+--
+Attack Scenarios:
+The attacker may use one of the available exploits to target a
+vulnerable host.
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches and service packs.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2003-28.html
+http://www.kb.cert.org/vuls/id/567620
+
+Microsoft:
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/MS03-049.asp
+
+--

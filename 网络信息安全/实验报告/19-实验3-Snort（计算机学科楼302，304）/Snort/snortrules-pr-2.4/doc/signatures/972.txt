@@ -1,0 +1,61 @@
+Will be obsolete when httpinspect is used
+Rule:
+
+--
+Sid:
+972
+
+--
+Summary:
+This event is generated when an attempt is made to access an Active Server Page (ASP) .asp file when the period is hex encoded as "%2e". 
+
+--
+Impact:
+Intelligence gathering activity.  A vulnerability exists that discloses the .asp file contents when it is reference using the "%2e" hex encoding. 
+
+--
+Detailed Information:
+Microsoft Internet Information Service (IIS) uses Active Server Page to supply HTML and server-side scripting.  ASP files use a .asp extension.  When the period of the .asp is hex-encoded with a "%2e" to reference an ASP file, the contents of the file are disclosed.
+
+--
+Affected Systems:
+Hosts running IIS 3.0
+
+--
+Attack Scenarios:
+An attacker can attempt use the hex-encoded reference to the .asp file to see the contents of the file.  Sensitive information may by disclosed depending on the selected file. 
+
+--
+Ease of Attack:
+Simple. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to a more current version of IIS.
+ 
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0253
+
+Bugtraq:
+http://www.securityfocus.com/bid/1814
+
+
+--

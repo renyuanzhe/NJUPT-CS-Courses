@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+289
+
+--
+Summary:
+This event is generated when a remote attacker attempts to exploit a 
+QUALCOMM Qpopper POP3 buffer overflow vulnerability in SCO OpenServer 
+systems.
+
+--
+Impact:
+Remote execution of arbitrary code leading to remote root compromise.
+
+--
+Detailed Information:
+An exploit is available that takes advantage of a buffer overflow 
+vulnerability in QUALCOMM Qpopper POP3 mail server version 2.53 or 
+earlier. This exploit can be used to obtain root access to the 
+compromised server.
+
+--
+Affected Systems:
+SCO servers that ship QUALCOMM Qpopper POP3 server version 2.53 or 
+earlier:
+ -SCO OpenServer Enterprise System Release 5.0.5, 5.0.6, 5.0.6a
+ -SCO OpenServer Host System Release 5.0.5, 5.0.6, 5.0.6a
+ -SCO OpenServer Desktop System Release 5.0.5, 5.0.6, 5.0.6a
+ -SCO OpenServer Enterprise System Release 5.0.4
+ -SCO OpenServer Host System Release 5.0.4
+ -SCO OpenServer Desktop System Release 5.0.4
+
+--
+Attack Scenarios:
+An attacker executes exploit code against a vulnerable server and 
+obtains root privileges on the compromised computer.
+
+--
+Ease of Attack:
+Simple. An exploit exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade QUALCOMM Qpopper. See ftp://stage.caldera.com/pub/security/openserver/CSSA-2001-SCO.8/ for patched binaries for SCO OpenServer and an advisory with installation instructions.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+CERT
+http://www.cert.org/advisories/CA-1998-08.html
+
+--

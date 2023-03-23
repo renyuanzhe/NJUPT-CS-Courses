@@ -1,0 +1,126 @@
+ÎÄ¼þ EXP2.zp.exe ¶ÁÈ¡³É¹¦...
+
+--------------------------------
+e_magic : 5a4d
+Signature : 4550
+IMAGE_NT_SIGNATURE : 4550
+ÒÑÈ·ÈÏPEÎÄ¼þ¸ñÊ½ÕýÈ·...
+EXP2.zp.exe·ÖÎö½á¹û°üÀ¨ÆäPEÎÄ¼þÍ·(IMAGE_FILE_HEADER£¬IMAGE_OPTIONAL_HEADER£¬Êý¾ÝÄ¿Â¼±í)£¬Çø¿éÐÅÏ¢ÒÔ¼°µ¼Èëµ¼³ö±íÐÅÏ¢
+
+-------IMAGE_FILE_HEADER--------
+»úÆ÷CPUÀàÐÍ : Intel i386( 14c )
+±àÒëÊ±¼ä : (250048)
+ÀàÐÍ : ÆäËû( 818e )
+ÀàÐÍ(32 or 64) : 32Î»( e0 )
+SectionÊýÄ¿ : 7
+ÊÇ·ñ´æÔÚCOFF·ûºÅ±í : COFF²»´æÔÚ( 0 )
+·ûºÅ±í´óÐ¡ : 0
+
+-------IMAGE_OPTIONAL_HEADER--------
+ROM or EXECUTABLE : EXECUTABLE( 10b )
+ÓÃ»§½çÃæÀàÐÍ £ºGUIÍ¼ÐÎ½çÃæ
+Á´½Ó³ÌÐòÖ÷°æ±¾ºÅ : 2
+ÒÑ³õÊ¼»¯Êý¾Ý¿é´óÐ¡ : b7400
+Î´³õÊ¼»¯Êý¾Ý¿é : 0
+Ó³ÏóÐ£ÑéºÍ £º0
+Ó³Ïó×°ÈëÄÚ´æºó×Ü³ß´ç : 190000
+MSÍ·£¬PEÍ·£¬SECTION±í´óÐ¡ £º 400
+.text´óÐ¡ : 2ee00
+´úÂë¶ÎÆðÊ¼RVA : 1000
+Êý¾Ý¶ÎÆðÊ¼RVA : 30000
+³ÌÐòÖ´ÐÐÈë¿ÚRVA : ee300
+»ùÖ· : 400000
+
+×°ÈëÄÚ´æºóÇø¿é¶ÔÆë´óÐ¡ £º 200
+´ÅÅÌÉÏÇø¿é¶ÔÆë´óÐ¡£º 1000
+Ò»¿ªÊ¼±»Î¯ÅÉ¸ø¶ÑÕ»µÄÄÚ´æ´óÐ¡ : 4000
+Ò»¿ªÊ¼±»Î¯ÅÉ¸ø¶ÑµÄÄÚ´æ´óÐ¡ : 1000
+ÎªÏß³Ì¶ÑÕ»±£ÁôµÄ : 100000
+ÎªÏß³Ì¶Ñ±£ÁôµÄ : 100000
+
+DATA_DIRECTORY£¨·Ç0Ïî£©
+Import Table(Êý¾ÝÄ¿Â¼±íµÚ2Ïî)
+VirtualAddress£¬18c000
+Size£¬205
+Resource Table(Êý¾ÝÄ¿Â¼±íµÚ3Ïî)
+VirtualAddress£¬18e000
+Size£¬cb0
+Base Relocation(Êý¾ÝÄ¿Â¼±íµÚ6Ïî)
+VirtualAddress£¬18f000
+Size£¬386
+TLS(Êý¾ÝÄ¿Â¼±íµÚ10Ïî)
+VirtualAddress£¬18d000
+Size£¬18
+
+-------IMAGE_SECTION_HEADER---------
+.textbssôÎ °üº¬¿ÉÖ´ÐÐ´úÂë,¿ÉÖ´ÐÐ,°üº¬Î´³õÊ¼»¯Êý¾Ý,¿É¶Á,¿ÉÐ´,(e00000a0)
+¸Ã¿é×°ÔØµ½ÄÚ´æÖÐµÄRVA 1000
+¸Ã¿éÔÚ´ÅÅÌÖÐ´óÐ¡ 0
+¸Ã¿éÔÚ´ÅÅÌÖÐÆ«ÒÆ 0
+.text °üº¬¿ÉÖ´ÐÐ´úÂë,¿ÉÖ´ÐÐ,¿É¶Á,(60000020)
+¸Ã¿é×°ÔØµ½ÄÚ´æÖÐµÄRVA ee000
+¸Ã¿éÔÚ´ÅÅÌÖÐ´óÐ¡ 1600
+¸Ã¿éÔÚ´ÅÅÌÖÐÆ«ÒÆ 400
+.data °üº¬ÒÑ³õÊ¼»¯Êý¾Ý,¿É¶Á,¿ÉÐ´,(c0000040)
+¸Ã¿é×°ÔØµ½ÄÚ´æÖÐµÄRVA f0000
+¸Ã¿éÔÚ´ÅÅÌÖÐ´óÐ¡ 9b800
+¸Ã¿éÔÚ´ÅÅÌÖÐÆ«ÒÆ 1a00
+.idata °üº¬ÒÑ³õÊ¼»¯Êý¾Ý,¿É¶Á,¿ÉÐ´,(c0000040)
+¸Ã¿é×°ÔØµ½ÄÚ´æÖÐµÄRVA 18c000
+¸Ã¿éÔÚ´ÅÅÌÖÐ´óÐ¡ 400
+¸Ã¿éÔÚ´ÅÅÌÖÐÆ«ÒÆ 9d200
+.tls °üº¬¿ÉÖ´ÐÐ´úÂë,¿É¶Á,¿ÉÐ´,(c0000020)
+¸Ã¿é×°ÔØµ½ÄÚ´æÖÐµÄRVA 18d000
+¸Ã¿éÔÚ´ÅÅÌÖÐ´óÐ¡ 200
+¸Ã¿éÔÚ´ÅÅÌÖÐÆ«ÒÆ 9d600
+.rsrc °üº¬ÒÑ³õÊ¼»¯Êý¾Ý,¿É¶Á,(40000040)
+¸Ã¿é×°ÔØµ½ÄÚ´æÖÐµÄRVA 18e000
+¸Ã¿éÔÚ´ÅÅÌÖÐ´óÐ¡ e00
+¸Ã¿éÔÚ´ÅÅÌÖÐÆ«ÒÆ 9d800
+.reloc °üº¬ÒÑ³õÊ¼»¯Êý¾Ý,¿É¶Á,(40000040)
+¸Ã¿é×°ÔØµ½ÄÚ´æÖÐµÄRVA 18f000
+¸Ã¿éÔÚ´ÅÅÌÖÐ´óÐ¡ 400
+¸Ã¿éÔÚ´ÅÅÌÖÐÆ«ÒÆ 9e600
+
+--------------RESOURCE--------------
+ÓÃ»§×Ô¶¨Òå×ÊÔ´Êý 7
+µäÐÍ×ÊÔ´Êý£¨Èç¶Ô»°¿ò£©0 
+
+------------IMPORT_TABLE------------
+kernel32.dll 18c0b4
+------------getImportFuction--------------------
+18c0c1 18c0c9 0 GetCurrentProcessId
+--------------------------------
+user32.dll 18c0df
+------------getImportFuction--------------------
+18c0ea 18c0f2 0 GetKeyboardType
+--------------------------------
+advapi32.dll 18c104
+------------getImportFuction--------------------
+18c111 18c119 0 RegQueryValueExA
+--------------------------------
+oleaut32.dll 18c12c
+------------getImportFuction--------------------
+18c139 18c141 0 VariantChangeTypeEx
+--------------------------------
+advapi32.dll 18c157
+------------getImportFuction--------------------
+18c164 18c16c 0 RegQueryValueExA
+--------------------------------
+gdi32.dll 18c17f
+------------getImportFuction--------------------
+18c189 18c191 0 UnrealizeObject
+--------------------------------
+user32.dll 18c1a3
+------------getImportFuction--------------------
+18c1ae 18c1b6 0 WindowFromPoint
+--------------------------------
+comctl32.dll 18c1c8
+------------getImportFuction--------------------
+18c1d5 18c1dd 0 ImageList_SetIconSize
+--------------------------------
+
+------------EXPORT_TABLE------------
+µ¼³ö±íÎª¿Õ
+------------------------------------
+

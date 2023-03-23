@@ -1,0 +1,73 @@
+Rule:
+
+--
+Sid:
+2577
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in Microsoft Internet Explorer.
+
+--
+Impact:
+Serious. Execution of arbitrary code may be possible.
+
+--
+Detailed Information:
+Internet Explorer does not correctly handle the validation of data from
+an external source when processing data in a frame from a redirected
+source. This may lead to the execution of arbitrary code in the context
+of the Local Machine zone.
+
+It may be possible for an attacker to supply an HTTP 300 response from a
+webserver that points to a local file on the victim host. If the
+attacker includes code of their choosing, this code is executed in the
+context of the trusted Local Machine zone.
+
+--
+Affected Systems:
+	Microsoft Internet Explorer
+	Microsoft Outlook
+	Microsoft Outlook Express
+
+--
+Attack Scenarios:
+An attacker would need to supply an HTTP 300 series code to redirect the
+contents of a frame to a local resource on the victim host.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+A valid 300 server response that uses the Location parameter to redirect
+users to a new location may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+Disable Active Scripting and ActiveX
+
+Disable the use of HTML email
+
+Use a browser other than Internet Explorer
+
+--
+Contributors:
+Original Snort documentation contributed by nnposter@users.sourceforge.net
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

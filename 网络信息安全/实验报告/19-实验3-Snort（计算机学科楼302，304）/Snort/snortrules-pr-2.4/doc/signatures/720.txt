@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+720
+
+--
+Summary:
+This event is generated when email is received from a Post Office Protocol (POP) server that may contain an attachment with the Snow White worm.
+
+--
+Impact:
+Possible system compromise.  The worm can alter system files and registry key settings. 
+
+--
+Detailed Information:
+The Snow White worm, also known as Hybris, may contain text with a unique misspelling of "Suddlently".  This worm attempts to write to the wsock32.dll library.  It may also attempt to alter registry key settings.
+
+--
+Affected Systems:
+Microsoft Win32 systems.
+
+--
+Attack Scenarios:
+The worm is spread by e-mail and attempts to infect other hosts when a user opens the e-mail attachment. 
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+This event is triggered when an e-mail is received from a POP server that contains the misspelled word "Suddlently".
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Make sure that the suspected infected host has the most current anti-virus software.  
+
+Run a virus scan on the suspected infected host.
+
+--
+Contributors:
+Original rule writer unknown.
+Documented by Steven Alexander<alexander.s@mccd.edu>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+F-Secure:
+http://www.f-secure.com/v-descs/hybris.shtml
+
+--

@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+2065
+
+--
+Summary:
+file on a Lotus Domino Server.
+
+--
+Impact:
+Information disclosure
+
+--
+Detailed Information:
+Certain versions of Lotus Domino web servers do not correctly handle 
+requests for script files not specific to Lotus Domino.
+
+By using a dot in the filename an attacker may view the source of the 
+script and be presented with sensitive information embedded in the 
+script.
+
+--
+Affected Systems:
+Lotus Domino Server 5.0 and 6.0
+
+--
+Attack Scenarios:
+The attacker merely needs to make an HTTP request for the script and add
+a dot to the filename. This can be done using a browser.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor fixes
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/6841
+
+--

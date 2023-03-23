@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+3176
+
+--
+Summary:
+This rule generates an event when an attempt is made to exploit a known 
+vulnerability in Microsoft RPC DCOM.
+
+--
+Impact:
+Execution of arbitrary code leading to full administrator access of the 
+machine. Denial of Service (DoS).
+
+--
+Detailed Information:
+A vulnerability exists in Microsoft RPC DCOM such that execution of 
+arbitrary code or a Denial of Service condition can be issued against a 
+host by sending malformed data via RPC.
+
+The Distributed Component Object Model (DCOM) handles DCOM requests sent
+by clients to a server using RPC. A malformed request to an RPC port 
+will result in a buffer overflow condition that will present the 
+attacker with the opportunity to execute arbitrary code with the 
+privileges of the local system account.
+
+--
+Affected Systems:
+	Windows NT 4.0
+	Windows NT 4.0 Terminal Server Edition
+	Windows 2000
+	Windows XP
+	Windows Server 2003
+
+--
+Attack Scenarios:
+An attacker may make a request for a file with an overly long filename 
+via a network share.
+
+--
+Ease of Attack:
+Simple. Expoit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Block access to RPC ports 135, 139 and 445 for both TCP and UDP 
+protocols from external sources using a packet filtering firewall.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

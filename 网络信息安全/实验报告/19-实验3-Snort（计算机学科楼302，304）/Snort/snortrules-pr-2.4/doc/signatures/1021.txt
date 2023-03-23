@@ -1,0 +1,67 @@
+Rule:  
+
+Sid:
+1021
+
+--
+
+Summary:
+This event is generated when an attempt is made to retrieve file
+contents by exploiting a vulnerability in Microsoft Internet 
+Information Server (IIS) ISAPI component.
+
+--
+Impact:
+Information Disclosure.
+
+--
+Detailed Information:
+Default installations of IIS 4.0 and IIS 5.0 contain a vulnerability in
+ISM.DLL that can allow an attacker to retrieve the contents of
+files on the system.  This could be used to retrieve web application
+source code or the contents of other sensitive files.
+
+--
+Affected Systems:
+	Microsoft IIS 4.0 and 5.0
+	Multiple vendor implementations of IIS.
+
+--
+Attack Scenarios:
+The attacker sends a URL containing the file to be retrieved (without the
+extension), followed by approximately 230 "%20" (ascii space) characters 
+followed by ".htr".
+
+Note: This attempt can only be performed once. The server must be
+restarted to make another sucessful request.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Check server logs for signs of compromise.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+References:
+
+CVE:   CAN-2000-0457
+Bugtraq:  BID 1193
+
+--

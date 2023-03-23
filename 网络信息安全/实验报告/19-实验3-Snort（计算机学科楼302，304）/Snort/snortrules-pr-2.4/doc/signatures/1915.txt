@@ -1,0 +1,71 @@
+Rule:
+
+--
+Sid:
+1915
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a format
+string vulnerability associated with the Remote Procedure Call (RPC)
+rpc.statd.
+
+--
+Impact:
+Remote root access. This may permit execution of arbitrary commands with
+the privileges of root.
+
+--
+Detailed Information:
+The rpc.statd daemon is a component of Network File System (NFS) that
+implements the Network Status and Monitor (NSM) RPC functions.  NSM
+monitors the status of NFS clients and servers and maintains a list of
+hosts that have registered to be notified when an NFS host crashes. 
+There is a format string vulnerability associated with the code that
+implements the monitoring of a given host, possibly permitting the
+execution of arbitrary commands with the privileges of root. 
+
+--
+Affected Systems:
+	Conectiva Linux 4.0, 4.1, 4.2, 5.0, 5.1
+	Debian Linux 2.2, 2.3
+	Red Hat Linux 6.0, 6.1, 6.2
+	SuSE Linux 6.3, 6.4, 7.0
+	Trustix Secure Linux 1.0, 1.1
+
+--
+Attack Scenarios:
+An attacker can attempt to exploit the format string error allowing
+execution of arbitrary commands with the privileges of root.  
+
+--
+Ease of Attack:
+Simple. Exploit code is freely available. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to
+RPC-enabled machines.
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

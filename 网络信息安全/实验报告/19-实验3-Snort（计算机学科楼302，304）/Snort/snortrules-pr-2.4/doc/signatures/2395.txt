@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+2395
+
+--
+Summary:
+This event is generated when an attempt is made to view a URL with the string "InteractiveQuery.jsp" in the name.
+
+--
+Impact:
+Successful cross-site scripting attacks generally target the users of
+your web site. Attackers can potentially gain access to your users'
+cookies or session ids, allowing the attacker to impersonate your
+user.
+
+--
+Detailed Information:
+BEA WebLogic supplies a CGI script InteractiveQuery.jsp that may be susceptible to cross-site scripting.  The vulnerability
+occurs because of improper sanitizing of data to the argument 'person'.  This may permit malicious code to be executed when
+a user visits a vulnerable site.
+
+--
+Affected Systems:
+BEA WebLogic 8.1 and earlier versions.
+
+--
+Attack Scenarios:
+An attacker can lure a user to a website that is vulnerable, perhaps permitting the malicious code to be executed on the user's host.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Remove the InteractiveQuery.jsp script or move it from the server's CGI path.
+
+Upgrade to the latest non affected versions of the software.
+
+Configure the web browser to not allow the execution of code.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak<judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/8938
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0624
+
+--

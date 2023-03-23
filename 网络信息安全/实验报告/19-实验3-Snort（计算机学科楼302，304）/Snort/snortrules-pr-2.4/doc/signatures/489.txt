@@ -1,0 +1,75 @@
+Rule:
+  
+--
+
+Rule:
+--
+Sid:
+489
+
+--
+
+Summary:
+This event is generated when an attempt is made to log into an ftp 
+server with an empty password.
+
+--
+
+Impact:
+Possible unauthorized access, invalid login attempt.
+
+--
+
+Detailed Information:
+An attempt was made to log into an ftp server with an empty password. 
+This is an unusual behavior as every ftp login usually has a password, 
+even anonymous ones. An empty password might mean the system was already
+compromised and a username exists with no password.
+
+--
+
+Affected Systems:
+Machines running ftp servers.
+
+--
+
+Attack Scenarios:
+An attacker gains access to the system via a vulnerability, creates a 
+login without a password and then tries to ftp to the system with that 
+login.
+
+--
+
+Ease of Attack:
+Simple, no exploit software required.
+
+--
+
+False Positives:
+There might be legitimate users on the system with empty passwords, but 
+not very likely.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Check all the usernames on the system for empty passwords.
+
+--
+
+Contributors:
+Original Rule Writer Max Vision <vision@whitehats.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+
+-- 
+
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS322
+
+--

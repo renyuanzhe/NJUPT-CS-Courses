@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+3692
+
+--
+Summary:
+This event is generated when network traffic that indicates an instant
+messaging client is being used.
+
+--
+Impact:
+Possible policy violation.  Instant Messenger programs may not be
+appropriate in certain network environments.
+
+--
+Detailed Information:
+This event indicates that the Yahoo IM client is being used on the
+protected network.
+
+Specifically a Yahoo Messenger File Transfer Initiation Request was
+observed.
+
+--
+Affected Systems:
+	All systems using Yahoo IM client
+	
+--
+Attack Scenarios:
+It is possible to transfer files between hosts using instant messaging
+applications. This may lead to the loss of proprietory and confidential
+material.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disallow the use of IM clients on the protected network and enforce or
+implement an organization wide policy on the use of IM clients.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+3201
+
+--
+Summary:
+This event is generated when an attempt is made to access the file
+httpodbc.dll.
+
+--
+Impact:
+Serious. Remote code execution is possible.
+
+--
+Detailed Information:
+Versions of Microsoft Internet Information Server (IIS) and Microsoft
+Personal Web Server (PWS) are vulnerable to a directory traversal attack
+that may lead to access of certain sensitive system files.
+
+This event is generated when an attempt is made to access the file
+httpodbc.dll. This may indicate nimda worm activity.
+
+--
+Affected Systems:
+	Microsoft IIS 3.0
+	Microsoft IIS 4.0
+	Microsoft PWS
+
+--
+Attack Scenarios:
+This may indicate worm activity.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

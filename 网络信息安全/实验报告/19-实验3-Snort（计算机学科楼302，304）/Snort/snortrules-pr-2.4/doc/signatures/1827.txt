@@ -1,0 +1,81 @@
+Rule:
+
+--
+Sid:
+1827
+
+--
+Summary:
+This event is generated when a cross-site scripting attack is being 
+attempted, or a potential attacker is testing your site to determine if 
+it is vulnerable.
+
+--
+Impact:
+Successful cross-site scripting attacks generally target the users of 
+your web site. Attackers can potentially gain access to your users' 
+cookies or session ids, allowing the attacker to impersonate your
+user. They could also set up elaborate fake logon screens to steal 
+user names and passwords.
+
+--
+Detailed Information:
+Whenever a web application accepts input (either via the URL or the 
+POST method) and then uses that input as part of the HTML of a new page 
+without filtering, the application is vulnerable to cross-site 
+scripting.  The traditional means of exploiting this is to embed a 
+"<SCRIPT>" tag into the input. The code following the tag is then 
+executed by the victim's browser.
+
+--
+Affected Systems:
+Many older versions of web server software are affected, as are numerous
+web applications.
+
+--
+Attack Scenarios:
+The most common avenue of attack is for the attacker to send an HTML 
+formatted email to the victim. The email will contain a link to a 
+specially crafted URL which contains the exploit. When the victim clicks
+on the link, they are directed to the vulnerable web site and the attack
+code is executed by their browser.
+
+--
+Ease of Attack:
+Moderately Easy.  Exploit code exists to automate attacks against users 
+of some widely deployed web applications which are known to be 
+vulnerable. 
+
+Finding vulnerabilities in other, including proprietary, web
+applications is fairly trivial and existing exploit code could easily be
+modified to take advantage of newly discovered vulnerabilities.
+
+--
+False Positives:
+Web pages that legimately include the <SCRIPT> tag could generate this 
+event under certain circumstances.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Determine if your web application is actually vulnerable to this 
+attack. If it is and the application is not of your own design, contact 
+the authors or vendor and see if there is a patch or newer version.
+
+If the application is proprietary to you or your company, ensure that it 
+properly validates input.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Kevin Peuhkurinen
+
+-- 
+Additional References:
+
+--

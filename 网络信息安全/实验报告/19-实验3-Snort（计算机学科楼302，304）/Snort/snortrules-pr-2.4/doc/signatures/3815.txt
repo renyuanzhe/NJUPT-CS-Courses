@@ -1,0 +1,63 @@
+Rule:
+
+
+--
+Sid:
+2590
+
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow
+associated with Kinesphere Corporation eXchange POP3.
+
+--
+Impact:
+A successful attack may allow the execution of arbitrary code on a vulnerable
+server with system level privileges.
+
+--
+Detailed Information:
+Kinesphere Corporation eXchange POP3 is used to download messages from
+an Exchange server using POP3 or IMAP. The server can also communicate
+with the Exchange server using SMTP.
+ 
+A programming error may allow an attacker to overflow a static buffer
+used in the processing of the MAIL FROM header in a message to the
+eXchange POP3 server.
+
+--
+Affected Systems:
+	Kinesphere Corporation eXchange POP3 5.0
+	Kinesphere Corporation eXchange POP3 4.0
+  
+--
+Attack Scenarios:
+An attacker can create and send mail with a malformed header, possibly
+causing a buffer overflow and permitting the execution of arbitrary code.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References
+
+--

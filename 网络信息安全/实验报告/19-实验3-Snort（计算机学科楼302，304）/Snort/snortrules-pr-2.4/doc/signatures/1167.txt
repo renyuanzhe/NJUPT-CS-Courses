@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+
+1167
+
+--
+Summary:
+
+This event is generated when an attempt is made to gain information on installed packages on OpenLINUX.
+
+--
+Impact:
+
+This is a serious information leak, since an attack could then attempt to determine and exploit any vulnerable packages.
+
+
+--
+Detailed Information:
+
+The OpenLinux CGI package comes with a script called rpm_query. A 
+vulnerability exists which will allow a remote user to list all
+packages/versions installed on the system. This information will be 
+useful for an attacker to further compromise a system.
+
+
+--
+Affected Systems:
+
+	OpenLinux Desktop 2.3        
+        OpenLinux eServer 2.3        
+
+--
+Attack Scenarios:
+
+GET http://target/cgi-bin/rpm_query HTTP/1.0
+
+--
+Ease of Attack:
+
+Simple.
+
+--
+False Positives:
+
+None known.
+
+--
+False Negatives:
+
+None known.
+
+--
+Corrective Action:
+
+Remove the package (/home/httpd/cgi-bin/rpm_query)   
+
+Upgrade to the latest version of OpenLinux (2.3-17 or later), 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1036
+
+--

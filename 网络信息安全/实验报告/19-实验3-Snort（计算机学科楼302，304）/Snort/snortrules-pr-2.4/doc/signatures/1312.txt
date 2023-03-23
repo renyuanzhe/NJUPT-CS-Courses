@@ -1,0 +1,64 @@
+Rule:  
+--
+Sid:
+
+1312
+
+--
+Summary:
+This rule indicates that a webpage was visited the included the content "nude cheerleader".
+
+--
+Impact:
+Someone could be violating your company's policy regarding the browsing of inappropriate content.
+
+--
+Detailed Information:
+
+This rule looks for a response from a webserver containing "nude cheerleader".
+
+--
+Affected Systems:
+
+All
+
+--
+Attack Scenarios:
+
+Not an attack.  
+
+--
+Ease of Attack:
+
+N/A.
+
+--
+False Positives:
+
+This could have been caused by a pop-up window or spam with an embedded link to a pornographic website.  This could also be caused by somebody visiting the snort rule descriptions on the snort website.
+
+--
+False Negatives:
+
+None known.
+--
+Corrective Action:
+
+Dependent on your company's policies.   
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+-- 
+Additional References:
+
+
+
+
+
+
+
+--

@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid:
+2941
+
+--
+Summary:
+This event is generated when an attempt is made to bind to the Windows
+registry service via SMB. 
+
+--
+Impact:
+Serious. Remote administration of the Windows reqistry may be possible.
+
+--
+Detailed Information:
+This event indicates that an attempt was made to bind to the Windows
+registry service via SMB across the network.
+
+It may be possible for an attacker to manipulate the Windows registry
+from a remote location. This could give the attacker administrative
+privileges on the target host as well as the opportunity to execute code
+of their choosing.
+
+--
+Affected Systems:
+	Microsoft Windows systems.
+
+--
+Attack Scenarios:
+If the Windows registry is accessible via SMB the attacker can
+manipulate the operating system registry settings.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Check the host for signs of system compromise.
+
+Turn off file and print sharing on the target host.
+
+Use a packet filtering firewall to disallow SMB access to the host from
+sources external to the protected network.
+
+Disallow remote registry manipulation.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

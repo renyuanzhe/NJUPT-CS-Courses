@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+2495
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the Microsoft RPC service.
+
+--
+Impact:
+Denial of Service (DoS). Possible execution of arbitrary code leading to
+unauthorized remote access to the victim host.
+
+--
+Detailed Information:
+It may be possible for an attacker to cause a DoS condition in the
+Microsoft RPC service when multiple simultaneous requests are made to a
+vulnerable host. This can lead to an exhaustion of system resources
+causing the DoS.
+
+--
+Affected Systems:
+	Windows systems running RPC services
+
+--
+Attack Scenarios:
+An attacker may attempt to bind to the RPC service many times in an
+attempt to cause the DoS condition to occur.
+
+--
+Ease of Attack:
+Difficult.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Block access to RPC ports 135, 139 and 445 for both TCP and UDP 
+protocols from external sources using a packet filtering firewall.
+
+Apply the appropriate vendor supplied patches
+
+--
+Contributors:
+Sourcefire Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

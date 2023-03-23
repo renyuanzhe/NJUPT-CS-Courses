@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+715
+
+--
+Summary:
+This event is generated when a telnet server sends an error message regarding a failed user attempt to issue the 'su' command to get root privileges. 
+
+--
+Impact:
+Failed root access.  This attack occurs when a user attempts to get root privileges using the su command.
+
+--
+Detailed Information:
+An attacker may attempt to gain root privileges by issuing the su command.  This implies that the attacker has successfully connected to the telnet server with an account other than root. A failed attempt will cause an error message to be generated indicating that the user is not a member of an authorized group to obtain root privileges.
+
+--
+Affected Systems:
+All telnet servers.
+
+--
+Attack Scenarios:
+At attacker may attempt to gain root privileges on a telnet server.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+It is remotely possible that a legitimate user with multiple user accounts may attempt to issue su command from the wrong account.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Use ssh instead of telnet to prevent su passwords from being sniffed.
+
+Tightly restric su access to authorized users.
+
+Block inbound telnet access if it is not required.
+
+--
+Contributors:
+Original rule writer unknown
+Documented by Steven Alexander<alexander.s@mccd.edu>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

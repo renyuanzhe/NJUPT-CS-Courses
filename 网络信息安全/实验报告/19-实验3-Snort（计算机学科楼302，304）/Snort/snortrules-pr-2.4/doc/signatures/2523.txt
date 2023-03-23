@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+2523
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the Transmission Control Protocol (TCP) used in Border
+Gateway Protocol (BGP).
+
+--
+Impact:
+Denial of Service (DoS).
+
+--
+Detailed Information:
+The Border Gateway Protocol uses TCP to maintain sessions when handling
+DNS queries. A vulnerability in the core implementation of TCP may make
+it possible for an attacker to reset a number of connections and cause a
+Denial of Service (DoS) to occur.
+
+The attack is possible because the listening service will accept a TCP
+sequence number within a range of what is expected in an established
+session. Since BGP relies on an established TCP session state, guessing
+a suitable sequence number to reset connections is feasible.
+
+--
+Affected Systems:
+	Various implementations of TCP by multiple vendors
+
+--
+Attack Scenarios:
+An attcker needs to send a specially crafted packet to reset a
+connection.
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

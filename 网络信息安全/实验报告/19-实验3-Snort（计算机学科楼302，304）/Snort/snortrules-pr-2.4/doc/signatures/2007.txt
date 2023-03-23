@@ -1,0 +1,90 @@
+Rule:
+
+--
+Sid:
+2007
+
+--
+Summary:
+KCMS (Kodak Color Management System) is an RPC (Remote Procedure Call)
+service for Sun Solaris operating systems. It is able to read profiles
+stored on remote machines. It is possible for an attacker to bypass
+directory traversal checks and read any file on the remote system.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a
+compromise of all resources on the machine not limited to user accounts
+and business data.
+
+--
+Detailed Information:
+The attacker first needs to create a directory under
+/etc/openwin/devdata/profiles or /usr/openwin/etc/devdata/profiles,
+using the ToolTalk database server is one method of creating a
+directory. Once this has been achieved, the attacker is then able to
+perform the directory traversal.
+
+The directory traversal allows the attacker to read any file on the
+compromised system. Once a sensitive system file such as the system
+password database has been retrieved, the attacker may use other tools
+at his leisure to discover username and password information. This may
+lead to further system compromise.
+
+The KCMS daemon runs with root privileges and is typically started on
+boot via inetd. The ToolTalk database server is also commonly installed
+and started in this manner. The KCMS daemon usually listens on TCP port
+32871 although this can vary.
+
+--
+Affected Systems:
+	Sun Microsystems Solaris 2.5.1 (Sparc/Intel)
+	Sun Microsystems Solaris 2.6 (Sparc/Intel)
+	Sun Microsystems Solaris 7 (Sparc/Intel)
+	Sun Microsystems Solaris 8 (Sparc/Intel)
+	Sun Microsystems Solaris 9 (Sparc/Intel)
+
+--
+Attack Scenarios:
+The ToolTalk database server procedure TT_ISBUILD can be used to create
+a directory named TT_DB anywhere on a remote system. Creation of this
+directory then allows the attacker to use directory traversal to further
+compromise the machine.
+
+--
+Ease of Attack:
+Once the directory has been created, further compromise is simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disable the KCMS daemon in the file /etc/inetd.conf. Kill any running
+KCMS processes and restart the inet daemon.
+
+Configure your firewall to restrict external access to the TCP and UDP
+port 111 used by the RPC port mapper service and the range used by RPC
+services, typically 32700 to 34000.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.kb.cert.org/vuls/id/850785
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0027
+
+--

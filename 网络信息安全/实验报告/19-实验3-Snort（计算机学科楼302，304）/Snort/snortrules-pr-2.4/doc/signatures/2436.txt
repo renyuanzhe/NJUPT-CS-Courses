@@ -1,0 +1,62 @@
+Rule:  
+
+--
+Sid:
+2436
+
+--
+Summary:
+This event is generated when an attempt is made to access a file type
+that may be subject to a known vulnerability in Microsoft Windows Explorer.
+
+--
+Impact:
+Denial of Service (DoS) possible execution of arbitrary code.
+
+--
+Detailed Information:
+When processing Windows Extended Metafile Format (.emf) files, Windows
+Explorer sets a buffer size based on information in the header for the
+file. If a malformed header is sent, it may be possible for an attacker
+to cause a DoS condition to occur. It may also be possible for an
+attacker to execute code of their choosing on a vulnerable host.
+
+This issue may also affect Microsoft Windows Metafile Format (.wmf)
+files also.
+
+--
+Affected Systems:
+	Microsoft Windows XP Home, Professional and Media Center Edition
+	Microsoft Windows XP Home and Professional SP-1
+
+--
+Attack Scenarios:
+An attacker might supply a specially crafted request for such a file
+that might cause the error condiion to occur.
+
+--
+Ease of Attack:
+Moderate/Difficult
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

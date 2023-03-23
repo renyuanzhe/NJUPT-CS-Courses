@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+
+324
+
+--
+Summary:
+This event is generated when a null character in a Finger request is 
+detected.
+
+--
+Impact:
+Some systems will respond to a null finger request by supplying a list 
+of usernames present on the host.
+
+Disclosure of usernames is an Information Gathering risk.  The remote 
+user can use this information in other exploits that require knowing 
+user names, or as a basis for social engineering.
+
+--
+Detailed Information:
+A packet is transmitted to server port 79 (Finger) with a null character
+in the data.  Some Unix finger commands will respond with a full list of
+usernames.  A remote attacker could use this information for other 
+exploits, including dictionary-based password attacks and social 
+engineering attempts.
+
+--
+Affected Systems:
+	Some UNIX based systems
+
+--
+Attack Scenarios:
+See detailed information section above.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Disable the finger daemon in inetd.conf, or block untrusted access to 
+port 79 using a packet filtering firewall.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Darryl Davidson <ddavidson@talisman-intl.com>
+
+-- 
+Additional References: CVE-1999-0612, 
+
+Arachnids:
+http://www.whitehats.com/info/IDS377 (Arachnids,377)
+
+--

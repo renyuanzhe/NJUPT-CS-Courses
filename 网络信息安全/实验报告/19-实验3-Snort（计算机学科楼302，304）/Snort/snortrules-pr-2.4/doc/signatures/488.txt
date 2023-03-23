@@ -1,0 +1,61 @@
+Rule:  
+
+--
+Sid:
+488
+
+--
+Summary:
+This event is generated when a connection is closed from a resource
+external to the protected network.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+This event indicates that an established connection has been closed
+from a source external to the protected network. Since the external
+connection port is 80, this is unusual behavior. It may be that an
+attacker is using port 80 on the external machine to initiate a
+connection to a machine on the protected network in an attempt to bypass
+firewall protection. When this connection is terminated, this rule will
+generate an event.
+
+--
+Affected Systems:
+	All systems
+	
+--
+Attack Scenarios:
+An attacker can use port 80 from a compromised machine to connect to
+another compromised host in an attempt to bypass firewall restrictions
+by imitating normal web traffic.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Investigate the host for signs of system compromise.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

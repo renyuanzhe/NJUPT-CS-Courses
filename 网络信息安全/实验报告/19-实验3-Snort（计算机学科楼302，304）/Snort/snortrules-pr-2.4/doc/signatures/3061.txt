@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+3061
+
+--
+Summary:
+This event is generated when an attempt is made to connect to the distcc
+daemon.
+
+--
+Impact:
+Serious. Execution of arbitrary commands may be possible.
+
+--
+Detailed Information:
+Distcc is an open source distributed C/C++ compiler that can be used
+to compile code on remote hosts that run the distcc daemon.  A vulnerability
+exists in the handling of commands that are generated via a distcc client.  The
+server does not ensure that compile commands only are sent to it.  A command
+sequence can be created that executes commands on a vulnerable server.  No
+authentication is required to execute a command on a distcc server.
+
+--
+Affected Systems:
+	2.18.3 and prior
+
+--
+Attack Scenarios:
+An attacker can generated a valid distcc command sequence that executes
+a command other than a compile on a vulnerable distcc server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+This is a policy rule and requires proper customization for the
+variable $EXTERNAL_NET for sites that allow distcc traffic from
+remote hosts.  The $EXTERNAL_NET variable should be replaced with
+the IP address(es) of unauthorized client hosts only.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Use the --allow <hosts> option when starting the distcc daemon
+to specify authorized client hosts.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

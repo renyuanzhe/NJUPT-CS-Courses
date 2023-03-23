@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+2000
+
+--
+Summary:
+This event is generated when a remote user attempts to access readmsg.php on a web server. This may indicate an attempt to exploit a directory traversal vulnerability in the WebMail application on Sun Microsystems' Cobalt Qube 3.0 server appliance.
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event may indicate an attempt to exploit a vulnerability in the WebMail application used by Sun Microsystems' Cobalt Qube 3.0 server appliance. An attacker can use directory traversal techniques when accessing readmsg.php to view hidden files and directories on the web server with the access privileges of the server. 
+
+--
+Affected Systems:
+Any Cobalt Qube 3.0 server appliance running Cobalt Qube Webmail 2.0.1.
+
+--
+Attack Scenarios:
+An attacker can use directory traversal techniques when executing readmsg.php to view directories and files on the Cobalt server.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses readmsg.php, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the newest version of the software. Sun Microsystems has released a patch (Qube3-ml-Security-2.0.1-10626.pkg) that can be downloaded from ftp://ftp.cobalt.com/. 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/2987
+
+CVE
+http://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=CAN-2001-1408
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11073
+
+--

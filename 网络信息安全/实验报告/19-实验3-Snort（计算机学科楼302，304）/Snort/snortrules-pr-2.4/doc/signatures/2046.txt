@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+2046
+
+--
+Summary:
+The IMAP daemon distributed by Washington University (Wu-imapd) is
+subject to a buffer overflow condition which may result in a denial of service.
+
+--
+Impact:
+Possible code execution and Denial of Service.
+
+--
+Detailed Information:
+If a valid user of an IMAP service using wu-imapd makes a partial
+request of mailbox attributes, a buffer overflow occurs in the daemon
+resulting in the crash of the process.
+
+Execution of arbitrary code may be possible with the privileges of the
+user running imapd.
+
+Exploits are widely available for this vulnerability.
+
+--
+Affected Systems:
+	Washington University wu-imapd 2000.0 c
+	Washington University wu-imapd 2000.0 b
+	Washington University wu-imapd 2000.0 a
+	Washington University wu-imapd 2000.0
+	Washington University wu-imapd 2001.0 a
+	Washington University wu-imapd 2001.0
+
+--
+Attack Scenarios:
+The attacker could use one of the available exploits or when logged in 
+as a valid user, make a partial request for the mailbox attributes.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate patches for the affected systems.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

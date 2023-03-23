@@ -1,0 +1,61 @@
+Rule:
+
+--
+
+Sid:
+428
+
+--
+
+Summary:
+This event is generated when a host generates and ICMP Parameter Problem datagram with an undefined ICMP Code.
+
+--
+
+Impact:
+ICMP datagrams should never contain undefined ICMP Codes.  This is normally an indication of nefarious activity occurring on the network.
+
+--
+
+Detailed Information:
+A router generates a Parameter Problem message for any error not specifically covered by another ICMP message.  This could be an indication of routing problems on the network, or malfunctioning routing hardware.
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+
+--
+
+Corrective Action:
+ICMP Type 12 datagrams with undefined ICMP Codes are not normal network activity.  Hosts generating these types of datagrams should be investigated for configuration errors or nefarious activity.
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+1529
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow or denial of service vulnerability associated with FTP SITE command. 
+
+--
+Impact:
+Remote access or denial of service.  A successful attack can cause a
+denial of service or allow remote execution of arbitrary commands with
+privileges of the process running the FTP server. 
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit various
+vulnerabilities associated with the FTP SITE command of different FTP
+servers. The Windows Serv-U FTP server 2.5a can be made to crash when an
+overly long argument is supplied to the SITE PASS command. The GuildFTPd
+free Windows FTP server 0.97 is vulnerable to a buffer overflow caused
+by issuing a SITE command that is 261 bytes or longer. A buffer overflow
+exists in Debian Linux 2.2 FTP daemon that is caused by issuing a SITE
+command that is 400 bytes or longer. The buffer overflow attacks may
+permit the execution of arbitrary commands with the privileges of the
+process running the FTP server. All of these attacks require login
+access to the vulnerable server via an authenticated or anonymous user.
+
+--
+Affected Systems:
+	Serv-U FTP server 2.5a.
+	GuildFTPd Server 0.97.
+	Debian 2.2 FTP server.
+
+--
+Attack Scenarios:
+An attacker may login to a vulnerable FTP server and enter an overly
+long file argument with the SITE command, causing a denial of service or
+buffer overflow.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com> 
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

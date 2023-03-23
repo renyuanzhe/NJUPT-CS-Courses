@@ -1,0 +1,452 @@
+文件 EXP2.exe 读取成功...
+
+--------------------------------
+e_magic : 5a4d
+Signature : 4550
+IMAGE_NT_SIGNATURE : 4550
+已确认PE文件格式正确...
+EXP2.exe分析结果包括其PE文件头(IMAGE_FILE_HEADER，IMAGE_OPTIONAL_HEADER，数据目录表)，区块信息以及导入导出表信息
+
+-------IMAGE_FILE_HEADER--------
+机器CPU类型 : Intel i386( 14c )
+编译时间 : (6c0108)
+类型 : 其他( 818e )
+类型(32 or 64) : 32位( e0 )
+Section数目 : 8
+是否存在COFF符号表 : COFF不存在( 0 )
+符号表大小 : 0
+
+-------IMAGE_OPTIONAL_HEADER--------
+ROM or EXECUTABLE : EXECUTABLE( 10b )
+用户界面类型 ：GUI图形界面
+链接程序主版本号 : 2
+已初始化数据块大小 : b7400
+未初始化数据块 : 0
+映象校验和 ：0
+映象装入内存后总尺寸 : ec000
+MS头，PE头，SECTION表大小 ： 400
+.text大小 : 2ee00
+代码段起始RVA : 1000
+数据段起始RVA : 30000
+程序执行入口RVA : 2fd68
+基址 : 400000
+
+装入内存后区块对齐大小 ： 200
+磁盘上区块对齐大小： 1000
+一开始被委派给堆栈的内存大小 : 4000
+一开始被委派给堆的内存大小 : 1000
+为线程堆栈保留的 : 100000
+为线程堆保留的 : 100000
+
+DATA_DIRECTORY（非0项）
+Import Table(数据目录表第2项)
+VirtualAddress，32000
+Size，1c3e
+Resource Table(数据目录表第3项)
+VirtualAddress，3a000
+Size，b1200
+Base Relocation(数据目录表第6项)
+VirtualAddress，36000
+Size，34dc
+TLS(数据目录表第10项)
+VirtualAddress，35000
+Size，18
+
+-------IMAGE_SECTION_HEADER---------
+CODE 包含可执行代码,可执行,可读,(60000020)
+该块装载到内存中的RVA 1000
+该块在磁盘中大小 2ee00
+该块在磁盘中偏移 400
+DATA 包含已初始化数据,可读,可写,(c0000040)
+该块装载到内存中的RVA 30000
+该块在磁盘中大小 c00
+该块在磁盘中偏移 2f200
+BSS 可读,可写,(c0000000)
+该块装载到内存中的RVA 31000
+该块在磁盘中大小 0
+该块在磁盘中偏移 2fe00
+.idata 包含已初始化数据,可读,可写,(c0000040)
+该块装载到内存中的RVA 32000
+该块在磁盘中大小 1e00
+该块在磁盘中偏移 2fe00
+.tls 可读,可写,(c0000000)
+该块装载到内存中的RVA 34000
+该块在磁盘中大小 0
+该块在磁盘中偏移 31c00
+.rdata 包含已初始化数据,共享块,可读,(50000040)
+该块装载到内存中的RVA 35000
+该块在磁盘中大小 200
+该块在磁盘中偏移 31c00
+.reloc 包含已初始化数据,共享块,可读,(50000040)
+该块装载到内存中的RVA 36000
+该块在磁盘中大小 3600
+该块在磁盘中偏移 31e00
+.rsrc 包含已初始化数据,共享块,可读,(50000040)
+该块装载到内存中的RVA 3a000
+该块在磁盘中大小 b1200
+该块在磁盘中偏移 35400
+
+--------------RESOURCE--------------
+用户自定义资源数 7
+典型资源数（如对话框）0 
+
+------------IMPORT_TABLE------------
+kernel32.dll 32614
+------------getImportFuction--------------------
+320dc 32622 0 DeleteCriticalSection
+320e0 3263a 0 LeaveCriticalSection
+320e4 32652 0 EnterCriticalSection
+320e8 3266a 0 InitializeCriticalSection
+320ec 32686 0 VirtualFree
+320f0 32694 0 VirtualAlloc
+320f4 326a4 0 LocalFree
+320f8 326b0 0 LocalAlloc
+320fc 326be 0 VirtualQuery
+32100 326ce 0 WideCharToMultiByte
+32104 326e4 0 MultiByteToWideChar
+32108 326fa 0 lstrlenA
+3210c 32706 0 lstrcpyA
+32110 32712 0 LoadLibraryExA
+32114 32724 0 GetThreadLocale
+32118 32736 0 GetStartupInfoA
+3211c 32748 0 GetModuleFileNameA
+32120 3275e 0 GetLocaleInfoA
+32124 32770 0 GetLastError
+32128 32780 0 GetCommandLineA
+3212c 32792 0 FreeLibrary
+32130 327a0 0 ExitProcess
+32134 327ae 0 WriteFile
+32138 327ba 0 SetFilePointer
+3213c 327cc 0 SetEndOfFile
+32140 327dc 0 RtlUnwind
+32144 327e8 0 ReadFile
+32148 327f4 0 RaiseException
+3214c 32806 0 GetStdHandle
+32150 32816 0 GetFileSize
+32154 32824 0 GetFileType
+32158 32832 0 CreateFileA
+3215c 32840 0 CloseHandle
+--------------------------------
+user32.dll 3284e
+------------getImportFuction--------------------
+32164 3285a 0 GetKeyboardType
+32168 3286c 0 LoadStringA
+3216c 3287a 0 MessageBoxA
+--------------------------------
+advapi32.dll 32888
+------------getImportFuction--------------------
+32174 32896 0 RegQueryValueExA
+32178 328aa 0 RegOpenKeyExA
+3217c 328ba 0 RegCloseKey
+--------------------------------
+oleaut32.dll 328c8
+------------getImportFuction--------------------
+32184 328d6 0 VariantChangeTypeEx
+32188 328ec 0 VariantCopyInd
+3218c 328fe 0 VariantClear
+32190 3290e 0 SysStringLen
+32194 3291e 0 SysFreeString
+32198 3292e 0 SysReAllocStringLen
+3219c 32944 0 SysAllocStringLen
+--------------------------------
+kernel32.dll 32958
+------------getImportFuction--------------------
+321a4 32966 0 TlsSetValue
+321a8 32974 0 TlsGetValue
+321ac 32982 0 LocalAlloc
+321b0 32990 0 GetModuleHandleA
+321b4 329a4 0 GetModuleFileNameA
+--------------------------------
+advapi32.dll 329ba
+------------getImportFuction--------------------
+321bc 329c8 0 RegQueryValueExA
+321c0 329dc 0 RegOpenKeyExA
+321c4 329ec 0 RegCloseKey
+--------------------------------
+kernel32.dll 329fa
+------------getImportFuction--------------------
+321cc 32a08 0 WriteFile
+321d0 32a14 0 WaitForSingleObject
+321d4 32a2a 0 VirtualQuery
+321d8 32a3a 0 VirtualAlloc
+321dc 32a4a 0 SizeofResource
+321e0 32a5c 0 SetThreadLocale
+321e4 32a6e 0 SetFilePointer
+321e8 32a80 0 SetEvent
+321ec 32a8c 0 SetErrorMode
+321f0 32a9c 0 SetEndOfFile
+321f4 32aac 0 ReadFile
+321f8 32ab8 0 MulDiv
+321fc 32ac2 0 LockResource
+32200 32ad2 0 LoadResource
+32204 32ae2 0 LoadLibraryA
+32208 32af2 0 LeaveCriticalSection
+3220c 32b0a 0 InitializeCriticalSection
+32210 32b26 0 GlobalUnlock
+32214 32b36 0 GlobalReAlloc
+32218 32b46 0 GlobalHandle
+3221c 32b56 0 GlobalLock
+32220 32b64 0 GlobalFree
+32224 32b72 0 GlobalDeleteAtom
+32228 32b86 0 GlobalAlloc
+3222c 32b94 0 GlobalAddAtomA
+32230 32ba6 0 GetVersionExA
+32234 32bb6 0 GetVersion
+32238 32bc4 0 GetThreadLocale
+3223c 32bd6 0 GetSystemInfo
+32240 32be6 0 GetProcAddress
+32244 32bf8 0 GetModuleHandleA
+32248 32c0c 0 GetModuleFileNameA
+3224c 32c22 0 GetLocaleInfoA
+32250 32c34 0 GetLastError
+32254 32c44 0 GetCurrentThreadId
+32258 32c5a 0 GetCurrentProcessId
+3225c 32c70 0 GetCPInfo
+32260 32c7c 0 FreeResource
+32264 32c8c 0 FreeLibrary
+32268 32c9a 0 FormatMessageA
+3226c 32cac 0 FindResourceA
+32270 32cbc 0 ExitProcess
+32274 32cca 0 EnterCriticalSection
+32278 32ce2 0 DeleteCriticalSection
+3227c 32cfa 0 CreateThread
+32280 32d0a 0 CreateFileA
+32284 32d18 0 CreateEventA
+32288 32d28 0 CompareStringA
+3228c 32d3a 0 CloseHandle
+--------------------------------
+gdi32.dll 32d48
+------------getImportFuction--------------------
+32294 32d52 0 UnrealizeObject
+32298 32d64 0 StretchBlt
+3229c 32d72 0 SetWindowOrgEx
+322a0 32d84 0 SetWinMetaFileBits
+322a4 32d9a 0 SetViewportOrgEx
+322a8 32dae 0 SetTextColor
+322ac 32dbe 0 SetStretchBltMode
+322b0 32dd2 0 SetROP2
+322b4 32ddc 0 SetEnhMetaFileBits
+322b8 32df2 0 SetDIBColorTable
+322bc 32e06 0 SetBrushOrgEx
+322c0 32e16 0 SetBkMode
+322c4 32e22 0 SetBkColor
+322c8 32e30 0 SelectPalette
+322cc 32e40 0 SelectObject
+322d0 32e50 0 SaveDC
+322d4 32e5a 0 RestoreDC
+322d8 32e66 0 Rectangle
+322dc 32e72 0 RectVisible
+322e0 32e80 0 RealizePalette
+322e4 32e92 0 PlayEnhMetaFile
+322e8 32ea4 0 PatBlt
+322ec 32eae 0 MoveToEx
+322f0 32eba 0 MaskBlt
+322f4 32ec4 0 IntersectClipRect
+322f8 32ed8 0 GetWindowOrgEx
+322fc 32eea 0 GetWinMetaFileBits
+32300 32f00 0 GetTextMetricsA
+32304 32f12 0 GetTextExtentPointA
+32308 32f28 0 GetSystemPaletteEntries
+3230c 32f42 0 GetStockObject
+32310 32f54 0 GetPixel
+32314 32f60 0 GetPaletteEntries
+32318 32f74 0 GetObjectA
+3231c 32f82 0 GetEnhMetaFilePaletteEntries
+32320 32fa2 0 GetEnhMetaFileHeader
+32324 32fba 0 GetEnhMetaFileBits
+32328 32fd0 0 GetDeviceCaps
+3232c 32fe0 0 GetDIBits
+32330 32fec 0 GetDIBColorTable
+32334 33000 0 GetCurrentPositionEx
+32338 33018 0 GetBrushOrgEx
+3233c 33028 0 GetBitmapBits
+32340 33038 0 ExcludeClipRect
+32344 3304a 0 EnumFontsA
+32348 33058 0 EnumFontFamiliesExA
+3234c 3306e 0 DeleteObject
+32350 3307e 0 DeleteEnhMetaFile
+32354 33092 0 DeleteDC
+32358 3309e 0 CreateSolidBrush
+3235c 330b2 0 CreateRectRgn
+32360 330c2 0 CreatePenIndirect
+32364 330d6 0 CreatePalette
+32368 330e6 0 CreateHalftonePalette
+3236c 330fe 0 CreateFontIndirectA
+32370 33114 0 CreateDIBitmap
+32374 33126 0 CreateDIBSection
+32378 3313a 0 CreateCompatibleDC
+3237c 33150 0 CreateCompatibleBitmap
+32380 3316a 0 CreateBrushIndirect
+32384 33180 0 CreateBitmap
+32388 33190 0 CopyEnhMetaFileA
+3238c 331a4 0 BitBlt
+--------------------------------
+user32.dll 331ae
+------------getImportFuction--------------------
+32394 331ba 0 WindowFromPoint
+32398 331cc 0 WinHelpA
+3239c 331d8 0 WaitMessage
+323a0 331e6 0 UpdateWindow
+323a4 331f6 0 UnregisterClassA
+323a8 3320a 0 UnhookWindowsHookEx
+323ac 33220 0 TranslateMessage
+323b0 33234 0 TranslateMDISysAccel
+323b4 3324c 0 TrackPopupMenu
+323b8 3325e 0 SystemParametersInfoA
+323bc 33276 0 ShowWindow
+323c0 33284 0 ShowOwnedPopups
+323c4 33296 0 ShowCursor
+323c8 332a4 0 SetWindowRgn
+323cc 332b4 0 SetWindowsHookExA
+323d0 332c8 0 SetWindowTextA
+323d4 332da 0 SetWindowPos
+323d8 332ea 0 SetWindowPlacement
+323dc 33300 0 SetWindowLongA
+323e0 33312 0 SetTimer
+323e4 3331e 0 SetScrollPos
+323e8 3332e 0 SetScrollInfo
+323ec 3333e 0 SetRect
+323f0 33348 0 SetPropA
+323f4 33354 0 SetMenu
+323f8 3335e 0 SetForegroundWindow
+323fc 33374 0 SetFocus
+32400 33380 0 SetCursor
+32404 3338c 0 SetCapture
+32408 3339a 0 SetActiveWindow
+3240c 333ac 0 SendMessageA
+32410 333bc 0 ScrollWindow
+32414 333cc 0 ScreenToClient
+32418 333de 0 RemovePropA
+3241c 333ec 0 RemoveMenu
+32420 333fa 0 ReleaseDC
+32424 33406 0 ReleaseCapture
+32428 33418 0 RegisterWindowMessageA
+3242c 33432 0 RegisterClassA
+32430 33444 0 PtInRect
+32434 33450 0 PostQuitMessage
+32438 33462 0 PostMessageA
+3243c 33472 0 PeekMessageA
+32440 33482 0 OffsetRect
+32444 33490 0 OemToCharA
+32448 3349e 0 MessageBoxA
+3244c 334ac 0 MapVirtualKeyA
+32450 334be 0 LoadStringA
+32454 334cc 0 LoadIconA
+32458 334d8 0 LoadCursorA
+3245c 334e6 0 KillTimer
+32460 334f2 0 IsZoomed
+32464 334fe 0 IsWindowVisible
+32468 33510 0 IsWindowEnabled
+3246c 33522 0 IsWindow
+32470 3352e 0 IsRectEmpty
+32474 3353c 0 IsIconic
+32478 33548 0 IsDialogMessageA
+3247c 3355c 0 InvalidateRect
+32480 3356e 0 IntersectRect
+32484 3357e 0 InsertMenuItemA
+32488 33590 0 InsertMenuA
+3248c 3359e 0 InflateRect
+32490 335ac 0 GetWindowTextA
+32494 335be 0 GetWindowRgn
+32498 335ce 0 GetWindowRect
+3249c 335de 0 GetWindowPlacement
+324a0 335f4 0 GetWindowLongA
+324a4 33606 0 GetWindowDC
+324a8 33614 0 GetSystemMetrics
+324ac 33628 0 GetSystemMenu
+324b0 33638 0 GetSysColor
+324b4 33646 0 GetSubMenu
+324b8 33654 0 GetScrollPos
+324bc 33664 0 GetPropA
+324c0 33670 0 GetParent
+324c4 3367c 0 GetWindow
+324c8 33688 0 GetMenuStringA
+324cc 3369a 0 GetMenuState
+324d0 336aa 0 GetMenuItemCount
+324d4 336be 0 GetMenu
+324d8 336c8 0 GetLastActivePopup
+324dc 336de 0 GetKeyboardLayoutList
+324e0 336f6 0 GetKeyboardLayout
+324e4 3370a 0 GetKeyState
+324e8 33718 0 GetKeyNameTextA
+324ec 3372a 0 GetIconInfo
+324f0 33738 0 GetForegroundWindow
+324f4 3374e 0 GetFocus
+324f8 3375a 0 GetDesktopWindow
+324fc 3376e 0 GetDCEx
+32500 33778 0 GetDC
+32504 33780 0 GetCursorPos
+32508 33790 0 GetCursor
+3250c 3379c 0 GetClipboardData
+32510 337b0 0 GetClientRect
+32514 337c0 0 GetClassInfoA
+32518 337d0 0 GetCapture
+3251c 337de 0 GetActiveWindow
+32520 337f0 0 FrameRect
+32524 337fc 0 FillRect
+32528 33808 0 EqualRect
+3252c 33814 0 EnumWindows
+32530 33822 0 EnumThreadWindows
+32534 33836 0 EndPaint
+32538 33842 0 EnableWindow
+3253c 33852 0 EnableMenuItem
+32540 33864 0 DrawTextA
+32544 33870 0 DrawMenuBar
+32548 3387e 0 DrawIcon
+3254c 3388a 0 DrawFrameControl
+32550 3389e 0 DrawFocusRect
+32554 338ae 0 DrawEdge
+32558 338ba 0 DispatchMessageA
+3255c 338ce 0 DestroyWindow
+32560 338de 0 DestroyMenu
+32564 338ec 0 DestroyIcon
+32568 338fa 0 DestroyCursor
+3256c 3390a 0 DeleteMenu
+32570 33918 0 DefWindowProcA
+32574 3392a 0 DefMDIChildProcA
+32578 3393e 0 DefFrameProcA
+3257c 3394e 0 CreateWindowExA
+32580 33960 0 CreatePopupMenu
+32584 33972 0 CreateMenu
+32588 33980 0 CreateIcon
+3258c 3398e 0 ClientToScreen
+32590 339a0 0 CheckMenuItem
+32594 339b0 0 CallWindowProcA
+32598 339c2 0 CallNextHookEx
+3259c 339d4 0 BeginPaint
+325a0 339e2 0 CharLowerBuffA
+325a4 339f4 0 CharLowerA
+325a8 33a02 0 AdjustWindowRectEx
+325ac 33a18 0 ActivateKeyboardLayout
+--------------------------------
+comctl32.dll 33a32
+------------getImportFuction--------------------
+325b4 33a40 0 ImageList_SetIconSize
+325b8 33a58 0 ImageList_GetIconSize
+325bc 33a70 0 ImageList_Write
+325c0 33a82 0 ImageList_Read
+325c4 33a94 0 ImageList_GetDragImage
+325c8 33aae 0 ImageList_DragShowNolock
+325cc 33aca 0 ImageList_SetDragCursorImage
+325d0 33aea 0 ImageList_DragMove
+325d4 33b00 0 ImageList_DragLeave
+325d8 33b16 0 ImageList_DragEnter
+325dc 33b2c 0 ImageList_EndDrag
+325e0 33b40 0 ImageList_BeginDrag
+325e4 33b56 0 ImageList_Remove
+325e8 33b6a 0 ImageList_DrawEx
+325ec 33b7e 0 ImageList_Replace
+325f0 33b92 0 ImageList_Draw
+325f4 33ba4 0 ImageList_GetBkColor
+325f8 33bbc 0 ImageList_SetBkColor
+325fc 33bd4 0 ImageList_ReplaceIcon
+32600 33bec 0 ImageList_Add
+32604 33bfc 0 ImageList_GetImageCount
+32608 33c16 0 ImageList_Destroy
+3260c 33c2a 0 ImageList_Create
+--------------------------------
+
+------------EXPORT_TABLE------------
+导出表为空
+------------------------------------
+

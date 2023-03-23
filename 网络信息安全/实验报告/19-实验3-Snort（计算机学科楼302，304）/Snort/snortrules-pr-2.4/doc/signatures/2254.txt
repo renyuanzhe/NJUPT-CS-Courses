@@ -1,0 +1,75 @@
+Rule:  
+
+--
+Sid:
+2254
+
+--
+Summary:
+This rule has been deleted in favor of sid 2253.
+
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft Exchange Server.
+
+--
+Impact:
+Serious. Possible execution of arbitrary code and Denial of Service
+(DoS).
+
+--
+Detailed Information:
+A vulnerability exists in versions of Microsoft Exchange Server such
+that it is possible for an attacker to execute arbitrary code or cause a
+DoS condition on the server without the need for prior authentication as
+a valid user.
+
+It is possible for an attacker to connect to the Exchange server on port
+25 and send an extended verb request to the server that will cause a
+large amount of memory to be allocated. In Exchange Server 5.5 this may
+cause a DoS, whilst in Exchange Server 2000 this same condition could
+present the attacker with an opportunity to execute arbitrary code.
+
+--
+Affected Systems:
+	MIcrosoft Exchange Server 5.5
+	Microsoft Exchange Server 2000
+
+--
+Attack Scenarios:
+The attacker can connect to port 25 of the server and send a specially
+crafted verb request.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Microsoft Corp.
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/MS03-046.asp
+
+CVE:
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0714
+
+--

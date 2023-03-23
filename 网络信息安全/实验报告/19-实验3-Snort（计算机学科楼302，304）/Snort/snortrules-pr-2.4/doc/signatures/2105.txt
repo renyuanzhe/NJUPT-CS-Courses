@@ -1,0 +1,76 @@
+Rule:
+
+--
+Sid:
+2105
+
+--
+Summary:
+This event is generated when a remote user uses the IMAP AUTHENTICATE
+command to send a suspiciously long string to port 143 on an internal
+server. This may indicate an attempt to exploit a buffer overflow
+vulnerability in the IMAP AUTHENTICATE command. This vulnerability may
+affect other IMAP implementations.
+
+--
+Impact:
+Serious. Possible remote execution of arbitrary code, which may lead to
+a remote root compromise.
+
+--
+Detailed Information:
+When a large amount of data is sent to a vulnerable IMAP server in the
+AUTHENTICATE command, a buffer overflow condition may occur. This can
+allow the attacker to execute arbitrary code, which may allow the
+attacker to gain root access to the compromised server.
+
+--
+Affected Systems:
+	University of Washington imapd version 10.234 and earlier.
+
+--
+Attack Scenarios:
+An attacker can send a sufficiently long AUTHENTICATE command to the
+IMAP server, creating a buffer overflow condition. This can then allow
+the attacker to gain root access to the compromised server.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate patches for your operating system.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/130
+
+CVE
+http://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=CVE-1999-0005 
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11073
+
+--

@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+658
+
+--
+Summary:
+This event is generated when a denial of service is attempted on a Microsoft Exchange mail server.
+
+--
+Impact:
+Denial of service.  This will cause the Exchange server to fail.  
+
+--
+Detailed Information:
+A vulnerability exists in Microsoft Exchange 5.5 that causes a denial of service if a MIME header contains the string 'charset = ""'.  The Exchange server does not properly handle this MIME header string, causing it to crash.
+
+--
+Affected Systems:
+Microsoft Exchange server 5.5
+
+--
+Attack Scenarios:
+An attacker can supply a malicious string in the MIME header causing the Exchange server to fail. 
+
+--
+Ease of Attack:
+Easy.  An attacker can telnet to port 25 of the Exchange server, start a dialogue with the server, and supply the malicious string in the MIME header.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the appropriate patch or upgrade to Exchange 5.5 service Pack 4.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft:
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/ms00-082.asp 
+
+Miscellaneous:
+http://packetstormsecurity.nl/0011-exploits/exchange.dos.txt
+
+
+--

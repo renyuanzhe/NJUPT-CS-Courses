@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+3633
+
+--
+Summary:
+This event is generated when an attempt is made to exploit an
+integer overflow associated with Mozilla's processing of a
+malformed BMP file.
+
+--
+Impact:
+A successful attack can cause a heap overflow on the client host
+running Mozilla and permit execution of arbitrary code at the
+privilege level of the current user.
+
+--
+Detailed Information:
+The Mozilla browser is vulnerable to an integer overflow when processing
+images in Bitmap (BMP) format. Programming errors may present an
+attacker with the opportunity to cause the integer overflow due to
+insufficient bounds checking in the code that handles bitmap images.
+
+--
+Affected Systems:
+	Mozilla Thunderbird 0.73 and prior
+	Mozilla Firefox 0.9.3 and prior
+	Mozilla browser 1.7.2 and prior
+	Netscape Navigator 7.2 and prior
+
+--
+Attack Scenarios:
+An attacker can entice a user to view a malicious BMP file that causes
+the overflow, enabling execution of arbitrary code on a vulnerable client.
+
+--
+Ease of Attack:
+Simple. Exploit code is available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Alex Kirk <akirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References
+
+
+--

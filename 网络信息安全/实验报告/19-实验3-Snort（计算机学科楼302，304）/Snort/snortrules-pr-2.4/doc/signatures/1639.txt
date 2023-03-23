@@ -1,0 +1,53 @@
+Rule:
+
+--
+Sid: 1639
+
+--
+Summary:
+This event is generated when activity relating to network chat clients is detected.
+
+--
+Impact:
+Policy Violation. Use of chat clients to communicate with unkown external sources may be against the policy of many organizations.
+
+--
+Detailed Information:
+Instant Messaging (IM) and other chat related client software can allow users to transfer files directly between hosts. This can allow malicious users to circumvent the protection offered by a network firewall.
+
+Vulnerabilities in these clients may also allow remote attackers to gain unauthorized access to a host.
+
+--
+Attack Scenarios:
+A user may transfer sensitive company information to an external party using the file transfer capabilities of an IM client.
+
+An attacker might utilize a vulnerability in an IM client to gain access to a host, then upload a Trojan Horse program to gain control of that host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow the use of IM clients on the protected network and enforce or implement an organization wide policy on the use of IM clients.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <brian.caswell@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+IRC Protocol
+http://www.irchelp.org/irchelp/rfc/
+
+--

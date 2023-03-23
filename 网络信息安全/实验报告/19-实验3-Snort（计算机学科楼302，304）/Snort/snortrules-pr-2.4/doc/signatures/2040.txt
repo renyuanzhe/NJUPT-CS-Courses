@@ -1,0 +1,76 @@
+Rule:
+
+--
+Sid:
+2040
+
+--
+Summary:
+This event is generated when an attempt is made to login using XTACACS
+from a machine outside the local area network.
+
+--
+Impact:
+This may be an intelligence gathering activity or an attempt to access 
+resources controlled by the XTACACS server.
+
+This may also be an attempt to gain unauthorized access to resources 
+with the credentials of a valid user using brute force methodology.
+
+--
+Detailed Information:
+The Extended Terminal Access Controller Access Control System (XTACACS) 
+is an authentication and authorization protocol derived from  CISCO 
+TACACS. It is used in tcp/ip networks where network servers authenticate
+clients from a master server.
+
+When a user logs in to a server that uses XTACACS the server then makes 
+a request to a master server to detrmine the validity of the request. 
+The master server then verifies the login attempt and returns data 
+concerning that user which may include information regarding resources 
+the user is allowed access to in the form of an access list.
+
+--
+Affected Systems:
+All servers using XTACACS for authentication control.
+
+--
+Attack Scenarios:
+Regular user login method.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+XTACACS servers should only authenticate to known hosts and firewall 
+rules should prevent access to XTACACS enabled servers from outside the 
+local area network.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2003-01.html
+
+Network Information Library - Intel:
+http://www.intel.com/support/si/library/bi0414.htm
+
+The Internet Next Generation Project:
+http://ing.ctit.utwente.nl/WU5/D5.1/Technology/xtacacs/
+
+--

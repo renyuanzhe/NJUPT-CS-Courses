@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1595
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow vulnerability associated with FrontPage Server Extension software.
+
+--
+Impact:
+Remote access.  This attack may permit exeuction of arbitrary commands on the vulnerable server.
+
+--
+Detailed Information:
+Microsoft FrontPage 97 and 98 Server Extensions are shipped with htimage.exe and imagemap.exe files that provide image-mapping support on the server for legacy browsers.  There is a vulnerability associated with the htimage.exe file because of unchecked buffers that may permit execution of arbitrary code on the vulnerable server. 
+
+--
+Affected Systems:
+Microsoft Exchange Server 5.5 and Microsoft Exchange Server 5.5 SP1, SP2, SP3, SP4
+
+--
+Attack Scenarios:
+An attacker can craft a special URL referencing the htimage.exe file that causes a buffer overflow, allowing execution of arbitrary commands on the vulnerable server.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Remove the htimage.exe and imagemap.exe files from the server.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10376
+
+CVE
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0256
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-0122
+
+Bugtraq
+http://www.securityfocus.com/bid/1117
+
+--

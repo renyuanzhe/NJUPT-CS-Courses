@@ -1,0 +1,52 @@
+Rule:
+--
+Sid:
+894
+
+--
+Summary:
+This event is generated when an attempt is made to display historical 
+information from a Big Brother system monitor host.
+
+--
+Impact:
+Information Disclosure.
+
+--
+Detailed Information:
+Big Brother is a monitoring system used by many organisations.  It records both current and historical information about monitored hosts on a network.  Access to the system status is via a series of web pages and CGI scripts.  Version 1.09b & 1.09c contained a bug in bb-hist.sh that could be made to display files accessible by the user under which the CGI script is run.
+
+--
+Attack Scenarios:
+A malicious user could use this vulnerability to gain more information about the Big Brother host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives: 
+None known
+
+--
+Corrective Action:
+Upgrade to a later version of Big Brother at least 1.09d
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References: 
+url,http://bb4.com/
+cve,CAN-1999-1462
+
+
+--

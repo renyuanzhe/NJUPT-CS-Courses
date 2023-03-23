@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2219
+
+--
+Summary:
+This event is generated when an attempt is made to access setpasswd.cgi on an internal web server. This may indicate an attempt to exploit an authentication vulnerability in Trend Micro Interscan VirusWall 3.0.1 and 3.6.x.
+
+--
+Impact:
+Information disclosure, VirusWall administrative access.
+
+--
+Detailed Information:
+Trend Micro Interscan VirusWall contains an authentication vulnerability in versions 3.6.x and lower. When an administrative user changes their VirusWall account password using setpasswd.cgi, the username and password are transmitted in clear text. If an attacker is monitoring network traffic, he/she can obtain the username and password for VirusWall administration.
+
+--
+Affected Systems:
+Systems running Trend Micro Interscan VirusWall 3.0.1 or 3.6.x.
+
+--
+Attack Scenarios:
+An attacker is monitoring network traffic and intercepts the HTTP message that contains the VirusWall administrator's username and password. The attacker can then use this information to log into VirusWall and make changes to system configuration that may leave the network more open to compromise.
+ 
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If a legitimate remote user accesses setpasswd.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to a newer version of Trend Micro VirusWall. Otherwise, do not use web-based configuration tools.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/2212
+
+--

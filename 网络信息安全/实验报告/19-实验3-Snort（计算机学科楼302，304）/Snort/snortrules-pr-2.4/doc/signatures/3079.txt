@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+3079
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow associated with Microsoft's processing of an animated cursor
+file.
+
+--
+Impact:
+A successful attack may permit a buffer overflow that allows the execution
+of arbitrary code at the privilege level of the user downloading the
+malicious file.
+
+--
+Detailed Information:
+A vulnerability exists in the way the Microsoft Windows LoadImage API validates
+animated cursor (ANI) files. An invalid length associated with a structure
+supporting the properties of the animated cursor can cause a buffer overflow
+and the subsequent execution of arbirary code in the context of the current user.
+
+--
+Affected Systems:
+	Windows 98, ME, NT, 2000, XP (not SP2), and Server 2003
+
+--
+Attack Scenarios:
+An attacker can entice a user to download a malicious animated cursor
+file, causing a buffer overflow and the subsequent execution of arbitrary
+code on the vulnerable client.
+
+--
+Ease of Attack:
+Simple.  Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+In order to avoid potential evasion techniques, http_inspect should be
+configured with "flow_depth 0" so that all HTTP server response traffic is
+inspected.
+
+WARNING
+Setting flow_depth 0 will cause performance problems in some situations.
+WARNING
+
+--
+Corrective Action:
+Apply the patch(s) discussed in Microsoft bulletin MS05-002.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Microsoft Technet:
+http://www.microsoft.com/technet/security/bulletin/MS05-002.mspx
+
+--

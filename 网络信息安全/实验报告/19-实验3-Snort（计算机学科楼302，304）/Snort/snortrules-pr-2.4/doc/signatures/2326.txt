@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+2326
+
+--
+Summary:
+This event is generated when a cross-site scripting attack is being 
+attempted against the SGDynamo web application.
+
+--
+Impact:
+Successful cross-site scripting attacks generally target the users of 
+a web site. Attackers can potentially gain access to a users' cookies 
+or session identification credentials, allowing the attacker to
+impersonate the user.
+
+--
+Detailed Information:
+The SGDynamo web application does not correctly filter script code in
+URL supplied parameters. It is possible for an attacker to place code of
+their choosing in a link supplied to the application. The code is then
+executed in the browser of a user who clicks on the link.
+
+The error occurs in checking the parameters supplied via the HTNAME
+parameter in the application.
+
+--
+Affected Systems:
+Many older versions of web server software are affected, as are numerous
+web applications.
+
+--
+Attack Scenarios:
+The most common avenue of attack is for the attacker to send an HTML 
+formatted email to the victim. The email will contain a link to a 
+specially crafted URL which contains the exploit. When the victim clicks
+on the link, they are directed to the vulnerable web site and the attack
+code is executed by their browser.
+
+--
+Affected Systems:
+	Ecometry SGDynamo 5.32 U
+	Ecometry SGDynamo 5.32 T
+	Ecometry SGDynamo 6.1
+	Ecometry SGDynamo 7.0
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+268
+
+--
+Summary:
+This event is generated when a remote attacker attempts to send large, fragmented IP packets to the internal network, indicating a Jolt Denial of Service (DoS) attack.
+
+--
+Impact:
+Denial of service.
+
+--
+Detailed Information:
+Jolt is a DoS attack characterized by large, fragmented IP packets that, when launched at a Windows system, can hang or crash the computer. 
+
+--
+Affected Systems:
+Windows 95
+Windows 98
+Windows NT
+Windows 2000
+
+--
+Attack Scenarios:
+An attacker sends oversized, fragmented IP packets to a target computer. If the computer is running an unpatched version of Windows, it may crash.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Install the latest patches available for your operating system.
+
+Implement a packet-filtering firewall to block inappropriate traffic to the network.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+
+--

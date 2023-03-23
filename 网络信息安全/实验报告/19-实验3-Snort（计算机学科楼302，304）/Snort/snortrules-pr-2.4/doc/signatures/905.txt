@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+905
+
+--
+Summary:
+This event is generated when an attempt is made to access an Example 
+application on a Coldfusion 4.x server. 
+
+This 'Web Publish Example Script' can be exploited to allow the attacker
+to upload arbitrary files to the server.
+
+--
+Impact:
+Serious: The vulnerability allows custom code to be uploaded to the 
+server.
+
+--
+Detailed Information:
+ColdFusion (Macromedia, formerly Allaire) web servers have several 
+default Example applications installed that have vulnerabilities.  The 
+'Web Publish Example script' application can be exploited to allow the 
+uploading of arbitrary files.
+
+See Macromedia Security Bulletin (MPSB01-08) for complete information.
+
+
+--
+Affected Systems:
+	ColdFusion versions 2.x, 3.x, 4.x for Windows
+	ColdFusion versions 4.x for Solaris, HP-UX
+	ColdFusion versions 4.5.x for Linux
+	Expression Evaluator Patch (ASB99-01)
+
+--
+Attack Scenarios:
+The web application allows file uploading via a URL like this:
+
+http://www.target.com/CFDOCS/exampleapps/publish/admin/application.cfm
+
+Once the file has been uploaded, it can be executed by crafting a 2nd 
+URL to the uploaded file.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If ColdFusion 4.x's example code is being used, This rule will generate 
+an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Delete all example code.  This is one of several significant 
+vulnerabilities that are exploitable if the example code is left on a 
+production server.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Darryl Davidson <ddavidson@talisman-intl.com>
+
+-- 
+Additional References:
+
+Macromedia Security Bulletin (MPSB01-08)
+http://www.macromedia.com/devnet/security/security_zone/mpsb01-08.html
+
+--

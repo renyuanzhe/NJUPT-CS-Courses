@@ -1,0 +1,52 @@
+Rule:
+
+Sid: 1289
+
+Summary:
+This event is generated when a TFTP GET request is made for Admin.dll.  This is normally an indication that a system on the network is infected with the W32/Nimda worm.
+
+Impact:
+In normal situations this is a good indication that the host transmitting the request has been compromised in the past by Code Red, Code Red II, or the sacmind/IIS worm.  All of these worms created backdoors that could allow remote attackers to run abitrary commands on the machine.
+
+Detailed Information:
+The Nimda worm propogates in several ways.  After it infects a host it begins scanning for other compromised hosts, sending infected emails, infecting .html files, and adding trojans to system binaries.  To further expose the infected system it enables sharing of the c: drive, creates a Guest account, and adds the guest account to the Administrators group.  
+
+Currently this rule searches for "Admin.dll" in TFTP GET requests.  This rule will detect hosts that have just been compromised by Nimba and are searching for Admin.dll to elevate its system privileges to Local/System.
+
+Affected Systems
+Windows 95
+Windows 98
+Windows ME
+Windows NT
+Windows 2000
+
+Attack Scenarios:
+Once W32/Nimba infects a compromised host it will make a request for "Admin.dll".  This binary file is used to elevate the privilege level of the W32/Nimba worm to Local/System, so it can begin infecting system files and other hosts.
+
+Ease of Attack:
+Simple.  Nimba uses backdoors left by other worms and trojans that target IIS.  A large number of scripts and exploits exist in the wild that mimic the behavior of the Nimba worm.
+
+False Positives:
+This rule is triggered by any TFTP GET request for Admin.dll, if this file name is being used during a legitimate TFTP session this rule will generate a false positive.
+
+False Negatives:
+This rule was created to catch the generic version of the W32/Nimba worm.  Any attacker who changes "Admin.dll" to a another filename will bypass this rule.
+
+Corrective Action:
+The host generating the request should be investigated for evidence of a compromise.  Check for the presence of root.exe, Admin.dll, and unexpected .eml or .nws files.  If it is determined that the system has been compromised the only safe way to recover the system is to format the system drives and re-install the system.  
+
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Matthew Watchinski Matt.Watchinski@sourcefire.com
+
+Additional References
+
+Microsoft:
+http://www.microsoft.com/technet/security/bulletin/MS01-044.asp
+
+CERT:
+http://www.cert.org/advisories/CA-2001-26.html
+http://www.cert.org/tech_tips/win-UNIX-system_compromise.html
+
+--

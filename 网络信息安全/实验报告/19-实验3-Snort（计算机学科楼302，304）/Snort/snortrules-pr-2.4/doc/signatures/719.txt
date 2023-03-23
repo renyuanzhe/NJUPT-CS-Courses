@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+719
+
+--
+Summary:
+This event is generated after an attempted login to a telnet server 
+using the username root.
+
+--
+Impact:
+Remote root access.  This may or may not indicate a successful root 
+login to a telnet server.
+
+--
+Detailed Information:
+This event is generated after a telnet server observes an attempted 
+login with the username root.  It is not possible to tell from this 
+event alone whether or not the attempt was successful.  If this is 
+followed by a login failure event, the root login did not succeeed.  
+However, if no failure message is observed and the rule with SID 718 is 
+enabled, this may indicate that the root login succeeded.
+
+--
+Affected Systems:
+Telnet servers.
+
+--
+Attack Scenarios:
+An attacker may attempt to connect to a telnet server using the username
+of root.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Consider using Secure Shell instead of telnet.
+
+Disable root logins to telnet.
+
+
+Block inbound telnet access if it is not required.
+
+--
+Contributors:
+Original rule writer unknown.
+Documented by Steven Alexander<alexander.s@mccd.edu>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

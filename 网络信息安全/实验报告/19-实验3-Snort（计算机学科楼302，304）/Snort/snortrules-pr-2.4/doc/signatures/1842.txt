@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+1842
+
+--
+Summary:
+This event is generated when a remote attacker sends a malformed
+argument in the LOGIN command to an internal IMAP server, indicating an
+attempt to exploit a buffer overflow vulnerability in Netscape Messaging
+Server and University of Washington IMAP implementations. This may also
+affect other IMAP server implementations.
+
+--
+Impact:
+Remote execution of arbitrary code with the security privileges of the
+IMAP process, possibly leading to remote root compromise.
+
+--
+Detailed Information:
+A buffer overflow vulnerability exists in the LOGIN command in
+University of Washington IMAP and Netscape Messaging Server. This can
+allow a remote attacker to send an LOGIN command with a malformed,
+overlong argument to a vulnerable IMAP server, causing a buffer overflow
+condition. The attacker can then execute arbitrary code on the server
+with the security privileges of the IMAP server process.     
+
+--
+Affected Systems:
+	Netscape Messaging Server 3.55 and earlier
+	University of Washington imapd 10.234 and earlier.
+	Ipswitch iMail 5.0
+
+--
+Attack Scenarios:
+An attacker sends an overly long, malformed argument to an LOGIN command
+to a vulnerable IMAP server, causing a buffer overflow condition. The
+attacker is then able to execute arbitrary code on the server with the
+security privileges of the IMAP server process.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Patches have been released for both UW IMAP and Netscape Messaging
+Server. Apply the patch or upgrade to a Netscape Messaging Server
+version higher than 3.55 or UW IMAP version higher than 10.234.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/130
+
+--

@@ -1,0 +1,66 @@
+Rule:  
+
+--
+Sid:
+3078
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Microsoft implementation of the Network News Transport
+Protocol (NNTP) for Internet Information Server (IIS).
+
+--
+Impact:
+Execution of arbitrary code on the affected system
+
+--
+Detailed Information:
+The Microsoft implementation of NNTP for IIS contains a programming
+error in the processing of user supplied input that may present an
+attacker with multiple opportunites to execute code of their choosing on
+an affected system.
+
+--
+Affected Systems:
+. Microsoft Windows NT Server 4.0 NNTP component
+. Microsoft Windows 2000 Server NNTP component
+. Microsoft Windows Server 2003 NNTP Component
+. Microsoft Windows Server 2003 64-Bit Edition NNTP Component
+
+--
+Attack Scenarios:
+An attacker must supply specially crafted input to a vulnerable system
+to cause the overflow to occur.
+
+--
+Ease of Attack:
+Moderate. Example code exists.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Upgrade to the latest non-affected version of the software
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+CORE Technologies:
+http://www.coresecurity.com/common/showdoc.php?idx=420&idxseccion=10
+
+--

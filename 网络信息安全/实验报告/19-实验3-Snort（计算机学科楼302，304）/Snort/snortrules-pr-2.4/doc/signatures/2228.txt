@@ -1,0 +1,62 @@
+Rule:  
+
+--
+Sid:
+2228
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in phpMyAdmin.
+
+--
+Impact:
+Varies. Information disclosure, Cross site scripting, unauthorized 
+access, directory traversal.
+
+--
+Detailed Information:
+Multiple versions of the PHP application phpMyAdmin suffer from many 
+known vulnerabilities that can lead to information disclosure, cross 
+site scripting attacks and unauthorized access to the application.
+
+--
+Affected Systems:
+	phpMyAdmin 2.0, 2.0.1 to 2.0.5
+	phpMyAdmin 2.1, 2.1.1, 2.1.2
+	phpMyAdmin 2.2.2 to 2.2.6
+	phpMyAdmin 2.3.1, 2.3.2
+	phpMyAdmin 2.4.0, 2.5.0, 2.5.1
+
+--
+Attack Scenarios:
+The attacker can utilize a directory traversal technique to disclose 
+information in a sensitive system file, then use that information to 
+propagate further attacks against the system.
+
+--
+Ease of Attack:
+Simple. No exploit software is required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

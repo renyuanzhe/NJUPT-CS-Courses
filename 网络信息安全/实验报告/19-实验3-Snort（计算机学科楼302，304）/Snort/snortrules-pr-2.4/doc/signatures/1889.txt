@@ -1,0 +1,56 @@
+Nigel, Removed isc.incidents.org reference since it is no longer active.
+Rule:
+
+--
+Sid:
+1889
+
+--
+Summary:
+This event is generated when a web server infected by the slapper worm attempts to send traffic via a communication channel. 
+
+--
+Impact:
+Remote access and potentially denial of service.  A slapper worm infection indicates a successful compromise of the host.  A communication channel established between infected hosts can be used as a vehicle for a distributed denial of service attack of a target host or network.
+
+--
+Detailed Information:
+The Apache/mod_ssl worm, also known as slapper, exploits a vulnerability associated with certain versions of OpenSSL.  Once a host has been infected by the worm, the worm then attempts to establish a communication channel using UDP port 2002 (both source and destination) to the infecting host.  This communication channel is used to create a network for infected hosts to communicate with each other to identify other infected hosts and to deliver attack instructions for other sites.
+
+--
+Affected Systems:
+Linux hosts running Apache with mod_ssl using SSLv2-enabled OpenSSL 0.9.6d or earlier on Intel x86 architectures.
+
+--
+Attack Scenarios:
+The communication channel created by the slapper worm allows infected hosts to receive direction from other infected hosts.  This can be used, for instance, to coordinate a DDoS attack.
+
+--
+Ease of Attack:
+Simple.  Exploit code exists. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+It has been observed that the port number for the communication channel may vary.  Ports 1978 and 4156 have also been seen.
+
+--
+Corrective Action:
+Apply the appropriate patch or upgrade to the most current version of OpenSSL.
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CERT
+http://www.cert.org/advisories/CA-2002-27.html
+
+--

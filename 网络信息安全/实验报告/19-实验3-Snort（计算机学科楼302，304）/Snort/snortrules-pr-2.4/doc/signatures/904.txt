@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+904
+
+--
+Summary:
+This event is generated when an attempt is made to access an Example 
+application on a Coldfusion 4.x server. 
+
+--
+Impact:
+Serious. The vulnerability is not limited to files in the webspace, so 
+system files or additional unexecuted code files could be retrieved and 
+examined for vulnerabilities.
+
+--
+Detailed Information:
+ColdFusion (Macromedia, formerly Allaire) web servers have several 
+default Example applications installed that have vulnerabilities.  The 
+email application can be exploited to allow remote viewing of arbitrary 
+files.
+
+--
+Affected Systems:
+ColdFusion versions 4.0 thru 4.5 (4.5.1 is not vulnerable), on all 
+supported platforms
+
+--
+Attack Scenarios:
+The file at cfdocs/exampleapp/email/application.cfm includes a page,
+cfdocs/exampleapp/email/getfile.cfm, that can accept URL-mangled 
+requests like:
+
+http://www.server.com/cfdocs/exampleapp/email/getfile.cfm?filename=c:\boot.ini
+
+This allows trivial remote retrieval of any file on the server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If ColdFusion 4.x's example code is being used, This rule will generate 
+an event.
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Delete all example code.  This is one of several significant 
+vulnerabilities that are exploitable if the example code is left on a 
+production server.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Darryl Davidson <ddavidson@talisman-intl.com>
+
+-- 
+Additional References: CAN-2001-0535 
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2001-0535
+
+--

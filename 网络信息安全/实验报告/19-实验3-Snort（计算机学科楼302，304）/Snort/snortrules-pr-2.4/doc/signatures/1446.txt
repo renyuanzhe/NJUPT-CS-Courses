@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+1446
+
+--
+Summary:
+This event is generated when an external attacker uses the "vrfy root"
+command to find the login name or mail alias of the system
+administrator. This may also indicate a vulnerability scan.
+
+--
+Impact:
+Information gathering. 
+
+--
+Detailed Information:
+An attacker may be able to obtain the email alias or actual email
+address of root users. This allows the attacker to know which email
+accounts may be more valuable to target, and can be used by spammers or
+as targets for denial of service attempts.
+
+--
+Affected Systems:
+Systems running Sendmail.
+
+--
+Attack Scenarios:
+An attacker uses vrfy root to obtain the name of administrators on the
+server. The attacker now knows which accounts have administrative
+access, and may use this information to focus later attacks.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable the vrfy command on your mail server, or update your Sendmail
+configuration file so that Sendmail displays non-sensitive information
+when it receives a vrfy root request.
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+RFC 821:
+http://www.faqs.org/rfcs/rfc821.html
+
+Security Space:
+http://www.securityspace.com/smysecure/catid.html?viewsrc=1&id=10249
+
+--

@@ -1,0 +1,64 @@
+Rule:  
+
+--
+Sid:
+2235
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer 
+overflow in Trend Micro InterScan eManager.
+
+--
+Impact:
+Serious. Remote administrative access is possible.
+
+--
+Detailed Information:
+Versions of Trend Micro InterScan eManager suffer from a buffer overflow
+condition that can present an attacker with the opportunity to execute 
+arbitrary code of their choosing which could lead to remote access to 
+the server.
+
+--
+Affected Systems:
+	Trend Micro InterScan eManager 3.51
+
+--
+Attack Scenarios:
+If the buffer overflow condition is met, the attacker can run code of 
+their choosing on the affected host.
+
+--
+Ease of Attack:
+Moderate.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Disable the web interface
+
+Enable NTLM authentication for the administrative interface
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/3327
+
+--

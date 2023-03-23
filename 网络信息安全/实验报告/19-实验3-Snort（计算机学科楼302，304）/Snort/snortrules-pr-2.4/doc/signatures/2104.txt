@@ -1,0 +1,52 @@
+Rule:
+
+--
+Sid:
+2104
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability in the rexec daemon is unsucessful. This event is an indication that someone supplied an overly long username to the rexec daemon.
+
+--
+Impact:
+Serious.  An attacker may gain escalated privileges offering super user access on the affected host.
+
+--
+Detailed Information:
+Rexec offers users the ability to execute commands on a host from remote locations.
+
+A vulnerability exists such that an when an overly long username is supplied to the rexec daemon, a buffer overflow condition may occur thus presenting the attacker with the opportunity to execute arbitrary code and possibly gain escalated privileges on the target host.
+
+--
+Attack Scenarios:
+Simple.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Disallow rexec commands from sources external to the protected network.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

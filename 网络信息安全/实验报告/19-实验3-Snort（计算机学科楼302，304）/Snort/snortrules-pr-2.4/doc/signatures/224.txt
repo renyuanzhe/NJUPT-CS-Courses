@@ -1,0 +1,57 @@
+Rule:
+
+--
+Sid:
+224
+
+--
+Summary:
+This traffic represents a Stacheldraht agent-to-handler communication to test whether or not the network on which the agent runs is allowed to send an outgoing packet with a spoofed source IP.
+
+--
+Impact:
+This event indicates that the Stacheldraht agent is running on a host on
+the monitored network.
+
+--
+Detailed Information:
+The Stacheldraht Distributed Denial of Service (DDoS) attack uses a tiered structure of compromised hosts to coordinate and participate in a denial of service attack.  There are "handler" hosts that are used to coordinate the attacks and "agent" hosts that launch the attack.  In order for an agent host to make a good participant in the distributed denial of service it must be able to spoof source IPs to elude detection.  After a host becomes an agent, a test is conducted such that an echo request packet with the source IP of 3.3.3.3 with an ICMP identification number of 666 can be sent to the handler host.
+
+--
+Affected Systems:
+Any compromised host.
+
+--
+Attack Scenarios:
+If a host has been compromised and become a Stacheldraht agent, the compromised host will be tested to see if it can spoof a source IP and making it an acceptable agent.
+
+
+--
+Ease of Attack:
+Simple. Stacheldraht code is available for use.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Use egress filtering in your network to prevent traffic leaving your network that is not part of the internal address space so that the Stacheldraht agent will be rejected for use in the DDoS.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS193
+
+--

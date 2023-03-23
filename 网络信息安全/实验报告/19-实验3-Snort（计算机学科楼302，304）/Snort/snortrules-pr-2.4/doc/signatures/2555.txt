@@ -1,0 +1,71 @@
+Rule: 
+
+--
+Sid: 
+2555
+
+-- 
+Summary: 
+This event is generated when an attempt is made to exploit a known
+vulnerability in Oracle Application Server Web Cache.
+
+-- 
+
+Impact: 
+Serious. Possible execution of arbitrary code leading to remote
+administrative access.
+
+--
+Detailed Information:
+The Oracle Application Server Web Cache is vulnerable to a buffer
+overrun caused by poor checking of the length of an HTTP Header. If a
+large invalid HTTP Request Method is supplied to a vulnerable system, an
+attacker may be presented with the opportunity to overrun a fixed length
+buffer and subsequently execute code of their choosing on the server.
+
+--
+Affected Systems:
+Oracle Application Server Web Cache 10g 9.0.4 .0
+Oracle Oracle9i Application Server Web Cache 2.0 .0.4
+Oracle Oracle9i Application Server Web Cache 9.0.2 .3
+Oracle Oracle9i Application Server Web Cache 9.0.2 .2
+Oracle Oracle9i Application Server Web Cache 9.0.3 .1
+
+--
+
+Attack Scenarios: 
+An attacker might supply an HTTP Request Method of more than 432 bytes,
+causing the overflow to occur.
+
+-- 
+
+Ease of Attack: 
+Simple.
+
+-- 
+
+False Positives:
+None Known
+
+--
+False Negatives:
+This rule examines Oracle Web Cache server on port 7777 or 7778.  It is possible
+to configure the Oracle Web Cache server to run on different ports.  The rule
+should be configured to reflect the appropriate ports of Oracle Web Cache
+servers on your network.
+
+-- 
+
+Corrective Action: 
+Apply the appropriate vendor supplied patch
+
+--
+Contributors: 
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

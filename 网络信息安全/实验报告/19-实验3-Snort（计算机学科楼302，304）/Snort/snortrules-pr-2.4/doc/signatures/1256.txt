@@ -1,0 +1,76 @@
+Rule:  
+
+--
+Sid:
+1256
+
+--
+Summary:
+This event is generated when an attempt is made access the root.exe
+executable on a webserver. 
+
+--
+Impact:
+This activity is indicative of a CodeRed worm infection.
+
+--
+Detailed Information:
+As part of the CodeRed infection process, cmd.exe (the windows command
+interpreter) gets copied to a number of locations throughout the
+filesystem and named root.exe.  Following a modification to the registry,
+root.exe becomes available from the web, allowing remote machines to
+execute arbitrary commands.
+
+Only affects Windows machines with a listening webserver, primarily IIS.
+If root.exe does not exist, there is no impact aside from minor iritation.
+If root.exe _does_ exist, full system-level access at the priveledge level
+of the user running the webserver is possible.
+
+--
+Affected Systems:
+	Microsoft IIS web servers.
+ 
+--
+Attack Scenarios:
+Normally, access to root.exe is detected as part of an attempted infection
+by another machine already infected by CodeRed.  In other situations,
+root.exe may be accessed by remote machines/users in an attempt to gain
+access to a system.
+
+--
+Ease of Attack:
+Simple. This is worm activity.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+If root.exe exists in the filesystem of the web server, remove the
+machine from the network and follow the vendor's recommend method for
+cleaning and repairing the damage done by this particular worm.
+
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Jon Hart <warchild@spoofed.org>
+
+-- 
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2001-19.html
+
+--

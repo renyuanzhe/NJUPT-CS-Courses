@@ -1,0 +1,60 @@
+Rule:
+
+--
+
+Sid:
+459
+
+--
+
+Summary:
+This event is generated when an ICMP Type 1 datagram with an undefined ICMP Code is detected on the network. 
+
+--
+
+Impact:
+ICMP Type 1 datagrams are not currently used by any known devices.
+
+--
+
+Detailed Information:
+ICMP Type 1 is not defined for use and is not expected network activity.  Any ICMP datagram with an undefined ICMP Code should be investigated.  
+
+--
+
+Attack Scenarios:
+None known
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Ingress filtering should be utilized to block incoming ICMP Type 1 datagrams
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+
+Additional References:
+None
+
+
+--

@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2218
+
+--
+Summary:
+This event is generated when an attempt is made to access service.cgi on an internal web server. This may indicate an attempt to exploit a cross-site scripting vulnerability in Sun Microsystems' Cobalt RaQ server appliance.
+
+--
+Impact:
+System integrity, possible denial of service.
+
+--
+Detailed Information:
+The alert.cgi file on Sun Microsystems' Cobalt RaQ web server appliance does not properly parse HTML tags submitted in URLs. This can allow an attacker to use a specially crafted URL to execute JavaScript to place scripts or content on the web server. In addition, an overly long URL could be used to crash the server.
+
+--
+Affected Systems:
+Any Cobalt RaQ 2.0, 3.0, or 4.0 server appliance.
+
+--
+Attack Scenarios:
+An attacker crafts a URL with JavaScript and passes the content to service.cgi on a vulnerable RaQ server. The server then executes the JavaScript included in the URL, placing malicious content on the web server. An attacker could also send an overly long URL to service.cgi, which will crash the server.
+
+--
+Ease of Attack:
+Simple. Proof of concepts exist.
+
+--
+False Positives:
+If a legitimate remote user accesses alert.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Workarounds have been provided on the BugTraq mailing list. See http://marc.theaimsgroup.com/?l=bugtraq&m=101500887122597&w=2 for more information.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/4211
+
+--

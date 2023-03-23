@@ -1,0 +1,66 @@
+Rule:
+
+--
+Sid:
+3592
+
+--
+Summary:
+This rule generates an event when an attempt is made to exploit a known
+vulnerability in the Microsoft Message Queuing (MSMQ) system.
+
+--
+Impact:
+Execution of arbitrary code leading to full administrator access of the 
+machine. Denial of Service (DoS).
+
+--
+Detailed Information:
+Microsoft Message Queuing (MSMQ) enables messages to be queued for
+delivery at opportune times. Applications can query the message queue as
+they come online or at scheduled times.
+
+A programming error in the MSMQ subsystem may present an attacker with
+the opportunity to overflow a fixed length buffer and execute code of
+their choosing on an affected host.
+
+--
+Affected Systems:
+	Windows 98 and 98SE
+	Windows 2000 sp 3 and sp 4
+	Windows XP
+
+--
+Attack Scenarios:
+
+--
+Ease of Attack:
+Simple. Expoit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Use a firewall to block access to ports 135, 137, 138, 445, 1801, and
+3527 for UDP connections and also ports 135, 139, 445, 593, 1801, 2101,
+2103, 2105, and 2107 for TCP connections from sources external to the
+protected network
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,54 @@
+Can't find affected system versions
+Rule:
+
+--
+Sid:
+990
+
+--
+Summary:
+This event is generated when an attempt is made to access a file with '_vti_inf' in the name.
+
+--
+Impact:
+Information gathering.  This attack can leak the version number and scripting paths of Microsoft FrontPage.
+
+--
+Detailed Information:
+Microsoft FrontPage provides software for web designers to generate and administer web pages.  The file '_vti_inf.html' contains FrontPage configuration information of version number and scripting paths that is normally used by a FrontPage client to communicate with the server.  An attacker can craft a URL to access this file to disclose the version number and scripting paths.
+
+--
+Affected Systems:
+???
+
+--
+Attack Scenarios:
+An attacker can craft a URL to access the '_vti_inf' file to learn the version and scripting paths of FrontPage.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply patches and upgrade to most current version of FrontPage.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

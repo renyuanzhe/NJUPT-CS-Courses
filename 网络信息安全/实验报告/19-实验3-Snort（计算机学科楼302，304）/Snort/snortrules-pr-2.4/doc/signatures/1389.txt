@@ -1,0 +1,65 @@
+Rule:  
+
+--
+Sid:
+1389
+
+--
+Summary:
+This event is generated when an attempt is made to access the
+script viewcode.jse.
+
+--
+Impact:
+Information disclosure. An attacker may have been able to read the
+contents of any file on the web server.
+
+--
+Detailed Information:
+Nombas ScriptEase WebServer Edition is a Javascript environment for web
+servers.  As shipped, it comes with a sample script called "viewcode.jse"
+that contains a vulnerability.  This vulnerability allows an attacker
+to view any file on the web server.  The web server that ships with
+Novell Netware 5.1 before SP3 contains this vulnerability.
+
+--
+Affected Systems:
+	Netware 5.1 and Nombas ScriptEase WebServer Edition
+ 
+--
+Attack Scenarios:
+Attacker sends a simple URL like the following:
+http://target/lcgi/sewse.nlm?sys:/novonyx/suitespot/docs/sewse/viewcode.jse+httplist+httplist/../../../../../system/somefile
+
+--
+Ease of Attack:
+Simple handcrafted URL.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Examine the packet to see if a malicious web request was being done.
+Try to determine what the requested file was, and determine
+from the web server's configuration whether it was a threat or not
+(e.g., whether the requested file even existed and whether the web
+server contained the viewcode.jse sample script).  The existence of
+sample scripts on a web server may indicate larger vulnerabilities.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

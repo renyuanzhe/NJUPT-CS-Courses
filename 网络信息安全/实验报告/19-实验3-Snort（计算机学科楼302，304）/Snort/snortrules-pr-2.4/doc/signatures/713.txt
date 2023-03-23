@@ -1,0 +1,70 @@
+Rule:
+--
+Sid:
+713
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in a Lucent/Livingston Portmaster router.
+
+--
+Impact:
+Denial of Service (DoS).
+
+--
+Detailed Information:
+This event is generated when an attempt is made to issue a Denial of
+Service (DoS) attack against a Livingston/Lucent router. In some
+situations malformed data sent to the Telnet service on the router can
+cause the DoS to occur.
+
+Lucent Portmaster routers were previously known as Livingston Portmaster
+from Livingston Technologies.
+
+--
+Affected Systems:
+	Lucent Portmaster 1.0
+	Lucent Portmaster 2.0
+	Lucent Portmaster 3.0
+
+--
+Attack Scenarios:
+The attacker can use one of the publicly available exploit scripts.
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+The Portmaster series of routers is no longer available.
+
+Disable the Telnet service if possible.
+
+Reboot the router to regain the service
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/2225
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0218
+
+--

@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid: 
+2339
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in Verilink Netengine Broadband Routers.
+
+--
+Impact:
+Denial of Service (DoS)
+
+--
+Detailed Information:
+TFTP is used to transfer files between hosts. This event is indicative of spurious
+activity in TFTP traffic from a host to a router.
+
+It is possible for an attacker to expoit a DoS condition in
+Netengine routers. If a UDP packet containing a double-null opcode is
+sent to the router's TFTP port the router may crash, thus causing the
+DoS.
+
+--
+Affected Systems:
+	Verilink Netengine Broadband Routers
+
+--
+Attack Scenarios:
+An attacker may use a publicly available exploit script to take
+advantage of the vulnerability.
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Matt Watchinski <matthew.watchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

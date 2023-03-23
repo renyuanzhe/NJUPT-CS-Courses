@@ -1,0 +1,61 @@
+Rule:  
+
+--
+Sid:
+2245
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known vulnerability in NetWin WebNEWS.
+
+--
+Impact:
+Execution of arbitrary code. Possible unauthorized access to the target 
+host.
+
+--
+Detailed Information:
+WebNEWS allows access to news groups via a web interface. Certain 
+versions of the application suffer from a buffer overflow condition such
+that a user supplied group name longer than 1500 characters may allow 
+the attacker to execute code of his choosing with the privileges of the 
+user running the web server.
+
+--
+Affected Systems:
+	NetWin WebNEWS 1.1 j
+	NetWin WebNEWS 1.1 i
+	NetWin WebNEWS 1.1 h
+
+--
+Attack Scenarios:
+The attacker would need to supply a long news group name of over 1500 
+characters to cause the overflow which may then present the attacker 
+with the opportunity to execute code.
+
+--
+Ease of Attack:
+Moderate.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

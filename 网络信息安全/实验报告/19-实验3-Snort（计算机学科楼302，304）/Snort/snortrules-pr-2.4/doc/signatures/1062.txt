@@ -1,0 +1,52 @@
+Rule:  
+--
+Sid:
+1062
+--
+Summary:
+Netcat execution attempt - Netcat is a very flexible and powerfull tcp and udp port listener
+--
+Impact:
+Serious. Full compromise of the host is possible. An attacker may have already compromised your system using another exploit and installed netcat to easily access a remote shell
+--
+Detailed Information:
+This event is generated when an attempt is made to execute Netcat via a web session.
+
+Netcat can be used for port forwarding, remote shell binding, file transfer etc. It is a security risk if someone can use the tool remotetly
+--
+Attack Scenarios:
+Usually nc.exe is uploaded after a successfull attack with another exploit. Netcat may then be executed via a web session to spawn a shell session the attacker can use for further system compromise.
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+A simple www.yourhost.net/nc.exe can trigger this rule. check if the file exists and use further protection software (host based IDS) to protect you from unknown files which could be uploaded.
+
+--
+False Negatives:
+The filename nc.exe was renamed and netcat is on your host already with another filename, probably bound to a shell already.
+
+--
+Corrective Action:
+Remove nc.exe.
+
+Portscan your host and check your firewall log files for IP's accessing the suspect port where netcat listens to gain information about the attacker.
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin.
+
+This command may also be requested on a command line should the attacker gain access to the machine.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

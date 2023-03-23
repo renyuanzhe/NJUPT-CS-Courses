@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+1926
+
+--
+Summary:
+This event is generated when a request is made to Network File System (NFS) to list all exported file systems and to indicate which clients are permitted to mount each file system.
+
+--
+Impact:
+Information disclosure.  This can allow an attacker to discover exported NFS file systems and client mount permissions.
+
+--
+Detailed Information:
+The mountd Remote Procedure Call (RPC) implements the NFS mount protocol.  When an NFS client requests a mount of an NFS file system, mountd examines the list of exported file systems.  If the NFS client is permitted access to the requested file system, mountd returns a file handle for the requested directory.  An attacker or legitimate NFS client may request a list of exported file systems and client mount permissions.
+
+--
+Affected Systems:
+All systems running NFS.
+
+--
+Attack Scenarios:
+An attacker may attempt to list the exported NFS file systems as a precursor to mounting them to read or change a specific file. 
+
+--
+Ease of Attack:
+Simple.   
+
+--
+False Positives:
+If a legitimate remote user is allowed to list exported NFS file systems, this rule may trigger.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+http://www.whitehats.com/info/IDS26
+
+
+--

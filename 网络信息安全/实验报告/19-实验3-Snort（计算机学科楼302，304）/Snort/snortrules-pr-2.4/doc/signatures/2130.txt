@@ -1,0 +1,67 @@
+Rule:
+
+--
+Sid: 2130
+
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a weakness in a host running Microsoft Internet Information Server (IIS) using the IISProtect web administration interface. 
+
+--
+Impact:
+Administrator access and arbitrary command execution.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to exploit a weakness in a host running the IISProtect web administration interface. A vulnerability exists that can allow an attacker to inject SQL code of his choice into the application.
+
+The attacker may be trying to gain administrator access to the host, garner information on users of the system, retrieve sensitive information or be attempting to execute arbitrary code.
+
+--
+Affected Systems:
+Any host using IIS with the IISProtect web administration interface.
+
+--
+Attack Scenarios:
+An attacker may inject SQL code of his choice. The attacker might then gain administrator access to the host or database.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Check the IIS implementation on the host. Ensure all measures have been taken to deny access to sensitive files.
+
+Ensure that the IIS implementation is fully patched.
+
+Ensure that the underlying operating system is fully patched.
+
+Employ strategies to harden the IIS implementation and operating system.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/7675
+
+--

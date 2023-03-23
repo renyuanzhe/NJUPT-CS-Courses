@@ -1,0 +1,62 @@
+Rule:  
+
+--
+Sid:
+2239
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in PDGSoft Shopping Cart.
+
+--
+Impact:
+Serious. Execution of arbitrary code is possible.
+
+--
+Detailed Information:
+Certain versions of PDGSoft Shopping Cart suffer from a buffer overflow 
+condition that can present an attacker with the opportunity to execute 
+arbitrary code of their choosing.
+
+The vulnerable executable files are redirect.exe and changepw.exe, which
+can be accessed via the web interface.
+
+--
+Affected Systems:
+	PDGSoft Shopping Cart 1.50
+
+--
+Attack Scenarios:
+The attacker needs to supply an overly long string to either of the 
+affected executables.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Bugtraq:
+http://www.securityfocus.com/bid/1256
+
+--

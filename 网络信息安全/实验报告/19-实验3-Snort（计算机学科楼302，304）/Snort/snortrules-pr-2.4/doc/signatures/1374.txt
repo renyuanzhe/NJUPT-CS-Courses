@@ -1,0 +1,54 @@
+Rule:
+
+--
+Sid:
+1374
+
+--
+Summary:
+Attempted .htgroup access via web
+
+--
+Impact:
+Attempt to gain information on group access permissions on a webserver
+
+--
+Detailed Information:
+This is an attempt to gain intelligence on the user and administration groups used on a webserver. The .htgroup file lists the groups allowed to access resources on a webserver. The attacker could possibly gain information needed for other attacks on the host.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains '.htgroup'in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. Disallowing viewing of this file via a URI is suggested. For Apache webservers add the following to httpd.conf and restart the server.
+
+<Files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+</Files>
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

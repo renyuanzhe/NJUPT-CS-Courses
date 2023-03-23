@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+824
+
+--
+Summary:
+A remote user has tried access the php.cgi script. Some versions 
+of this script can allow access to any file the
+server can read.
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+Because of a design problem in this version of PHP/FI, remote users are 
+able to access any file that the UID of the http process has access to. 
+The exploit is a simple web request for the file and can be used with 
+malicious intent.
+
+--
+Affected Systems:
+	PHP/FI 2.0
+
+--
+Attack Scenarios:
+An attacker can simply pass a file name to the script 
+and be able to view the file if the web server has access
+to it. This can be used to obtain passwords or other sensitive 
+information.
+
+Example: http://somewebserver/php.cgi?/path/to/desired/file
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives: 
+None known.
+
+--
+False Negatives: 
+None known.
+
+--
+Corrective Action:
+Upgrade or remove the file php.cgix
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS232
+
+Bugraq:
+http://www.securityfocus.com/bid/2250
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0238
+
+--

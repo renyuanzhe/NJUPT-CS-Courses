@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+1616
+
+--
+Summary:
+This event is generated when an attempt is made to query version.bind on your DNS server.
+
+--
+Impact:
+Reconnaissance. This may indicate which version of BIND the server is running.
+
+--
+Detailed Information:
+An attacker can query a DNS server for the version of BIND running.  Some versions of BIND, by default, respond to these queries while BIND version 9; by default, does not.  A response to this query can assist an attacker in discovering servers that are potentially vulnerable to exploits associated with specific versions of BIND. 
+
+--
+Affected Systems:
+All versions of BIND.
+
+--
+Attack Scenarios:
+An attacker can execute this query to find DNS servers running specific versions of BIND.
+
+--
+Ease of Attack:
+Simple. Use the Unix command 'dig @ns.com version.bind txt chaos' 
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Remove the ability to retrieve the version.bind chaos record via configuration options.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10028
+
+Arachnids::
+http://www.whitehats.com/info/IDS278
+
+--

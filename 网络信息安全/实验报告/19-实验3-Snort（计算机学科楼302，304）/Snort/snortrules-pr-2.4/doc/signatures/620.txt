@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+620
+
+--
+Summary:
+This event is generated when a scan is detected. 
+
+--
+Impact:
+Information gathering.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to scan a host.
+
+This may be the prelude to an attack. Scanners are used to ascertain 
+which ports a host may be listening on, whether or not the ports are 
+filtered by a firewall and if the host is vulnerable to a particular 
+exploit.
+
+--
+Affected Systems:
+Any host.
+
+--
+Attack Scenarios:
+An attacker can determine if ports 21 and 20 are being used for FTP. 
+Then the attacker might find out that the FTP service is vulnerable to a
+particular attack and is then able to compromise the host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+A scanner may be used in a security audit.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Determine whether or not the scan was legitimate then look for other 
+events concerning the attacking IP address.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

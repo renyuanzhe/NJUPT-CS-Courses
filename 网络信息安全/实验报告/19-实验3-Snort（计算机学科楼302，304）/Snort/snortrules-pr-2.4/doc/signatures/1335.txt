@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+1335
+
+--
+Summary:
+Attempted kill command access via web
+
+--
+Impact:
+Attempt to stop or restart processes on a webserver.
+
+--
+Detailed Information:
+This is an attempt to either stop or restart system processes on a
+webserver. By stopping a service the attacker can effectively issue a
+"Denial of Service" to a particular process on a machine. When used to
+restart a process, the attacker can force a legitimate process to
+re-read the associated configuration file and possibly compromise the
+service by replacing the original configuration with one crafted by the attacker.
+
+The signature looks for the "kill" command in the client to
+web server network traffic and does not indicate whether the command
+was actually successful in killing the process. The presence of the
+"kill" command in web traffic indicates that an attacker attempted to
+trick the web server into executing system in non-interactive mode
+i.e. without a valid shell session.
+
+Alternatively this rule may trigger in an unencrypted HTTP tunneling
+connection to the server or a shell connection via another exploit
+against the web server.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains '/bin/kill'
+in the URI which can then return sensitive information on groups and
+users present on the host.  This command may also be requested on a
+command line should the attacker gain access to the machine.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Webservers should not be allowed to view or execute files and binaries
+outside of it's designated web root or cgi-bin. 
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Additional information from Anton Chuvakin <http://www.chuvakin.org>
+
+-- 
+Additional References:
+
+man kill
+
+--

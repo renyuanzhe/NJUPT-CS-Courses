@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid: 312
+
+--
+Summary:
+This event is generated when an attempt to exploit a buffer overflow condition in ntpd is made.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to gain remote access to the victim host or execute arbitrary code with the privileges of the superuser account.
+
+--
+Detailed Information:
+Some versions of the Network Time Protocol Daemon (ntpd) are vulnerable to a buffer overflow condition which can present the attacker with a root shell.
+
+Ntp is used to synchronize system time with a time server. This may also be used on various network devices.
+
+Affected Versions:
+	ntpd versions prior to an including 4.0.99k
+	xntpd and xntp3
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply vendor supplied patches.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-0414
+
+Bugtraq:
+http://www.securityfocus.com/bid/2540
+
+--

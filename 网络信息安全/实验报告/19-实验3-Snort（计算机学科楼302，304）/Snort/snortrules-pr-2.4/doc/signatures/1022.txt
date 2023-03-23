@@ -1,0 +1,63 @@
+Note rule content has been altered for this rule.  Don't know if we should say so in documentation.
+Rule:
+
+--
+Sid:
+1022
+
+--
+Summary:
+This event is generated when an attempt is made to execute a shell command possibly associated with an exploit with the Microsoft Jet database engine. 
+
+--
+Impact:
+Remote access.  This attack may permit the execution of arbitrary commands on the vulnerable server.
+
+--
+Detailed Information:
+Microsoft Jet database engine facilitates the addition, modification, deletion, and search of database data.  Jet may be used as a backend for web applications.  It allows the use of embedded Visual Basic for Application expressions in SQL strings.  A vulnerability associated with inadequate filtering of user input allows an attacker to execute code on the vulnerable server by supplying a command delimited by "|" characters.
+
+--
+Affected Systems:
+Jet 3.5, 3.51
+
+--
+Attack Scenarios:
+An attacker can craft a special URL to execute arbitrary commands on a vulnerable server.
+
+--
+Ease of Attack:
+Simple.  Exploit code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Disable Jet ODBC drivers if they are not required.
+
+Upgrade to Jet 4.0.
+ 
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/ms99-030.asp
+
+Bugtraq:
+http://www.securityfocus.com/bid/286
+
+
+--

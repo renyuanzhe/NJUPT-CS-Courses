@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+2001
+
+--
+Summary:
+This event is generated when a remote user attempts to access smartsearch.cgi on a web server. This may indicate an attempt to exploit an arbitrary code execution vulnerability in Smart Search, a "pay-per-click" search engine.
+
+--
+Impact:
+Arbitrary code execution.
+
+--
+Detailed Information:
+Smart Search "pay-per-click" search engine software contains a vulnerability that allows code execution using a specially-crafted URL. Using the "keywords" parameter accepted by smartsearch.cgi, an attacker can pass arbitrary Perl code to the web server, which will then attempt to execute it.
+
+--
+Affected Systems:
+Any server using Smart Search 4.x.
+
+--
+Attack Scenarios:
+An attacker can pass Perl code to a web server running Smart Search by forwarding a URL with specific keyword parameters. The web server will then attempt to execute the commands included in the URL.
+
+--
+Ease of Attack:
+Simple. An exploit exists.
+
+--
+False Positives:
+If a legitimate remote user accesses smartsearch.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is not known if this vulnerability has been patched in recent versions. Contact the vendor (http://www.smarterscripts.com/smartsearch/index.shtml) for more details. 
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+SecuriTeam
+http://www.securiteam.com/exploits/5AP041F8VA.html
+
+Secunia
+http://www.secunia.com/advisories/8389/
+
+--

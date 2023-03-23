@@ -1,0 +1,91 @@
+Rule:  
+
+--
+
+Sid:
+
+559
+
+--
+
+Summary:
+
+A network-external client has connected to an internal GNUTella server
+and issued a connect attempt to begin communications.
+
+--
+
+Impact:
+
+Possible policy violation; possible excess network load.
+
+--
+
+Detailed Information:
+
+GNUTella is a P2P (Peer-to-Peer) protocol for exchanging arbitrary
+files.  Depending on your site's policies, using it may be a policy
+violation.
+
+If not properly configured, GNUTella clients may accidentally share out
+confidential files.  GNUTella worms (which use deceptive names to
+encourage download) and viruses may also be accidentally downloaded by a
+client.
+
+This rule being triggered means that a GNUTella server has been detected
+on the protected network.
+
+--
+
+Affected Systems:
+
+Any system with a GNUTella client installed (available for most
+platforms)
+
+--
+
+Attack Scenarios:
+
+N/A
+
+--
+
+Ease of Attack:
+
+N/A
+
+--
+
+False Positives:
+
+This rule detects the term "GNUTELLA CONNECT" on all ports.  As a
+result, any email, web page, or other network content that discusses the
+protocol and its messages will trigger this alert.
+
+--
+
+False Negatives:
+
+None known.
+
+--
+
+Corrective Action:
+
+Depends on acceptable use policies.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Gene R Gomez (gene!AT!gomezbrothers!DOT!com)
+
+-- 
+
+Additional References:
+
+GNUTella
+http://www.gnutella.com
+
+
+--

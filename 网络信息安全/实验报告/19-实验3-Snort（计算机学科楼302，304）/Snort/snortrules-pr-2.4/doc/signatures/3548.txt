@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+3548
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a denial of
+service associated with the TrackerCam web cam software.
+
+--
+Impact:
+A successful attack can cause the server to crash.
+
+--
+Detailed Information:
+A vulnerability exists in the TrackerCam webcam HTTP server. Multiple
+successive error conditions can cause the server to crash. One such
+error condition involves a negative length value supplied to the client
+HTTP header Content-Length.
+
+--
+Affected Systems:
+	TrackerCam 5.12
+
+--
+Attack Scenarios:
+An attacker can craft multiple successive requests with an HTTP header
+Content-Length with a negative value.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Other:
+http://aluigi.altervista.org/adv/tcambof-adv.txt
+--

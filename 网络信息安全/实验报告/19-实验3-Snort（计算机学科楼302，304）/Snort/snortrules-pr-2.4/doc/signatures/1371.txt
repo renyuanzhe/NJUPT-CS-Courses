@@ -1,0 +1,49 @@
+Rule:
+
+--
+Sid:
+1371
+
+--
+Summary:
+This event is generated when an attempt is made to access the message of the day (motd) via the web
+
+--
+Impact:
+Attempt to gain information about the system on a webserver
+
+--
+Detailed Information:
+This is an attempt to gain intelligence about the system hosting a webserver. The motd is used to display system information on a UNIX or Linux based system. The attacker could possibly gain information needed for other attacks on the host.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains '/etc/motd' in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries outside of it's designated web root or cgi-bin. This file may also be requested on a command line should the attacker gain access to the machine. Making the file read only by the superuser on the system will disallow viewing of the file by other users.
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

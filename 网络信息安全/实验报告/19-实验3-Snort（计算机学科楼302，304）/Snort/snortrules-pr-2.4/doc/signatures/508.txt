@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid:
+508
+
+--
+Summary:
+This event is generated when a Gopher server is used as a proxy to connect to an FTP server.
+
+--
+Impact:
+This allows a user to assume the source IP of the Gopher server when connecting to an FTP server.
+
+--
+Detailed Information:
+A Gopher server may support proxy connections to FTP servers.  This allows a user to assume the source IP of the Gopher server when connecting to an FTP server.  This may be used to bypass FTP access restrictions based on source IP's.  
+
+--
+Affected Systems:
+Any Gopher server that supports proxy connections to FTP servers.
+
+--
+Attack Scenarios:
+A user who is normally restricted access to an FTP server based on the originating IP may attempt to circumvent this by attempting access from a Gopher server that supports proxy connections to FTP servers.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+This even will trigger if a Gopher server suuports proxy connections to FTP servers. 
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Disable the use of Gopher server.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Whitehats
+www.whitehats.com/info/IDS409
+
+--

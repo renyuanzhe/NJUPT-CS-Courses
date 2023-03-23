@@ -1,0 +1,76 @@
+Rule:
+--
+Sid:
+958
+
+--
+
+Summary:
+This event is generated when an attempt is made to access a file with 
+sensitive information on a webserver with Microsoft Frontpage extensions
+enabled.
+
+--
+
+Impact:
+If successful, the attacker can read sensitive data about the Frontpage web.
+
+--
+
+Detailed Information:
+On systems running Microsoft Frontpage Extensions on IIS or Apache web 
+servers the file _vti_pvt/service.cnf exists which may contain sensitive
+information about the web server. This file is meant to be only used 
+internally by FPSE and never directly by the user.
+
+--
+
+Affected Systems:
+	Systems using Microsoft FrontPage Server Extensions 98
+
+--
+
+Attack Scenarios:
+An attacker can request the file from its standard location, entering the exact URL.
+
+--
+
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+
+False Positives:
+None known.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Disable direct access to the file /_vti_pvt/service.cnf.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Chaos <c@aufbix.org>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+
+Additional References:
+
+Microsoft:
+http://support.microsoft.com/default.aspx?scid=http://support.microsoft.com:80/support/kb/articles/Q188/2/57.ASP&NoWebContent=1&NoWebContent=1
+
+
+
+
+
+
+--

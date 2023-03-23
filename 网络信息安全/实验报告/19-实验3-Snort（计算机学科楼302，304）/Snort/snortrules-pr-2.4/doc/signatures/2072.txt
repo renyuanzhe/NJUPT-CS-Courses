@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+2072
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in Lyris List Manager.
+
+--
+Impact:
+Unauthorized escalation of user privileges.
+
+--
+Detailed Information:
+Lyris List Manager is a web based mailing list management interface. It 
+is possible for an attacker to gain administrator privileges for mailing
+lists by modifying variables sent to the lyris.pl script.
+
+The variable list_admin is used to identify the user as an 
+administrator, by changing this value from F to T the attacker can 
+identify himself as the mailing list administrator.
+
+--
+Affected Systems:
+	Lyris List Manager 3.0
+	Lyris List Manager 4.0
+
+--
+Attack Scenarios:
+The attacker can save a copy of the HTML interface locally and modify 
+the value of the list_admin variable, then submit the form directly to 
+lyris.pl.
+
+Alternatively the attacker can choose to submit the data in a URI.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Apply the appropriate patches from the vendor.
+
+Upgrade to the latest version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0758
+
+Bugtraq:
+http://www.securityfocus.com/bid/1584
+
+--

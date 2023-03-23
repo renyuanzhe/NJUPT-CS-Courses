@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+3696
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+denial of service associated with a malformed Veritas Backup
+Agent request.
+
+--
+Impact:
+A successful attack can cause the Vertias Backup Agent service
+to crash.
+
+--
+Detailed Information:
+The Veritas Backup Agent Exec provides backup software.  Certain
+communication is done via Network Data Management Protocol (NDMP).
+The NDMP protocol does not properly handle malformed requests that
+have a non-zero error code value.  When this condition is
+encountered, memory is not allocated, but processing continues as
+if it were.  When an attempt is made to read from this buffer, an
+access violation occurs and the Backup Agent service is terminated.
+
+--
+Affected Systems:
+	Veritas Software Backup Exec 9.0, 9.1, 10.0
+
+--
+Attack Scenarios:
+An attacker can send a malformed request to a Backup Agent server,
+causing it to crash.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=271&type=vulnerabilities
+
+--

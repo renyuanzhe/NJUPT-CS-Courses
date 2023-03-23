@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid: 308
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow condition in certain versions of NextFTP for Windows.
+
+--
+Impact:
+Serious. System compromize presenting the attacker with the opportunity to execute arbitrary code.
+
+--
+Detailed Information:
+Certain versions of the NextFTP client from ToxSoft contain a programming error that allows an FTP server to issue commands on the client via exploit code in the server reply.
+
+--
+Attack Scenarios:
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Use Secure Shell (ssh) for file transfer as opposed to FTP.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0671
+
+Bugtraq:
+http://www.securityfocus.com/bid/572
+
+--

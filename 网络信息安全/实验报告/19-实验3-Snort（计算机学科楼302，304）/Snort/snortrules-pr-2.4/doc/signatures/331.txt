@@ -1,0 +1,65 @@
+Rule: 
+reference:arachnids,132; reference:cve,CVE-1999-0612;
+classtype:attempted-recon; sid:331; rev:6;)
+
+--
+Sid: 331
+
+-- 
+
+Summary:
+This is an intelligence gathering activity. This event is indicative of an information leak attempt against a finger daemon performed by a vulnerability scanner
+
+-- 
+
+Impact:
+The attacker may obtain information about user accounts on the target system.
+
+--
+Detailed Information:
+This event is generated when an attempt to query the finger daemon is attempted by the Cybercop vulnerability scanner. 
+
+The Finger daemon is used to provide information about users on a UNIX system. It used to be installed and enabled by default on most UNIX/Linux systems. The scan will confirm that the target host will respond to finger queries.
+
+--
+
+Attack Scenarios: 
+An attacker uses the Cybercop vulnerability scanner to test for this weakness.
+
+-- 
+
+Ease of Attack: 
+Simple, performed by a scanner
+
+-- 
+
+False Positives: 
+None Known
+
+--
+False Negatives: 
+None Known
+
+-- 
+
+Corrective Action: 
+Disable the finger daemon or limit the addresses that can access the service via a firewall or TCP wrappers.
+
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS132
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0612
+
+--

@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+3199
+
+--
+Summary:
+This rule generates an event when an attempt is made to exploit a known 
+vulnerability in Microsoft WINS.
+
+--
+Impact:
+Execution of arbitrary code leading to full administrator access of the 
+machine. Denial of Service (DoS).
+
+--
+Detailed Information:
+A vulnerability exists in Microsoft WINS such that execution of 
+arbitrary code or a Denial of Service condition can be issued against a 
+host by sending malformed data.
+
+--
+Affected Systems:
+	Windows NT 4.0
+	Windows NT 4.0 Terminal Server Edition
+	Windows 2000
+	Windows Server 2003
+
+--
+Attack Scenarios:
+An attacker would need to send multiple malformed request to the WINS
+service running on a host.
+
+--
+Ease of Attack:
+Simple. Expoit code exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches.
+
+Uninstall the WINS service.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,63 @@
+Rule:  
+
+--
+Sid:
+1071
+
+--
+Summary:
+This event is generated when an attempt is made to get a .htpasswd file from an HTTP server.
+
+--
+Impact:
+Serious. Although .htpasswd files cannot be accessed through the Apache HTTP service by default.
+
+--
+Detailed Information:
+The Apache HTTP server provides an authentication mechanism using .htaccess files and .htpasswd files.
+
+These files contain authentication information and encrypted passwords. However, older versions of Apache HTTPD for Windows systems the password might be stored in plaintext.
+
+In the default configuration, Apache HTTP server blocks any attempt to access .htaccess or .htpasswd files.
+
+--
+Attack Scenarios:
+The attacker could make a request to retrieve the .htpasswd file then use the information in it to launch a dictionary attack based on the usernames found.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+The .htpasswd file should be stored in a location outside the DocumentRoot for the webserver.
+
+The default configuration should include the following section to prevent access to .ht files:
+
+<Files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+</Files>
+
+Ensure the passwords stored in .htpasswd are encrypted.
+
+--
+Contributors:
+Snort documentation contributed by Ueli Kistler, <u.kistler@engagesecurity.com>
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

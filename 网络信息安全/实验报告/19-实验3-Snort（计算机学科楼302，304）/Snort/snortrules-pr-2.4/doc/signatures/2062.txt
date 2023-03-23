@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+2062
+
+--
+Summary:
+server performance and statistics package.
+
+--
+Impact:
+Information disclosure
+
+--
+Detailed Information:
+iPlanet web server uses the file .perf to display performance statistics
+for the server.
+
+An attacker can access the statistics for the server by making a request
+for the file .perf.
+
+--
+Affected Systems:
+iPlanet web servers using this object.
+
+--
+Attack Scenarios:
+The attacker merely needs to access http://www.foo.com/.perf
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow viewing of web server statistics from external sources.
+
+Remove the appropriate lines from the obj.conf file to disallow viewing 
+of server performance statistics.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,62 @@
+Rule:
+--
+Sid:
+971
+
+--
+
+Summary:
+This event is generated when an attempt is made to compromise a web 
+server running IIS 5.0 by exploiting the ".printer" bug.
+
+--
+Impact:
+Serious. Remote unauthorized administrative access.
+
+--
+Detailed Information:
+With the increasing pervasion of the Internet, vendors are adding 
+features into their software to support the networked world.  
+Microsoft's initial implementation of one such feature were the 
+".printer" extensions on IIS 5.0 that first shipped with Windows 2000.
+
+A bug exsisted in the initial release that could result in remote system
+level access to the web server.  A patch has been released that fixes 
+this bug.
+
+--
+Attack Scenarios:
+A hacker could use this vulnerability to get a remote, system level 
+command prompt on the server.
+
+--
+Ease of Attack:
+Simple. Exploit software exists.
+
+--
+False Positives:
+There are legitimate uses of the ".printer" feature, though it is 
+unknown how widely it is used.  You should know if this feature is 
+implemented on your web servers.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Install latest patches from the vendor, or disable the ".printer" extensions using the IIS administration tool.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+Vendor Security Bulletin: MS01-023
+Bugtraq Archive: url,http://www.securityfocus.com/archive/1/181937
+
+--

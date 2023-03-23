@@ -1,0 +1,54 @@
+Rule:
+
+--
+Sid:
+365
+
+--
+Summary:
+This event is generated when an external user pings an internal server using an echo request ICMP type. This may indicate an attempt to scan the network or cause a denial of service using a "ping flood." 
+
+--
+Impact:
+Possible information gathering or denial of service attempt. 
+
+--
+Detailed Information:
+An ICMP ping may indicate a scanning attempt, a ping flood, or a remote user attempting to see if the network responds.
+
+--
+Affected Systems:
+Any system that responds to a ping request.
+
+--
+Attack Scenarios:
+An attacker can use a scanner that pings a system to find out more information about the network, or the attacker can use a tool to send a large number of pings in an attempt to "flood" the network and create a denial of service condition.
+
+--
+Ease of Attack:
+Simple. Scanning and ping-based DoS tools are freely available.
+
+--
+False Positives:
+This rule will generate an alert if a legitimate remote user pings an internal server.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Use a packet filtering firewall to block ICMP ping packets with an ICMP type value of 8.
+
+--
+Contributors:
+Original rule writer unknown.
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+
+--

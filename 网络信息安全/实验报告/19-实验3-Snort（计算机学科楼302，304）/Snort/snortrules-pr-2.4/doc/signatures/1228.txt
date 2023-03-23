@@ -1,0 +1,70 @@
+Rule:
+
+--
+Sid:
+1228
+
+--
+Summary:
+A nmap XMAS scan was detected.
+
+--
+Impact:
+System reconnaissance that may include open/closed/firewalled ports,
+ACLs.
+
+--
+Detailed Information:
+Nmap sets the URG PSH and FIN bits as part of it's XMAS scan.
+Typically, a closed port will respond with an ACK RST, whereas an open
+port may not respond at all.  However, this varies from machine to
+machine, and also depends on what (if any) filtering policies are in
+place between the hosts in question.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios:
+As part of information gathering that may occur before a more
+dedicated attack, an attacker may choose to use nmap's XMAS scan to
+determine open/closed ports.
+
+__
+Ease of Attack:
+Trivial.  Nmap is freely available to anyone who wishes to use it.
+The only requirement is root/elevated privledges (the XMAS scan
+requires this) and a lack of proper filtering between the two
+machines.
+
+--
+False Positives:
+None Known. The FIN PSH and URG flags should never be seen together
+in normal TCP traffic.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Determine what ports may have responded as being open, and what clues
+that may give an attacker relating to potential attacks.
+Additionally, investigate the use of proper ingress/egress filtering.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Jon Hart <warchild@spoofed.org>
+
+-- 
+Additional References:
+
+SANS:
+http://rr.sans.org/firewall/egress.php
+
+--

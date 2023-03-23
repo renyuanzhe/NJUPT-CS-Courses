@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+2518
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known
+vulnerability in the Microsoft implementation of the Private
+Communications Transport (PCT) protocol.
+
+--
+Impact:
+Execution of arbitrary code. Unauthorized administrative access to an
+affected host.
+
+--
+Detailed Information:
+A vulnerability exists in the handling of PCT requests that
+can be manipulated to give an attacker the opportunity to execute
+arbitrary code of their choosing leading to a possible remote
+administrative compromize of an affected host.
+
+The condition exists because of poor error handling routines in the
+Microsoft Secure Sockets Layer (SSL) library.
+
+--
+Affected Systems:
+	Microsoft Windows NT, 2000, 2003 and XP systems using PCT
+
+--
+Attack Scenarios:
+An attcker needs to make a specially crafted PCT request to an affected system.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Apply the appropriate vendor supplied patches
+
+Disable the use of PCT
+
+--
+Contributors:
+Sourcefire Research Team
+Matt Watchinski <mwatchinski@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

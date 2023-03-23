@@ -1,0 +1,145 @@
+Rule: 
+
+--
+Sid: 
+3081
+-- 
+Summary: 
+This event is generated when a Y3KRAT 1.5 server attempts to respond to a client's connect request.
+
+-- 
+Impact: 
+If connected, the attacker could execute a multitude of functions resulting in a complete compromise of the victim's machine.
+
+--
+Detailed Information:
+Y3KRAT 1.5 uses port 5880 by default. This port can be changed by the attacker. 
+
+The following is a list of the commands for many of Y3KRAT 1.5's functions (Command Name: Command String):
+
+AIM Passwords: aolpwd
+AIM Spy: aolspy
+Change Internet Explorer Caption: changeiecaptest
+Chat With Server: chatsrvY3K Rat user
+Clipboard: pastefromclip
+Change Desktop Color Scheme: clsys
+Change Recycle Bin Name: nrbin
+Change System Name: sysname
+Change Time: time
+Video List: getvideolist
+Dialup: autoconnect
+Access Directories: getclientgetpaths
+Get Directory Paths: getpaths
+Disable Mouse Buttons: dbuttons
+Disable Num Lock: dnumlock
+Disable System Keys: dsyskeys
+Disable All Keys: dkeys{all}
+DOS Commands: doscommands
+Fast Mouse: fastmouseon
+Find File: findfile
+Flip Screen: flip1hor
+FTP: openftp21
+Go To URL: gotourl
+Hide Taskbar: hidetask
+Hide Clock: hideclock
+Hide Desktop Icons: hidedeskicons
+Hide Start Button: hidestart
+Hide System Tray: hidesystray
+ICQ Information: getclienticqinfo
+ICQ Passwords: geticqpass
+ICQ Spy: icqspy
+Internet Explorer Spy: iespy
+General Information: general
+Lights On: lightson
+Lights Off: lightsoff
+Live Shot: cap
+Logged Passwords: getpasses
+Logoff: boot41
+Make File: makefile
+Matrix Chat: matrix
+Modify File (Read System File): readsysfiles
+Modify File (Write System File): writesysfiles
+Monitor Off: enablestandby
+Mouse Settings (Set Position): setpos
+Mouse Settings (Freeze Mouse Position): freezepos
+Mouse Settings (Speed Up Cursor): speedcursor
+MSN Spy: msnspy
+Napster Spy: napsterspy
+Net Get: netget
+NetStat (Read): netstatread
+NetStat (Kill): netstatkill
+CD-ROM open: cdopen
+CD-ROM close: cdclose
+Open File: getfiles
+Overclock: upmhz
+Play Sound: snd (*followed by the sound, for example, err for the error sound*)
+Power Off: boot31
+Print: print
+Ras Passwords: getras
+Remove Server: killserver
+Change Resolution: setdevmode
+Restart: boot21
+Safe Mode: safemode
+Screenshot: cap
+Send Keys: sendtextf
+Send Message: messText
+Show Windows With Text: showwin
+Shutdown: boot11
+Swap Mouse Buttons: swapbuttons
+Write System Error: writesystem
+Yahoo Spy: yahoospy
+
+
+--
+Affected Systems:
+	Windows 95, 98, ME, NT, 2000
+
+--
+
+Attack Scenarios: 
+The victim must first install the server. Be wary of suspicious files because they often can be backdoors in disguise.
+Once the victim mistakenly installs the server program, the attacker usually will employ an IP scanner program
+to find the IP addresses of victims that have installed the program. Then the attacker enters the IP address and 
+presses the connect button and he has access to your computer.
+
+-- 
+
+Ease of Attack: 
+Easy. Simply a matter of pressing the connect button once the victim has installed the server.
+
+
+-- 
+
+False Positives:
+None known
+
+--
+False Negatives:
+None known
+
+-- 
+
+Corrective Action: 
+Remove the Dcomcnofg key located at the following places in the registry:
+HKEY_LOCAL_MACHINES\Software\Microsoft\Windows\CurrentVersion\Run 
+HKEY_LOCAL_MACHINES\Software\Microsoft\Windows\CurrentVersion\RunServices
+HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\Run
+
+Reboot the computer or close Dcomcnofg.exe.
+
+Delete Dcomcnofg.exe from the windows system directory.
+
+If found, delete server.exe and kill the process called server.exe.
+
+--
+Contributors:
+Sourcefire Research Team
+Ricky Macatee <rmacatee@sourcefire.com> 
+
+-- 
+Additional References:
+
+Dark-E:
+http://www.dark-e.com/archive/trojans/y3krat/15/index.shtml
+
+--

@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+3148
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+vulnerability in Microsoft Windows Help.
+
+--
+Impact:
+Serious. Code execution is possible leading to unauthorized
+administrative access to the target host.
+
+--
+Detailed Information:
+Microsoft Windows Help can use ActiveX controls when dealing with
+Windows Help files.
+
+A programming error in the processing of a buffer that handles the
+"item" parameter of a help file can lead to the exposure of a buffer
+overflow condition. An attacker may be able to overflow this buffer and
+supply code of their choosing to be executed on the system with the
+privileges of the administrative account.
+
+In addition, applications may treat Windows Help as a trusted program
+and further exploitation and host firewall bypass may be possible.
+
+--
+Affected Systems:
+	Systems using Microsoft Windows
+
+--
+Attack Scenarios:
+An attacker can overflow a buffer by inserting extra data into the input
+parameter of a malicious help file. The attacker may then insert code of
+their choosing to either run commands on the system or execute the code
+with the privileges of the administrative account.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

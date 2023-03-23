@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+2117
+--
+Summary:
+This event is generated when an attempt is made to access the file myaccount/login.asp in the BTTLXE Forum application from Battleaxe Software.
+
+--
+Impact:
+Possible theft of data and control of the targeted application leading to a compromise of all resources on the machine not limited to user accounts and business data.
+
+--
+Detailed Information:
+The BTTLXE Forum is a web application used for web-based discussion forums.
+
+A vulnerability exists such that an attacker may gain control of the application via an SQL injection technique. One such scenario allows an attacker to access the system by supplying a specific password without a username in the login page.
+
+Affected Systems:
+	All versions of BTTLXE Forum software.
+
+--
+Attack Scenarios:
+The attacker may login to the Forum with the password 'or''='
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Refer to the vendor notification and fix information at http://www.battleaxesoftware.com/forums/forum.asp?forumid=36&select=1812
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2003-0215
+
+Bugtraq:
+http://www.securityfocus.com/bid/7416
+
+Vendor:
+http://www.battleaxesoftware.com/forums/forum.asp?forumid=36&select=1812
+
+--

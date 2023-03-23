@@ -1,0 +1,61 @@
+Nigel - added new references to the rule and bumped up revision number.
+Rule:
+
+--
+Sid:
+516
+
+--
+Summary:
+This event is generated when an attempt is made by Simple Network Management Protocol (SNMP) to enumerate Server Message Block (SMB) users on the host.
+
+--
+Impact:
+Reconnaissance.  An attacker may obtain SMB usernames of the remote host. 
+
+--
+Detailed Information:
+Server Message Block is a network file sharing protocol used between Windows hosts and Unix and between Windows hosts that communicate via Samba.  SNMP can be used to query a remote host that listens for SNMP requests and supports SMB, to list the SMB usernames.  This provides reconnaissance of valid usernames and may be followed by a brute force attack to guess passwords.
+
+--
+Affected Systems:
+Hosts that run SMB and listen for SNMP requests.
+
+--
+Attack Scenarios:
+An attacker may obtain a list of current usernames on the remote host as a precursor of attempting a brute force attack to guess passwords of those users.
+
+--
+Ease of Attack:
+A Nessus script exists to list current SMB users.
+
+--
+False Positives:
+None.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Block inbound SNMP traffic.
+
+Disable SNMP as a listening service on the remote host unless it is required.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS333
+
+Nessus:
+http://cgi.nessus.org/plugins/dump.php3?id=10546
+
+--

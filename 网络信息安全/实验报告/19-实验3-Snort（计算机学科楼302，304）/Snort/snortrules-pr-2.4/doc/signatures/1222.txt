@@ -1,0 +1,69 @@
+Rule:
+
+--
+Sid:
+1222
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in a CGI web application running on a server.
+
+--
+Impact:
+Information gathering and system integrity compromise. Possible unauthorized
+administrative access to the server or application. Possible execution
+of arbitrary code of the attackers choosing in some cases.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to gain unauthorized
+access to a CGI application running ona web server. Some applications do
+not perform stringent checks when validating the credentials of a client
+host connecting to the services offered on a host server. This can lead
+to unauthorized access and possibly escalated privileges to that of the
+administrator. Data stored on the machine can be compromised and trust
+relationships between the victim server and other hosts can be exploited by the attacker.
+
+If stringent input checks are not performed by the CGI application, it
+may also be possible for an attacker to execute system binaries or
+malicious code of the attackers choosing.
+
+--
+Affected Systems:
+	All systems running CGI applications
+
+--
+Attack Scenarios:
+An attacker can access an authentication mechanism and supply his/her
+own credentials to gain access. Alternatively the attacker can exploit
+weaknesses to gain access as the administrator by supplying input of
+their choosing to the underlying CGI script.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,75 @@
+Rule:
+--
+Sid:
+269
+
+--
+Summary:
+A denial of service attack known as Land has been launched. Some TCP/IP 
+stacks crash or hang when sent a spoofed TCP SYN packet with the same 
+source and destination host and the same source and destination port.  
+
+--
+Impact:
+Denial of service against a target host.
+
+--
+Detailed Information:
+The Land denial of service attack attempts to crash or disable a target 
+host by sending a spoofed TCP SYN packet with an identical source and 
+destination IP and identical source and destination port.  Some target 
+hosts will crash others will be temporarily disabled.  
+
+--
+Affected Systems:
+	Windows 95
+	Windows NT Any unpatched version 
+	SCO CMW+ 3.0
+	SCO Open Desktop/Open Server 3.0
+	SCO Open Server 5.0
+	SCO UnixWare 2.1.0
+	Gauntlet 3.2/HP-UX 10.10 and Gauntlet 4.1/HP-UX 10.20
+
+--
+Attack Scenarios:
+A malicious user crafts a packet to cause a Denial of Service against a 
+target host.
+
+--
+Ease of Attack:
+Simple to craft such a packet using any number of packet crafting tools 
+such as nmap and hping.
+
+
+--
+False Positives:
+None known.  This should have a very low likelihood of false positives.
+
+--
+False Negatives:
+The exploit code has an IP identification number and TCP sequence number
+of 3868.  If a user changes the source code to have a different IP 
+identification or TCP sequence number, the rule will not fire. 
+
+--
+Corrective Action:
+Malicious outside attacks can be prevented by configuring your 
+packet-filtering device to block packets from entering your network that
+have source IP's from your network address space. 
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+CAN-1999-0016
+
+CERT:
+CA-1997-28
+
+--

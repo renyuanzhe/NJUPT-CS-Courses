@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+2322
+
+--
+Summary:
+This event is generated when an attempt is made to access foxweb.dll, a 
+component of the FoxWeb CGI web application running on a server.
+
+--
+Impact:
+Possible execution of arbitrary code of the attackers choosing.
+
+--
+Detailed Information:
+The FoxWeb application is used to communicate with FoxPro databases. The
+program foxweb.exe contains an error that may allow an attacker to
+execute arbitrary code of their choosing and possibly gain unauthorized
+administrator access to the server.
+
+--
+Affected Systems:
+	FoxWeb 2.5 and prior
+
+--
+Attack Scenarios:
+An attacker can exploit weaknesses to gain access as the administrator by supplying input of
+their choosing to the CGI program.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

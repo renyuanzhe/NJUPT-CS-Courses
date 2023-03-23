@@ -1,0 +1,66 @@
+Rule:
+--
+Sid:
+621
+--
+Summary:
+A tcp packet with only it's FIN flag set was detected.
+
+--
+Impact:
+Information regarding firewall rulesets, open/closed ports, ACLs, and
+possibly even OS type may be disclosed.  This technique can also be
+used to bypass certain firewalls or traffic filtering/shaping devices.
+
+--
+Detailed Information:
+A tcp packet with only it's FIN flag set was detected.  Most Windows
+machines will respond with an ACK-RST regardless of whether or not the
+port is open.  Most *nix systems will respond with an ACK-RST if the
+port is closed and will not respond at all if the port is open.
+Actual responses may vary.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+As part of information gathering leading up to another (more directed)
+attack, an attacker may attempt to figure out what ports are
+open/closed on a remote machine.
+
+--
+Ease of Attack:
+Intermediate.  To initiate an attack of this type, an attacker either
+needs a tool that can send packets with only the FIN flag set or
+the ability to craft their own packets.  The former is easy, the later
+requires a more advanced skillset.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Determine if this particular port would have responded as being open
+or closed.  If open, watch for more attacks on this particular service
+or from the remote machine that sent the packet.  If closed, simply
+watch for more traffic from this host.  Consider filtering this type
+of traffic at the ingress points of your network.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Jon Hart <warchild@spoofed.org>
+
+-- 
+Additional References:
+
+--

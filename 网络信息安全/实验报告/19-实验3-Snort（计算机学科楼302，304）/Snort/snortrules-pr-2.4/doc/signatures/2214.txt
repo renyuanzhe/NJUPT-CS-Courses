@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2214
+
+--
+Summary:
+This event is generated when an attempt is made to access mailview.cgi on an internal web server. This may indicate an attempt to exploit a directory traversal vulnerability in MailStudio 2000 2.0 and earlier.
+
+--
+Impact:
+Information disclosure.
+
+--
+Detailed Information:
+MailStudio 2000 is mail server software for Solaris or Linux operating systems. It contains a vulnerability where data sent to mailview.cgi is not properly parsed. This can allow an attacker to use directory traversal techniques (/../) within the "html" parameter to view arbitrary files on the system, including other users' email, configuration files, and password files.
+
+--
+Affected Systems:
+Systems running MailStudio 2000 2.0 and earlier.
+
+--
+Attack Scenarios:
+An attacker sends a specially crafted HTTP request to a vulnerable web server with another user's email file as the html argument. The attacker will then be able to view the file.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+If a legitimate remote user accesses mailview.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is not known if this vulnerability has been fixed. Contact the vendor, 3R Soft (http://www.3rsoft.com), for more information.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/1335
+
+--

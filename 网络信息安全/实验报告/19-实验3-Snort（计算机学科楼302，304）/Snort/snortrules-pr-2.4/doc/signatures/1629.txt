@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+1629
+
+--
+Summary:
+This event is generated when network traffic indicating the use of an
+IDS system on the protected network is detected.
+
+--
+Impact:
+These tools may be used to compromise data on the network or may
+indicate mis-use of other IDS systems.
+
+--
+Detailed Information:
+This event indicates the use of an IDS tool. The source of the event
+should be investigated carefully. These tools may be used to gather data
+present in traffic on the protected network.
+
+--
+Affected Systems:
+	All networks.
+
+--
+Attack Scenarios:
+An unathorized user could use an IDS to gather data and observe traffic
+present on the network.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

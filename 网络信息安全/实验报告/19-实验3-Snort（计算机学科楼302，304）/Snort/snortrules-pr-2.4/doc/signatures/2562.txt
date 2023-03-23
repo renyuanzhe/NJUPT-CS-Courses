@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+2562
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with the server component of McAfee's ePolicy Orchestrator (ePO).
+
+--
+Impact:
+A successful attack may permit an attacker to upload malicious code on
+the ePolicy Orchestrator server that may subsequently deliver the
+malicious code to ePolicy agents.
+
+--
+Detailed Information:
+There is a problem with access authentication in McAfee's ePolicy Orchestrator
+server.  This product is responsible for distributing packages and code to
+ePolicy agents, making this a potentially widespread and damaging attack in
+a network.  Because of a failure to authenticate credentials,
+an attacker can perform administrator functions, such as file uploads, by
+connecting the the ePO web server.  The malicious files may be pushed to
+the ePO agents by the ePO Orchestrator.
+
+--
+Affected Systems:
+McAfee ePolicy Orchestrator 2.5.0
+McAfee ePolicy Orchestrator 2.5.1 before Patch 14
+McAfee ePolicy Orchestrator 3.0 before Patch 4 for 2.0 SP2A
+
+--
+Attack Scenarios:
+An attacker can attempt to upload a malicious file using the web
+server of the ePO Orchestrator. The file may be subsequently
+pushed by the Orchestrator to ePO agents.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+If a valid administrator connects to the ePO server and uploads
+files, the alert will trigger.
+
+--
+False Negatives:
+If the ePO server listens on a port other than 81, no alert will
+trigger.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+CVE:
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0038
+
+Bugtraq:
+http://www.securityfocus.com/bid/10200
+
+--

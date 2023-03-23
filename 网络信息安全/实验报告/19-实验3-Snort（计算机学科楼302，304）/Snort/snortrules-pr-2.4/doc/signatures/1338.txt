@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+1338
+
+--
+Summary:
+Attempted chown command access via web
+
+--
+Impact:
+Attempt to change file ownership permissions on a webserver.
+
+--
+Detailed Information:
+This is an attempt to change file ownership permissions on a machine.
+Using thiscommand an attacker may change the permissions of a file to
+suit his ownneeds, make a file owned by another user who would
+otherwise not havethese special permissions.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains '/bin/chown'
+in the URI whichcan then change file permissions of files present on
+the host.Thiscommand may also be requested on a command line should
+the attacker gainaccess to the machine.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries
+outside of it'sdesignated web root or cgi-bin.Whenever possible,
+sensitive files andcertain areas of the filesystem should have the
+system immutable flagset to negate the use of the chown command. On
+BSD derived systems,setting the systems runtime securelevel also
+prevents the securelevelfrom being changed. (note: the securelevel can
+only beincreased)
+
+--
+Contributors:
+Sourcefire Research Team
+
+-- 
+Additional References:
+sid: 1336
+sid: 1337
+
+man chown
+
+--

@@ -1,0 +1,73 @@
+Rule:
+
+--
+Sid:
+1948
+
+--
+Summary:
+A zone transfer of records on the DNS server has been requested.
+
+A successful zone transfer can give valuable reconnaissance about hostnames and IP addresses for the domain.
+
+--
+Impact:
+Information leak, reconnaissance.  A malicious user can gain valuable 
+information about the network.
+
+
+--
+Detailed Information:
+Zone transfers are normally used to replicate zone information between 
+master and slave DNS servers.  If zone transfers have not been 
+restricted to authorized slave servers only, malicious users can attempt
+them for reconnaissance about the network.  The content |00 00 FC| looks
+for the end of a DNS query and a DNS type of 252 meaning a DNS zone 
+transfer.
+
+--
+Affected Systems:
+All versions of BIND.
+
+--
+Attack Scenarios:
+A zone transfer might be a precursor to some kind of attack to gain 
+reconnaissance.
+
+--
+Ease of Attack:
+Simple to perform using tools such as nslookup, dig, and host.
+
+
+--
+False Positives:
+Legitimate zone transfers from authorized slave servers may cause this 
+False positives may arise from TSIG DNS traffic.  If all of your slave 
+servers are in your $HOME_NET and you do not support TSIG, the 
+likelihood of false positives should be very low.
+
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Configure your DNS servers to allow zone transfers from authorized hosts
+only.  
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+CAN-1999-0532
+arachnids,212
+
+
+--

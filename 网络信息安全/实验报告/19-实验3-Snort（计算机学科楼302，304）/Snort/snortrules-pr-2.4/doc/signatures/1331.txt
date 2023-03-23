@@ -1,0 +1,72 @@
+Rule:
+
+--
+Sid:
+1331
+
+--
+Summary:
+Attempted uname command access via web
+
+--
+Impact:
+Attempt to gain information on the host operating system using the uname
+command.
+
+--
+Detailed Information:
+This is an attempt to gain intelligence about the operating system being
+used on a webserver. uname is a UNIX command that will return
+information about the operating system, the machine's architecture, the
+processor architecture and the version level of the software being used.
+This information is valuable to an attacker who can use it to plan
+further attacks based on possible vulnerabilities in the machine's
+operating system.
+
+Using "uname -a", the attackers might be able to gain accurate
+intelligence on the web server platform. The rule looks for the "uname"
+command in the URL part of the client to web server connection and does
+not indicate whether the command was actually successful in showing the
+system information. The presence of the "uname" command in the URL
+indicates that an attacker attempted to trick the web server into
+executing system commands in non-interactive mode i.e. without a valid
+shell session. Another case when this rule might trigger is unencrypted
+HTTP tunneling connection to the server.
+
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains 'uname' in
+the URI which can then return the machine's operating system environment
+architecture.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries
+outside of it's designated web root or cgi-bin. This command may also be
+requested on a command line should the attacker gain access to the machine. 
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Additional information from Anton Chuvakin <http://www.chuvakin.org>
+
+-- 
+Additional References:
+
+man uname
+
+--

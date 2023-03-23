@@ -1,0 +1,60 @@
+Rule:  
+
+--
+Sid:
+2227
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the PHP application Pod.Board.
+
+--
+Impact:
+Execution of arbitrary code on the client machine connecting to the host
+running the application. Theft of cookie data not limited to 
+authentication credentials is possible.
+
+--
+Detailed Information:
+The forum_details.php script does not properly check data supplied in 
+input fields or via URI parameters which leads to HTML injection 
+possibilites. This injection can include malicious script of the 
+attackers choosing.
+
+--
+Affected Systems:
+	planetinsanity.de pod.board 1.1
+
+--
+Attack Scenarios:
+A cross site scripting attack is possible, the attacker would need to 
+entice the victim to use a link supplied by the attacker which could 
+then divulge login and cookie information.
+
+--
+Ease of Attack:
+Moderate to Difficult. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

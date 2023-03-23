@@ -1,0 +1,54 @@
+Rule:  
+
+--
+Sid:
+2209
+
+--
+Summary:
+This event is generated when an attempt is made to access getdoc.cgi on an internal web server. This may indicate an attempt to exploit an authorization bypass vulnerability on Infonautics document subscription sites.
+
+--
+Impact:
+A malicious user may be able to access restricted documents without paying for them.
+
+--
+Detailed Information:
+Infonautics provides online access to research materials, and uses getdoc.cgi to manage the document purchase and view process. A malicious user could alter the content of getdoc.cgi links in order to bypass the payment page, thereby freely viewing documents that they would normally pay money to access.
+
+--
+Affected Systems:
+Infonautics web sites that use getdoc.cgi to manage document access.
+
+--
+Attack Scenarios:
+An attacker sends a specially crafted HTTP request to an Infonautics site, and obtains documents that he/she would normally have to pay for.
+
+--
+Ease of Attack:
+Moderate.
+
+--
+False Positives:
+If a legitimate user accesses getdoc.cgi on an internal web server, this rule may generate an event.
+ 
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+It is not known if a fix has been made available.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+
+--

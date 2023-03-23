@@ -1,0 +1,89 @@
+Rule:
+
+--
+Sid:
+2673
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow
+associated with the processing of a Portable Network Graphics (PNG) file by
+libpng.
+
+--
+Impact:
+A successful attack may cause a buffer overflow and the subsequent execution
+of arbitrary code on a vulnerable client host.
+
+--
+Detailed Information:
+A vulnerability exists in the way libpng handles the transparency chunk of
+a PNG file, enabling a buffer overflow and the subsequent execution of
+arbitrary code on a vulnerable client.  A PNG datastream consists of a PNG
+marker followed by a sequence of chunks that have a specific format and
+function.
+
+When libpng processes a PNG datastream, it expects to find chunk types
+in a particular order.  For an image with palette color type, the PLTE
+(palette) chunk must precede a tRNS (transparency) chunk.  If it does not,
+an error is generated, but decoding continues.  Due to a logic error,
+the length associated with the tRNS chunk is not properly validated.  A
+length of greater than 256 bytes can cause a buffer overflow and the
+subsequent execution of arbitrary code when the PNG image is processed.
+
+--
+Affected Systems:
+Hosts running libpng 1.2.5 and prior
+Hosts running libpng 1.0.15 and prior
+
+--
+Attack Scenarios:
+An attacker can create a malformed PNG file on a web server, entice a user
+to download it, possibly causing a buffer overflow on a vulnerable client.
+
+--
+Ease of Attack:
+Simple. Exploit code exists.
+
+--
+False Positives:
+A false positive may be generated if both the PLTE and tRNS chunks of the PNG
+datastream are not found in the first 300 bytes of the returned packet.  The
+flow_depth parameter of http_inspect can be configured to increase the default
+size of the returned packet.  It should be noted that altering this from the
+default value of 300 bytes may slow performance depending on the type and volume
+of traffic found on your network.
+
+--
+False Negatives:
+An alert may not be generated if PLTE and tRNS chunks of the PNG datastream are
+not found in the first 300 bytes of the returned packet. The flow_depth
+parameter of http_inspect can be configured to increase the default size of the
+returned packet.  It should be noted that altering this from the default value
+of 300 bytes may slow performance depending on the type and volume of traffic
+found on your network.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Joe Stewart <jstewart@lurhq.com>
+Judy Novak <judy.novak@sourcefire.com>
+Brian Caswell <bmc@sourcefire.com>
+
+--
+Additional References
+
+CVE:
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0597
+
+Bugtraq:
+http://www.securityfocus.com/bid/10872
+
+Other:
+http://scary.beasts.org/security/CESA-2004-001.txt
+
+--

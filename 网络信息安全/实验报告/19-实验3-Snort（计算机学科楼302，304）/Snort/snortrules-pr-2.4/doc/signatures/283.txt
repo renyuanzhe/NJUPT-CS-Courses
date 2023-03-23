@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid: 283
+
+--
+Summary:
+Versions of the Netscape browser including and prior to 4.75 are vulnerable to a buffer overflow that may lead to a root shell listening on port 6968. This event is generated when a request is made to a web site exploiting this vulnerability.
+
+--
+Impact:
+System compromize presenting the attacker with the opportunity to
+gain remote access to the victim host.
+
+--
+Detailed Information:
+A buffer overflow condition exists in the HTML parser on some versions of Netscape Navigator. It is possible for a remote attacker to gain a root shell on the victim host.
+
+A long password value in a form field may result in an attacker being able to execute arbitrary commands.
+
+Affected Systems:
+	Netscape Navigator 4.75 and prior
+
+--
+Attack Scenarios:
+The attacker would need to supply a link on a web page or HTML email that triggers the overflow.
+
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-1189
+
+Arachnids:
+http://www.whitehats.com/info/IDS215
+
+Bugtraq:
+http://www.securityfocus.com/bid/822
+
+--

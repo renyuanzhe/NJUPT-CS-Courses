@@ -1,0 +1,58 @@
+--
+Rule:
+
+--
+Sid:
+2271
+
+--
+Summary:
+This event is generated when an attacker attempts to connect to the
+trojan FsSniffer.
+
+--
+Impact:
+Possible theft of data and control of the targeted machine leading to a
+compromise of all resources the machine is connected to.
+
+--
+Detailed Information:
+The FsSniffer program is a Trojan Horse designed to allow unauthorized
+external access to an infected host.
+
+--
+Affected Systems:
+
+--
+Attack Scenarios:
+This Trojan may be delivered to the target in a number of ways. This
+event is indicative of an existing infection being activated. Initial
+compromise may be due to the exploitation of another vulnerability and
+the attacker is leaving another way into the machine for further use.
+
+--
+Ease of Attack:
+This is Trojan activity, the target machine may already be compromised.
+
+--
+False Positives:
+Security tool probing for netbus
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Delete the Trojan and kill any associated processes.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

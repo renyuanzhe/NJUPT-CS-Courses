@@ -1,0 +1,74 @@
+Rule:
+
+--
+Sid:
+2583
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a vulnerability
+associated with CVS.
+
+--
+Impact:
+A successful attack may perform a buffer overflow or a denial of service by
+either causing the CVS server to terminate abruptly or causing an exhaustion of
+disk resources.
+
+--
+Detailed Information:
+A CVS client transaction may reference a file using a relative path
+requiring the use of a directory traversal.  The Max-dotdot keyword and
+appropriate argument are created by the CVS client software to handle
+relative paths.  The appropriate argument represents the maximum number of
+directory levels to be traversed.  It is possible for an attacker
+to supply an overly large value to the Max-dotdot keyword, causing an
+incorrect allocation of memory and possibly causing a buffer overflow or the CVS
+server to crash.  In addition, temporary files are not deleted enabling a disk
+resource exhaustion attack, if repeated many times.  It should be noted
+that an attacker must have CVS access privileges in order to attempt
+these attacks.
+
+
+--
+Affected Systems:
+CVS versions 1.12.8 with the exception of version 1.11.17
+
+--
+Attack Scenarios:
+An attacker can connect to a CVS server and craft an overly large Max-dotdot
+argument value, causing a buffer overflow or causing the vulnerable CVS server
+to crash.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+CVE:
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0417
+
+Bugtraq:
+http://www.securityfocus.com/bid/10499
+
+
+--

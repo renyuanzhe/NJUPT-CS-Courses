@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+
+1810
+
+--
+Summary:
+This event is generated when an attack against an OpenSSH (v2.9 - 3.3) server using the GOBBLES exploit was successful.
+
+--
+Impact:
+Full system compromise with escalated privileges.
+
+--
+Detailed Information:
+This attack exploits the "remote challenge-response" vulnerability in older versions of OpenSSH servers. The vulnerability affects OpenSSH versions 2.9 through 3.3 that have the challenge response option enabled and that also use SKEY or BSD_AUTH authentication. 
+
+--
+Affected Systems:
+Any UNIX Servers that have vulnerable OpenSSH daemon running including but not limited to the following:
+	Mandrake Soft Linux 7.1, 7.2, 8.0, 8.1, 8.2
+	OpenBSD 3.0, 3.1
+	Red Hat Linux 7.0, 7.1, 7.2, 7.3
+	SuSe Linux 6.4, 7.0, 7.1, 7.2, 7.3
+
+--
+Attack Scenarios:
+An attacker first determines what version of OpenSSH the targeted machine is running then launches a publicly available GOBBLES exploit script against it.
+
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable S/Key and BSD Authentication by modifying the sshd_config file
+
+	ChallengeResponseAuthentication no
+
+Upgrade to OpenSSH v3.4 or later
+
+Apply the appropriate vendor supplied patch.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+
+--
+Additional References:
+
+CERT:
+http://www.cert.org/advisories/CA-2002-18.html
+
+--

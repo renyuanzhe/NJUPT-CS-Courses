@@ -1,0 +1,55 @@
+Rule:
+
+--
+Sid:
+632
+
+--
+Summary:
+This event is generated when an external user scans an internal SMTP server using Network Associates' Cybercop vulnerability scanner. 
+
+--
+Impact:
+Information gathering. 
+
+--
+Detailed Information:
+Cybercop Scanner is scanning software that searches for system vulnerabilities. As one of its scanning procedures, it sends an expn command to SMTP server ports to determine if the SMTP server will return a list of email addresses, aliases, and distribution lists.  
+
+--
+Affected Systems:
+Any SMTP server that returns a list of email addresses, aliases, and distribution lists when queried with the expn command.
+
+--
+Attack Scenarios:
+An attacker may run Cybercop Scanner against SMTP servers in order to determine vulnerabilities that can later be exploited.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Disable expn on your mail server.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+
+--

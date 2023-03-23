@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+1993
+
+--
+Summary:
+This event is generated when a remote attacker sends a LOGIN command
+with a suspiciously long argument to an internal IMAP server, indicating
+an attempt to exploit a buffer overflow vulnerability in Carnegie Mellon
+University Cyrus IMAP Server. This may also affect other IMAP server
+implementations.
+
+--
+Impact:
+Possible remote execution of arbitrary code, leading to remote root compromise.
+
+--
+Detailed Information:
+Carnegie Mellon University Cyrus IMAP Server 2.1.10 and earlier contains
+a buffer overflow vulnerability where a malformed, overly long argument
+to a LOGIN command sent to a vulnerable IMAP server can cause a buffer
+overflow condition. This can allow the attacker to overwrite data in
+memory, leading to the execution of arbitrary code on the server with
+the security privileges of the IMAP server process.    
+
+--
+Affected Systems:
+	CMU Cyrus IMAP Server version 2.1.10 or earlier.
+
+--
+Attack Scenarios:
+An attacker sends a LOGIN command with an overly long, specially crafted
+argument to a vulnerable IMAP server, causing a buffer overflow
+condition. The attacker can then overwrite specific words in memory to
+execute arbitrary code on the server with the security privileges of the
+IMAP server process.
+
+--
+Ease of Attack:
+Simple. A proof of concept exists.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+--

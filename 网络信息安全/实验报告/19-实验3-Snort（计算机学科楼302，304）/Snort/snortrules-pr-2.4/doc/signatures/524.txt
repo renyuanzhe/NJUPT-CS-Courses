@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid: 524
+
+--
+Summary:
+This event is generated when TCP traffic to port 0 is detected. This 
+should not be seen in normal TCP communications.
+
+--
+Impact:
+Possible reconnaisance. This may be an attempt to verify the existance 
+of a host or hosts at a particular address or address range.
+
+--
+Detailed Information:
+TCP traffic to port 0 is not valid under normal circumstances.
+
+an indicator of unauthorized network use, reconnaisance activity or 
+system compromise. These rules may also generate an event due to 
+improperly configured network devices.
+
+--
+Affected Systems:
+	Any
+
+--
+Attack Scenarios:
+The attacker could send packets to a host with a destination port of 0. 
+The attacker might also be using hping to verify the existance of a host
+as a prelude to an attack.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow TCP traffic to port 0.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

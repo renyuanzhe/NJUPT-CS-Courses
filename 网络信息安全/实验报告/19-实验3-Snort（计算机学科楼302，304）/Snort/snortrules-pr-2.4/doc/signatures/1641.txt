@@ -1,0 +1,53 @@
+Rule:
+
+--
+Sid:
+1641
+
+--
+Summary:
+This event is generated when potential Denial of Service (DoS) traffic is detected on the network. 
+
+--
+Impact:
+Serious. A DoS attack may be underway.
+
+--
+Detailed Information:
+This event indicates that DoS traffic has been detected. An attempt to exhaust resources on a host may be underway leading to the host being unavailable for legitimate use.
+
+--
+Attack Scenarios:
+An attacker may attempt to exhaust resources available on a host leading to the host being unable to respond to legitimate requests.
+
+--
+Ease of Attack:
+Simple to Difficult.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Perform proper forensic analysis on the suspected compromised host to discover the means of compromise.
+
+Rebuild a confirmed compromised host.
+
+Use a packet-filtering firewall to block inappropriate traffic to the network to prevent hosts from being compromised.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

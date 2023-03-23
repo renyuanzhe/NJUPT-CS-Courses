@@ -1,0 +1,70 @@
+Rule:
+alert ip any any -> any any (msg:"EXPLOIT IGMP IGAP message
+overflow attempt"; ip_proto:2; byte_test:1,>,63,0; byte_test:1,<,67,0;
+byte_test:1,>,64,13; reference:cve,CAN-2004-0176; reference:bugtraq,9952;
+classtype:attempted-admin; sid:2463; rev:1;)
+
+--
+Sid:
+2463
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer overflow
+associated with the Ethereal decode of the Internet Group membership Authentication 
+Protocol (IGAP).
+
+--
+Impact:
+A successful attack may allow the execution of arbitrary code as root or
+LOCAL_SYSTEM privilege on a vulnerable host.
+
+--
+Detailed Information:
+There is a vulnerability associated with particular versions of Ethereal that
+may cause a buffer overflow when a malformed IGAP packet is decoded using Ethereal
+or tethereal.  This may permit the execution of arbitrary code with root or 
+LOCAL_SYSTEM privilege.  The buffer overflow occurs when a larger than expected
+Message Size value is discovered in the IGAP payload.
+
+--
+Affected Systems:
+Any host running Ethereal/tethereal versions 0.10.0 - 0.10.2. 
+
+--
+Attack Scenarios:
+An attacker can create and send a malformed IGAP packet, and if decoded by
+a vulnerable version of Ethereal/tethereal, can cause a buffer overflow and the 
+subsequent execution of arbitrary code.
+
+--
+Ease of Attack:
+Simple. Exploit code is available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Update to version 0.10.3 of Ethereal.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0176
+
+Bugtraq:
+http://www.securityfocus.com/bid/9952:
+
+--

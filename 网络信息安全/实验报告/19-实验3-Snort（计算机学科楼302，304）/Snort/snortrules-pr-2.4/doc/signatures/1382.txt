@@ -1,0 +1,81 @@
+Rule:  
+
+--
+Sid:
+1382
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a known root
+exploit for Ettercap Network Sniffer (Version <= 0.6.2)
+
+--
+Impact:
+Remote attacker is able to gain root shell on host running ettercap.
+
+--
+Detailed Information:
+A buffer overflow in the parsing of IRC traffic for 'nick' passwords 
+enables a remote attacker to execute code of their choice as root on 
+the compromised host.  This is as a result of an unchecked string 
+copy of the captured password in the packet into the buffer used to 
+store all retrieved passwords.  The same or very similar overlows exist 
+for other string matches within this section of code in this and previous 
+versions of ettercap. 
+
+The exploit released by GOBBLES listens on port 0x8000 and provides a
+shell for the attacker.  Since ettercap is generaly run as root in order
+to have access to a promiscuous network interface, the shell will have
+uid=0 (root).
+--
+Attack Scenarios:
+Ettercap is likely to be deployed in 'sensitive' parts of the network
+where a network administrator is analysing passing traffic.  A
+compromise of a host in such a position will not only reveal any
+passwords already captured by ettercap to the attacker, but gives the
+attacker ample opportunity to analyse passing network traffic for
+further useful information.  The host will quite likely be used as a base for
+other attacks.  Ettercap may also be installed on a compromised host for
+the purpose of monitoring or modifying traffic on the hosts network.
+
+--
+Ease of Attack:
+Simple - exploit code pubished by 'GOBBLES' on
+vuln-dev - original posting can be seen here : 
+http://online.securityfocus.com/archive/82/245128
+
+--
+False Positives:
+Unlikely as an 'IDENTIFY' message should not be more than 200 bytes in normal usage.
+
+--
+False Negatives:
+Although the rule is good match for the posted exploit - there are
+several other strings which would match in the vulnerable section of
+code.  A better match might be obtained by specifying 'IDENTIFY ' with
+the datagram size (dsize) greater than 200, although this may introduce more false positives. 
+
+--
+Corrective Action:
+Upgrade to ettercap 0.6.3 or greater
+
+--
+Contributors: 
+Snort documentation contributed by Mark Vevers	Initial Research
+Snort documentation contributed by Josh Gray	Edits
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+Attrition:
+http://www.attrition.org/security/advisory/gobbles/GOBBLES-12.txt
+
+Security Focus archive:
+http://online.securityfocus.com/archive/82/245128
+
+-- 
+
+--

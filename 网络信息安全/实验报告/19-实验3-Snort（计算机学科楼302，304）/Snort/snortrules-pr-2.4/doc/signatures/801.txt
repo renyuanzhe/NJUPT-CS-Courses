@@ -1,0 +1,62 @@
+Rule:  
+
+--
+Sid:
+801
+
+--
+Summary:
+This rule has been placed in deleted.rules. It has been superceded by
+sid 721.
+
+--
+Impact:
+Mail worms may spread rapidly because users execute them.
+
+--
+Detailed Information:
+Windows systems are often configured not to display file extensions.
+By adding a second extension, users get confused and think that an
+executable is a WORD document - e.g. resume.doc.vbs gets displayed as
+resume.doc but is a visual basic script and not a WORD document.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+Famous worms (ILOVEYOU, KOURNIKOVA) are based on this method. Warning:
+A WORD document is in now way more secure than a visual basic script.
+Wrongly configured antivirus software my ignore this files and
+let a macro virus pass.
+
+--
+Ease of Attack:
+Very easy. One needs to attach a file and hope that it gets executed.
+
+--
+False Positives:
+Could be an error on sender's side.
+
+--
+False Negatives:
+None Known
+-
+
+--
+Corrective Action:
+Use antivirus software. Configure mail clients securely, especially when
+using windows desktops. Educate your mail users. Deny all attachments at
+the gateway if you can.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by tobias.haecker@to.com
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

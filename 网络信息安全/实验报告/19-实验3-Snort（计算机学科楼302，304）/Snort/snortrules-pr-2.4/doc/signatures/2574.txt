@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+2574
+
+--
+Summary:
+This event is generated when a remote attacker attempts to exploit a 
+format string vulnerability against an FTP server during authentication.
+
+--
+
+Impact:
+Attempted Admin.  A successful format string attack could result in the
+execution of arbitrary code with the same privileges as the user running
+the FTP daemon.
+
+--
+
+Detailed Information:
+Several FTP daemons are vulnerable to format string exploits during
+authentication to the FTP server.  A successful exploit attempt could 
+result in the remote attacker gaining unauthorized root access to the 
+vulnerable system.
+
+--
+Affected Systems:
+	BolinTech Dream FTP Server version 1.02
+
+--
+
+Attack Scenarios:
+A remote attacker could use a publicly available script to exploit the 
+vulnerability an gain control of the target host.
+
+--
+
+Ease of Attack:
+Simple. Numerous attack scripts exist to exploit this vulnerabiliy.
+
+--
+
+False Positives:
+None known.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+
+--

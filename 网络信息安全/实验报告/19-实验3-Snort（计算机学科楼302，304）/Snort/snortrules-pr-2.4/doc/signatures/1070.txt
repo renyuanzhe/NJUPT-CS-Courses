@@ -1,0 +1,75 @@
+Rule:  
+
+Sid:
+1070
+
+--
+
+Summary:
+This event is generated when an attempt is made to initiate a WebDAV SEARCH 
+on a web server.
+
+--
+Impact:
+Information gathering. Potential Denial of Service (DoS).
+
+--
+Detailed Information:
+IIS 5.0 includes an implementation of WebDAV for purposes of web publishing.
+As shipped, it contains two vulnerabilities that can allow an attacker
+to get a complete directory listing from the web root and to DoS the
+web server.
+
+If the target is IIS 5.0, then an attacker may have gotten a complete
+directory listing from within the web root, which can be useful information
+for attackers (could be a prelude to a more serious attack).  IIS 5.0's
+WebDAV implementation is also vulnerable to a Denial of Service vulnerability
+if the search string is too long.
+
+--
+Affected Systems:
+	IIS 5.0
+	Any web server running WebDAV, though no exploits are known for servers 
+	other than IIS 5.0.
+
+--
+Attack Scenarios:
+Attacker gets a listing by sending something like:
+SEARCH / HTTP/1.1
+Attacker DoSes the web server using pre-existing tools.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Check the host for signs of compromise.
+
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+Disallow WebDAV access to the server from resources external to the
+protected network.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Alex Kirk <alex.kirk@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,61 @@
+Rule:
+
+--
+SID:
+505
+
+--
+Summary:
+This event is generated when an attempt is made to login to a Timbuktu server using an unencrypted link.
+
+--
+Impact:
+Serious. Unauthorized access to the server.
+
+--
+Detailed information:
+Looks at the initial hex code of a Timbuktu client login and captures the login and password  combination. 
+
+This is a poor security practice over the open internet and on untrusted network links. This is a  Timbuktu login going over plaintext to the Timbuktu server.
+
+That means that anyone sniffing the wire can now use the login and password used to gain access to  the Timbuktu server.
+
+--
+Affected Systems:
+	Windows all versions
+	Mac OS 7.5.3 and later
+
+--
+Attack Scenario:
+An attacker can use a sniffer to gain the user login credentials and use the information to gain unauthorized access to the machine.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known
+
+--
+False Negatives:
+Timbuktu may use a port other than 1417 
+
+--
+Corrective Action:
+Use Timbuktu over encrypted links or only on local LANs
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Jake Babbin 
+
+--
+References: 
+
+Arachnids:
+arachnids 229 
+
+--

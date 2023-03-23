@@ -1,0 +1,93 @@
+Rule:  
+
+--
+
+Sid:
+
+557
+
+--
+
+Summary:
+
+A network-internal server has authenticated an external GNUTella client
+connection attempt and they have begun communications.
+
+--
+
+Impact:
+
+Possible policy violation.
+
+--
+
+Detailed Information:
+
+GNUTella is a P2P (Peer-to-Peer) protocol for exchanging arbitrary
+files.  Depending on your site's policies, using it may be a policy
+violation.
+
+If not properly configured, GNUTella clients may accidentally share out
+confidential files.  GNUTella worms (which use deceptive names to
+encourage download) and viruses may also be accidentally downloaded by a
+client.
+
+This rule being triggered means that a GNUTella server has been detected
+on the protected network.
+
+--
+
+Affected Systems:
+
+Any system with a GNUTella server installed (available for most
+platforms)
+
+--
+
+Attack Scenarios:
+It is possible for an inside attack to take place by using peer-to-peer
+clients to transfer corporate data from an internal resource to an
+external third party.
+
+--
+
+Ease of Attack:
+Simple. This is peer-to-peer activity.
+
+--
+
+False Positives:
+
+This rule detects the term "GNUTELLA OK" on all ports.  As a result, any
+email, web page, or other network content that discusses the protocol
+and its messages will trigger this alert.
+
+--
+
+False Negatives:
+
+None known.
+
+--
+
+Corrective Action:
+
+Depends on acceptable use policies.
+
+--
+
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Gene R Gomez (gene!AT!gomezbrothers!DOT!com)
+
+-- 
+
+Additional References:
+
+GNUTella
+http://www.gnutella.com
+
+Gnutella Protocol
+http://rfc-gnutella.sourceforge.net/developer/testing/
+
+--

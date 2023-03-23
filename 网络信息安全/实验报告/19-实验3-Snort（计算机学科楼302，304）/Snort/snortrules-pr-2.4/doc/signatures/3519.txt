@@ -1,0 +1,66 @@
+Rule: 
+
+--
+Sid: 
+3519
+
+-- 
+Summary: 
+This event is generated when an overly long password is sent to the MySQL MaxDB 
+WebSQL service, in an attempt to cause a buffer overflow.
+
+-- 
+
+Impact: 
+Successful attacks against a vulnerable version of this service cause a buffer 
+to be overflowed. The service will crash, and an attacker may be able to 
+execute arbitrary code with the privileges of the web server.
+
+--
+Detailed Information:
+A password value of 294 bytes or more is sufficient to crash vulnerable 
+versions of the service. This value is sent as part of an HTTP POST operation. 
+This rule searches for exploits on port 9999, the default for the server.
+
+--
+Affected Systems:
+	MySQL AB MaxDB 7.5.00
+	MySQL AB MaxDB 7.5.00.08
+	MySQL AB MaxDB 7.5.00.11
+	MySQL AB MaxDB 7.5.00.12
+	MySQL AB MaxDB 7.5.00.14
+	MySQL AB MaxDB 7.5.00.15
+	MySQL AB MaxDB 7.5.00.16
+
+--
+Attack Scenarios: 
+This vulnerability may be exploited using a web browser, or an automated script.
+
+-- 
+Ease of Attack: 
+Simple; can be performed via the standard web interface of the vulnerable 
+application.
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+
+-- 
+Additional References:
+
+--

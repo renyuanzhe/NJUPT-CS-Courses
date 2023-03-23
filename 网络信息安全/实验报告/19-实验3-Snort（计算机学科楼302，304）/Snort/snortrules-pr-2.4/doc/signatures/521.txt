@@ -1,0 +1,54 @@
+Rule:
+--
+Sid:
+521
+
+--
+Summary:
+This event is generated when an overly large UDP packet is observed. 
+
+--
+Impact:
+Possible denial of service.  UDP packet payloads are typically smaller than 4000 bytes.  One possible explanation of a payload of greater than 4000 bytes is an attempted denial of service.
+
+--
+Detailed Information:
+UDP payloads are typically smaller than 4000 bytes since the UDP protocol is intended to be used for the transmission of smaller payloads.  When a large payload is observed, it may be a sign or anomalous activity, perhaps an attempted denial of service against the remote host. 
+
+--
+Affected Systems:
+Any system that listens for a UDP service. 
+
+--
+Attack Scenarios:
+An attacker may craft large UDP payloads in an attempt to cause a denial of service against a remote host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+There may be UDP services offered that naturally support large payload sizes.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Allow only known UDP protocols inbound.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS521
+
+--

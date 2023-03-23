@@ -1,0 +1,63 @@
+Rule:  
+
+Sid:
+1166
+
+--
+
+Summary:
+This event is generated when an attempt is made to download the file ws_ftp.ini
+via a web request.
+
+--
+Impact:
+Serious. Information Disclosure.
+
+--
+Detailed Information:
+When a user of WS_FTP chooses "save password" when connecting to an FTP
+server, the password is stored in the file ws_ftp.ini which may be
+accessible via a web server. The stored passwords use a weak encryption
+scheme that is easy broken.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+An attacker might be able to retrieve the file, use one of the widely
+available password cracking tools and gain valid login information to
+the server.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Check the host for signs of compromise.
+
+Change all passwords used on the host.
+
+Disallow the use of ftp on the server, consider the use of scp to
+transfer files.
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

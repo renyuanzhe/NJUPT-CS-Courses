@@ -1,0 +1,55 @@
+Rule:
+
+--
+Don't have affected systems
+Sid:
+1660
+ 
+--
+Summary:
+This event is generated when an attempt is made to trace previous web requests on the vulnerable server.
+
+--
+Impact:
+Information gathering.  This attack may permit viewing sensitive information such as Session ID values and the paths associated with the web requests.
+
+--
+Detailed Information:
+Microsoft ASP.NET is software used for developing web applications.  It may have tracing enabled to view the previous 50 web requests to the server. At attacker may view sensitive information such as Session ID values and the paths associated withe previous web requests.
+
+--
+Affected Systems:
+
+
+Attack Scenarios:
+An attacker can attempt to access the traced requests to gather information.
+
+--
+Ease of Attack:
+Easy.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Set <trace enabled=false> in web.config
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=10993
+
+--

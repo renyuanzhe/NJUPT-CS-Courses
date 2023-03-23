@@ -1,0 +1,64 @@
+Rule:  
+--
+
+Sid:
+1054
+
+--
+
+Summary:
+Someone attempted to gain unauthorized access to web application source code
+through a BEA WebLogic Server or Apache Tomcat JSP vulnerability.
+
+--
+Impact:
+An attacker may have been able to read the source code to a web application.
+Sometimes web application source code contains highly sensitive information,
+such as database passwords and information concerning backend setups.  This
+could be a prelude to further attacks.
+
+--
+Detailed Information:
+Some versions of BEA WebLogic and Apache Tomcat web servers contain
+vulnerabilities that can allow an attacker to read the source code to
+web applications.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+Attacker sends a simple URL like the following:
+http://www.example.com/index.js%70
+
+--
+Ease of Attack:
+Very simple handcrafted URL.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Examine the packet to see if a web request was being done.  Try to
+determine what the requested file was, and determine
+from the web server's configuration whether it was a threat or not
+(e.g., whether the requested file even existed and whether the web
+server was vulnerable to such attacks).
+
+--
+Contributors:
+Original rule writer unknown
+Original document author unkown
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,64 @@
+Rule:
+
+--
+Sid:
+2978
+
+--
+Summary:
+This event is generated when an attempt is made to access the C$ default
+administrative share of a Windows host.
+
+--
+Impact:
+Serious. Possible administrator access to the host. Information 
+disclosure.
+
+--
+Detailed Information:
+By default, Windows hosts have default administrative shares of the 
+local hard drives using the format %DRIVE_LETTER% + $. Anybody with 
+administrative rights can remotely access the share.
+
+--
+Affected Systems:
+	Windows hosts.
+
+--
+Attack Scenarios:
+An attacker may be attempting to access files located on the C drive of 
+the host.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disallow Netbios access from external networks (tcp port 139).
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Josh Sakofsky
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS339
+
+Microsoft:
+http://support.microsoft.com/default.aspx?scid=kb;en-us;100517
+
+--

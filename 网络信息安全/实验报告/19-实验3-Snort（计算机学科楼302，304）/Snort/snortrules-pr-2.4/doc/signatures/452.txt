@@ -1,0 +1,63 @@
+Rule:
+
+--
+
+Sid:
+452
+
+--
+
+Summary:
+This event is generated when a network host generates an ICMP Timestamp Reply with an invalid or undefined ICMP Code.
+
+--
+
+Impact:
+Information-gathering.  An ICMP Timestamp Reply message is sent in response to an ICMP Timestamp Request message.  If the ICMP Timestamp Reply message reaches the requesting host it indicates that the replying host is alive.  Most OS's (operating systems) will accept an ICMP Timestamp Reply message with an invalid or undefined ICMP code set as a valid ICMP Timestamp Reply.
+
+--
+
+Detailed Information:
+ICMP Type 0 Code 0 is the RFC defined messaging type for ICMP Timestamp Reply datagrams.  This type of message is used to determine if a host is active on the network.
+
+If ICMP type 8 (echo) traffic is filtered at a firewall, an attacker may try to use type 14 (timestamp) as an alternative.
+
+--
+
+Attack Scenarios:
+Remote attackers my generate ICMP Timestamp Reply datagrams with invalid ICMP Codes in an attempt to cause faults in the applications or hosts generating ICMP Timestamp Requests.
+
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate this type of ICMP datagram.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+--
+
+Corrective Action:
+Use ingress filtering to prevent ICMP Type 0 messages from entering the network.
+
+--
+
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+
+Additional References:
+None
+
+
+--

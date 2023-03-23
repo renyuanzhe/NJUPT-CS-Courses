@@ -1,0 +1,73 @@
+Rule:  
+
+--
+Sid:
+281
+
+--
+Summary:
+This event is generated when an attempt is made to issue a Denial of 
+Service (DoS) attack that causes some Ascend routers to reboot.
+
+--
+Impact:
+Denial of Service. Traffic between network segments or between internal 
+and external networks can be disrupted.
+
+--
+Detailed Information:
+Some Ascend routers run configuration software that is able to locate 
+other Ascend routers by broadcasting on UDP port 9 (discard).  This port
+is listened on by the Java Configurator tool.  A packet with a specially
+crafted payload can cause the routers to reboot.
+
+--
+Affected Systems:
+	Lucent Ascend MAX Router 5.0 and previous
+	Lucent Ascend Pipeline Router 6.0 and previous
+	Lucent Ascend Pipeline Router 6.0 and previous
+
+
+--
+Attack Scenarios:
+Ascend routers can be forced to reboot remotely without authorization.  
+Since the offending packet is UDP (which is not connection oriented), 
+the sending address can be easily spoofed.  
+
+--
+Ease of Attack:
+Simple.  An exploit is available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+An upgrade is available from the manufacturer.  Filtering traffic to 
+port 9 will also prevent this exploit.  
+
+--
+Contributors:
+Original Rule Writer Unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Steven Alexander<alexander.s@mccd.edu>
+
+-- 
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS262
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0060
+
+Bugtraq:
+http://www.securityfocus.com/bid/714
+
+--

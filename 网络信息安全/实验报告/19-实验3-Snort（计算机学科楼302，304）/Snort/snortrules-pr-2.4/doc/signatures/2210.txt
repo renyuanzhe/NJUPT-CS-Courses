@@ -1,0 +1,56 @@
+Rule:  
+
+--
+Sid:
+2210
+
+--
+Summary:
+This event is generated when an attempt is made to access global.cgi on an internal server. This may indicate an attempt to exploit an arbitrary command execution vulnerability in Global 3.55 on NetBSD.
+
+--
+Impact:
+Arbitrary code execution.
+
+--
+Detailed Information:
+Global is a source code tagging system for NetBSD. Versions 3.55 and earlier contain a vulnerability where commands sent to global.cgi are improperly parsed, allowing attackers to execute arbitrary code with the security context of the web server.
+
+--
+Affected Systems:
+Systems running Global 3.55 or lower on NetBSD.
+
+--
+Attack Scenarios:
+An attacker sends a specially crafted HTTP request to global.cgi on a vulnerable web server. The web server then attempts to execute the commands included in the URL.
+
+--
+Ease of Attack:
+Simple. Proof of concept exists.
+
+--
+False Positives:
+If a legitimate remote user accesses global.cgi, this rule may generate an event.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to Global 4.01 or higher.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Sourcefire Technical Publications Team
+Jennifer Harvey <jennifer.harvey@sourcefire.com>
+
+-- 
+Additional References:
+Bugtraq
+http://www.securityfocus.com/bid/1854
+
+--

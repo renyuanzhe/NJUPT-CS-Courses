@@ -1,0 +1,78 @@
+Rule:
+
+--
+Sid:
+1411
+
+--
+
+Summary:
+This event is generated when an SNMP connection over UDP using the 
+default 'public' community is made.
+
+--
+
+Impact:
+Information gathering
+
+--
+
+Detailed Information:
+SNMP (Simple Network Management Protocol) v1 uses communities and IP 
+addresses to authenticate communication between the SNMP client and SNMP
+daemon. Many SNMP implementations come pre-configured with 'public' and 
+'public' communities. If these are not disabled, the attacker can 
+gather a great deal of information about the device running the SNMP 
+daemon.
+
+--
+
+Affected Systems:
+Devices running SNMP daemons with 'public' community enabled.
+
+--
+
+Attack Scenarios:
+An attacker scans a range of IPs for SNMP servers having the 'public' 
+community set and gathers information about the hosts.
+
+--
+
+Ease of Attack:
+Simple.
+
+--
+
+False Positives:
+None known.
+
+--
+
+False Negatives:
+None known.
+
+--
+
+Corrective Action:
+Disable the 'public' and 'private' communities before connecting the 
+device with SNMP on the Internet or block access to SNMP ports using a 
+packet filtering firewall for unauthorized addresses.
+
+--
+
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+
+-- 
+
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0013
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2002-0012
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0517
+
+--

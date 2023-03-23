@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid: 311
+
+--
+Summary:
+Versions of the Netscape browser including and prior to 4.75 are vulnerable to a buffer overflow that may lead to arbitrary code execution on the victim host. It is also possible to open a root shell listening on a high port on the victim host. This event is generated when a request is made to a web site exploiting this vulnerability.
+
+--
+Impact:
+System compromize presenting the attacker with the opportunity to
+execute arbitrary code on the victim host.
+
+--
+Detailed Information:
+A buffer overflow condition exists in the HTML parser on some versions of Netscape Navigator. It is possible for a remote attacker to execute arbitrary code on the victim host.
+
+It is possible to crash Netscape Communicator if a large number of characters is supplied in a command from an interactive web page.
+
+Affected Systems:
+	Netscape Navigator 4.75 and prior
+
+--
+Attack Scenarios:
+The attacker would need to supply a link on a web page or HTML email that triggers the overflow. It is also possible to cause the overflow via HTML email.
+
+Exploit scripts are available
+
+--
+Ease of Attack:
+Simple. Exploits are available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+--
+Contributors:
+Max Vision <vision@whitehats.com>
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2000-1187
+
+Bugtraq:
+http://www.securityfocus.com/bid/822
+
+--

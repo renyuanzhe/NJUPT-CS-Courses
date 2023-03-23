@@ -1,0 +1,74 @@
+Rule:
+
+
+--
+Sid:
+1273
+
+--
+Summary:
+This event is generated when an attempt is made through a portmap GETPORT request to discover the port where the Remote Procedure Call (RPC) selection_svc is listening.
+
+--
+Impact:
+Information disclosure.  This request is used to discover which port selection_svc is using.  Attackers can also learn what versions of the selection_svc protocol are accepted by selection_svc.
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts. It can be queried to determine the port where RPC services such as selection_svc run.  The selection_svc RPC service is used by SunView, an old windowing system from Sun.  A vulnerability exists in selection_svc that allows a remote user to read files that are readable by SunView. 
+
+--
+Affected Systems:
+Sun SunOS 3.5
+Sun SunOS 4.0
+Sun SunOS 4.0.1
+Sun SunOS 4.0.2
+Sun SunOS 4.0.3
+Sun SunOS 4.1
+Sun SunOS 4.1.1
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover the port where selection_svc runs.  This may be a precursor to accessing selection_svc.
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+If a legitimate remote user is allowed to access selection_svc, this rule may trigger.
+
+--
+False Negatives:
+This rule detects probes of the portmapper service for selection_svc, not probes of the selection_svc service itself. Because RPC services often listen on fairly arbitrary ports, it may not be possible to detect misuses of the selection_svc service itself. An attacker may attempt to go directly to the selection_svc port without querying the portmapper service which, would not trigger the rule.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/8
+
+CERT
+http://www.cert.org/advisories/CA-1990-05.html
+
+Arachnids 
+http://www.whitehats.com/info/IDS25
+
+
+--

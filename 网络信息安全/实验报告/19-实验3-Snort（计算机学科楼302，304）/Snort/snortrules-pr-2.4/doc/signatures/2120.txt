@@ -1,0 +1,75 @@
+Rule:
+
+--
+Sid:
+2120
+
+--
+Summary:
+This event is generated when a remote user uses the IMAP CREATE command
+to send a suspiciously long string to port 143 on an internal server.
+This may indicate an attempt to exploit a buffer overflow vulnerability
+in the IMAP CREATE command in the Alt-N MDaemon IMAP server. This may
+also affect other IMAP implementations.
+
+--
+Impact:
+Remote execution of arbitrary code, which could allow an attacker to
+interfere with or crash mail services. The attacker must have a valid
+IMAP account and must be authenticated by the mail server to attempt
+this exploit.
+
+--
+Detailed Information:
+This event may indicate an attempt to exploit a buffer overflow
+vulnerability in the Alt-N MDaemon IMAP server CREATE command. If an
+authenticated user creates a folder with a sufficiently long name on the
+Alt-N MDaemon IMAP server, arbitrary commands can be executed with
+system privileges. 
+
+--
+Affected Systems:
+	Alt-N MDaemon 6.7.5 or Alt-N MDaemon 6.7.9 IMAP servers.
+
+--
+Attack Scenarios:
+An authenticated user can create a new folder with a sufficiently long
+name, creating a buffer overflow condition. The attacker can then
+execute arbitrary code with system privileges, which may allow the
+attacker to interfere with or crash mail services.
+
+--
+Ease of Attack:
+Exploits exist, but the user must have an account and be authenticated
+before attempting the exploit.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Apply the appropriate vendor supplied patches.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Sourcefire Technical Publications Team
+Jen Harvey <jennifer.harvey@sourcefire.com>
+
+--
+Additional References:
+
+Nessus
+http://cgi.nessus.org/plugins/dump.php3?id=11577
+
+--

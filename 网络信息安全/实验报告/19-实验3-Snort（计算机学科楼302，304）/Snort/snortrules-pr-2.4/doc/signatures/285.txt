@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid: 
+285
+
+--
+Summary:
+This event generated when an attempt is made to exploit a buffer overflow in the pop2 service.
+
+--
+Impact: 
+Remote access.  This attack may permit the execution of arbitrary commands on the vulnerable host with the privileges of the user "nobody".
+
+--
+Detailed Information:
+Access to the user "nobody" can be obtained with pop2 or pop3 servers that support "anonymous proxy".  "Anonymous proxy" permits the use of a proxy pop server to access mail on another pop server where the user has a valid account.  This access to the proxy server as user "nobody".  A buffer overflow exists because of improper user input filtering, allowing the attacker to enter an overly long argment to the FOLD command.  This may permit the execution of arbitrary commands on the vulernable server with the privileges of the user "nobody".
+
+--
+Affected Systems:
+Debian Linux 2.1
+Redhat Linux 4.2, 5.0, 5.1, and 5.2
+University of Washington imap 4.4
+University of Washington pop2d 4.4
+
+--
+Attack Scenarios:
+An attacker may attempt to exploit a vulnerable pop2 server, permitting the execution of arbitrary commands with the privilege of user "nobody". 
+
+--
+Ease of Attack:
+Simple.  Exploit scripts are freely available.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the pop2d version 4.51 or later. 
+
+Compile pop2d to not support anonymous proxing.
+
+--
+Contributors:
+Original rule writer unknown
+Documented by Steven Alexander<alexander.s@mccd.edu>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/283
+
+
+--

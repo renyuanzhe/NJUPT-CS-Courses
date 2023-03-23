@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid:
+3080
+
+--
+Summary:
+This event is generated when a remote attacker sends an overly long "secure"
+query to a host acting as an Unreal engine server.  This may
+indicate an attempt to exploit a buffer overflow vulnerability.
+
+--
+Impact:
+Serious. A successful buffer overflow can permit the execution of arbitrary
+code on a vulnerable system.
+
+--
+Detailed Information:
+Unreal Tournament 2003 and 2004 are popular games developed by EpicGames and
+available for Linux, Windows and Macintosh platforms. The Unreal engine is
+used for both client and server functionality. An overly long "secure"
+query can be sent to the game server, causing a buffer overflow and the
+subsequent execution of arbitrary code.
+
+--
+Affected Systems:
+	Multiple versions of the Unreal Engine running on Linux, Microsoft
+	Windows and Macintosh platforms.
+
+--
+Attack Scenarios:
+An attacker can send an overly long "secure" query to a vulnerable host, causing
+a buffer overflow and the subsequent execution of arbitrary code.
+
+--
+Ease of Attack:
+Simple. Exploits exist.
+
+--
+False Positives:
+Unreal servers can be configured to run on arbitrary ports.
+Administrators should either change the port used in the rule or create
+a variable for the ports to be used in the rule.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current nonaffected version of the software.
+
+--
+Contributors:
+Sourcefire Vulnerability Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+OSVDB
+http://www.osvdb.org/displayvuln.php?osvdb_id=7217&Lookup=Lookup
+
+--

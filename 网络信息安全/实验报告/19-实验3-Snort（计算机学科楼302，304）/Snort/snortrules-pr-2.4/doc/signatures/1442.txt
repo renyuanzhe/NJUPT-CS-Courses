@@ -1,0 +1,53 @@
+Rule:
+
+--
+Sid:
+1442
+
+--
+Summary:
+This event is generated when a TFTP GET request is made for the "shadow" file.  This could be an indication that a remote attacker has compromised a system on the network and is transfering sensitive files back to the attacking system.
+
+--
+Impact:
+The "shadow" file normally stores encrypted password hashes and users names for Unix based systems.  If this file is being transfered over the network using TFTP it is normally an indication of a system compromise.
+
+In some situations this rule may only indicate a generic TFTP scan attempt, as the attacker may be scanning a large range of IP addresses for TFTP improperly configured TFTP servers.
+
+--
+Detailed Information:
+This rule searches for the filename "shadow" in TFTP GET requests.  The "shadow" file is used by Unix based systems to store encrypted password hases and users names for the system.
+
+--
+Attack Scenarios:
+After a successful system compromise an attacker may setup a tftp service to transfer files back to the attacking system.  Under this scenario these source address will point to the attack network and the destination address will be an address defined in the HOME_NET.
+
+Attackers may also scan large subnets for TFTP servers and make numerous generic GET request for common system files. 
+
+--
+Ease of Attack:
+Simple: Numerous tools and automated scripts exist for scanning large subnets for improperly configured TFTP servers.
+
+--
+False Positives:
+This rule was created to catch TFTP GET requests for "shadow", if this file name is being used during a legitimate TFTP session this rule will generate a false positive.
+
+--
+False Negatives:
+None known
+
+--
+Corrective Action:
+Depending on the situation blocking the attacker at the upstream router or firewall will eliminate the problem.  However, if the TFTP server is incorrectly configured and is actually serving the "shadow" file, it should be configured to only serve specific files from a safe directory.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski Matt.Watchinski@sourcefire.com
+
+--
+Additional References
+None
+
+--

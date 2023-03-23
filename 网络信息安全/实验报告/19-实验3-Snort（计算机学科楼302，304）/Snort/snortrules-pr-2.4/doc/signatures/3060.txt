@@ -1,0 +1,54 @@
+Rule:
+
+--
+Sid:
+3060
+
+--
+Summary:
+This event is generated when an attempt is made to initiate a TLS
+connection via SSL version 2.
+
+--
+Impact:
+Unknown.
+
+--
+Detailed Information:
+This rule indicates that an attempt has been made to initiate a TLS
+connection via SSL v2. This rule should not generate an event.
+
+--
+Affected Systems:
+	All implementations using SSL.
+
+--
+Attack Scenarios:
+NA
+
+--
+Ease of Attack:
+NA
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+NA
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

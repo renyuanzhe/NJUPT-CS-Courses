@@ -1,0 +1,48 @@
+# This is a template for submitting snort signature descriptions to
+# the snort.org website
+#
+# Ensure that your descriptions are your own
+# and not the work of others.  References in the rules themselves
+# should be used for linking to other's work. 
+#
+# If you are unsure of some part of a rule, use that as a commentary
+# and someone else perhaps will be able to fix it.
+# 
+# $Id: snort-sid-template.txt,v 1.1 2002/10/09 13:06:31 cazz Exp $
+#
+# 
+
+Rule:  
+
+--
+Sid:
+
+--
+Summary:
+
+--
+Impact:
+
+--
+Detailed Information:
+
+--
+Attack Scenarios:
+
+--
+Ease of Attack:
+
+--
+False Positives:
+
+--
+False Negatives:
+
+--
+Corrective Action:
+
+--
+Contributors:
+
+-- 
+Additional References:

@@ -1,0 +1,56 @@
+Rule: 
+
+--
+Sid: 
+546
+
+--
+Summary: 
+This event is generated when an attempt is made to navigate in an FTP session to a hidden directory name that begins with a space.
+
+--
+Impact: 
+Unauthorized file storage.  An attacker may attempt to navigate on an FTP server to a directory name that begins with a space to list or store unauthorized files such as unlicensed software.
+
+--
+Detailed Information: 
+An attacker may attempt to hide unauthorized files in a hidden directory name that begins with a space.   This hidden directory is hard to discover, permitting attackers to store unauthorized "warez" files, such as unlicensed or pirated software.
+
+--
+Affected Systems: 
+FTP servers
+
+--
+Attack Scenarios: 
+An attacker may navigate to the hidden directory name that begins with a space to list or store unauthorized files.
+
+--
+Ease of Attack: 
+Simple
+
+--
+False Positives: 
+It is remotely possible that an authorized directory exists with a name that begins with a space.
+
+--
+False Negatives: 
+Hidden directories other than those with names that begin with a space may be used to store "warez" files.
+
+--
+Corrective Action: 
+Assign restrictive permissions to all directories so unauthorized users cannot navigate or write to them.
+
+Regularly monitor directories for sudden or drastic increased use of space.
+
+--
+Contributors: 
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Snort documentation contributed by Chaos <c@aufbix.org>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,61 @@
+Rule:
+
+--
+Sid:
+598
+
+--
+Summary:
+This event is generated when an attempt is made dump entries from the portmapper.
+
+--
+Impact:
+Information disclosure.  This request can discover what Remote Procedure Call (RPC) services are offered and on which ports they listen. 
+
+--
+Detailed Information:
+The portmapper service registers all RPC services on UNIX hosts.  It can be queried for all RPC services running, the RPC program name and version, the protocol (TCP or UDP), and the port where the service listens.  This can provide an attacker with valuable information about what RPC services are offered and on which ports.
+
+--
+Affected Systems:
+All hosts running portmapper.
+
+--
+Attack Scenarios:
+An attacker can query the portmapper to discover RPC services and their associated listening ports. 
+
+--
+Ease of Attack:
+Simple. Execute 'rpcinfo -p hostname/IP'.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to RPC-enabled machines.
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Original rule written by Max Vision <vision@whitehats.com>
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Arachnids:
+http://www.whitehats.com/info/IDS429
+
+
+--

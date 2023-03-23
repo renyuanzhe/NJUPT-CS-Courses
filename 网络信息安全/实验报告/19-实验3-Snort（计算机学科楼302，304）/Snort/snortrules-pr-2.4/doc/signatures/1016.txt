@@ -1,0 +1,56 @@
+Rule:
+
+--
+Sid:
+1016
+
+--
+Summary:
+This event is generated when an attempt is made to craft a URL containing a reference to the "/global.asa" file.
+
+--
+Impact:
+Intelligence gathering.  This attack may permit disclosure of the source code of global.asa file that is not normally available for viewing.
+
+--
+Detailed Information:
+Microsoft Internet Information Services (IIS) 5.0 contains scripting engines to support various advanced files types such as .ASP and .HTR.  The scripting engines permit the execution of server-side processing.  IIS determines which scripting engine is appropriate depending on the file extension.  If an attacker crafts a URL request ending in 'Translate: f' and followed by a slash '/', IIS fails to send the file to the appropriate scripting engine for processing.  Instead, it returns the source code of a referenced file, such as global.asa, to the browser.  The Nessus vulnerability scanner references the global.asa file in a GET request to determine whether a host is susceptible to this exploit.
+
+--
+Affected Systems:
+Microsoft IIS 5.0
+
+--
+Attack Scenarios:
+An attacker can craft a URL that includes the 'Translate: f' followed by a '/' to disclose the source code of a file such as global.asa on the vulnerable server. 
+
+--
+Ease of Attack:
+Simple.  The Nessus vulnerability scanner can test for this exploit. 
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the patch referenced in the Microsoft link.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/MS00-058.asp
+
+--

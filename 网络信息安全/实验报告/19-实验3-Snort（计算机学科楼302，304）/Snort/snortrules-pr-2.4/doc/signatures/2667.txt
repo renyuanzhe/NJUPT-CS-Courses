@@ -1,0 +1,65 @@
+Rule: 
+
+--
+Sid: 
+2667
+
+-- 
+Summary: 
+This event is generated when an attempt is made to access the file
+ping.asp.
+
+-- 
+Impact: 
+Possible Denial of Service (DoS)
+
+--
+Detailed Information:
+The script ping.asp allows a user to use the system ping command to send
+ICMP echo request messages to a third party from the web server hosting
+the script.
+
+This script does not properly sanitize user input and may be used as a
+tool in a DoS attack against that third party server.
+
+--
+Affected Systems:
+	All systems
+
+--
+Attack Scenarios: 
+An attacker can supply the address of a target host and pass parameters
+to the ping command via the web interface to cause a possible exhaustion
+of resources on a target host to cause the DoS condition.
+
+-- 
+Ease of Attack: 
+Simple
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Uninstall the script ping.asp
+
+Only allow usage from authenticated users
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+SecurityFocus mailing list:
+http://online.securityfocus.com/archive/82/275088
+
+--

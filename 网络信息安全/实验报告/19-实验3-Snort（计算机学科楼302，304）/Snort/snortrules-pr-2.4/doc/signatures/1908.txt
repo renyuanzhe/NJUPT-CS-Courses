@@ -1,0 +1,70 @@
+Rule:
+
+Sid:
+1909
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a buffer
+overflow associated with the Remote Procedure Call (RPC) Calendar
+Manager Service daemon, cmsd.
+
+--
+Impact:
+Remote root access. The attack may allow execution of arbitrary commands
+with the privileges of root.
+
+--
+Detailed Information:
+The cmsd RPC service implements the Calendar Manager Service daemon that
+is often distributed with the Common Desktop Environment (CDE) and Open
+Windows. The Calendar Manager daemon provides appointment and scheduling
+functions for CDE. A buffer overflow exists in the rtable_insert()
+function because of improper bounds checking, allowing the execution of
+arbitrary commands with the privileges of root.  One possible exploit
+vector is by inserting appointments into the Calendar Manager database.
+ 
+--
+Affected Systems:
+	SCO Open UNIX 8.0
+	SCO UnixWare 7.1.1
+	HP-UX 10.20, 10.24, 10.30, 11.0
+	Sun Solaris 2.3, 2.4, 2.5, 2.5.1, 2.6, 7.0
+	Sun SunOS 4.1.3, 4.1.4
+
+--
+Attack Scenarios:
+The attacker can use the exploit code to overflow the buffer allowing
+execution of arbitrary commands with the privileges of root.
+
+--
+Ease of Attack:
+Simple. Exploit code is freely available.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Limit remote access to RPC services.
+
+Filter RPC ports at the firewall to ensure access is denied to
+RPC-enabled machines. 
+
+Disable unneeded RPC services.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+--

@@ -1,0 +1,59 @@
+Rule:
+
+--
+Sid:
+3545
+
+--
+Summary:
+This event is generated when an attempt is made to view a log associated
+with the TrackerCam web server.
+
+--
+Impact:
+A successful attack can allow information disclosure about users and
+files associated TrackerCam.
+
+--
+Detailed Information:
+A vulnerability exists in the TrackerCam webcam HTTP server that allows
+unauthorized users to view the log file associated with TrackerCam to be
+viewed.  This can offer information about users, IP addresses, and files
+associated with this application. This can assist an attacker in gaining
+access to the server.
+
+--
+Affected Systems:
+	TrackerCam 5.12
+
+--
+Attack Scenarios:
+An attacker view the log server and retrieve valuable information.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References
+
+Other:
+http://aluigi.altervista.org/adv/tcambof-adv.txt
+--

@@ -1,0 +1,63 @@
+Rule:
+
+--
+Sid:
+996
+
+
+--
+Summary:
+This event is generated when an attempt is made to request an HTTP-based password change.
+
+--
+Impact:
+Information gathering/remote access.  Error messages from failed password changes can indicate whether a given account exists on the server.  Successful password changes can allow remote access to the server. 
+
+--
+Detailed Information:
+Microsoft Internet Information Services (IIS) Version 4 supplies a feature to allow users to make remote password changes.  The iisadmpwd directory has several .HTR files that are used to implement the password changes.  An attacker can request a change and use a returned form to supply an account name, existing password, and new password either to brute force changes or discover whether a specific account name exist. 
+
+--
+Affected Systems:
+
+Microsoft IIS 4.0
+
+--
+Attack Scenarios:
+An attacker can request password changes to discover existing accounts or brute force password changes.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Remove the IISADMPWD virtual directory to disable remote password changes.
+
+Consider running the IIS Lockdown Tool to disable HTR functionality.
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-0407
+
+Bugtraq
+http://www.securityfocus.com/bid/2110
+
+--

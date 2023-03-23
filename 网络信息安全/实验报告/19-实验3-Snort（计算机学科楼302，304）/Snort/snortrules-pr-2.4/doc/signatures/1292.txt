@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid: 
+1292
+
+--
+Summary: 
+This may be post-compromise behavior indicating the use of Windows
+directory listing tools.
+
+--
+Impact: 
+Varies, an attacker might have gained an ability to execute commands remotely
+
+--
+Detailed Information:
+This rule is aimed at catching the standard Windows commands for
+listing directories. The string "Volume Serial Number" is typically shown in
+front of the directory listing on Windows NT/2000/XP.  Seeing such a
+response in the HTTP traffic indicates that somebody have managed to
+"convince" the web server to spawn a shell bound to a web port and
+have successfully executed at least one command to list the
+directory. Note that the source address of this signature is actually
+the victim and not the attacker as for the exploit signatures.
+
+--
+Affected Systems:
+	Microsoft Windows systems
+
+--
+Attack Scenarios:
+An attacker gains an access to a Windows web server via IIS vulnerability 
+and manages to start a cmd.exe shell. He then proceeds to look for 
+interesting files on the compromised server via the "dir" command.
+
+--
+Ease of Attack: 
+Simple. This post-attack behavior can accompany different attacks.
+
+--
+False Positives: 
+The rule will generate an event if the string "Volume Serial Number" appears in the 
+content distributed by the web server, in which case the rule should be 
+tuned.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action: 
+Investigate the web server for signs of compromise,
+
+Use system integrity checking software, check for other IDS alerts
+involving the same IP addresses.
+
+--
+Contributors: 
+Snort documentation contributed by Anton Chuvakin <http://www.chuvakin.org>
+Sourcefire Vulnerability Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

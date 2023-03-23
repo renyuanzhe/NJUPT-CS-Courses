@@ -1,0 +1,68 @@
+Rule:
+
+--
+Sid:
+
+806
+
+--
+Summary:
+This event is generated when an attempt is made to access a file outside the root directory of a webserver running YaBB.cgi.
+
+
+--
+Impact:
+
+Information disclosure.
+
+--
+Detailed Information:
+
+YaBB.cgi is widely used web-based BBS script. Due to input validation problems in YaBB, a remote attacker can traverse the directory structure and view any files and view any file that a webserver has access to.
+
+This event indicates that a remote attacker has attempted to view a file outside the webservers root directory.
+
+--
+Affected Systems:
+
+YaBB YaBB 9.1.2000
+
+--
+Attack Scenarios:
+
+An attacker issues the following command on port 80 of the webserver:
+
+GET http://target/cgi-bin/YaBB.pl?board=news&action=display&num=../../../../../../../../etc/passwd%00 HTTP/1.0
+
+--
+Ease of Attack:
+
+Simple. No exploit software required.
+
+--
+False Positives:
+
+None known.
+
+--
+False Negatives:
+
+None known.
+
+--
+Corrective Action:
+ 
+Update to the latest non-affected version of the software.
+
+--
+Contributors:
+Original Rule Writer Unknown
+Snort documentation contributed by Nawapong Nakjang (tony@ksc.net, tonie@thai.com)
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

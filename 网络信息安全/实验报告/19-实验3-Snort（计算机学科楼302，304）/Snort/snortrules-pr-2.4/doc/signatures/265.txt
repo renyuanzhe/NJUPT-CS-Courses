@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+265
+
+--
+Summary:
+This event is generated when spurious DNS traffic is detected on the network. 
+
+--
+Impact:
+Ranges from harmless to severe.  A successful corrupted DNS IP and name pairing can range from harmless (if the IP is not used) to severe (if a user is misdirected to a hostile host).
+
+--
+Detailed Information:
+This event indicates that abnormal DNS traffic has been detected. The implications are varied and careful investigation of the source and destination should be undertaken.
+
+This may be the result of an improperly configured DNS server or it may be an indication that an attack against the DNS server is underway.
+
+--
+Affected Systems:
+Any DNS server.
+
+--
+Attack Scenarios:
+An attacker can spoof a DNS response to misrepresent an IP to host/name pairing.  The forged host name can direct a user to a potentially hostile host.
+
+--
+Ease of Attack:
+Simple to Difficult depending on the DNS implementation.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Consider using DNSSEC where appropriate.
+
+Keep all DNS software up to date and correctly configured.
+
+--
+Contributors:
+Original rule writer unknown
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+
+--

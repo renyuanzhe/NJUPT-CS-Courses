@@ -1,0 +1,69 @@
+Rule:  
+
+Sid:
+1372
+
+--
+Summary:
+This event is generated when an attempt is made to retrieve a protected
+system file on a host via a web request.
+
+--
+Impact:
+Information Gathering.
+
+--
+Detailed Information:
+The shadow file usually found in the /etc/ directory on UNIX based
+systems, contains login information for users of a host.
+
+In this case, the rule will generate an event due to the attempted
+transfer of a shadow file. This file is generally used on muli-user
+systems to provide greater security for user passwords. This file should
+only be readable by the super user. If an attacker was successful in
+retrieving this file, they could then obtain valid login information for 
+the system by using widely available password cracking tools on the file.
+
+The file may also be used to garner information that may be used in
+brute force password guessing attacks against the host.
+
+--
+Affected Systems:
+	All UNIX based systems running a Web Server.
+ 
+--
+Attack Scenarios:
+The attacker can make a standard HTTP request that contains 
+'/etc/shadow'in the URI.
+
+--
+Ease of Attack:
+Simple HTTP request.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+
+Webservers should not be allowed to view or execute files and binaries 
+outside of it's designated web root or cgi-bin. This file may also be 
+requested on a command line should the attacker gain access to the 
+machine. Making the file read only by the superuser on the system will 
+disallow viewing of the file by other users.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+--

@@ -1,0 +1,70 @@
+Rule:
+--
+Sid:
+223
+
+--
+Summary:
+This event is generated when a pong packet for the Trinoo (aka trin00) 
+DDos suite is detected.
+
+--
+Impact:
+This may indicate a compromised system or be the prelude to a
+Distributed Denial of Service (DDoS) attack.
+
+--
+Detailed Information:
+Once a Trinoo client has been installed on a compromised machine and a master is
+ready and listening, the master sends a "png" (ping) command to its drones in 
+an attempt to enumerate the drone network. A functioning client will respond to 
+port 31335/udp with the text "PONG".
+
+Once a machine becomes part of a trin00 network, a Denial of Service (DoS) 
+is typically initiated against one (or more) victim machines.
+
+--
+Affected Systems:
+ 
+--
+Attack Scenarios:
+As part of a large scale attack against a machine or a network, an
+attacker will compromise large numbers of machines which will form the
+army that the trin00 master daemon will command.  The master daemon
+typically instructs the clients to send mass-quantities of packets to
+a set of victim hosts.  If the traffic is sufficient, the victim
+machines will become resource deprived and thus endure a DoS condition.
+
+--
+Ease of Attack:
+Simple. Trinoo client and master programs are widely available.
+
+--
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Disconnect infected machine(s) from the network immediately.
+
+Use software to determine if a host has been compromised using a
+rootkit.
+
+--
+Contributors:
+Original rule writer unknown
+Snort documentation contributed by Jon Hart <warchild@spoofed.org>
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+SANS:
+http://www.sans.org/newlook/resources/IDFAQ/trinoo.htm
+
+--

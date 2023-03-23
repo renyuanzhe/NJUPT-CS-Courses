@@ -1,0 +1,60 @@
+Rule:
+
+--
+
+Sid:
+393
+
+--
+
+Summary:
+This event is generated when an ICMP Datagram Conversion Error message is detected on the network with an invalid ICMP code.  ICMP Datagram Conversion Error messages were developed with the introduction of IPv6 to give information about invalid datagram conversions between IPv4 and IPv6.
+
+--
+
+Impact:
+No known attack vectors are known that use ICMP type 31 datagrams.  This is purely an informational message that detects errors on the network.  Only ICMP Codes 0 through 11 have been defined by IANA, ICMP Type 31 datagrams with ICMP Codes other than these values are invalid.
+
+--
+
+Detailed Information:
+ICMP Type 31 was developed to return information about datagram conversion errors between IPv4 and IPv6 as data is converted between them.  
+
+--
+
+Attack Scenarios:
+None known
+--
+
+Ease of Attack:
+Numerous tools and scripts can generate ICMP Datagram Conversion Error messages.
+
+--
+
+False Positives:
+None known
+
+--
+
+False Negatives:
+None known
+
+--
+
+Corrective Action:
+ICMP Type 31 datagrams should be blocked at the firewall.
+
+--
+
+Contributors:
+Original Rule writer unknown
+Sourcefire Research Team
+Matthew Watchinski (matt.watchinski@sourcefire.com)
+
+--
+
+Additional References:
+None
+
+
+--

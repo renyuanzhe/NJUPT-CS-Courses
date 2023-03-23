@@ -1,0 +1,65 @@
+Rule:
+
+--
+Sid: 2157
+
+
+--
+Summary:
+This event is generated when an attempt is made to access the administration interface of IISProtect on a host running Microsoft Internet Information Server (IIS). 
+
+--
+Impact:
+Administrator access.
+
+--
+Detailed Information:
+This event indicates that an attempt has been made to access the administration interface of IISProtect on a host running Microsoft Internet Information Server (IIS).
+
+The attacker can gain administrator access to the web server running IISProtect without the need to authenticate.
+
+--
+Affected Systems:
+Any host using IISProtect.
+
+--
+Attack Scenarios:
+An attacker can gain control of the web server without the need to authenticate.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Upgrade to the latest non-affected version of the software.
+
+Check the IIS implementation on the host. Ensure all measures have been taken to deny access to sensitive files.
+
+Ensure that the IIS implementation is fully patched.
+
+Ensure that the underlying operating system is fully patched.
+
+Employ strategies to harden the IIS implementation and operating system.
+
+Check the host for signs of compromise.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+
+--

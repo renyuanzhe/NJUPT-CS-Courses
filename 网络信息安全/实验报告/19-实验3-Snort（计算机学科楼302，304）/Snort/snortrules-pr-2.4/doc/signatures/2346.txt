@@ -1,0 +1,58 @@
+Rule:
+
+--
+Sid:
+2346
+
+--
+Summary:
+This event is generated when an attempt is made to access the
+chatheader.php script which contains known vulnerabilities and
+is part of  the myPHPNuke web application running on a server.
+
+--
+Impact:
+Information gathering and possible cross site scripting attack.
+
+--
+Detailed Information:
+This event is generated when an attempt is made to exploit a known 
+vulnerability in the myPHPNuke web application running on a server.
+Multiple vulnerabilities exist in the application which can lead to
+cross site scripting attacks.
+
+--
+Affected Systems:
+	myPHPNuke 1.8.8
+
+--
+Attack Scenarios:
+An attacker can supply code of their choice by including it in the
+Default_Theme parameter of the chatheader.php script.
+
+--
+Ease of Attack:
+Simple. No exploit software required.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Ensure the system is using an up to date version of the software and has
+had all vendor supplied patches applied.
+
+--
+Contributors:
+Sourcefire Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+--

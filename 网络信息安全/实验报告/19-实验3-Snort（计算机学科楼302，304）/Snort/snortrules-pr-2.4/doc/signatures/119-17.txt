@@ -1,0 +1,64 @@
+Rule: 
+
+--
+Sid: 
+119-17
+
+-- 
+Summary: 
+This event is generated when the pre-processor http_inspect
+detects network traffic that may constitute an attack.
+
+-- 
+Impact: 
+Unknown. This may indicate improper use of unauthorized web proxy
+servers.
+
+--
+Detailed Information:
+This event is generated when the http_inspect pre-processor detects the
+use of an unauthorized web proxy by clients on the protected network.
+This event may also be generated if a web client is not using one of the
+configured proxy servers to browse the web.
+
+--
+Affected Systems:
+	All client systems.
+
+--
+Attack Scenarios: 
+A malicious user may try to use an unauthorized proxy server in an
+attempt to subvert company policy on the use of the Internet.
+
+-- 
+Ease of Attack: 
+Simple.
+
+-- 
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+-- 
+
+Corrective Action:
+Check the target host for signs of compromise.
+
+Apply any appropriate vendor supplied patches.
+
+--
+Contributors:
+Daniel Roelker <droelker@sourcefire.com> 
+Sourcefire Vulnerability Research Team
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+HTTP IDS Evasions Revisited - Daniel Roelker
+http://docs.idsresearch.org/http_ids_evasions.pdf
+
+--

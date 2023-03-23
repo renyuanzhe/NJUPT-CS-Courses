@@ -1,0 +1,89 @@
+Rule:
+
+--
+Sid:
+2050
+
+--
+Summary:
+of MS-SQL server running on a host.
+
+--
+Impact:
+Denial of Service, possible code execution and control of the server.
+
+--
+Detailed Information:
+Versions of Microsofts implementation of SQL server running the 
+resolution service are subject to multiple buffer overflows.
+
+It is possible to overwrite memory with data of the attackers choosing, 
+resulting in a denial of service or possible code execution. This is 
+done by sending carefully crafted packets to the resolution service 
+running on the server.
+
+It is also possible for the attacker to cause a denial of service by 
+sending a spoofed packet purporting to be from one SQL server to 
+another. The resulting exchange between the two servers could result in 
+a denial of service.
+
+--
+Affected Systems:
+	Cisco BBSM 5.0
+	Cisco BBSM 5.1
+	Cisco CallManager 3.3.x
+	Cisco Unity 3.x
+	Cisco Unity 4.x
+	
+	Microsoft .NET Framework 1.0
+	Microsoft SQL Server 2000
+	Windows 2000 Any version
+	Windows NT Any version
+
+--
+Attack Scenarios:
+The SQL Slammer (Sapphire) worm exploited the vulnerabilities in this 
+service.
+
+--
+Ease of Attack:
+Simple
+
+--
+False Positives:
+This rule can be triggered by UDP responses to requests originating from
+ephemeral port 1434. Example: a DNS response with transaction ID between
+0x0400 and 0x04FF.
+
+--
+False Negatives:
+None Known
+
+--
+Corrective Action:
+Update all instances of the vulnerable systems with patches from the 
+vendor.
+
+Use a firewall to deny access to ports used by the SQL server, usually 
+1433 and 1434, from the Internet.
+
+--
+Contributors:
+Sourcefire Research Team
+Brian Caswell <bmc@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+--
+Additional References:
+
+Microsoft:
+http://www.microsoft.com/technet/treeview/default.asp?url=/technet/security/bulletin/ms02-039.asp
+
+CVE:
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-0649
+
+Bugtraq:
+http://www.securityfocus.com/bid/5310
+http://www.securityfocus.com/bid/5311
+
+--

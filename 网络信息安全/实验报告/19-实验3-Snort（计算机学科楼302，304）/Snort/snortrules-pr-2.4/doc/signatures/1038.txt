@@ -1,0 +1,62 @@
+Rule:
+
+--
+Sid:
+1038
+
+--
+Summary:
+This event is generated when an attempt is made to access the Microsoft Site Server site configuration file. 
+
+--
+Impact:
+Intelligence gathering.  This attack may permit the viewing of the site configuration file, which may contain sensitive information such as the username and password used by the Ad Server to access SQL databases. 
+
+--
+Detailed Information:
+Microsoft Site Server Commerce Edition 3.0 contains an AdSamples directory, which is provided for instruction and demonstration of the Ad Server capabilities.  Unless directory permissions are altered, an attacker may view the site configuration file, site.csc.  This contains sensitive information such as username and password that may be used to gain unauthorized access to SQL databases.
+
+--
+Affected Systems:
+Microsoft Site Server Commerce Edition 3.0
+
+--
+Attack Scenarios:
+An attacker can craft a URL to reference the site.csc file to view sensitive information. 
+
+--
+Ease of Attack:
+Simple.  
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Delete the directory containing the sample code if it is not required.
+
+Restrict access to the sample code directory. 
+
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+CVE
+http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-1999-1520
+
+Bugtraq
+http://www.securityfocus.com/bid/256
+
+
+--

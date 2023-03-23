@@ -1,0 +1,75 @@
+Rule:
+
+--
+Sid:
+3473
+
+--
+Summary:
+This event is generated when an attempt is made to exploit a
+buffer overflow associated with RealPlayer handling of
+Synchronized Multimedia Integration Language (SMIL) files.
+
+--
+Impact:
+A successful attack can cause a buffer overflow of the client
+host and the subsequent execution of arbitrary code at the
+privilege of the current user.
+
+--
+Detailed Information:
+The RealPlayer media player can read SMIL formatted files.
+SMIL provides a standard language for playing media clips.
+A SMIL file can have a system-screen-size attribute that
+supplies a value for the screen height and width.  A
+fixed-sized buffer is allocated for the value supplied
+to this attribute, however there is no check to ensure that
+the supplied value fits in the allocated buffer.  A
+buffer overflow occurs when the length of the supplied value
+is greater than the fixed-size buffer.
+
+In order to avoid potential evasion techniques, http_inspect
+should be configured with "flow_depth 0" so that all HTTP
+server response traffic is inspected.
+
+WARNING
+Setting flow_depth 0 will cause performance problems in some situations.
+WARNING
+
+--
+Affected Systems:
+	Windows RealPlayer 10.5
+	Linux RealPlayer 10
+
+--
+Attack Scenarios:
+An attacker can entice a user to download and play a malicious
+media file, causing a buffer overflow on a vulnerable client.
+
+--
+Ease of Attack:
+Simple.
+
+--
+False Positives:
+None known.
+
+--
+False Negatives:
+None known.
+
+--
+Corrective Action:
+Upgrade to the most current non-affected version of the product.
+
+--
+Contributors:
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+iDefense:
+http://www.idefense.com/application/poi/display?id=209&type=vulnerabilities&flashstatus=false
+--

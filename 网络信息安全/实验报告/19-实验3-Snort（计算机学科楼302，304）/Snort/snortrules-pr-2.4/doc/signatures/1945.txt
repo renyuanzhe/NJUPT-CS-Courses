@@ -1,0 +1,60 @@
+Rule:
+
+--
+Sid:
+1945
+
+--
+Summary:
+This event is generated when an attempt is made use Microsoft double encoding of a "/" in a URL request.  This may permit an attacker to navigate to files and directories outside the web root of a vulnerable Internet Information Services (IIS) server. 
+
+--
+Impact:
+Remote access.  This attack can allow an attacker to execute commands a vulnerable IIS server. 
+
+--
+Detailed Information:
+User access should be restricted to an assigned web root directory and subdirectories when interacting with a web server.  Attackers who attempt to perform directory traversals outside the web root should be denied access.  A vulnerability exists in IIS web servers that allows directory traversal outside the web root directory when Micorosoft double encoding of specific characters is used.  This particular attack uses the double encoding of the "/" to escape the web root.  This may permit an attacker to execute commands on the vulnerable server. 
+
+--
+Affected Systems:
+IIS 3.0, 4.0, 5.0 servers
+
+--
+Attack Scenarios:
+An attacker can double encode a directory traversal character permitting execution of commands on the IIS server. 
+
+--
+Ease of Attack:
+Simple. 
+GET /scripts/..%255c../winnt/system32/cmd.exe?/c+dir
+
+--
+False Positives:
+None Known.
+
+--
+False Negatives:
+None Known.
+
+--
+Corrective Action:
+Apply the patch referenced in the Microsoft link. 
+ 
+--
+Contributors:
+Original rule writer unknown
+Modified by Brian Caswell <bmc@sourcefire.com>
+Sourcefire Research Team
+Judy Novak <judy.novak@sourcefire.com>
+
+--
+Additional References:
+
+Bugtraq
+http://www.securityfocus.com/bid/2708
+
+Microsoft
+http://www.microsoft.com/technet/security/bulletin/ms01-044.asp
+
+--

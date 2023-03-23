@@ -1,0 +1,51 @@
+Rule: 
+
+-- 
+Sid:630
+
+-- 
+Summary:
+A host has scanned the network looking for vulnerable servers.
+
+-- 
+Impact:
+Information leak, reconnaisance, preperation for automated attack such as worm propagation
+
+
+-- 
+Detailed Information: 
+Synscan is the scanning and vulnerability testing engines for ramen, canserserver and is included in some versions of the t0rn root kit as t0rnscan. It is a very fast syn scanner. 
+
+-- 
+Attack Scenarios: 
+This is a scanning tool that is often the precursor to a worm infection.
+
+
+-- 
+Ease of Attack: 
+This scanner is fast and easy to use. It is readily available and was included with several worms.
+
+
+-- 
+False Positives: 
+sscan, mscan, and several other tools used ID=39426 but the use of SYNFIN is unique to synscan [1.5|1.6]
+
+-- 
+False Negatives: 
+This rule will not generate an event if recent versions of synScan, such as 1.6a, are used because synScan now uses random IP IDs.
+
+-- 
+Corrective Action: 
+Run flexresp with synscan kill.
+
+-- 
+Contributors: 
+Don Smith	Initial Research
+Josh Gray	Edits
+
+-- 
+Additional References:
+
+
+
+--

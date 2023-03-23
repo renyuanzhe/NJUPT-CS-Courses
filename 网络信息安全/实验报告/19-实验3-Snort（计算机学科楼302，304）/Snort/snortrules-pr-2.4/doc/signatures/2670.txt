@@ -1,0 +1,58 @@
+Rule: 
+
+--
+Sid: 
+2670
+
+-- 
+Summary: 
+This event is generated when an attempt is made to access the file
+pgpmail.pl.
+
+-- 
+Impact: 
+Possible unauthorized administrative access to the victim host.
+
+--
+Detailed Information:
+The script pgpmail.pl does not properly sanitize user supplied input.
+This may allow an attacker to supply commands of their choosing to the
+victim host with the privileges of the user running the web server.
+
+--
+Affected Systems:
+	pgpmail prior to and including 3.6
+
+--
+Attack Scenarios: 
+An attacker can supply arbitrary commands to the pgpmail.pl script.
+
+-- 
+Ease of Attack: 
+Simple
+
+-- 
+False Positives:
+None Known
+
+--
+False Negatives:
+None Known
+
+-- 
+Corrective Action: 
+Uninstall the script pgpmail.pl
+
+Only allow usage from authenticated users
+
+--
+Contributors: 
+Sourcefire Vulnerability Research Team
+Alex Kirk <alex.kirk@sourcefire.com>
+Nigel Houghton <nigel.houghton@sourcefire.com>
+
+-- 
+Additional References:
+
+
+--
