@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+<title></title>
+<!-- Favicon Icon -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+<!-- Plugins -->
+<link rel="stylesheet" href="{% static 'css/core.css'%}">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body id="top" class="stickyfooter header-fixed">
+<div class="animsition">
+	<div class="content">
+		<header class="header-wrap no-transparent">
+			<div class="header-container">
+				<div class="container clearfix">
+					<div class="pull-left">
+						<!-- Logo -->
+						<a href=index class="logo clearfix">Snow Whites & three dwarfs</a>
+					</div>
+					<div class="pull-right">
+						<!-- Menu Burger -->
+						
+					</div>
+
+				</div>
+			</div>
+			<!-- End header-container -->
+		</header>
+
+        <section class="jarallax" style="background-image: url('/static/img/桌子和椅子.jpg');">
+			<div class="container">
+			  <div class="aligner">
+					<div class="aligner-item page-title">
+                        <form method="POST" action="">
+							{% csrf_token %}
+							<p style="text-align: left; font-size: 16px; font-family: 微软雅黑">任务标题</p>
+							<p style="text-align: left; background-color:cornsilk; color: black; font-size: 16px;font-family: 黑体">{{detail.mis_title}}</p>
+							<p style="text-align: left; font-size: 16px; font-family: 微软雅黑">任务描述</p>
+							<p style="text-align: left; background-color:cornsilk; color: black;font-size: 16px; font-family: 黑体">{{detail.mis_content}}</p>
+							<p style="text-align: left; font-size: 16px; font-family: 微软雅黑">联系方式</p>
+							<p style="text-align: left; background-color:cornsilk; color: black;font-size: 16px; font-family: 黑体">{{detail.mis_contact}}</p>
+							<br>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">接受任务</button>
+                            </form>
+					</div>
+			  </div>
+			</div>
+		</section>
+			
+			<!-- Team Members -->
+			
+			<!-- End section -->
+			
+		<!-- End scroll-top -->
+	</div>
+	<!-- End content -->
+	<footer>
+		<div class="footer">
+			<div class="container">
+				<div class="text-center">
+					<!-- Footer Logo Text -->
+					
+					<div class="footer-socials">
+						<a href="#" data-toggle="tooltip" data-placement="top" title="facebook">
+							<i class="fa fa-fw fa-facebook"></i>
+						</a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="twitter">
+							<i class="fa fa-fw fa-twitter"></i>
+						</a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="google plus">
+							<i class="fa fa-fw fa-google-plus"></i>
+						</a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="rss">
+							<i class="fa fa-fw fa-rss"></i>
+						</a>
+					</div>
+					<!-- End socials -->
+					<!-- End footer-menu -->
+					<p class="copy">
+						Copyright &copy; 2019.两个白雪公主和三个小矮人 All rights reserved.<a target="_blank" 
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer -->
+</div>
+<!-- End animsition -->
+<script src="{%static 'js/jquery-1.12.4.min.js'%}"></script>
+<script src="{%static 'js/libs.js'%}"></script>
+<!-- Custom -->
+<script src="{%static 'js/main.js'%}"></script>
+<script src="{%static 'js/script.js'%}"></script>
+</body>
+</html>
+
+

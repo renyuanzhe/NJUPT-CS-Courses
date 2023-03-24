@@ -1,0 +1,137 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+<title></title>
+<!-- Favicon Icon -->
+<link rel="shortcut icon" href="{%static 'img/favicon.ico'%}" type="image/x-icon">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+<!-- Plugins -->
+<link rel="stylesheet" href="{% static 'css/core.css'%}">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+{% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+    </script>
+{% endif %}
+
+<body id="top" class="stickyfooter header-fixed">
+<div class="animsition">
+	<div class="content">
+		<header class="header-wrap no-transparent">
+			<div class="header-container">
+				<div class="container clearfix">
+					<div class="pull-left">
+						<!-- Logo -->
+						<a href=index class="logo clearfix">Snow Whites & three dwarfs</a>
+					</div>
+					<div class="pull-right">
+						<!-- Menu Burger -->
+						<a href="#" class="fullscreen-menu-toggle">
+							<span>Menu</span>
+							<i class="menu-bars">
+								<i></i>
+								<i></i>
+								<i></i>
+							</i>
+						</a>
+					</div>
+
+				</div>
+			</div>
+			<!-- End header-container -->
+		</header>
+		<div id="fullscreen-navigation">
+			<div class="inner-wrap">
+				<nav>
+					<ul class="nav_menu">
+						<li><a href=index>Home</a></li>
+						<li><a href=me>Me</a></li></li>
+						<li><li><a href=mission_hall>Mission Hall</a></li></li>
+						<li><a href=login>Login</a></li>
+						<li><a href=register>Register</a></li>
+						<!---<li><a href="about.html">About US</a></li>-->
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- End fullscreen-navigation -->
+		<section class="jarallax" style="background-image: url('/static/img/bg/061.png');">
+			<div class="container">
+				<div class="aligner">
+					<div class="aligner-item page-title">
+						<form action="" method="POST" >
+						<h4 align="center" style="color: white"><strong>用户登录</strong></h4>
+						<p align="left"><strong>学号</strong></p>
+					
+						<input type="text" name="usernum" style="color: white" autocomplete="on">
+						
+						<p align="left" ><strong>密码</strong></p>
+						
+						<input type="password" name="password" style="color: white" autocomplete="on">
+						<br>
+						<input type="submit" value="登录" style="padding: 5px;background-color: gray;color: white" >
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End section -->
+		
+		<a href="#top" class="scroll-top scroll-top-hidden">
+			<i class="fa fa-angle-up"></i>
+		</a>
+		<!-- End scroll-top -->
+	</div>
+	<!-- End content -->
+	<footer>
+		<div class="footer">
+			<div class="container">
+				<div class="text-center">
+					<!-- Footer Logo Text -->
+					<a href=index class="logo clearfix">Minidark</a>
+					<div class="footer-socials">
+						<a href="#" data-toggle="tooltip" data-placement="top" title="facebook">
+							<i class="fa fa-fw fa-facebook"></i>
+						</a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="twitter">
+							<i class="fa fa-fw fa-twitter"></i>
+						</a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="google plus">
+							<i class="fa fa-fw fa-google-plus"></i>
+						</a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="rss">
+							<i class="fa fa-fw fa-rss"></i>
+						</a>
+					</div>
+					<!-- End socials -->
+					<!-- End footer-menu -->
+					<p class="copy">
+						Copyright &copy; 2019.Sonw whites and three dwarfs All rights reserved.<a target="_blank"
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer -->
+</div>
+<!-- End animsition -->
+<script src="{%static 'js/jquery-1.12.4.min.js'%}"></script>
+<script src="{%static 'js/libs.js'%}"></script>
+<!-- Custom -->
+<script src="{%static 'js/main.js'%}"></script>
+<script src="{%static 'js/script.js'%}"></script>
+</body>
+</html>
